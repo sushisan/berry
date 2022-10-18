@@ -29,59 +29,45 @@ extern "C" {
 #error "The value of the macro BE_STACK_TOTAL_MAX is too small."
 #endif
 
-/**
- * @def BE_INTEGER
- * @brief basic type definition
- *
- */
 #if BE_INTGER_TYPE == 0
-  #define BE_INTEGER            int
-  #define BE_INT_FMTLEN         ""
+  #define BE_INTEGER            int        /**< BE_INTEGER */
+  #define BE_INT_FMTLEN         ""         /**< BE_INT_FMTLEN */
 #elif BE_INTGER_TYPE == 1
-  #define BE_INTEGER            long
-  #define BE_INT_FMTLEN         "l"
+  #define BE_INTEGER            long       /**< BE_INTEGER */
+  #define BE_INT_FMTLEN         "l"        /**< BE_INT_FMTLEN */
 #elif BE_INTGER_TYPE == 2
 #ifdef _WIN32
-    #define BE_INTEGER          __int64
-    #define BE_INT_FMTLEN       "I64"
+    #define BE_INTEGER          __int64    /**< BE_INTEGER */
+    #define BE_INT_FMTLEN       "I64"      /**< BE_INT_FMTLEN */
   #else
-#define BE_INTEGER              long long
-#define BE_INT_FMTLEN           "ll"
+#define BE_INTEGER              long long  /**< BE_INTEGER */
+#define BE_INT_FMTLEN           "ll"       /**< BE_INT_FMTLEN*/
 #endif
 #else
   #error "Unsupported integer type for `bint`."
 #endif
-#define BE_INT_FORMAT           "%" BE_INT_FMTLEN "d"
+#define BE_INT_FORMAT           "%" BE_INT_FMTLEN "d" /**< BE_INT_FORMAT */
 
-typedef uint8_t bbyte;
-typedef BE_INTEGER bint;
+typedef uint8_t bbyte;   /**< bbyte */
+typedef BE_INTEGER bint; /**< bint */
 
 #if BE_USE_SINGLE_FLOAT != 0
-  typedef float                 breal;
+  typedef float                 breal; /**< breal */
 #else
-typedef double breal;
+typedef double breal;                  /**< breal */
 #endif
 
 
-/**
- * @{ \name boolean values definition.
- */
-/**
- * \brief boolean values definition.
- *
- */
+
 #ifndef __cplusplus
-#define bbool                   _Bool
-#define bfalse                  0
-#define btrue                   1
+#define bbool                   _Bool /**< bbool */
+#define bfalse                  0     /**< bfalse */
+#define btrue                   1     /**< btrue */
 #else
-  #define bbool                 bool
-  #define bfalse                false
-  #define btrue                 true
+  #define bbool                 bool  /**< bbool */
+  #define bfalse                false /**< bfalse */
+  #define btrue                 true  /**< btrue */
 #endif
-/**
- * @}
- */
 
 /**
  * @enum berrorcode
@@ -105,13 +91,13 @@ enum berrorcode {
  * \brief native-module member type specifier.
  *
  */
-#define BE_CNIL        0 /**< */
-#define BE_CINT        1 /**< */
-#define BE_CREAL       2 /**< */
-#define BE_CBOOL       3 /**< */
-#define BE_CFUNCTION   4 /**< */
-#define BE_CSTRING     5 /**< */
-#define BE_CMODULE     6 /**< */
+#define BE_CNIL        0 /**< BE_CNIL */
+#define BE_CINT        1 /**< BE_CINT */
+#define BE_CREAL       2 /**< BE_CREAL */
+#define BE_CBOOL       3 /**< BE_CBOOL */
+#define BE_CFUNCTION   4 /**< BE_CFUNCTION */
+#define BE_CSTRING     5 /**< BE_CSTRING */
+#define BE_CMODULE     6 /**< BE_CMODULE */
 /**
  * @}
  */
@@ -140,25 +126,25 @@ enum berrorcode {
  *
  */
 #if defined(_WIN32) || defined(__CYGWIN__) /* in Windows */
-  #define BERRY_LOCAL
+  #define BERRY_LOCAL                                                  /**< BERRY_LOCAL */
 #elif defined(__GNUC__) /* in GCC */
-#define BERRY_LOCAL           __attribute__ ((visibility ("hidden")))
+#define BERRY_LOCAL           __attribute__ ((visibility ("hidden")))  /**< BERRY_LOCAL */
 #else /* other platforms */
-  #define BERRY_LOCAL
+  #define BERRY_LOCAL                                                  /**< BERRY_LOCAL */
 #endif
 
 #ifdef __cplusplus
 #ifdef __cpp_constexpr
-  #define BE_CONSTEXPR          constexpr
+  #define BE_CONSTEXPR          constexpr                              /**< BE_CONSTEXPR */
 #else
-  #define BE_CONSTEXPR
+  #define BE_CONSTEXPR                                                 /**< BE_CONSTEXPR */
 #endif
 #endif
 
 #ifdef __cplusplus
-#define BE_EXPORT_VARIABLE      extern "C"
+#define BE_EXPORT_VARIABLE      extern "C"                             /**< BE_EXPORT_VARIABLE */
 #else
-#define BE_EXPORT_VARIABLE
+#define BE_EXPORT_VARIABLE                                             /**< BE_EXPORT_VARIABLE */
 #endif
 /**
  * @}
@@ -169,18 +155,11 @@ enum berrorcode {
  */
 typedef struct bvm bvm;
 
-/**
- * @fn int (*)(bvm*)
- * @brief native function pointer
- *
- * @param
- * @return
- */
-typedef int (*bntvfunc)(bvm*);
+typedef int (*bntvfunc)(bvm*); /**< native function pointer */
 
 /**
  * @struct bclass
- * @brief
+ * @brief bclass
  */
 struct bclass;
 
@@ -190,8 +169,8 @@ struct bclass;
  *
  */
 typedef struct {
-    const char *name;  /**< */
-    bntvfunc function; /**< */
+    const char *name;  /**< name */
+    bntvfunc function; /**< function */
 } bnfuncinfo;
 
 /**
@@ -200,41 +179,41 @@ typedef struct {
  *
  */
 typedef struct bntvmodobj {
-    const char *name;                               /**< */
-    int type;                                       /**< */
-    union value {
-        bint i;                                     /**< */
-        breal r;                                    /**< */
-        bbool b;                                    /**< */
-        bntvfunc f;                                 /**< */
-        const char *s;                              /**< */
-        const void *o;                              /**< */
+    const char *name;                               /**< name */
+    int type;                                       /**< type */
+    union value {                                   /**< bntvmodobj::value */
+        bint i;                                     /**< i */
+        breal r;                                    /**< r */
+        bbool b;                                    /**< b */
+        bntvfunc f;                                 /**< f */
+        const char *s;                              /**< s */
+        const void *o;                              /**< o */
 #ifdef __cplusplus
-        BE_CONSTEXPR value(bint v) : i(v) {}        /**< */
-        BE_CONSTEXPR value(breal v) : r(v) {}       /**< */
-        BE_CONSTEXPR value(bbool v) : b(v) {}       /**< */
-        BE_CONSTEXPR value(bntvfunc v) : f(v) {}    /**< */
-        BE_CONSTEXPR value(const char *v) : s(v) {} /**< */
-        BE_CONSTEXPR value(const void *v) : o(v) {} /**< */
+        BE_CONSTEXPR value(bint v) : i(v) {}        /**< i */
+        BE_CONSTEXPR value(breal v) : r(v) {}       /**< r */
+        BE_CONSTEXPR value(bbool v) : b(v) {}       /**< b */
+        BE_CONSTEXPR value(bntvfunc v) : f(v) {}    /**< f */
+        BE_CONSTEXPR value(const char *v) : s(v) {} /**< s */
+        BE_CONSTEXPR value(const void *v) : o(v) {} /**< o */
 #endif
-    } u;
+    } u;                                            /**< u */
 #ifdef __cplusplus
     BE_CONSTEXPR bntvmodobj(const char *name) :
-        name(name), type(BE_CNIL), u(bint(0)) {}    /**< */
+        name(name), type(BE_CNIL), u(bint(0)) {}    /**< bntvmodobj */
     BE_CONSTEXPR bntvmodobj(const char *name, bint v) :
-        name(name), type(BE_CINT), u(v) {}          /**< */
+        name(name), type(BE_CINT), u(v) {}          /**< bntvmodobj */
     BE_CONSTEXPR bntvmodobj(const char *name, breal v) :
-        name(name), type(BE_CREAL), u(v) {}         /**< */
+        name(name), type(BE_CREAL), u(v) {}         /**< bntvmodobj */
     BE_CONSTEXPR bntvmodobj(const char *name, bbool v) :
-        name(name), type(BE_CBOOL), u(v) {}         /**< */
+        name(name), type(BE_CBOOL), u(v) {}         /**< bntvmodobj */
     BE_CONSTEXPR bntvmodobj(const char *name, bntvfunc v) :
-        name(name), type(BE_CFUNCTION), u(v) {}     /**< */
+        name(name), type(BE_CFUNCTION), u(v) {}     /**< bntvmodobj */
     BE_CONSTEXPR bntvmodobj(const char *name, const char *v) :
-        name(name), type(BE_CSTRING), u(v) {}       /**< */
+        name(name), type(BE_CSTRING), u(v) {}       /**< bntvmodobj */
     BE_CONSTEXPR bntvmodobj(const char *name, int _tpye, const void *v) :
-        name(name), type(_tpye), u(v) {}            /**< */
+        name(name), type(_tpye), u(v) {}            /**< bntvmodobj */
 #endif
-} bntvmodobj;
+} bntvmodobj; /**< bntvmodobj */
 
 /**
  * @struct bntvmodule
@@ -246,7 +225,7 @@ typedef struct bntvmodule {
     const bntvmodobj *attrs;       /**< native module attributes */
     size_t size;                   /**< native module attribute count */
     const struct bmodule *module;  /**< const module object */
-} bntvmodule;
+} bntvmodule; /**< bntvmodule */
 
 /**
  * @struct bclass
@@ -264,55 +243,141 @@ typedef const struct bclass *bclass_ptr;
  */
 typedef bclass_ptr bclass_array[];
 
-/* native module node definition macro */
+/**
+ * @def be_native_module_nil
+ * @brief native module node definition macro
+ *
+ */
 #ifndef __cplusplus
 #define be_native_module_nil(_name)                     \
     { .name = (_name), .type = BE_CNIL, .u.i = 0 }
 
+/**
+ * @def be_native_module_int
+ * @brief be_native_module_int
+ *
+ */
 #define be_native_module_int(_name, _v)                 \
     { .name = (_name), .type = BE_CINT, .u.i = (bint)(_v) }
 
+/**
+ * @def be_native_module_real
+ * @brief be_native_module_real
+ *
+ */
 #define be_native_module_real(_name, _v)                \
     { .name = (_name), .type = BE_CREAL, .u.r = (breal)(_v) }
 
+/**
+ * @def be_native_module_bool
+ * @brief be_native_module_bool
+ *
+ */
 #define be_native_module_bool(_name, _b)                \
     { .name = (_name), .type = BE_CBOOL, .u.b = (bbool)(_b) }
 
+/**
+ * @def be_native_module_function
+ * @brief be_native_module_function
+ *
+ */
 #define be_native_module_function(_name, _f)            \
     { .name = (_name), .type = BE_CFUNCTION, .u.f = (_f) }
 
+/**
+ * @def be_native_module_str
+ * @brief be_native_module_str
+ *
+ */
 #define be_native_module_str(_name, _s)                 \
     { .name = (_name), .type = BE_CSTRING, .u.s = (_s) }
 
+/**
+ * @def be_native_module_module
+ * @brief be_native_module_module
+ *
+ */
 #define be_native_module_module(_name, _m)              \
     { .name = (_name), .type = BE_CMODULE, .u.o = &(_m) }
 #else
+
+/**
+ * @def be_native_module_attr_table
+ * @brief be_native_module_attr_table
+ *
+ */
 #define be_native_module_nil(_name)                     \
     bntvmodobj(_name)
 
+/**
+ * @def be_native_module_attr_table
+ * @brief be_native_module_attr_table
+ *
+ */
 #define be_native_module_int(_name, _v)                 \
     bntvmodobj(_name, bint(_v))
 
+/**
+ * @def be_native_module_attr_table
+ * @brief be_native_module_attr_table
+ *
+ */
 #define be_native_module_real(_name, _v)                \
     bntvmodobj(_name, breal(_v))
 
+/**
+ * @def be_native_module_attr_table
+ * @brief be_native_module_attr_table
+ *
+ */
 #define be_native_module_bool(_name, _b)                \
     bntvmodobj(_name, bbool(_b))
 
+/**
+ * @def be_native_module_attr_table
+ * @brief be_native_module_attr_table
+ *
+ */
 #define be_native_module_function(_name, _f)            \
     bntvmodobj(_name, _f)
 
+/**
+ * @def be_native_module_attr_table
+ * @brief be_native_module_attr_table
+ *
+ */
 #define be_native_module_str(_name, _s)                 \
     bntvmodobj(_name, _s)
 
+/**
+ * @def be_native_module_attr_table
+ * @brief be_native_module_attr_table
+ *
+ */
 #define be_native_module_module(_name, _m)              \
     bntvmodobj(_name, BE_CMODULE, &(_m))
 #endif
 
+/**
+ * @def be_native_module_attr_table
+ * @brief be_native_module_attr_table
+ *
+ */
 #define be_native_module_attr_table(name)               \
     static const bntvmodobj name##_attrs[] =
 
+/**
+ * @def be_native_module
+ * @brief be_native_module
+ *
+ */
 #define be_native_module(name)  be_native_module_##name
+
+/**
+ * @def be_native_class
+ * @brief be_native_class
+ *
+ */
 #define be_native_class(name)  be_class_##name
 
 /**
@@ -391,29 +456,18 @@ typedef bclass_ptr bclass_array[];
 
 /**
  * @def be_local_const_str
- * @brief
+ * @brief be_local_const_str
  *
  */
 #define be_local_const_str(_name) (bstring*) &be_local_const_str_##_name
 
-/**
- * @{ \name BE_IIF
- */
-/**
- * @def BE_IIF
- * @brief conditional macro see  https://stackoverflow.com/questions/11632219/c-preprocessor-macro-specialisation-based-on-an-argument
- *
- */
-#define BE_IIF(cond) BE_IIF_ ## cond
-#define BE_IIF_0(t, f) f
-#define BE_IIF_1(t, f) t
-/**
- * @}
- */
+#define BE_IIF(cond) BE_IIF_ ## cond /**< conditional macro see  https://stackoverflow.com/questions/11632219/c-preprocessor-macro-specialisation-based-on-an-argument */
+#define BE_IIF_0(t, f) f             /**< conditional macro see  https://stackoverflow.com/questions/11632219/c-preprocessor-macro-specialisation-based-on-an-argument */
+#define BE_IIF_1(t, f) t             /**< conditional macro see  https://stackoverflow.com/questions/11632219/c-preprocessor-macro-specialisation-based-on-an-argument */
 
 /**
  * @def be_local_const_upval
- * @brief
+ * @brief be_local_const_upval
  *
  */
 #if BE_DEBUG_VAR_INFO
@@ -437,7 +491,7 @@ typedef bclass_ptr bclass_array[];
 
 /**
  * @def PROTO_VAR_INFO_BLOCK
- * @brief
+ * @brief PROTO_VAR_INFO_BLOCK
  *
  */
 #if BE_DEBUG_VAR_INFO
@@ -506,7 +560,7 @@ typedef bclass_ptr bclass_array[];
 
 /**
  * @def be_define_local_closure
- * @brief
+ * @brief be_define_local_closure
  *
  */
 #define be_define_local_closure(_name)                \
@@ -543,17 +597,17 @@ typedef bclass_ptr bclass_array[];
  * \brief debug hook typedefs.
  *
  */
-#define BE_HOOK_LINE    1 /**< */
-#define BE_HOOK_CALL    2 /**< */
-#define BE_HOOK_RET     4 /**< */
-#define BE_HOOK_EXCEPT  8 /**< */
+#define BE_HOOK_LINE    1 /**< BE_HOOK_LINE */
+#define BE_HOOK_CALL    2 /**< BE_HOOK_CALL */
+#define BE_HOOK_RET     4 /**< BE_HOOK_RET */
+#define BE_HOOK_EXCEPT  8 /**< BE_HOOK_EXCEPT */
 /**
  * @}
  */
 
 /**
  * @struct bhookinfo
- * @brief
+ * @brief bhookinfo
  *
  */
 typedef struct bhookinfo {
@@ -562,11 +616,11 @@ typedef struct bhookinfo {
     const char *source;     /**< source path information */
     const char *func_name;  /**< current function name */
     void *data;             /**< user extended data */
-} bhookinfo;
+} bhookinfo; /**< bhookinfo */
 
 /**
- * @fn void (*)(bvm*, bhookinfo*)
- * @brief
+ * @fn void (*bntvhook)(bvm *vm, bhookinfo *info)
+ * @brief void (*bntvhook)(bvm *vm, bhookinfo *info)
  *
  * @param vm virtual machine instance
  * @param info
@@ -586,7 +640,7 @@ typedef void (*bntvhook)(bvm *vm, bhookinfo *info);
 #endif
 
 /**
- * @fn void (*)(bvm*, int, ...)
+ * @fn void (*bobshook)(bvm *vm, int event, ...)
  * @brief Observability hook
  *
  * @param vm virtual machine instance
@@ -596,7 +650,7 @@ typedef void (*bobshook)(bvm *vm, int event, ...);
 
 /**
  * @enum beobshookevents
- * @brief
+ * @brief beobshookevents
  *
  */
 enum beobshookevents {
@@ -607,20 +661,12 @@ enum beobshookevents {
     BE_OBS_STACK_RESIZE_START,  /**< Berry stack resized */
 };
 
-/**
- * @fn int (*)(bvm*, const void*)
- * @brief
- *
- * @param
- * @param
- * @return
- */
-typedef int (*bctypefunc)(bvm*, const void*);
+typedef int (*bctypefunc)(bvm*, const void*); /**< bctypefunc */
 
 /**
  * @def be_writestring
  * @note FFI function
- * @brief
+ * @brief be_writestring
  *
  */
 #define be_writestring(s)       be_writebuffer((s), strlen(s))
@@ -628,7 +674,7 @@ typedef int (*bctypefunc)(bvm*, const void*);
 /**
  * @def be_writenewline
  * @note FFI function
- * @brief
+ * @brief be_writenewline
  *
  */
 #define be_writenewline()       be_writebuffer("\n", 1)
@@ -636,7 +682,7 @@ typedef int (*bctypefunc)(bvm*, const void*);
 /**
  * @def be_return
  * @note FFI function
- * @brief
+ * @brief be_return
  *
  * @param vm virtual machine instance virtual machine instance
  */
@@ -645,7 +691,7 @@ typedef int (*bctypefunc)(bvm*, const void*);
 /**
  * @def be_return_nil
  * @note FFI function
- * @brief
+ * @brief be_return_nil
  *
  * @param vm virtual machine instance virtual machine instance
  */
@@ -654,7 +700,7 @@ typedef int (*bctypefunc)(bvm*, const void*);
 /**
  * @def be_loadfile
  * @note FFI function
- * @brief
+ * @brief be_loadfile
  *
  * @param vm virtual machine instance virtual machine instance
  * @param name (???)
@@ -664,7 +710,7 @@ typedef int (*bctypefunc)(bvm*, const void*);
 /**
  * @def be_loadmodule
  * @note FFI function
- * @brief
+ * @brief be_loadmodule
  *
  * @param vm virtual machine instance virtual machine instance
  * @param name
@@ -675,7 +721,7 @@ typedef int (*bctypefunc)(bvm*, const void*);
 /**
  * @def be_loadstring
  * @note FFI function
- * @brief
+ * @brief be_loadstring
  *
  * @param vm virtual machine instance virtual machine instance
  * @param str (???)
@@ -687,7 +733,7 @@ typedef int (*bctypefunc)(bvm*, const void*);
 /**
  * @def be_dostring
  * @note FFI function
- * @brief
+ * @brief be_dostring
  *
  * @param vm virtual machine instance virtual machine instance
  * @param s (???)
@@ -719,7 +765,7 @@ BERRY_API bint be_str2int(const char *str, const char **endstr);
 BERRY_API breal be_str2real(const char *str, const char **endstr);
 
 /**
- * @fn const char be_str2num*(bvm*, const char*)
+ * @fn const char* be_str2num(bvm *vm, const char *str)
  * @note FFI function
  * @brief (???)
  *
@@ -744,7 +790,7 @@ BERRY_API const char* be_str2num(bvm *vm, const char *str);
 BERRY_API int be_top(bvm *vm);
 
 /**
- * @fn const char be_typename*(bvm*, int)
+ * @fn const char* be_typename(bvm *vm, int index)
  * @note FFI function
  * @brief converts the type of the Berry object into a string and returns it
  *
@@ -758,7 +804,7 @@ BERRY_API int be_top(bvm *vm);
 BERRY_API const char* be_typename(bvm *vm, int index);
 
 /**
- * @fn const char be_classname*(bvm*, int)
+ * @fn const char* be_classname(bvm *vm, int index)
  * @note FFI function
  * @brief converts the type of the Berry object into a string and returns it.
  *
@@ -1175,7 +1221,7 @@ BERRY_API int be_toindex(bvm *vm, int index);
 BERRY_API bbool be_tobool(bvm *vm, int index);
 
 /**
- * @fn const char be_tostring*(bvm*, int)
+ * @fn const char* be_tostring(bvm *vm, int index)
  * @note FFI function
  * @brief virtual stack to string
  *
@@ -1192,7 +1238,7 @@ BERRY_API bbool be_tobool(bvm *vm, int index);
 BERRY_API const char* be_tostring(bvm *vm, int index);
 
 /**
- * @fn const char be_toescape*(bvm*, int, int)
+ * @fn const char* be_toescape(bvm *vm, int index, int mode)
  * @note FFI function
  * @brief (???)
  *
@@ -1204,7 +1250,7 @@ BERRY_API const char* be_tostring(bvm *vm, int index);
 BERRY_API const char* be_toescape(bvm *vm, int index, int mode);
 
 /**
- * @fn void be_tocomptr*(bvm*, int)
+ * @fn void* be_tocomptr(bvm *vm, int index)
  * @note FFI function
  * @brief virtual stack to general pointer
  *
@@ -1301,7 +1347,7 @@ BERRY_API void be_pushstring(bvm *vm, const char *str);
 BERRY_API void be_pushnstring(bvm *vm, const char *str, size_t n);
 
 /**
- * @fn const char be_pushfstring*(bvm*, const char*, ...)
+ * @fn const char* be_pushfstring(bvm *vm, const char *format, ...)
  * @note FFI function
  * @brief Push the formatted string into the virtual stack.
  *
@@ -1319,7 +1365,7 @@ BERRY_API void be_pushnstring(bvm *vm, const char *str, size_t n);
 BERRY_API const char* be_pushfstring(bvm *vm, const char *format, ...);
 
 /**
- * @fn void be_pushbuffer*(bvm*, size_t)
+ * @fn void* be_pushbuffer(bvm *vm, size_t size)
  * @note FFI function
  * @brief (???)
  *
@@ -2043,7 +2089,7 @@ BERRY_API void be_regfunc(bvm *vm, const char *name, bntvfunc f);
 BERRY_API void be_regclass(bvm *vm, const char *name, const bnfuncinfo *lib);
 
 /**
- * @fn bvm be_vm_new*(void)
+ * @fn bvm* be_vm_new(void)
  * @note VM management API
  * @brief Construct a VM
  *
@@ -2109,7 +2155,7 @@ BERRY_API bctypefunc be_get_ctype_func_hanlder(bvm *vm);
 BERRY_API int be_loadbuffer(bvm *vm, const char *name, const char *buffer, size_t length);
 
 /**
- * @fn int be_loadmode(bvm*, const char*, bool)
+ * @fn int be_loadmode(bvm *vm, const char *name, bbool islocal)
  * @note code load API
  * @brief (???)
  *
@@ -2162,7 +2208,7 @@ BERRY_API void be_module_path(bvm *vm);
 BERRY_API void be_module_path_set(bvm *vm, const char *path);
 
 /**
- * @fn void be_pushbytes*(bvm*, const void*, size_t)
+ * @fn void* be_pushbytes(bvm *vm, const void *buf, size_t len)
  * @note bytes operation
  * @brief Push a bytes() buffer
  *
@@ -2173,7 +2219,7 @@ BERRY_API void be_module_path_set(bvm *vm, const char *path);
 BERRY_API void* be_pushbytes(bvm *vm, const void *buf, size_t len);
 
 /**
- * @fn const void be_tobytes*(bvm*, int, size_t*)
+ * @fn const void* be_tobytes(bvm *vm, int index, size_t *len)
  * @note bytes operation
  * @brief return virtual stack as a bytes buffer
  *
@@ -2226,7 +2272,7 @@ BERRY_API void be_setntvhook(bvm *vm, bntvhook hook, void *data, int mask);
 BERRY_API void be_writebuffer(const char *buffer, size_t length);
 
 /**
- * @fn char be_readstring*(char*, size_t)
+ * @fn char* be_readstring(char *buffer, size_t size)
  * @note basic character IO API
  * @brief implement on berry_port.c
  *

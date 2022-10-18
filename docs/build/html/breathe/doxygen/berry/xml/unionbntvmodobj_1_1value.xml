@@ -4,30 +4,32 @@
     <compoundname>bntvmodobj::value</compoundname>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="unionbntvmodobj_1_1value_1acf0d57b21a500741460c02e755a3bea0" prot="public" static="no" mutable="no">
-        <type>bint</type>
+        <type><ref refid="berry_8h_1a36e9c33dcb738f5c0146ea39292c3a6f" kindref="member">bint</ref></type>
         <definition>bint bntvmodobj::value::i</definition>
         <argsstring></argsstring>
         <name>i</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>&lt; <ref refid="unionbntvmodobj_1_1value" kindref="compound">bntvmodobj::value</ref> i </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="206" column="14" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="206" bodyend="-1"/>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="185" column="14" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="185" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="unionbntvmodobj_1_1value_1acccfc6f8525445a0f0a04e65f7e4ddde" prot="public" static="no" mutable="no">
-        <type>breal</type>
+        <type><ref refid="berry_8h_1a7b3477629e24605207e7dda97135210a" kindref="member">breal</ref></type>
         <definition>breal bntvmodobj::value::r</definition>
         <argsstring></argsstring>
         <name>r</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>r </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="207" column="15" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="207" bodyend="-1"/>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="186" column="15" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="186" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="unionbntvmodobj_1_1value_1aec7f7dc4fc55e87a287dda281dbde45f" prot="public" static="no" mutable="no">
         <type><ref refid="berry_8h_1a483536941d791ea930e4ec204c87a4f6" kindref="member">bbool</ref></type>
@@ -37,23 +39,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>b </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="208" column="15" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="208" bodyend="-1"/>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="187" column="15" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="187" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="unionbntvmodobj_1_1value_1af5a79eb4e765aa317fdbbee16e599eac" prot="public" static="no" mutable="no">
-        <type>bntvfunc</type>
+        <type><ref refid="berry_8h_1a45be489427325076870d53581c7f5e42" kindref="member">bntvfunc</ref></type>
         <definition>bntvfunc bntvmodobj::value::f</definition>
         <argsstring></argsstring>
         <name>f</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>f </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="209" column="18" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="209" bodyend="-1"/>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="188" column="18" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="188" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="unionbntvmodobj_1_1value_1a911d0abe4a81afaaf6b50f9f8c33f0e8" prot="public" static="no" mutable="no">
         <type>const char *</type>
@@ -63,10 +67,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>s </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="210" column="20" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="210" bodyend="-1"/>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="189" column="20" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="189" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="unionbntvmodobj_1_1value_1aa3ea9fc3110fe186ae20075bf792dbaa" prot="public" static="no" mutable="no">
         <type>const void *</type>
@@ -76,17 +81,18 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>o </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="211" column="20" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="211" bodyend="-1"/>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="190" column="20" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="190" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="205" column="5" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="205" bodyend="220"/>
+    <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="184" column="5" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="184" bodyend="199"/>
     <listofallmembers>
       <member refid="unionbntvmodobj_1_1value_1aec7f7dc4fc55e87a287dda281dbde45f" prot="public" virt="non-virtual"><scope>bntvmodobj::value</scope><name>b</name></member>
       <member refid="unionbntvmodobj_1_1value_1af5a79eb4e765aa317fdbbee16e599eac" prot="public" virt="non-virtual"><scope>bntvmodobj::value</scope><name>f</name></member>

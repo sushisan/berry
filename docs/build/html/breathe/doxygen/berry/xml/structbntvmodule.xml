@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="245" column="16" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="245" bodyend="-1"/>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="224" column="16" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="224" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structbntvmodule_1a687658078a7d84f2661bd5b5cd024a32" prot="public" static="no" mutable="no">
         <type>const <ref refid="structbntvmodobj" kindref="compound">bntvmodobj</ref> *</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="246" column="22" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="246" bodyend="-1"/>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="225" column="22" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="225" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structbntvmodule_1ad988c06052a10c1f3fc0002862aee7c0" prot="public" static="no" mutable="no">
         <type>size_t</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="247" column="12" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="247" bodyend="-1"/>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="226" column="12" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="226" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structbntvmodule_1a307e7f6aecb900f345d8087da758e6dd" prot="public" static="no" mutable="no">
         <type>const struct bmodule *</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="248" column="24" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="248" bodyend="-1"/>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="227" column="24" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="227" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -86,7 +86,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="244" column="1" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="244" bodyend="249"/>
+    <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="223" column="1" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="223" bodyend="228"/>
     <listofallmembers>
       <member refid="structbntvmodule_1a687658078a7d84f2661bd5b5cd024a32" prot="public" virt="non-virtual"><scope>bntvmodule</scope><name>attrs</name></member>
       <member refid="structbntvmodule_1a307e7f6aecb900f345d8087da758e6dd" prot="public" virt="non-virtual"><scope>bntvmodule</scope><name>module</name></member>

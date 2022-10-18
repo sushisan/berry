@@ -33,9 +33,6 @@
     <member refid="unionbntvmodobj_1_1value_1aa3ea9fc3110fe186ae20075bf792dbaa" kind="variable"><name>o</name></member>
   </compound>
   <compound refid="berry_8h" kind="file"><name>berry.h</name>
-    <member refid="berry_8h_1a483536941d791ea930e4ec204c87a4f6" kind="define"><name>bbool</name></member>
-    <member refid="berry_8h_1af7db536709087a3e3636528cdde94f50" kind="define"><name>bfalse</name></member>
-    <member refid="berry_8h_1a25f214c07bdabddd7586c54cbdaff122" kind="define"><name>btrue</name></member>
     <member refid="berry_8h_1a2c2a2b1c23ed45cd016ba7dfcad7fe05" kind="define"><name>BE_CNIL</name></member>
     <member refid="berry_8h_1a36a50ac6471f1bb78ba405d359236a62" kind="define"><name>BE_CINT</name></member>
     <member refid="berry_8h_1a7bac88e1cb274455f59d06f549fe4456" kind="define"><name>BE_CREAL</name></member>
@@ -45,9 +42,6 @@
     <member refid="berry_8h_1af83760278fe3c7346681343549631da0" kind="define"><name>BE_CMODULE</name></member>
     <member refid="berry_8h_1ad582cbe4aa73dcfbefcb8270e06cc5df" kind="define"><name>BERRY_LOCAL</name></member>
     <member refid="berry_8h_1a78d824d984dceefda2e1c955ab531f8e" kind="define"><name>BE_EXPORT_VARIABLE</name></member>
-    <member refid="berry_8h_1a3b35bc6e8b8bb678f4fc0c9db26aa395" kind="define"><name>BE_IIF</name></member>
-    <member refid="berry_8h_1abbd521917ac37982ff122d21de2911b3" kind="define"><name>BE_IIF_0</name></member>
-    <member refid="berry_8h_1af8d62ce709523e923b0b80abf327fa03" kind="define"><name>BE_IIF_1</name></member>
     <member refid="berry_8h_1abcdc5d88126ee8af359442e9d9dfb263" kind="define"><name>BE_HOOK_LINE</name></member>
     <member refid="berry_8h_1a5b02dbe5581e544f060fa058c14476b2" kind="define"><name>BE_HOOK_CALL</name></member>
     <member refid="berry_8h_1a7a79fc3f6dd70b8027f7f95c67640b3b" kind="define"><name>BE_HOOK_RET</name></member>
@@ -56,6 +50,9 @@
     <member refid="berry_8h_1ab29732ef463a3b441ad6df0b716c6c2c" kind="define"><name>BE_INTEGER</name></member>
     <member refid="berry_8h_1ae303e7824ab2c1fa8e3ceeadefa7d5a1" kind="define"><name>BE_INT_FMTLEN</name></member>
     <member refid="berry_8h_1af6797d5be40642b3f6f2b8e9792e0e57" kind="define"><name>BE_INT_FORMAT</name></member>
+    <member refid="berry_8h_1a483536941d791ea930e4ec204c87a4f6" kind="define"><name>bbool</name></member>
+    <member refid="berry_8h_1af7db536709087a3e3636528cdde94f50" kind="define"><name>bfalse</name></member>
+    <member refid="berry_8h_1a25f214c07bdabddd7586c54cbdaff122" kind="define"><name>btrue</name></member>
     <member refid="berry_8h_1a6c2ec17e9c6c45f4e8345bc314656a19" kind="define"><name>BERRY_API</name></member>
     <member refid="berry_8h_1a7e51d20501a574f947fbb29566128672" kind="define"><name>be_native_module_nil</name></member>
     <member refid="berry_8h_1a7c4a6437440044936a723fb8a0f5f624" kind="define"><name>be_native_module_int</name></member>
@@ -73,6 +70,9 @@
     <member refid="berry_8h_1a5f5b03e3ed794580f1348be57532e8ca" kind="define"><name>be_define_local_const_str</name></member>
     <member refid="berry_8h_1a5e05d016e1279f1da065a34874778702" kind="define"><name>be_nested_const_str</name></member>
     <member refid="berry_8h_1a7dcabc39ca2b927ea224ded9b34e0385" kind="define"><name>be_local_const_str</name></member>
+    <member refid="berry_8h_1a3b35bc6e8b8bb678f4fc0c9db26aa395" kind="define"><name>BE_IIF</name></member>
+    <member refid="berry_8h_1abbd521917ac37982ff122d21de2911b3" kind="define"><name>BE_IIF_0</name></member>
+    <member refid="berry_8h_1af8d62ce709523e923b0b80abf327fa03" kind="define"><name>BE_IIF_1</name></member>
     <member refid="berry_8h_1a4be8d6593e6edb60a534b736e608f683" kind="define"><name>be_local_const_upval</name></member>
     <member refid="berry_8h_1ae73754cb5fe9ed54fbcffec3d147a771" kind="define"><name>PROTO_RUNTIME_BLOCK</name></member>
     <member refid="berry_8h_1acc32a1759e1c89e3e80ba8bdaa5de528" kind="define"><name>PROTO_VAR_INFO_BLOCK</name></member>
@@ -113,15 +113,15 @@
     <member refid="berry_8h_1a7452d322aeb4e2ff71d24211f42461c3" kind="typedef"><name>bclass_ptr</name></member>
     <member refid="berry_8h_1afb0da897cba255419c7e94606f7ccadf" kind="typedef"><name>bclass_array</name></member>
     <member refid="berry_8h_1ac41472ceebd2d02d44a0230069cb368c" kind="typedef"><name>bhookinfo</name></member>
-    <member refid="berry_8h_1ad40c401f36f2fdea1dcf7807a48a05ed" kind="typedef"><name>bntvhook</name></member>
-    <member refid="berry_8h_1a3e441a150e2531c7fa7fcfb7585a7bba" kind="typedef"><name>bobshook</name></member>
+    <member refid="berry_8h_1aca917e1c5ea7d4ac447ecab9220496f7" kind="typedef"><name>bntvhook</name></member>
+    <member refid="berry_8h_1a83f3db1fab6842d48d92b83149ed1d23" kind="typedef"><name>bobshook</name></member>
     <member refid="berry_8h_1a87f23fd951421e8995350ddd5096590e" kind="typedef"><name>bctypefunc</name></member>
     <member refid="berry_8h_1a7fdb31b8c6c01e0f1b7fd40ce145aad6" kind="function"><name>be_str2int</name></member>
     <member refid="berry_8h_1a784f97a4856b455161d6350d06d9743a" kind="function"><name>be_str2real</name></member>
-    <member refid="berry_8h_1a9cccb1a172f1524bb0dda992597e1114" kind="function"><name>be_str2num</name></member>
+    <member refid="berry_8h_1a11495b2e006d25fe6cc177c1b4c0b031" kind="function"><name>be_str2num</name></member>
     <member refid="berry_8h_1a980cab8052a03285bd64e3f03d43960d" kind="function"><name>be_top</name></member>
-    <member refid="berry_8h_1a73cdd56a072d02756feeb24ae864a8b7" kind="function"><name>be_typename</name></member>
-    <member refid="berry_8h_1a30c8be70a320faf4735e8b0b3585ed34" kind="function"><name>be_classname</name></member>
+    <member refid="berry_8h_1aca5815526024a8ff758747340008d358" kind="function"><name>be_typename</name></member>
+    <member refid="berry_8h_1a958071fe5da86524b01cb216b79dbeb5" kind="function"><name>be_classname</name></member>
     <member refid="berry_8h_1a559ea7517e8fc4cf06c7b0ec16ecacbe" kind="function"><name>be_classof</name></member>
     <member refid="berry_8h_1a9ce5897ac8585a54890a306731dcf0c5" kind="function"><name>be_strlen</name></member>
     <member refid="berry_8h_1a3d355a233b3bb1214e56f6bd02fd7ad9" kind="function"><name>be_strconcat</name></member>
@@ -151,9 +151,9 @@
     <member refid="berry_8h_1a9fbad5a2e71b5c4b1590c8ceaa3390d1" kind="function"><name>be_toreal</name></member>
     <member refid="berry_8h_1adff008961a65207378344a1299295b57" kind="function"><name>be_toindex</name></member>
     <member refid="berry_8h_1ac6050b4584f3711bd510f073c9293e95" kind="function"><name>be_tobool</name></member>
-    <member refid="berry_8h_1aca87e86047438f71581e09c6f9adcb81" kind="function"><name>be_tostring</name></member>
-    <member refid="berry_8h_1a45c1e7911b663819bc04bc9238e894ad" kind="function"><name>be_toescape</name></member>
-    <member refid="berry_8h_1af6d484fcfd577a9df9faaabd1ad381e6" kind="function"><name>be_tocomptr</name></member>
+    <member refid="berry_8h_1aae81ad63c15b7aa8ef2081307a2e5b83" kind="function"><name>be_tostring</name></member>
+    <member refid="berry_8h_1abd425270f744204f4c3d9b3d15051ed5" kind="function"><name>be_toescape</name></member>
+    <member refid="berry_8h_1acbd77c2af04e1eab1d23eb83232c1f2b" kind="function"><name>be_tocomptr</name></member>
     <member refid="berry_8h_1a4ac3786fafe0cbb1e79190697003039d" kind="function"><name>be_moveto</name></member>
     <member refid="berry_8h_1ae4d8241b8ee8aabdea31a70214cf901a" kind="function"><name>be_pushnil</name></member>
     <member refid="berry_8h_1a430ec99531afb60bc16d904ad38db0d9" kind="function"><name>be_pushbool</name></member>
@@ -161,8 +161,8 @@
     <member refid="berry_8h_1a27a65393db4b141eec8ac0356edbac33" kind="function"><name>be_pushreal</name></member>
     <member refid="berry_8h_1af5167d9a490d876c641b77cfc12b520d" kind="function"><name>be_pushstring</name></member>
     <member refid="berry_8h_1a1a071289afb6da0fad98cc451fedaa1a" kind="function"><name>be_pushnstring</name></member>
-    <member refid="berry_8h_1aa9e6b44089c9bcc0a1a315f317005cdd" kind="function"><name>be_pushfstring</name></member>
-    <member refid="berry_8h_1aa18c6d8f01e91ce88916bc5225acf6b8" kind="function"><name>be_pushbuffer</name></member>
+    <member refid="berry_8h_1aa710667a92dd9c1bcd36747a6ecc0553" kind="function"><name>be_pushfstring</name></member>
+    <member refid="berry_8h_1af40bb2f5b9218135cd1c4b15d3f9b0ba" kind="function"><name>be_pushbuffer</name></member>
     <member refid="berry_8h_1a262e3dc79a2bbcbe72cc90c3e0b457db" kind="function"><name>be_pushvalue</name></member>
     <member refid="berry_8h_1a9a970ce282202adf4db048d161819f11" kind="function"><name>be_pushclosure</name></member>
     <member refid="berry_8h_1ab8c8bb159c49602c1f3ec2a8752374bb" kind="function"><name>be_pushntvclosure</name></member>
@@ -222,23 +222,23 @@
     <member refid="berry_8h_1a5a530376546332770db9973beb174050" kind="function"><name>be_stop_iteration</name></member>
     <member refid="berry_8h_1a85a8212877e074c6a3fdec604eef5c7f" kind="function"><name>be_regfunc</name></member>
     <member refid="berry_8h_1aa6328e3b23c451178acbd26434badf86" kind="function"><name>be_regclass</name></member>
-    <member refid="berry_8h_1a66471bbb476bcf65e269277f20802cd5" kind="function"><name>be_vm_new</name></member>
+    <member refid="berry_8h_1a58ec9142384349026abd12c387a9c21a" kind="function"><name>be_vm_new</name></member>
     <member refid="berry_8h_1ab351e7affe3deeff456b59e951350d12" kind="function"><name>be_vm_delete</name></member>
     <member refid="berry_8h_1af963b04a6ee2b417c5340c1c20bbac73" kind="function"><name>be_set_obs_hook</name></member>
     <member refid="berry_8h_1a10d4c884e8499d9fa43e9a77f6d41ba0" kind="function"><name>be_set_ctype_func_hanlder</name></member>
     <member refid="berry_8h_1aab39998d8b2d5edd01b8f95300003841" kind="function"><name>be_get_ctype_func_hanlder</name></member>
     <member refid="berry_8h_1a2778739fa0b08bc81e566772fe5ad78f" kind="function"><name>be_loadbuffer</name></member>
-    <member refid="berry_8h_1a39bbc34f6d9df4342e6e2579acbcc06c" kind="function"><name>be_loadmode</name></member>
+    <member refid="berry_8h_1a2eafb0151fcbd13999e97e07558e0b91" kind="function"><name>be_loadmode</name></member>
     <member refid="berry_8h_1ac84c74454daa7f452fb8fe0b21e74056" kind="function"><name>be_loadlib</name></member>
     <member refid="berry_8h_1a4fc13455b23aa4e2de6d55b03f22e969" kind="function"><name>be_savecode</name></member>
     <member refid="berry_8h_1a072f72b511b16d5fcdc4669541d25a54" kind="function"><name>be_module_path</name></member>
     <member refid="berry_8h_1a7159bcb33f73e6dc798fec6d184ef97c" kind="function"><name>be_module_path_set</name></member>
-    <member refid="berry_8h_1a5d566b5616eb1657624bc07af2e3b385" kind="function"><name>be_pushbytes</name></member>
-    <member refid="berry_8h_1a70cf9d7a6f4686196d0cb372507396f2" kind="function"><name>be_tobytes</name></member>
+    <member refid="berry_8h_1afe09d5cf7c3debe547d7cdb1b2f9a57d" kind="function"><name>be_pushbytes</name></member>
+    <member refid="berry_8h_1ac3c394e1ee2b0ce28d2d3838f136b39a" kind="function"><name>be_tobytes</name></member>
     <member refid="berry_8h_1a5151876ed2f05c21b353eaff0b3b11bd" kind="function"><name>be_sethook</name></member>
     <member refid="berry_8h_1ad63293b5a49c644118ccac701c7ac67e" kind="function"><name>be_setntvhook</name></member>
     <member refid="berry_8h_1ae0e72ac28fef5610f98fa67fbb03b645" kind="function"><name>be_writebuffer</name></member>
-    <member refid="berry_8h_1ab364e574e0a1262411ad60b82adee774" kind="function"><name>be_readstring</name></member>
+    <member refid="berry_8h_1a0b9ccbbc57fdcd97c4ce1533ee0efbb2" kind="function"><name>be_readstring</name></member>
   </compound>
   <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>/home/var/tmp/BERRY/berry/src</name>
   </compound>

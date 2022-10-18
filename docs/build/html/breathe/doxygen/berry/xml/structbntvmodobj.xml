@@ -13,10 +13,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>name </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="203" column="16" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="203" bodyend="-1"/>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="182" column="16" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="182" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structbntvmodobj_1a047832327add822e27e964c2cf73d363" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -26,10 +27,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>type </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="204" column="9" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="204" bodyend="-1"/>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="183" column="9" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="183" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structbntvmodobj_1a6927d7b430bcb8af1d2b11d874bda003" prot="public" static="no" mutable="no">
         <type>union <ref refid="unionbntvmodobj_1_1value" kindref="compound">bntvmodobj::value</ref></type>
@@ -39,10 +41,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>u </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="220" column="7"/>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="199" column="56"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -63,7 +66,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="202" column="1" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="202" bodyend="237"/>
+    <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="181" column="1" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="181" bodyend="216"/>
     <listofallmembers>
       <member refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" prot="public" virt="non-virtual"><scope>bntvmodobj</scope><name>name</name></member>
       <member refid="structbntvmodobj_1a047832327add822e27e964c2cf73d363" prot="public" virt="non-virtual"><scope>bntvmodobj</scope><name>type</name></member>
