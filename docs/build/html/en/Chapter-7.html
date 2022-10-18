@@ -1,0 +1,1743 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7. Libraries and Modules &mdash; berry 1.1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> berry
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Home.html">Welcome to the berry wiki!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Bienvenido a la wiki de Berry!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">berry</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>7. Libraries and Modules</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/en/Chapter-7.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="libraries-and-modules">
+<h1>7. Libraries and Modules<a class="headerlink" href="#libraries-and-modules" title="Permalink to this headline"></a></h1>
+<section id="basic-library">
+<h2>7.1 Basic library<a class="headerlink" href="#basic-library" title="Permalink to this headline"></a></h2>
+<p>There are some functions and classes that can be used directly in the
+standard library. They provide basic services for Berry programs, so
+they are also called basic libraries. The functions and classes in the
+basic library are visible in the global scope (belonging to the built-in
+scope), so they can be used anywhere. Do not define variables with the
+same name as the functions or classes in the base library. Doing so will
+make it impossible to reference the functions and classes in the base
+library.</p>
+<section id="built-in-function">
+<h3>7.1.1 Built-in function<a class="headerlink" href="#built-in-function" title="Permalink to this headline"></a></h3>
+<section id="print-function">
+<h4><code class="docutils literal notranslate"><span class="pre">print</span></code> function<a class="headerlink" href="#print-function" title="Permalink to this headline"></a></h4>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function prints the input parameters to the standard output device.
+The function can accept any type and any number of parameters. All types
+will print their value directly, and for an instance, this function will
+check whether the instance has a <code class="docutils literal notranslate"><span class="pre">tostring()</span></code> method, and if there is,
+print the return value of the instance calling the <code class="docutils literal notranslate"><span class="pre">tostring()</span></code> method,
+otherwise it will print the address of the instance.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span> <span class="c1"># Hello World!</span>
+<span class="nb">print</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">])</span> <span class="c1"># [1, 2, &#39;3&#39;]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span> <span class="c1"># &lt;function: 0x561092293780&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="input-function">
+<h4><code class="docutils literal notranslate"><span class="pre">input</span></code> function<a class="headerlink" href="#input-function" title="Permalink to this headline"></a></h4>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">input</span><span class="p">()</span>
+<span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">input</span></code> The function is used to input a line of character string from
+the standard input device. This function can use the <code class="docutils literal notranslate"><span class="pre">prompt</span></code> parameter
+as an input prompt, and the <code class="docutils literal notranslate"><span class="pre">prompt</span></code> parameter must be of string type.
+After calling the <code class="docutils literal notranslate"><span class="pre">input</span></code> function, characters will be read from the
+keyboard buffer until a newline character is encountered.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;please enter a string:&#39;</span><span class="p">)</span> <span class="c1"># please enter a string:</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">input</span></code> The function does not return until the “Enter” key is pressed,
+so the program “stuck” is not an error.</p>
+</section>
+<section id="type-function">
+<h4><code class="docutils literal notranslate"><span class="pre">type</span></code> function<a class="headerlink" href="#type-function" title="Permalink to this headline"></a></h4>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>value</em>: Input parameter (expect to get its type).</p></li>
+<li><p><em>return value</em>: A string describing the parameter type.</p></li>
+</ul>
+<p><strong>Description</strong></p>
+<p>This function receives a parameter of any type and returns the type of
+the parameter. The return value is a string describing the type of the
+parameter. Table below
+shows the return values corresponding to the main parameter types:</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="text-left head"><p>Parameter Type</p></th>
+<th class="text-left head"><p>return value</p></th>
+<th class="text-left head"><p>Parameter Type</p></th>
+<th class="text-left head"><p>return value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Nil</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">’nil’</span></code></p></td>
+<td class="text-left"><p>Integer</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">’int’</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Real</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">’real’</span></code></p></td>
+<td class="text-left"><p>Boolean</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">’bool’</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Function</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">’function’</span></code></p></td>
+<td class="text-left"><p>Class</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">’class’</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>String</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">’string’</span></code></p></td>
+<td class="text-left"><p>Instance</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">’instance’</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>native pointer</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">’ptr’</span></code></p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p></p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#&#39;int&#39;</span>
+<span class="nb">type</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1">#&#39;real&#39;</span>
+<span class="nb">type</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span> <span class="c1">#&#39;string&#39;</span>
+<span class="nb">type</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span> <span class="c1">#&#39;function&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="classname-function">
+<h4><code class="docutils literal notranslate"><span class="pre">classname</span></code> function<a class="headerlink" href="#classname-function" title="Permalink to this headline"></a></h4>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">classname</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function returns the class name (string) of the parameter.
+Therefore the parameter must be a class or instance, and other types of
+parameters will return <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">classname</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span> <span class="c1">#&#39;list&#39;</span>
+<span class="n">classname</span><span class="p">(</span><span class="nb">list</span><span class="p">())</span> <span class="c1">#&#39;list&#39;</span>
+<span class="n">classname</span><span class="p">({})</span> <span class="c1">#&#39;map&#39;</span>
+<span class="n">classname</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># nil</span>
+</pre></div>
+</div>
+</section>
+<section id="classof-function">
+<h4><code class="docutils literal notranslate"><span class="pre">classof</span></code> function<a class="headerlink" href="#classof-function" title="Permalink to this headline"></a></h4>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">classof</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>Returns the class of an instance object. The parameter <code class="docutils literal notranslate"><span class="pre">object</span></code> must be
+an instance. If the function is successfully called, it will return the
+class to which the instance belongs, otherwise it will return <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">classof</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span> <span class="c1"># nil</span>
+<span class="n">classof</span><span class="p">(</span><span class="nb">list</span><span class="p">())</span> <span class="c1"># &lt;class: list&gt;</span>
+<span class="n">classof</span><span class="p">({})</span> <span class="c1"># &lt;class: map&gt;</span>
+<span class="n">classof</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># nil</span>
+</pre></div>
+</div>
+</section>
+<section id="str-function">
+<h4><code class="docutils literal notranslate"><span class="pre">str</span></code> function<a class="headerlink" href="#str-function" title="Permalink to this headline"></a></h4>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function converts the parameters into strings and returns. <code class="docutils literal notranslate"><span class="pre">str</span></code>
+Functions can accept any type of parameters and convert them. When the
+parameter type is an instance, it will check whether the instance has a
+<code class="docutils literal notranslate"><span class="pre">tostring()</span></code> method, if there is, the return value of the method will be
+used, otherwise the address of the instance will be converted into a
+string.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># &#39;0&#39;</span>
+<span class="nb">str</span><span class="p">(</span><span class="n">nil</span><span class="p">)</span> <span class="c1">#&#39;nil&#39;</span>
+<span class="nb">str</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span> <span class="c1">#&#39;list&#39;</span>
+<span class="nb">str</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="c1">#&#39;[0, 1, 2]&#39;</span>
+</pre></div>
+</div>
+<section id="number-function">
+<h5><code class="docutils literal notranslate"><span class="pre">number</span></code> function<a class="headerlink" href="#number-function" title="Permalink to this headline"></a></h5>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">number</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function converts the input string or number into a numeric type
+and returns. If the input parameter is an integer or real number, it
+returns directly. If it is a character string, try to convert the
+character string to a numeric value in decimal format. The integer or
+real number will be automatically judged during the conversion. Other
+types return <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">number</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># 5</span>
+<span class="n">number</span><span class="p">(</span><span class="s1">&#39;45.6&#39;</span><span class="p">)</span> <span class="c1"># 45.6</span>
+<span class="n">number</span><span class="p">(</span><span class="s1">&#39;50&#39;</span><span class="p">)</span> <span class="c1"># 50</span>
+<span class="n">number</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span> <span class="c1"># nil</span>
+</pre></div>
+</div>
+</section>
+<section id="int-function">
+<h5><code class="docutils literal notranslate"><span class="pre">int</span></code> function<a class="headerlink" href="#int-function" title="Permalink to this headline"></a></h5>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function converts the input string or number into an integer and
+returns it. If the input parameter is an integer, return directly, if it
+is a real number, discard the decimal part. If it is a string, try to
+convert the string to an integer in decimal. Other types return <code class="docutils literal notranslate"><span class="pre">nil</span></code>.
+When the parameter type is an instance, it will check whether the instance
+has a <code class="docutils literal notranslate"><span class="pre">toint()</span></code> method, if there is, the return value of the method will be
+used.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># 5</span>
+<span class="nb">int</span><span class="p">(</span><span class="mf">45.6</span><span class="p">)</span> <span class="c1"># 45</span>
+<span class="nb">int</span><span class="p">(</span><span class="s1">&#39;50&#39;</span><span class="p">)</span> <span class="c1"># 50</span>
+<span class="nb">int</span><span class="p">(</span><span class="s1">&#39;0x10) # 16 - hex literal are valid</span>
+<span class="nb">int</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span> <span class="c1"># nil</span>
+</pre></div>
+</div>
+</section>
+<section id="real-function">
+<h5><code class="docutils literal notranslate"><span class="pre">real</span></code> function<a class="headerlink" href="#real-function" title="Permalink to this headline"></a></h5>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">real</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function converts the input string or number into a real number and
+returns. If the input parameter is a real number, it will return
+directly, if it is an integer, it will be converted to a real number. If
+it is a string, try to convert the string to a real number in decimal.
+Other types return <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">real</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># 5, type(real(5)) →&#39;real&#39;</span>
+<span class="n">real</span><span class="p">(</span><span class="mf">45.6</span><span class="p">)</span> <span class="c1"># 45.6</span>
+<span class="n">real</span><span class="p">(</span><span class="s1">&#39;50.5&#39;</span><span class="p">)</span> <span class="c1"># 50.5</span>
+<span class="n">real</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span> <span class="c1"># nil</span>
+</pre></div>
+</div>
+</section>
+<section id="bool-function">
+<h5><code class="docutils literal notranslate"><span class="pre">bool</span></code> function<a class="headerlink" href="#bool-function" title="Permalink to this headline"></a></h5>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function converts the input string or number into a boolean and
+returns it.</p>
+<p>The conversion follows the following rules:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nil</span></code>: converted to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
+<li><p><strong>Integer</strong>: when the value is <code class="docutils literal notranslate"><span class="pre">0</span></code>, it is converted to <code class="docutils literal notranslate"><span class="pre">false</span></code>,
+otherwise it is converted to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+<li><p><strong>Real number</strong>: when the value is <code class="docutils literal notranslate"><span class="pre">0.0</span></code>, it is converted to <code class="docutils literal notranslate"><span class="pre">false</span></code>,
+otherwise it is converted to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+<li><p><strong>String</strong>: when the value is “” (empty string) it is concerted to <code class="docutils literal notranslate"><span class="pre">false</span></code>
+otherwise it is converted to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+<li><p><strong>Comobj</strong> and <strong>Comptr</strong>: when the internal pointer is <code class="docutils literal notranslate"><span class="pre">NULL</span></code> it is
+converted to <code class="docutils literal notranslate"><span class="pre">false</span></code>, otherwise it is converted to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+<li><p><strong>Instance</strong>: if the instance contains a method <code class="docutils literal notranslate"><span class="pre">tobool()</span></code>,
+the return value of the method will be used,
+otherwise it will be converted to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+<li><p>All other types: convert to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+</ul>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span><span class="p">()</span> <span class="c1"># false</span>
+<span class="nb">bool</span><span class="p">(</span><span class="n">nil</span><span class="p">)</span> <span class="c1"># false</span>
+<span class="nb">bool</span><span class="p">(</span><span class="n">false</span><span class="p">)</span> <span class="c1"># false</span>
+<span class="nb">bool</span><span class="p">(</span><span class="n">true</span><span class="p">)</span> <span class="c1"># true</span>
+<span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># false</span>
+<span class="nb">bool</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># true</span>
+<span class="nb">bool</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1"># false</span>
+<span class="nb">bool</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="c1"># true</span>
+<span class="nb">bool</span><span class="p">(</span><span class="mf">3.5</span><span class="p">)</span> <span class="c1"># true</span>
+<span class="nb">bool</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span> <span class="c1"># true</span>
+<span class="nb">bool</span><span class="p">([])</span> <span class="c1"># true</span>
+<span class="nb">bool</span><span class="p">({})</span> <span class="c1"># true</span>
+<span class="c1"># advanced</span>
+<span class="kn">import</span> <span class="nn">introspect</span>
+<span class="nb">bool</span><span class="p">(</span><span class="n">introspect</span><span class="o">.</span><span class="n">toptr</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># false</span>
+<span class="nb">bool</span><span class="p">(</span><span class="n">introspect</span><span class="o">.</span><span class="n">toptr</span><span class="p">(</span><span class="mh">0x1000</span><span class="p">))</span> <span class="c1"># true</span>
+</pre></div>
+</div>
+</section>
+<section id="size-function">
+<h5><code class="docutils literal notranslate"><span class="pre">size</span></code> function<a class="headerlink" href="#size-function" title="Permalink to this headline"></a></h5>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">size</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function returns the size of the input string. If the input
+parameter is not a string, 0 is returned. The length of the string is
+calculated in bytes.
+This function also works for <code class="docutils literal notranslate"><span class="pre">list</span></code> and <code class="docutils literal notranslate"><span class="pre">map</span></code> instances and returns
+the number of elements.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">size</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># 0</span>
+<span class="n">size</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span> <span class="c1"># 1</span>
+<span class="n">size</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span> <span class="c1"># 6</span>
+<span class="n">size</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># 2</span>
+<span class="n">size</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span> <span class="c1"># 1</span>
+</pre></div>
+</div>
+</section>
+<section id="super-function">
+<h5><code class="docutils literal notranslate"><span class="pre">super</span></code> function<a class="headerlink" href="#super-function" title="Permalink to this headline"></a></h5>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">super</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function returns the parent object of the instance. When you
+instantiate a derived class, it will also instantiate its base class.
+The <code class="docutils literal notranslate"><span class="pre">super</span></code> function is required to access the instance of the base
+class (that is, the parent object).</p>
+<p>Please look at chapter 6 about magic behavior of <code class="docutils literal notranslate"><span class="pre">super(object)</span></code> when
+calling a super method.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">mylist</span><span class="p">:</span> <span class="nb">list</span> <span class="n">end</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">mylist</span><span class="p">()</span> <span class="c1"># classname(l) --&gt;&#39;mylist&#39;</span>
+<span class="n">sl</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="c1"># classname(sl) --&gt;&#39;list&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="assert-function">
+<h5><code class="docutils literal notranslate"><span class="pre">assert</span></code> function<a class="headerlink" href="#assert-function" title="Permalink to this headline"></a></h5>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">expression</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function is used to implement the assertion function. <code class="docutils literal notranslate"><span class="pre">assert</span></code> The
+function accepts a parameter. When the value of the parameter is <code class="docutils literal notranslate"><span class="pre">false</span></code>
+or <code class="docutils literal notranslate"><span class="pre">nil</span></code>, the function will trigger an assertion error, otherwise the
+function will not have any effect. It should be noted that even if the
+parameter is a value equivalent to <code class="docutils literal notranslate"><span class="pre">false</span></code> in logical operations (for
+example, <code class="docutils literal notranslate"><span class="pre">0</span></code>), it will not trigger an assertion error. The parameter
+<code class="docutils literal notranslate"><span class="pre">message</span></code> is optional and must be a string. If this parameter is used,
+the text information given in <code class="docutils literal notranslate"><span class="pre">message</span></code> will be output when an assertion
+error occurs, otherwise the default “<code class="docutils literal notranslate"><span class="pre">Assert</span> <span class="pre">Failed</span></code>” message will be
+output.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span><span class="p">(</span><span class="n">false</span><span class="p">)</span> <span class="c1"># assert failed!</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">nil</span><span class="p">)</span> <span class="c1"># assert failed!</span>
+<span class="k">assert</span><span class="p">()</span> <span class="c1"># assert failed!</span>
+<span class="k">assert</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># assert failed!</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">false</span><span class="p">,</span><span class="s1">&#39;user assert message.&#39;</span><span class="p">)</span> <span class="c1"># user assert message.</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">true</span><span class="p">)</span> <span class="c1"># pass</span>
+</pre></div>
+</div>
+</section>
+<section id="compile-function">
+<h5><code class="docutils literal notranslate"><span class="pre">compile</span></code> function<a class="headerlink" href="#compile-function" title="Permalink to this headline"></a></h5>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">compile</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<span class="nb">compile</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">)</span>
+<span class="nb">compile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;file&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function compiles the Berry source code into a function. The source
+code can be a string or a text file. <code class="docutils literal notranslate"><span class="pre">compile</span></code> The first parameter of
+the function is a string, and the second parameter is a string
+<code class="docutils literal notranslate"><span class="pre">’string’</span></code> or <code class="docutils literal notranslate"><span class="pre">’file’</span></code>. When the second parameter is <code class="docutils literal notranslate"><span class="pre">’string’</span></code> or there
+is no second parameter, the <code class="docutils literal notranslate"><span class="pre">compile</span></code> function will compile the first
+parameter as the source code. When the second parameter is <code class="docutils literal notranslate"><span class="pre">’file’</span></code>, the
+<code class="docutils literal notranslate"><span class="pre">compile</span></code> function will compile the file corresponding to the first
+parameter. If the compilation is successful, <code class="docutils literal notranslate"><span class="pre">compile</span></code> will return the
+compiled function, otherwise it will return <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">compile</span><span class="p">(</span><span class="s1">&#39;print(</span><span class="se">\&#39;</span><span class="s1">Hello World!</span><span class="se">\&#39;</span><span class="s1">)&#39;</span><span class="p">)()</span> <span class="c1"># Hello World!</span>
+<span class="nb">compile</span><span class="p">(</span><span class="s1">&#39;test.be&#39;</span><span class="p">,</span><span class="s1">&#39;file&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="list-class">
+<h3><code class="docutils literal notranslate"><span class="pre">list</span></code> Class<a class="headerlink" href="#list-class" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">list</span></code> is a built-in type, which is a sequential storage container that
+supports subscript reading and writing. <code class="docutils literal notranslate"><span class="pre">list</span></code> Similar to arrays in
+other programming languages. Obtaining an instance of the <code class="docutils literal notranslate"><span class="pre">list</span></code> class
+can be constructed using a pair of square brackets: <code class="docutils literal notranslate"><span class="pre">[]</span></code> will generate
+an empty <code class="docutils literal notranslate"><span class="pre">list</span></code> instance, and <code class="docutils literal notranslate"><span class="pre">[expr,</span> <span class="pre">expr,</span> <span class="pre">...]</span></code> will generate a <code class="docutils literal notranslate"><span class="pre">list</span></code>
+instance with several elements. It can also be instantiated by calling
+the <code class="docutils literal notranslate"><span class="pre">list</span></code> class: executing <code class="docutils literal notranslate"><span class="pre">list()</span></code> will get an empty <code class="docutils literal notranslate"><span class="pre">list</span></code> instance,
+and <code class="docutils literal notranslate"><span class="pre">list(expr,</span> <span class="pre">expr,</span> <span class="pre">...)</span></code> will return an instance with several
+elements.</p>
+<section id="list-method-constructor">
+<h4><code class="docutils literal notranslate"><span class="pre">list</span></code> method (Constructor)<a class="headerlink" href="#list-method-constructor" title="Permalink to this headline"></a></h4>
+<p>Initialize the <code class="docutils literal notranslate"><span class="pre">list</span></code> container. This method can accept 0 to multiple
+parameters. The <code class="docutils literal notranslate"><span class="pre">list</span></code> instance generated when multiple parameters are
+passed will have these parameters as elements, and the arrangement order
+of the elements is consistent with the arrangement order of the
+parameters.</p>
+</section>
+<section id="tostring-method">
+<h4><code class="docutils literal notranslate"><span class="pre">tostring</span></code> method<a class="headerlink" href="#tostring-method" title="Permalink to this headline"></a></h4>
+<p>Serialize the <code class="docutils literal notranslate"><span class="pre">list</span></code> instance to a string and return it. For example,
+the result of executing <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">[],</span> <span class="pre">1.5].tostring()</span></code> is <code class="docutils literal notranslate"><span class="pre">’[1,</span> <span class="pre">[],</span> <span class="pre">1.5]’</span></code>.
+If the <code class="docutils literal notranslate"><span class="pre">list</span></code> container refers to itself, the corresponding position
+will use an ellipsis instead of the specific value:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">l</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="c1"># [[...], 2]</span>
+</pre></div>
+</div>
+</section>
+<section id="concat-method">
+<h4><code class="docutils literal notranslate"><span class="pre">concat</span></code> method<a class="headerlink" href="#concat-method" title="Permalink to this headline"></a></h4>
+<p>Converts each element of the list to strings, and concatenate
+using the provided string.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">l</span><span class="o">.</span><span class="n">concat</span><span class="p">()</span>  <span class="c1"># &#39;123&#39;</span>
+<span class="n">l</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">)</span>  <span class="c1"># &#39;1, 2, 3&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="push-method">
+<h4><code class="docutils literal notranslate"><span class="pre">push</span></code> method<a class="headerlink" href="#push-method" title="Permalink to this headline"></a></h4>
+<p>Append an element to the end of the <code class="docutils literal notranslate"><span class="pre">list</span></code> container. The prototype of
+this method is <code class="docutils literal notranslate"><span class="pre">push(value)</span></code>, the parameter <code class="docutils literal notranslate"><span class="pre">value</span></code> is the value to be
+appended, and the appended value is stored at the end of the <code class="docutils literal notranslate"><span class="pre">list</span></code>
+container. The append operation increases the number of elements in the
+<code class="docutils literal notranslate"><span class="pre">list</span></code> container by 1. You can append any type of value to the <code class="docutils literal notranslate"><span class="pre">list</span></code>
+instance.</p>
+</section>
+<section id="insert-method">
+<h4><code class="docutils literal notranslate"><span class="pre">insert</span></code> method<a class="headerlink" href="#insert-method" title="Permalink to this headline"></a></h4>
+<p>Insert an element at the specified position of the <code class="docutils literal notranslate"><span class="pre">list</span></code> container. The
+prototype of this method is <code class="docutils literal notranslate"><span class="pre">insert(index,</span> <span class="pre">value)</span></code>, the parameter
+<code class="docutils literal notranslate"><span class="pre">index</span></code> is the position to be inserted, and <code class="docutils literal notranslate"><span class="pre">value</span></code> is the value to be
+inserted. After inserting an element at the position <code class="docutils literal notranslate"><span class="pre">index</span></code>, all the
+elements that originally started from this position will move backward
+by one element. The insert operation increases the number of elements in
+the <code class="docutils literal notranslate"><span class="pre">list</span></code> container by 1. You can insert any type of value into the
+<code class="docutils literal notranslate"><span class="pre">list</span></code> container.</p>
+<p>Suppose that the value of a <code class="docutils literal notranslate"><span class="pre">list</span></code> instance <code class="docutils literal notranslate"><span class="pre">l</span></code> is <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2]</span></code>, and we
+insert a string <code class="docutils literal notranslate"><span class="pre">’string’</span></code> at position 1, and we need to call
+<code class="docutils literal notranslate"><span class="pre">l.insert(1,</span> <span class="pre">’string’)</span></code>. Finally, the new <code class="docutils literal notranslate"><span class="pre">list</span></code> value is
+<code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">’string’,</span> <span class="pre">1,</span> <span class="pre">2]</span></code>.</p>
+<p>If the number of elements in a <code class="docutils literal notranslate"><span class="pre">list</span></code> container is <em>S</em>, the value range
+of the insertion position is {<em>i</em> ∈ ℤ :  − <em>S</em> ≤ <em>i</em> &lt; <em>S</em>}. When the
+insertion position is positive, index backward from the head of the
+<code class="docutils literal notranslate"><span class="pre">list</span></code> container, otherwise index forward from the end of the <code class="docutils literal notranslate"><span class="pre">list</span></code>
+container.</p>
+</section>
+<section id="remove-method">
+<h4><code class="docutils literal notranslate"><span class="pre">remove</span></code> method<a class="headerlink" href="#remove-method" title="Permalink to this headline"></a></h4>
+<p>Remove an element from the container. The prototype of this method is
+<code class="docutils literal notranslate"><span class="pre">remove(index)</span></code>, and the parameter <code class="docutils literal notranslate"><span class="pre">index</span></code> is the position of the
+element to be removed. After the element is removed, the element behind
+the removed element will move forward by one element, and the number of
+elements in the container will be reduced by 1. Like the <code class="docutils literal notranslate"><span class="pre">insert</span></code>
+method, the <code class="docutils literal notranslate"><span class="pre">remove</span></code> method can also use positive or negative indexes.</p>
+</section>
+<section id="item-method">
+<h4><code class="docutils literal notranslate"><span class="pre">item</span></code> method<a class="headerlink" href="#item-method" title="Permalink to this headline"></a></h4>
+<p>Get an element in the <code class="docutils literal notranslate"><span class="pre">list</span></code> container. The prototype of this method is
+<code class="docutils literal notranslate"><span class="pre">item(index)</span></code>, the parameter <code class="docutils literal notranslate"><span class="pre">index</span></code> is the index of the element to be
+obtained, and the return value of the method is the element at the index
+position. <code class="docutils literal notranslate"><span class="pre">list</span></code> The container supports multiple indexing methods:</p>
+<ul class="simple">
+<li><p>Integer index: The index value can be a positive integer or a
+negative integer. If the index is negative, it is relative to
+the end of the list; i.e. <code class="docutils literal notranslate"><span class="pre">-1</span></code> indicates the last element in the list.
+The return value of <code class="docutils literal notranslate"><span class="pre">item</span></code> is the element at the index
+position. If the index position exceeds the number of elements in
+the container or is before the 0th element, the <code class="docutils literal notranslate"><span class="pre">item</span></code> method will
+return <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code> Index: Using a list of integers as an index, <code class="docutils literal notranslate"><span class="pre">item</span></code> returns a
+<code class="docutils literal notranslate"><span class="pre">list</span></code>, and each element in the return value <code class="docutils literal notranslate"><span class="pre">list</span></code> is an element
+corresponding to each integer index in the parameter <code class="docutils literal notranslate"><span class="pre">list</span></code>. The
+value of the expression <code class="docutils literal notranslate"><span class="pre">[3,</span> <span class="pre">2,</span> <span class="pre">1].item([0,</span> <span class="pre">2])</span></code> is <code class="docutils literal notranslate"><span class="pre">[3,</span> <span class="pre">1]</span></code>. If an
+element type in the parameter <code class="docutils literal notranslate"><span class="pre">list</span></code> is not an integer, then the
+value at that position in the return value <code class="docutils literal notranslate"><span class="pre">list</span></code> is <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range</span></code> Index: Using an integer range as an index, <code class="docutils literal notranslate"><span class="pre">item</span></code> returns a
+<code class="docutils literal notranslate"><span class="pre">list</span></code>. The returned value stores the indexed elements from <code class="docutils literal notranslate"><span class="pre">list</span></code>
+from the lower limit to the upper limit of the parameter <code class="docutils literal notranslate"><span class="pre">range</span></code>. If
+the index exceeds the index range of the indexed <code class="docutils literal notranslate"><span class="pre">list</span></code>, the return
+value <code class="docutils literal notranslate"><span class="pre">list</span></code> will use <code class="docutils literal notranslate"><span class="pre">nil</span></code> to fill the position beyond the index.</p></li>
+</ul>
+</section>
+<section id="setitem-method">
+<h4><code class="docutils literal notranslate"><span class="pre">setitem</span></code> method<a class="headerlink" href="#setitem-method" title="Permalink to this headline"></a></h4>
+<p>Set the value of the specified position in the container. The prototype
+of this method is <code class="docutils literal notranslate"><span class="pre">setitem(index,</span> <span class="pre">value)</span></code>, <code class="docutils literal notranslate"><span class="pre">index</span></code> is the position of
+the element to be written, and <code class="docutils literal notranslate"><span class="pre">value</span></code> is the value to be written.
+<code class="docutils literal notranslate"><span class="pre">index</span></code> is the integer index value of the writing position. Index
+positions outside the index range of the container will cause <code class="docutils literal notranslate"><span class="pre">setitem</span></code>
+to fail to execute.</p>
+</section>
+<section id="size-method">
+<h4><code class="docutils literal notranslate"><span class="pre">size</span></code> method<a class="headerlink" href="#size-method" title="Permalink to this headline"></a></h4>
+<p>Returns the number of elements in the container, which is the
+length of the container. The prototype of this method is <code class="docutils literal notranslate"><span class="pre">size()</span></code>.</p>
+</section>
+<section id="resize-method">
+<h4><code class="docutils literal notranslate"><span class="pre">resize</span></code> method<a class="headerlink" href="#resize-method" title="Permalink to this headline"></a></h4>
+<p>Reset <code class="docutils literal notranslate"><span class="pre">list</span></code> the length of the container. The prototype of this method
+is <code class="docutils literal notranslate"><span class="pre">resize(count)</span></code>, and the parameter <code class="docutils literal notranslate"><span class="pre">count</span></code> is the new length of the
+container. When using <code class="docutils literal notranslate"><span class="pre">resize</span></code> to increase the length of the container,
+the new element will be initialized to <code class="docutils literal notranslate"><span class="pre">nil</span></code>. Using <code class="docutils literal notranslate"><span class="pre">resize</span></code> to reduce
+the length of the container will discard some elements at the end of the
+container. E.g:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">l</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># Expansion, l == [1, 2, 3, nil, nil]</span>
+<span class="n">l</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Reduce, l == [1, 2]</span>
+</pre></div>
+</div>
+</section>
+<section id="iter-method">
+<h4><code class="docutils literal notranslate"><span class="pre">iter</span></code> method<a class="headerlink" href="#iter-method" title="Permalink to this headline"></a></h4>
+<p>Returns an iterator for traversing the current <code class="docutils literal notranslate"><span class="pre">list</span></code> container.</p>
+</section>
+<section id="find-method">
+<h4><code class="docutils literal notranslate"><span class="pre">find</span></code> method<a class="headerlink" href="#find-method" title="Permalink to this headline"></a></h4>
+<p>Similar to <code class="docutils literal notranslate"><span class="pre">item</span></code> or <code class="docutils literal notranslate"><span class="pre">list[idx]</span></code>. The only difference is if the index is out of range, <code class="docutils literal notranslate"><span class="pre">find</span></code>
+return <code class="docutils literal notranslate"><span class="pre">nil</span></code> instead or raising an exception.</p>
+</section>
+<section id="reverse-method">
+<h4><code class="docutils literal notranslate"><span class="pre">reverse</span></code> method<a class="headerlink" href="#reverse-method" title="Permalink to this headline"></a></h4>
+<p>Changes the list in-place and reverses the order of elements. Also returns the resulting list.</p>
+</section>
+</section>
+<section id="map-class">
+<h3><code class="docutils literal notranslate"><span class="pre">map</span></code> Class<a class="headerlink" href="#map-class" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">map</span></code> Class is a built-in class type used to provide an unordered
+container of key-value pairs. Inside the Berry interpreter, <code class="docutils literal notranslate"><span class="pre">map</span></code> uses
+the Hash table to implement. You can use curly brace pairs to construct
+a <code class="docutils literal notranslate"><span class="pre">map</span></code> container. Using an empty curly brace pair <code class="docutils literal notranslate"><span class="pre">{}</span></code> will generate an
+empty <code class="docutils literal notranslate"><span class="pre">map</span></code> instance. If you need to construct a non-empty <code class="docutils literal notranslate"><span class="pre">map</span></code>
+instance, use a colon to separate the key and value, and use a semicolon
+to separate multiple key-value pairs. For example, <code class="docutils literal notranslate"><span class="pre">{0:</span> <span class="pre">1,</span> <span class="pre">2:</span> <span class="pre">3}</span></code> has
+two key-value pairs (0,1) and (2,3). You can also get an empty <code class="docutils literal notranslate"><span class="pre">map</span></code>
+instance by calling the <code class="docutils literal notranslate"><span class="pre">map</span></code> class.</p>
+<section id="map-method-constructor">
+<h4><code class="docutils literal notranslate"><span class="pre">map</span></code> method (Constructor)<a class="headerlink" href="#map-method-constructor" title="Permalink to this headline"></a></h4>
+<p>Initialize the <code class="docutils literal notranslate"><span class="pre">map</span></code> container, this method does not accept parameters.
+Executing <code class="docutils literal notranslate"><span class="pre">map()</span></code> will get an empty <code class="docutils literal notranslate"><span class="pre">map</span></code> instance.</p>
+</section>
+<section id="id1">
+<h4><code class="docutils literal notranslate"><span class="pre">tostring</span></code> method<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h4>
+<p>Serialize <code class="docutils literal notranslate"><span class="pre">map</span></code> as a string and return. The serialized string is similar
+to literal writing. For example, the result of executing
+<code class="docutils literal notranslate"><span class="pre">’str’:</span> <span class="pre">1,</span> <span class="pre">0:</span> <span class="pre">2</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;’str’:</span> <span class="pre">1,</span> <span class="pre">0:</span> <span class="pre">2&quot;</span></code>. If the <code class="docutils literal notranslate"><span class="pre">map</span></code> container refers to
+itself, the corresponding position will use an ellipsis instead of the
+specific value:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;map&#39;</span><span class="p">:</span> <span class="n">nil</span><span class="p">,</span><span class="s1">&#39;text&#39;</span><span class="p">:</span><span class="s1">&#39;hello&#39;</span><span class="p">}</span>
+<span class="n">m</span><span class="p">[</span><span class="s1">&#39;map&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="c1"># {&#39;text&#39;:&#39;hello&#39;,&#39;map&#39;: {...}}</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h4><code class="docutils literal notranslate"><span class="pre">insert</span></code> method<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h4>
+<p>Insert a key-value pair in the <code class="docutils literal notranslate"><span class="pre">map</span></code> container. The prototype of this
+method is <code class="docutils literal notranslate"><span class="pre">insert(key,</span> <span class="pre">value)</span></code>, the parameter <code class="docutils literal notranslate"><span class="pre">key</span></code> is the key to be
+inserted, and <code class="docutils literal notranslate"><span class="pre">value</span></code> is the value to be inserted. If the key <code class="docutils literal notranslate"><span class="pre">map</span></code> to
+be inserted exists in the container, the original key-value pair will be
+updated.</p>
+</section>
+<section id="id3">
+<h4><code class="docutils literal notranslate"><span class="pre">remove</span></code> method<a class="headerlink" href="#id3" title="Permalink to this headline"></a></h4>
+<p>Remove a key-value pair from the <code class="docutils literal notranslate"><span class="pre">map</span></code> container. The prototype of this
+method is <code class="docutils literal notranslate"><span class="pre">remove(key)</span></code>, and the parameter <code class="docutils literal notranslate"><span class="pre">key</span></code> is the key of the
+key-value pair to be deleted.</p>
+</section>
+<section id="id4">
+<h4><code class="docutils literal notranslate"><span class="pre">item</span></code> method<a class="headerlink" href="#id4" title="Permalink to this headline"></a></h4>
+<p>Get a value in the <code class="docutils literal notranslate"><span class="pre">map</span></code> container. The prototype of this method is
+<code class="docutils literal notranslate"><span class="pre">item(key)</span></code>, the parameter <code class="docutils literal notranslate"><span class="pre">key</span></code> is the key of the value to be obtained,
+and the return value of the method is the value corresponding to the
+key.</p>
+</section>
+<section id="id5">
+<h4><code class="docutils literal notranslate"><span class="pre">setitem</span></code> method<a class="headerlink" href="#id5" title="Permalink to this headline"></a></h4>
+<p>Set the value corresponding to the specified key in the container. The
+prototype of this method is <code class="docutils literal notranslate"><span class="pre">setitem(key,</span> <span class="pre">value)</span></code>, <code class="docutils literal notranslate"><span class="pre">key</span></code> is the key of
+the key-value pair to be written, and <code class="docutils literal notranslate"><span class="pre">value</span></code> is the value to be
+written. If there is no key-value pair with the key <code class="docutils literal notranslate"><span class="pre">key</span></code> in the
+container, the <code class="docutils literal notranslate"><span class="pre">setitem</span></code> method will fail.</p>
+</section>
+<section id="id6">
+<h4><code class="docutils literal notranslate"><span class="pre">size</span></code> method<a class="headerlink" href="#id6" title="Permalink to this headline"></a></h4>
+<p>Return the number of key-value pairs of the <code class="docutils literal notranslate"><span class="pre">map</span></code> container, which is
+the length of the container. The prototype of this method is <code class="docutils literal notranslate"><span class="pre">size()</span></code>.</p>
+</section>
+<section id="contains-method">
+<h4><code class="docutils literal notranslate"><span class="pre">contains</span></code> method<a class="headerlink" href="#contains-method" title="Permalink to this headline"></a></h4>
+<p>Returns boolean <code class="docutils literal notranslate"><span class="pre">true</span></code> if a matching key-value pair is found in the
+<code class="docutils literal notranslate"><span class="pre">map</span></code> container, otherwise <code class="docutils literal notranslate"><span class="pre">false</span></code>. The prototype of this method is
+<code class="docutils literal notranslate"><span class="pre">contains(key)</span></code>.</p>
+</section>
+<section id="id7">
+<h4><code class="docutils literal notranslate"><span class="pre">find</span></code> method<a class="headerlink" href="#id7" title="Permalink to this headline"></a></h4>
+<p>Returns the value corresponding to the specified key in the container. The
+prototype of this method is <code class="docutils literal notranslate"><span class="pre">find(key)</span></code> or <code class="docutils literal notranslate"><span class="pre">find(key,</span> <span class="pre">defaultvalue)</span></code>,
+<code class="docutils literal notranslate"><span class="pre">key</span></code> is the key of the key-value pair to be accessed, and <code class="docutils literal notranslate"><span class="pre">defaultvalue</span></code>
+is the default value returned if the key is not found. If no default value
+is specified, <code class="docutils literal notranslate"><span class="pre">nil</span></code> is returned instead.</p>
+</section>
+</section>
+<section id="range-class">
+<h3><code class="docutils literal notranslate"><span class="pre">range</span></code> Class<a class="headerlink" href="#range-class" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">range</span></code> The class is used to represent an integer closed interval. Use
+the binary operator <code class="docutils literal notranslate"><span class="pre">..</span></code> to construct an instance of <code class="docutils literal notranslate"><span class="pre">range</span></code>. The left
+and right operands of the operator are required to be integers. For
+example, <code class="docutils literal notranslate"><span class="pre">0..10</span></code> means the integer interval [0,10] ∩ ℤ.</p>
+<p>If you don’t specify the high range, it is set to <code class="docutils literal notranslate"><span class="pre">MAXINT</span></code>. Example: <code class="docutils literal notranslate"><span class="pre">print(0..)</span>&#160; <span class="pre">#</span> <span class="pre">(0..9223372036854775807)</span></code></p>
+<p>There are typically two ways to traverse a list:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">e</span><span class="p">:</span><span class="n">l</span> <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="n">end</span> <span class="c1"># 1/2/3/4</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">:</span><span class="mf">0.</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="n">end</span> <span class="c1"># 1/2/3/4</span>
+</pre></div>
+</div>
+</section>
+<section id="bytes-class">
+<h3><code class="docutils literal notranslate"><span class="pre">bytes</span></code> Class<a class="headerlink" href="#bytes-class" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">bytes</span></code> object are represented as arrays of Hex bytes. <code class="docutils literal notranslate"><span class="pre">bytes</span></code> constructor takes a string of Hex and builds the in-memory buffer.</p>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># bytes(&#39;&#39;)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;1155AA&quot;</span><span class="p">)</span>  <span class="c1"># sequence of bytes 0x11 0x55 0xAA</span>
+<span class="n">size</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>  <span class="c1"># 3 = 3 bytes</span>
+<span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>     <span class="c1"># 17 (0x11)</span>
+<span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">16</span>  <span class="c1"># assign first byte</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># bytes(&#39;1055AA&#39;)</span>
+</pre></div>
+</div>
+<section id="bytes-method-constructor">
+<h4><code class="docutils literal notranslate"><span class="pre">bytes</span></code> method (Constructor)<a class="headerlink" href="#bytes-method-constructor" title="Permalink to this headline"></a></h4>
+<p>Initialize a bytes array. There are several options.</p>
+<p><strong>Option 1: empty value</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">bytes()</span></code> creates a new empty bytes array. <code class="docutils literal notranslate"><span class="pre">size(bytes())</span> <span class="pre">==</span> <span class="pre">0</span></code>.</p>
+<p>There is no limit in the size of a bytes array, except the available memory. An internal buffer is allocated and reallocated in case the previous one was too small. The initial buffer is 36 bytes, but you can pre-allocated a larger (or smaller) buffer if you know in advance the size needed.</p>
+<p>Similarly the buffer is automatically shrunk if it is used less than its needed size.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span>   <span class="c1"># pre-allocated 4096 bytes</span>
+</pre></div>
+</div>
+<p><strong>Option 2: initial value</strong></p>
+<p>If first argument is a <code class="docutils literal notranslate"><span class="pre">string</span></code> it is parsed as a list of Hex values. You can add an optional second argument to pre-allocate a bigger buffer.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;BEEF0000&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># bytes(&#39;beef0000&#39;)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;112233&quot;</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>   <span class="c1"># pre-allocate 128 bytes internally</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># bytes(&#39;112233&#39;)</span>
+</pre></div>
+</div>
+<p><strong>Option 3: fixed size</strong></p>
+<p>If the size provided is negative, the array size is fixed and cannot be lowered nor raised.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># bytes(&#39;0000000000000000&#39;)</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;AA&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># bytes(&#39;AA000000&#39;)</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;1122334455&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">attribute_error</span><span class="p">:</span> <span class="nb">bytes</span> <span class="nb">object</span> <span class="n">size</span> <span class="k">if</span> <span class="n">fixed</span> <span class="ow">and</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">resized</span>
+</pre></div>
+</div>
+<p><strong>Option 4: memory mapping</strong></p>
+<p><strong>Caution, use with great care</strong></p>
+<p>In this mode, the bytes array is mapped to a specific region in memory. You must provide the base address as <code class="docutils literal notranslate"><span class="pre">comptr</span></code> and the size. Size is always fixed whether it is positive or negative. This feature is <strong>dangerous</strong> since you can access any memory location, causing a crash if the location is protected or invalid. Use with care.</p>
+<p>In this case <code class="docutils literal notranslate"><span class="pre">b.ismapped()</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> indicating a mapped memory buffer. In all other cases <code class="docutils literal notranslate"><span class="pre">b.ismapped()</span></code> returns <code class="docutils literal notranslate"><span class="pre">false</span></code>. This is typically used to know if Berry allocated the buffer or not, and if sub-elements need to be explicitly deallocated.</p>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">introspect</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">()</span> <span class="k">return</span> <span class="mi">0</span> <span class="n">end</span>
+
+<span class="n">addr</span> <span class="o">=</span> <span class="n">introspect</span><span class="o">.</span><span class="n">toptr</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>   <span class="c1"># &lt;ptr: 0x3ffeaf88&gt;</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># bytes(&#39;F8EAFE3F24000000&#39;)</span>
+<span class="c1"># this example shows the first 8 bytes of the function object in memory</span>
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h4><code class="docutils literal notranslate"><span class="pre">size</span></code> method<a class="headerlink" href="#id8" title="Permalink to this headline"></a></h4>
+<p>Returns the number of bytes in the bytes array</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;1122334455&quot;</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>   <span class="c1"># 5</span>
+<span class="n">size</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>    <span class="c1"># 5</span>
+</pre></div>
+</div>
+</section>
+<section id="id9">
+<h4><code class="docutils literal notranslate"><span class="pre">tostring</span></code> method<a class="headerlink" href="#id9" title="Permalink to this headline"></a></h4>
+<p>Shows a human readable form of the bytes array in hex. By default, it shows only the first 32 characters. You can request more characters by adding an int argument with the maximum number of bytes you want to convert. <code class="docutils literal notranslate"><span class="pre">tostring</span></code> is internally used when you print an object. <code class="docutils literal notranslate"><span class="pre">print(b)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">print(b.tostring())</span></code>. It is different from <code class="docutils literal notranslate"><span class="pre">asstring</span></code> which turns a bytes array to the equivalent low-level string object without any encoding.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;1122334455&quot;</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">tostring</span><span class="p">()</span>   <span class="c1"># &#39;bytes(\&#39;1122334455\&#39;)&#39;</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">()</span>
+<span class="n">b</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span>   <span class="c1"># resize to 64 bytes</span>
+<span class="n">b</span><span class="o">.</span><span class="n">tostring</span><span class="p">()</span>   <span class="c1"># &#39;bytes(\&#39;0000000000000000000000000000000000000000000000000000000000000000...\&#39;)&#39;</span>
+<span class="n">b</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="c1"># &#39;bytes(\&#39;00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\&#39;)&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="tohex-method">
+<h4><code class="docutils literal notranslate"><span class="pre">tohex</span></code> method<a class="headerlink" href="#tohex-method" title="Permalink to this headline"></a></h4>
+<p>Converts the bytes array in an hex string, similar to the one returned by <code class="docutils literal notranslate"><span class="pre">tostring()</span></code> but without decorators.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;1122334455&quot;</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">tohex</span><span class="p">()</span>   <span class="c1"># &#39;1122334455&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="fromhex-method">
+<h4><code class="docutils literal notranslate"><span class="pre">fromhex</span></code> method<a class="headerlink" href="#fromhex-method" title="Permalink to this headline"></a></h4>
+<p>Updates the content of the bytes array from a new hex string. This allows to load a new hex string without allocating a new bytes object.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;1122334455&quot;</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s2">&quot;AABBCC&quot;</span><span class="p">)</span>  <span class="c1"># bytes(&#39;AABBCC&#39;)</span>
+</pre></div>
+</div>
+</section>
+<section id="clear-method">
+<h4><code class="docutils literal notranslate"><span class="pre">clear</span></code> method<a class="headerlink" href="#clear-method" title="Permalink to this headline"></a></h4>
+<p>Sets back the bytes array to empty</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;1122&quot;</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># bytes()</span>
+</pre></div>
+</div>
+</section>
+<section id="id10">
+<h4><code class="docutils literal notranslate"><span class="pre">resize</span></code> method<a class="headerlink" href="#id10" title="Permalink to this headline"></a></h4>
+<p>Shrink or expand the bytes array to match the specified size. If expanded, NULL (0x00) bytes are added at the end of the buffer.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;11223344&quot;</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># bytes(&#39;112233440000&#39;)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># bytes(&#39;1122&#39;)</span>
+</pre></div>
+</div>
+</section>
+<section id="concatenation-and-methods">
+<h4>Concatenation <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">..</span></code> methods<a class="headerlink" href="#concatenation-and-methods" title="Permalink to this headline"></a></h4>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">+</span></code> to concatenate two <code class="docutils literal notranslate"><span class="pre">bytes</span></code> list, creating a new <code class="docutils literal notranslate"><span class="pre">bytes</span></code> object.
+<code class="docutils literal notranslate"><span class="pre">..</span></code> changes the list in place and can be used to add an <code class="docutils literal notranslate"><span class="pre">int</span></code> (1 bytes) or a <code class="docutils literal notranslate"><span class="pre">bytes</span></code> object</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;1122&quot;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;3344&quot;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>           <span class="c1"># b and c are unchanged</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>            <span class="c1"># bytes(&#39;11223344&#39;)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>            <span class="c1"># bytes(&#39;1122&#39;)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>            <span class="c1"># bytes(&#39;3344&#39;)</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="n">b</span><span class="o">..</span><span class="n">c</span>            <span class="c1"># now b is changed</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>            <span class="c1"># bytes(&#39;11223344&#39;)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>            <span class="c1"># bytes(&#39;11223344&#39;)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>            <span class="c1"># bytes(&#39;3344&#39;)</span>
+</pre></div>
+</div>
+</section>
+<section id="bytes-access-method">
+<h4>bytes access <code class="docutils literal notranslate"><span class="pre">[]</span></code> method<a class="headerlink" href="#bytes-access-method" title="Permalink to this headline"></a></h4>
+<p>You can access individual bytes as integers, to read and write. Values not in the range 0..255 are silently choped.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;010203&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>         <span class="c1"># 1</span>
+
+<span class="c1"># negative indices count from the end</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>        <span class="c1"># 3</span>
+
+<span class="c1"># out of bounds generate an exception</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>         <span class="c1"># index_error: bytes index out of range</span>
+
+<span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>            <span class="c1"># bytes(&#39;FF0203&#39;)</span>
+
+<span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">256</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>            <span class="c1"># bytes(&#39;FF0003&#39;)</span>
+</pre></div>
+</div>
+</section>
+<section id="range-access-method">
+<h4>range access <code class="docutils literal notranslate"><span class="pre">[]</span></code> method<a class="headerlink" href="#range-access-method" title="Permalink to this headline"></a></h4>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">[]</span></code> accessor with a range to get an sub-list of <code class="docutils literal notranslate"><span class="pre">bytes</span></code>. If an index is negative, it is taken from the end of the array.</p>
+<p>This construct cannot be used a an <em>lvalue</em>, i.e. you can’t splice like <code class="docutils literal notranslate"><span class="pre">b[1..2]</span> <span class="pre">=</span> <span class="pre">bytes(&quot;0011&quot;)</span>&#160; <span class="pre">#</span> <span class="pre">not</span> <span class="pre">allowed</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;001122334455&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mf">1..2</span><span class="p">])</span>      <span class="c1"># bytes(&#39;1122&#39;)</span>
+
+<span class="c1"># remove first 2 bytes</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mf">2.</span><span class="o">.-</span><span class="mi">1</span><span class="p">])</span>     <span class="c1"># bytes(&#39;22334455&#39;)</span>
+
+<span class="c1"># remove last 2 bytes</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mf">0.</span><span class="o">.-</span><span class="mi">3</span><span class="p">])</span>     <span class="c1"># bytes(&#39;00112233&#39;)</span>
+
+<span class="c1"># overshooting is allowed</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mf">4..10</span><span class="p">])</span>     <span class="c1"># bytes(&#39;4455&#39;)</span>
+
+<span class="c1"># inversed indices return an empty array</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mf">5..4</span><span class="p">])</span>      <span class="c1"># bytes(&#39;&#39;)</span>
+</pre></div>
+</div>
+<p>The standard <code class="docutils literal notranslate"><span class="pre">item</span></code> and <code class="docutils literal notranslate"><span class="pre">setitem</span></code> methods are implemented, and transparently mapped to <code class="docutils literal notranslate"><span class="pre">[]</span></code> operator.</p>
+</section>
+<section id="copy-method">
+<h4><code class="docutils literal notranslate"><span class="pre">copy</span></code> method<a class="headerlink" href="#copy-method" title="Permalink to this headline"></a></h4>
+<p>Creates a fresh new copy of the <code class="docutils literal notranslate"><span class="pre">bytes</span></code> object. A new memory buffer is allocated and data is duplicated.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;1122&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>          <span class="c1"># bytes(&#39;1122&#39;)</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>          <span class="c1"># bytes(&#39;1122&#39;)</span>
+
+<span class="n">b</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>          <span class="c1"># bytes(&#39;&#39;)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>          <span class="c1"># bytes(&#39;1122&#39;)bytes(&#39;1122&#39;)</span>
+</pre></div>
+</div>
+</section>
+<section id="get-geti-methods">
+<h4><code class="docutils literal notranslate"><span class="pre">get,</span> <span class="pre">geti</span></code> methods<a class="headerlink" href="#get-geti-methods" title="Permalink to this headline"></a></h4>
+<p>Read a 1/2/4 bytes value from any offset in the bytes array. The standard mode is little endian, if you specify a negative size it enables big endian. <code class="docutils literal notranslate"><span class="pre">get</span></code> returns unsigned values, while <code class="docutils literal notranslate"><span class="pre">geti</span></code> returns signed values.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="o">&lt;</span><span class="n">offset</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">size</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span> <span class="nb">object</span>
+</pre></div>
+</div>
+<p>If the offset is out of range, <code class="docutils literal notranslate"><span class="pre">0</span></code> is returned (no exception raised).</p>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;010203040506&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>         <span class="c1"># 1027 - 0x0403 read 2 bytes little endian</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span>        <span class="c1">#  772 - 0x0304 read 2 bytes big endian</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>         <span class="c1"># 100992003 - 0x06050403 - little endian</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">))</span>        <span class="c1">#  50595078 - 0x03040506 - big endian</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;FEFF&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>        <span class="c1"># 65534 - 0xFFFE</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">geti</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>       <span class="c1"># -2 - 0xFFFE</span>
+</pre></div>
+</div>
+</section>
+<section id="set-seti-methods">
+<h4><code class="docutils literal notranslate"><span class="pre">set,</span> <span class="pre">seti</span></code> methods<a class="headerlink" href="#set-seti-methods" title="Permalink to this headline"></a></h4>
+<p>Similar to <code class="docutils literal notranslate"><span class="pre">get</span></code> and <code class="docutils literal notranslate"><span class="pre">geti</span></code>, allows to set a 1/2/4 bytes value at any offset. <code class="docutils literal notranslate"><span class="pre">seti</span></code> uses signed integers, <code class="docutils literal notranslate"><span class="pre">set</span></code> unsigned (actually it does not make a difference).</p>
+<p>If the offset is out of range, no change is done (no exception raised).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bytes</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">&lt;</span><span class="n">offset</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">size</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="add-method">
+<h4><code class="docutils literal notranslate"><span class="pre">add</span></code> method<a class="headerlink" href="#add-method" title="Permalink to this headline"></a></h4>
+<p>This methods adds value of 1/2/4 bytes (little endian or big endian) at the end of the buffer. If size is negative, the value is treated as big endian.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">size</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;0011&quot;</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mh">0x22</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>             <span class="c1"># bytes(&#39;001122&#39;)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mh">0x2233</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>             <span class="c1"># bytes(&#39;0011223322&#39;)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mh">0x22334455</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>             <span class="c1"># bytes(&#39;001122332255443322&#39;)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>             <span class="c1"># bytes(&#39;00112233225544332200&#39;)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="n">b</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mh">0x0102</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>             <span class="c1"># bytes(&#39;0102&#39;)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mh">0x01020304</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>             <span class="c1"># bytes(&#39;010201020304&#39;)</span>
+</pre></div>
+</div>
+</section>
+<section id="asstring-method">
+<h4><code class="docutils literal notranslate"><span class="pre">asstring</span></code> method<a class="headerlink" href="#asstring-method" title="Permalink to this headline"></a></h4>
+<p>Converts a bytes buffer to a string. The buffer is converted as-is without any encoding considerations. If the buffer contains NULL characters, the string will be truncated.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">=</span><span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;3344&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">asstring</span><span class="p">())</span>   <span class="c1"># &#39;3D&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="fromstring-method">
+<h4><code class="docutils literal notranslate"><span class="pre">fromstring</span></code> method<a class="headerlink" href="#fromstring-method" title="Permalink to this headline"></a></h4>
+<p>Converts a bytes buffer to a string. The buffer is converted as-is without any encoding considerations. If the buffer contains NULL characters, the string will be truncated.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">=</span><span class="nb">bytes</span><span class="p">()</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>              <span class="c1"># bytes(&#39;48656C6C6F&#39;)</span>
+</pre></div>
+</div>
+</section>
+<section id="bits-manipulation-setbits-getbits-methods">
+<h4>bits manipulation <code class="docutils literal notranslate"><span class="pre">setbits,</span> <span class="pre">getbits</span></code> methods<a class="headerlink" href="#bits-manipulation-setbits-getbits-methods" title="Permalink to this headline"></a></h4>
+<p>You can read and write at sub-byte level, specifying from which bit to which bit. The offset is in bits, not bytes. Add the number of bytes * 8.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">setbits</span><span class="p">(</span><span class="o">&lt;</span><span class="n">offset_bits</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">len_bits</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">getbits</span><span class="p">(</span><span class="o">&lt;</span><span class="n">offset_bits</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">len_bits</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="base64-encode-tob64-method">
+<h4>base64 encode <code class="docutils literal notranslate"><span class="pre">tob64</span></code> method<a class="headerlink" href="#base64-encode-tob64-method" title="Permalink to this headline"></a></h4>
+<p>Converts a bytes array to a base64 string.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s1">&#39;deadbeef0011&#39;</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">tob64</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>               <span class="c1"># 3q2+7wAR</span>
+</pre></div>
+</div>
+</section>
+<section id="base64-decode-fromb64-method">
+<h4>base64 decode <code class="docutils literal notranslate"><span class="pre">fromb64</span></code> method<a class="headerlink" href="#base64-decode-fromb64-method" title="Permalink to this headline"></a></h4>
+<p>Converts a base64 string into a bytes array.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;3q2+7wAR&#39;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">()</span><span class="o">.</span><span class="n">fromb64</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>               <span class="c1"># bytes(&#39;DEADBEEF0011&#39;)</span>
+</pre></div>
+</div>
+</section>
+<section id="getfloat-and-setfloat-methods">
+<h4><code class="docutils literal notranslate"><span class="pre">getfloat</span></code> and <code class="docutils literal notranslate"><span class="pre">setfloat</span></code> methods<a class="headerlink" href="#getfloat-and-setfloat-methods" title="Permalink to this headline"></a></h4>
+<p>Similar to <code class="docutils literal notranslate"><span class="pre">get/set</span></code>, allows to read or write a 32 bits float value.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">getfloat</span><span class="p">(</span><span class="o">&lt;</span><span class="n">offset</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">getfloat</span><span class="p">(</span><span class="o">&lt;</span><span class="n">offset</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">number</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>b = bytes(&quot;00000000&quot;)
+b.getfloat(0)	  # 0
+b.setfloat(0, -1.5)
+print(b)  # bytes(&#39;0000C0BF&#39;)
+b.getfloat(0)  # -1.5
+</pre></div>
+</div>
+</section>
+<section id="buffer-method">
+<h4><code class="docutils literal notranslate"><span class="pre">_buffer</span></code> method<a class="headerlink" href="#buffer-method" title="Permalink to this headline"></a></h4>
+<p><strong>Advanced feature</strong>: returns the address of the buffer in memory, to be used with C code.</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>b = bytes(&#39;1122&#39;)
+b._buffer()  # &lt;ptr: 0x600000c283c0&gt;
+</pre></div>
+</div>
+</section>
+<section id="change-buffer-method">
+<h4><code class="docutils literal notranslate"><span class="pre">_change_buffer</span></code> method<a class="headerlink" href="#change-buffer-method" title="Permalink to this headline"></a></h4>
+<p><strong>Advanced feature</strong>: works only for mapped buffers (i.e. <code class="docutils literal notranslate"><span class="pre">b.ismapped()</span> <span class="pre">==</span> <span class="pre">true</span></code>), allows to remap the buffer to a new memory address. This allows to reuse the bytes() object without reallocating a new instance.</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span># this example uses pointer allocation, use with great care
+b1 = bytes(&quot;11223344&quot;)
+b2 = bytes(&quot;AABBCCDD&quot;)
+b1._buffer()  # &lt;ptr: 0x600000c2c390&gt;
+b2._buffer()  # &lt;ptr: 0x600000c24270&gt;
+
+# now we create c as a mapped buffer of 4 bytes to the address of b1
+c = bytes(b1._buffer(), 4)
+print(c)  # bytes(&#39;11223344&#39;) -- mapped to b1
+c._buffer()   # &lt;ptr: 0x600000c2c390&gt;
+
+# let&#39;s change a byte to prove it
+c[0] = 254
+print(c)  # bytes(&#39;FE223344&#39;)
+print(b1) # bytes(&#39;FE223344&#39;) -- b1 was changed
+
+# reallocate c to map b2
+c._change_buffer(b2._buffer())
+print(c)  # bytes(&#39;AABBCCDD&#39;)
+c._buffer()  # &lt;ptr: 0x600000c24270&gt;
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="expansion-modules">
+<h2>Expansion Modules<a class="headerlink" href="#expansion-modules" title="Permalink to this headline"></a></h2>
+<section id="json-module">
+<h3>JSON Module<a class="headerlink" href="#json-module" title="Permalink to this headline"></a></h3>
+<p>JSON is a lightweight data exchange format. It is a subset of
+JavaScript. It uses a text format that is completely independent of the
+programming language to represent data. Berry provides a JSON module to
+provide support for JSON data. The JSON module only contains two
+functions <code class="docutils literal notranslate"><span class="pre">load</span></code> and <code class="docutils literal notranslate"><span class="pre">dump</span></code>, which are used to parse JSON strings and
+multiply Berry objects and serialize a Berry object into JSON text.</p>
+<section id="load-function">
+<h4><code class="docutils literal notranslate"><span class="pre">load</span></code> function<a class="headerlink" href="#load-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">load</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function is used to convert the input JSON text into a Berry object
+and return it. The conversion rules are shown in Table
+<a href="#tab::json2berry_rule" data-reference-type="ref" data-reference="tab::json2berry_rule">1.1</a>.
+If there is a syntax error in the JSON text, the function will return
+<code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p><strong>JSON type</strong></p></th>
+<th class="text-center head"><p><strong>Berry type</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">null</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">nil</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">integer</span></code> or <code class="docutils literal notranslate"><span class="pre">real</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">array</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">list</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">map</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>JSON type to Berry type conversion rules</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">)</span> <span class="c1"># 0</span>
+<span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;[{&quot;name&quot;: &quot;liu&quot;, &quot;age&quot;: 13}, 10.0]&#39;</span><span class="p">)</span> <span class="c1"># [{&#39;name&#39;:&#39;liu&#39;,&#39;age&#39;: 13}, 10]</span>
+</pre></div>
+</div>
+</section>
+<section id="dump-function">
+<h4><code class="docutils literal notranslate"><span class="pre">dump</span></code> function<a class="headerlink" href="#dump-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dump</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function is used to serialize the Berry object into JSON text. The
+conversion rules for serialization are shown in Table
+<a href="#tab::berry2json_rule" data-reference-type="ref" data-reference="tab::berry2json_rule">1.2</a>.</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p><strong>Berry type</strong></p></th>
+<th class="text-center head"><p><strong>JSON type</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">nil</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">null</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">integer</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">real</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">list</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">array</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">map</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">map</span></code>Key of</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>other</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Berry type to JSON type conversion rules</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span> <span class="c1">#&#39;&quot;string&quot;&#39;</span>
+<span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span> <span class="c1">#&#39;&quot;string&quot;&#39;</span>
+<span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;item 0&#39;</span><span class="p">,</span><span class="s1">&#39;list&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]})</span> <span class="c1">#&#39;{&quot;0&quot;:&quot;item 0&quot;,&quot;list&quot;:[0,1,2]}&#39;</span>
+<span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;item 0&#39;</span><span class="p">,</span><span class="s1">&#39;list&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span><span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="nb">print</span><span class="p">},</span><span class="s1">&#39;format&#39;</span><span class="p">)</span>
+<span class="c1">#-</span>
+<span class="p">{</span>
+    <span class="s2">&quot;0&quot;</span><span class="p">:</span> <span class="s2">&quot;item 0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;list&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="mi">0</span><span class="p">,</span>
+        <span class="mi">1</span><span class="p">,</span>
+        <span class="mi">2</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;function: 00410310&gt;&quot;</span>
+<span class="p">}</span>
+<span class="o">-</span><span class="c1">#</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="math-module">
+<h3>Math Module<a class="headerlink" href="#math-module" title="Permalink to this headline"></a></h3>
+<p>This module is used to provide support for mathematical functions, such
+as commonly used trigonometric functions and square root functions. To
+use the math module, first use the <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code> statement to import.
+All examples in this section assume that the module has been imported
+correctly.</p>
+<section id="pi-constant">
+<h4><code class="docutils literal notranslate"><span class="pre">pi</span></code> constant<a class="headerlink" href="#pi-constant" title="Permalink to this headline"></a></h4>
+<p>The approximate value of Pi <em>π</em>, a real number type, approximately equal
+to 3.141592654.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="c1"># 3.14159</span>
+</pre></div>
+</div>
+</section>
+<section id="abs-function">
+<h4><code class="docutils literal notranslate"><span class="pre">abs</span></code> function<a class="headerlink" href="#abs-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">abs</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function returns the absolute value of the parameter, which can be
+an integer or a real number. If there are no parameters, the function
+returns <code class="docutils literal notranslate"><span class="pre">0</span></code>, if there are multiple parameters, only the first parameter
+is processed. <code class="docutils literal notranslate"><span class="pre">abs</span></code> The return type of the function is a real number.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 1</span>
+<span class="n">math</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="c1"># 1.5</span>
+</pre></div>
+</div>
+</section>
+<section id="ceil-function">
+<h4><code class="docutils literal notranslate"><span class="pre">ceil</span></code> function<a class="headerlink" href="#ceil-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ceil</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function returns the rounded up value of the parameter, that is,
+the smallest integer value greater than or equal to the parameter. The
+parameter can be an integer or a real number. If there are no
+parameters, the function returns <code class="docutils literal notranslate"><span class="pre">0</span></code>, if there are multiple parameters,
+only the first parameter is processed. <code class="docutils literal notranslate"><span class="pre">ceil</span></code> The return type of the
+function is a real number.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">)</span> <span class="c1"># -1</span>
+<span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="c1"># 2</span>
+</pre></div>
+</div>
+</section>
+<section id="floor-function">
+<h4><code class="docutils literal notranslate"><span class="pre">floor</span></code> function<a class="headerlink" href="#floor-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">floor</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function returns the rounded down value of the parameter, which is
+not greater than the maximum integer value of the parameter. The
+parameter can be an integer or a real number. If there are no
+parameters, the function returns <code class="docutils literal notranslate"><span class="pre">0</span></code>, if there are multiple parameters,
+only the first parameter is processed. <code class="docutils literal notranslate"><span class="pre">floor</span></code> The return type of the
+function is a real number.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">)</span> <span class="c1"># -2</span>
+<span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="c1"># 1</span>
+</pre></div>
+</div>
+</section>
+<section id="sin-function">
+<h4><code class="docutils literal notranslate"><span class="pre">sin</span></code> function<a class="headerlink" href="#sin-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sin</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function returns the sine function value of the parameter. The
+parameter can be an integer or a real number, and the unit is radians.
+If there are no parameters, the function returns <code class="docutils literal notranslate"><span class="pre">0</span></code>, if there are
+multiple parameters, only the first parameter is processed. <code class="docutils literal notranslate"><span class="pre">sin</span></code> The
+return type of the function is a real number.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 0.841471</span>
+<span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span> <span class="c1"># 1</span>
+</pre></div>
+</div>
+</section>
+<section id="cos-function">
+<h4><code class="docutils literal notranslate"><span class="pre">cos</span></code> function<a class="headerlink" href="#cos-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cos</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function returns the value of the cosine function of the parameter.
+The parameter can be an integer or a real number in radians. If there
+are no parameters, the function returns <code class="docutils literal notranslate"><span class="pre">0</span></code>, if there are multiple
+parameters, only the first parameter is processed. <code class="docutils literal notranslate"><span class="pre">cos</span></code> The return type
+of the function is a real number.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 0.540302</span>
+<span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="c1"># -1</span>
+</pre></div>
+</div>
+</section>
+<section id="tan-function">
+<h4><code class="docutils literal notranslate"><span class="pre">tan</span></code> function<a class="headerlink" href="#tan-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tan</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function returns the value of the tangent function of the
+parameter. The parameter can be an integer or a real number, in radians.
+If there are no parameters, the function returns <code class="docutils literal notranslate"><span class="pre">0</span></code>, if there are
+multiple parameters, only the first parameter is processed. <code class="docutils literal notranslate"><span class="pre">tan</span></code> The
+return type of the function is a real number.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 1.55741</span>
+<span class="n">math</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span> <span class="c1"># 1</span>
+</pre></div>
+</div>
+</section>
+<section id="asin-function">
+<h4><code class="docutils literal notranslate"><span class="pre">asin</span></code> function<a class="headerlink" href="#asin-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">asin</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function returns the arc sine function value of the parameter. The
+parameter can be an integer or a real number. The value range is
+[−1,1]. If there are no parameters, the function returns <code class="docutils literal notranslate"><span class="pre">0</span></code>, if there
+are multiple parameters, only the first parameter is processed. <code class="docutils literal notranslate"><span class="pre">asin</span></code>
+The return type of the function is a real number and the unit is
+radians.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">asin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 1.5708</span>
+<span class="n">math</span><span class="o">.</span><span class="n">asin</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="c1"># 30</span>
+</pre></div>
+</div>
+</section>
+<section id="acos-function">
+<h4><code class="docutils literal notranslate"><span class="pre">acos</span></code> function<a class="headerlink" href="#acos-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">acos</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function returns the arc cosine function value of the parameter.
+The parameter can be an integer or a real number. The value range is
+[−1,1]. If there are no parameters, the function returns <code class="docutils literal notranslate"><span class="pre">0</span></code>, if there
+are multiple parameters, only the first parameter is processed. <code class="docutils literal notranslate"><span class="pre">acos</span></code>
+The return type of the function is a real number and the unit is
+radians.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">acos</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 0</span>
+<span class="n">math</span><span class="o">.</span><span class="n">acos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 1.5708</span>
+</pre></div>
+</div>
+</section>
+<section id="atan-function">
+<h4><code class="docutils literal notranslate"><span class="pre">atan</span></code> function<a class="headerlink" href="#atan-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">atan</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function returns the arctangent function value of the parameter.
+The parameter can be an integer or a real number. The value range is
+[−∞,+∞]. If there are no parameters, the function returns <code class="docutils literal notranslate"><span class="pre">0</span></code>, if
+there are multiple parameters, only the first parameter is processed.
+<code class="docutils literal notranslate"><span class="pre">atan</span></code> The return type of the function is a real number and the unit is
+radians.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">atan</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="c1"># 45</span>
+</pre></div>
+</div>
+</section>
+<section id="sinh-function">
+<h4><code class="docutils literal notranslate"><span class="pre">sinh</span></code> function<a class="headerlink" href="#sinh-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sinh</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function returns the hyperbolic sine function value of the
+parameter. If there are no parameters, the function returns <code class="docutils literal notranslate"><span class="pre">0</span></code>, if
+there are multiple parameters, only the first parameter is processed.
+<code class="docutils literal notranslate"><span class="pre">sinh</span></code> The return type of the function is a real number.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 1.1752</span>
+</pre></div>
+</div>
+</section>
+<section id="cosh-function">
+<h4><code class="docutils literal notranslate"><span class="pre">cosh</span></code> function<a class="headerlink" href="#cosh-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cosh</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function returns the hyperbolic cosine function value of the
+parameter. If there are no parameters, the function returns <code class="docutils literal notranslate"><span class="pre">0</span></code>, if
+there are multiple parameters, only the first parameter is processed.
+<code class="docutils literal notranslate"><span class="pre">cosh</span></code> The return type of the function is a real number.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 1.54308</span>
+</pre></div>
+</div>
+</section>
+<section id="tanh-function">
+<h4><code class="docutils literal notranslate"><span class="pre">tanh</span></code> function<a class="headerlink" href="#tanh-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tanh</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function returns the hyperbolic tangent function value of the
+parameter. If there are no parameters, the function returns <code class="docutils literal notranslate"><span class="pre">0</span></code>, if
+there are multiple parameters, only the first parameter is processed.
+<code class="docutils literal notranslate"><span class="pre">tanh</span></code> The return type of the function is a real number.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 0.761594</span>
+</pre></div>
+</div>
+</section>
+<section id="sqrt-function">
+<h4><code class="docutils literal notranslate"><span class="pre">sqrt</span></code> function<a class="headerlink" href="#sqrt-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sqrt</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function returns the square root of the argument. The parameter of
+this function cannot be negative. If there are no parameters, the
+function returns <code class="docutils literal notranslate"><span class="pre">0</span></code>, if there are multiple parameters, only the first
+parameter is processed. <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> The return type of the function is a real
+number.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># 1.41421</span>
+</pre></div>
+</div>
+</section>
+<section id="exp-function">
+<h4><code class="docutils literal notranslate"><span class="pre">exp</span></code> function<a class="headerlink" href="#exp-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function returns the value of the parameter’s exponential function
+based on the natural constant <em>e</em>. If there are no parameters, the
+function returns <code class="docutils literal notranslate"><span class="pre">0</span></code>, if there are multiple parameters, only the first
+parameter is processed. <code class="docutils literal notranslate"><span class="pre">exp</span></code> The return type of the function is a real
+number.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 2.71828</span>
+</pre></div>
+</div>
+</section>
+<section id="log-function">
+<h4><code class="docutils literal notranslate"><span class="pre">log</span></code> function<a class="headerlink" href="#log-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">log</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function returns the natural logarithm of the argument. The
+parameter must be a positive number. If there are no parameters, the
+function returns <code class="docutils literal notranslate"><span class="pre">0</span></code>, if there are multiple parameters, only the first
+parameter is processed. <code class="docutils literal notranslate"><span class="pre">log</span></code> The return type of the function is a real
+number.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">2.718282</span><span class="p">)</span> <span class="c1"># 1</span>
+</pre></div>
+</div>
+</section>
+<section id="log10-function">
+<h4><code class="docutils literal notranslate"><span class="pre">log10</span></code> function<a class="headerlink" href="#log10-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">log10</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function returns the logarithm of the parameter to the base 10. The
+parameter must be a positive number. If there are no parameters, the
+function returns <code class="docutils literal notranslate"><span class="pre">0</span></code>, if there are multiple parameters, only the first
+parameter is processed. <code class="docutils literal notranslate"><span class="pre">log10</span></code> The return type of the function is a
+real number.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># 1</span>
+</pre></div>
+</div>
+</section>
+<section id="deg-function">
+<h4><code class="docutils literal notranslate"><span class="pre">deg</span></code> function<a class="headerlink" href="#deg-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">deg</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function is used to convert radians to angles. The unit of the
+parameter is radians. If there are no parameters, the function returns
+<code class="docutils literal notranslate"><span class="pre">0</span></code>, if there are multiple parameters, only the first parameter is
+processed. <code class="docutils literal notranslate"><span class="pre">deg</span></code> The return type of the function is a real number and
+the unit is an angle.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">deg</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="c1"># 180</span>
+</pre></div>
+</div>
+</section>
+<section id="rad-function">
+<h4><code class="docutils literal notranslate"><span class="pre">rad</span></code> function<a class="headerlink" href="#rad-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rad</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function is used to convert angles to radians. The unit of the
+parameter is angle. If there are no parameters, the function returns
+<code class="docutils literal notranslate"><span class="pre">0</span></code>, if there are multiple parameters, only the first parameter is
+processed. <code class="docutils literal notranslate"><span class="pre">rad</span></code> The return type of the function is a real number and
+the unit is radians.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">180</span><span class="p">)</span> <span class="c1"># 3.14159</span>
+</pre></div>
+</div>
+</section>
+<section id="pow-function">
+<h4><code class="docutils literal notranslate"><span class="pre">pow</span></code> function<a class="headerlink" href="#pow-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">pow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>The return value of this function is the result of the expression
+<em>x</em><sup><em>y</em></sup>, which is the parameter <code class="docutils literal notranslate"><span class="pre">x</span></code> to the <code class="docutils literal notranslate"><span class="pre">y</span></code> power. If the
+parameters are not complete, the function returns <code class="docutils literal notranslate"><span class="pre">0</span></code>, if there are
+extra parameters, only the first two parameters are processed. <code class="docutils literal notranslate"><span class="pre">pow</span></code> The
+return type of the function is a real number.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># 8</span>
+</pre></div>
+</div>
+</section>
+<section id="srand-function">
+<h4><code class="docutils literal notranslate"><span class="pre">srand</span></code> function<a class="headerlink" href="#srand-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">srand</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function is used to set the seed of the random number generator.
+The type of the parameter should be an integer.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">srand</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="rand-function">
+<h4><code class="docutils literal notranslate"><span class="pre">rand</span></code> function<a class="headerlink" href="#rand-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rand</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function is used to get a random integer.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="time-module">
+<h3>Time Module<a class="headerlink" href="#time-module" title="Permalink to this headline"></a></h3>
+<p>This module is used to provide time-related functions.</p>
+<section id="time-function">
+<h4><code class="docutils literal notranslate"><span class="pre">time</span></code> function<a class="headerlink" href="#time-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">time</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>Returns the current timestamp. The timestamp is the time elapsed since
+Unix Epoch (1st January 1970 00:00:00 UTC), in seconds.</p>
+</section>
+<section id="id11">
+<h4><code class="docutils literal notranslate"><span class="pre">dump</span></code> function<a class="headerlink" href="#id11" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dump</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>The input timestamp <code class="docutils literal notranslate"><span class="pre">ts</span></code> is converted into a time <code class="docutils literal notranslate"><span class="pre">map</span></code>, and the
+key-value correspondence is shown in Table below:</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p><strong>key</strong></p></th>
+<th class="text-center head"><p><strong>value</strong></p></th>
+<th class="text-center head"><p><strong>key</strong></p></th>
+<th class="text-center head"><p><strong>value</strong></p></th>
+<th class="text-center head"><p><strong>key</strong></p></th>
+<th class="text-center head"><p><strong>value</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">’year’</span></code></p></td>
+<td class="text-center"><p>Year (from 1900)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">’month’</span></code></p></td>
+<td class="text-center"><p>Month (1-12)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">’day’</span></code></p></td>
+<td class="text-center"><p>Day (1-31)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">’hour’</span></code></p></td>
+<td class="text-center"><p>Hour (0-23)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">’min’</span></code></p></td>
+<td class="text-center"><p>Points (0-59)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">’sec’</span></code></p></td>
+<td class="text-center"><p>Seconds (0-59)</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">’weekday’</span></code></p></td>
+<td class="text-center"><p>Week (1-7)</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">time.dump</span></code> The key-value relationship of the function return value</p>
+</section>
+<section id="clock-function">
+<h4><code class="docutils literal notranslate"><span class="pre">clock</span></code> function<a class="headerlink" href="#clock-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">clock</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Description</strong></p>
+<p>This function returns the elapsed time from the start of execution of
+the interpreter to when the function is called in seconds. The return
+value of this function is of type <code class="docutils literal notranslate"><span class="pre">real</span></code>, and its timing accuracy is
+determined by the specific platform.</p>
+</section>
+</section>
+<section id="string-module">
+<h3>String Module<a class="headerlink" href="#string-module" title="Permalink to this headline"></a></h3>
+<p>The String module provides string processing functions.</p>
+<p>To use the string module, first use the <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">string</span></code> statement to import. All examples in this section assume that the module has been imported correctly.</p>
+<section id="count-function">
+<h4><code class="docutils literal notranslate"><span class="pre">count</span></code> function<a class="headerlink" href="#count-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">sub</span><span class="p">[,</span> <span class="n">begin</span><span class="p">[,</span> <span class="n">end</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>Count the number of occurrences of the sub string in the string s. Search from the position between <code class="docutils literal notranslate"><span class="pre">begin</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code> of <code class="docutils literal notranslate"><span class="pre">s</span></code> (default is 0 and size(s)).</p>
+</section>
+<section id="split-function">
+<h4><code class="docutils literal notranslate"><span class="pre">split</span></code> function<a class="headerlink" href="#split-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Split the string s into two substrings at position <code class="docutils literal notranslate"><span class="pre">pos</span></code>, and returns the list of those strings.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">sep</span><span class="p">[,</span> <span class="n">num</span><span class="p">])</span> 
+</pre></div>
+</div>
+<p>Splits the string s into substrings wherever sep occurs, and returns the list of those strings. Split at most num times (default is string.count(s, sep)).</p>
+</section>
+<section id="find-function">
+<h4><code class="docutils literal notranslate"><span class="pre">find</span></code> function<a class="headerlink" href="#find-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">sub</span><span class="p">[,</span> <span class="n">begin</span><span class="p">[,</span> <span class="n">end</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>Check whether the string s contains the substring sub. If the begin and end (default is 0 and size(s)) are specified, they will be searched in this range.</p>
+</section>
+<section id="hex-function">
+<h4><code class="docutils literal notranslate"><span class="pre">hex</span></code> function<a class="headerlink" href="#hex-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">hex</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Convert number to hexadecimal string.</p>
+</section>
+<section id="byte-function">
+<h4><code class="docutils literal notranslate"><span class="pre">byte</span></code> function<a class="headerlink" href="#byte-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">byte</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Get the code value of the first byte of the string s.</p>
+</section>
+<section id="char-function">
+<h4><code class="docutils literal notranslate"><span class="pre">char</span></code> function<a class="headerlink" href="#char-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Convert the number used as the code to a character.</p>
+</section>
+<section id="format-function">
+<h4><code class="docutils literal notranslate"><span class="pre">format</span></code> function<a class="headerlink" href="#format-function" title="Permalink to this headline"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fmt</span><span class="p">[,</span> <span class="n">args</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Returns a formatted string. The pattern starting with ‘%’ in the formatting template fmt will be replaced by the value of [args]: %[flags][fieldwidth][.precision]type</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+</table>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-</p></td>
+<td><p>Left-justifies, default is right-justify</p></td>
+</tr>
+<tr class="row-odd"><td><p>+</p></td>
+<td><p>Prepends sign (applies to numbers)</p></td>
+</tr>
+<tr class="row-even"><td><p>(space)</p></td>
+<td><p>Prepends sign if negative, else space</p></td>
+</tr>
+<tr class="row-odd"><td><p>#</p></td>
+<td><p>Adds “0x” before %x, force decimal point; for %e, %f, leaves trailing zeros for %g</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field width and precision</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>n</p></td>
+<td><p>Puts at least n characters, pad with blanks</p></td>
+</tr>
+<tr class="row-odd"><td><p>0n</p></td>
+<td><p>Puts at least n characters, left-pad with zeros</p></td>
+</tr>
+<tr class="row-even"><td><p>.n</p></td>
+<td><p>Use at least n digits for integers, rounds to n decimals for floating-point or no more than n chars. for strings</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module-os">
+<h3>Module <code class="docutils literal notranslate"><span class="pre">os</span></code><a class="headerlink" href="#module-os" title="Permalink to this headline"></a></h3>
+<p>The OS module provides system-related functions, such as file and
+path-related functions. These functions are platform-related. Currently,
+Windows VC and POSIX style codes are implemented in the Berry
+interpreter. If it runs on other platforms, the functions in the OS
+module are not guaranteed to be provided.</p>
+<p>TODO</p>
+</section>
+<section id="module-global">
+<h3>Module <code class="docutils literal notranslate"><span class="pre">global</span></code><a class="headerlink" href="#module-global" title="Permalink to this headline"></a></h3>
+<p>Module <code class="docutils literal notranslate"><span class="pre">global</span></code> provides a way to access global variables via a module. The Berry compiler checks that a global exists when compiling code. However there are cases when globals are created dynamically by code and are not yet known at compile time. Using the module <code class="docutils literal notranslate"><span class="pre">global</span></code> gives complete freedom to access statically or dynamically global variables.</p>
+<p>Accessing a global is simplay made with <code class="docutils literal notranslate"><span class="pre">global.&lt;name&gt;</span></code> for reading and writing. You can also use the special syntax <code class="docutils literal notranslate"><span class="pre">global.(name)</span></code> if <code class="docutils literal notranslate"><span class="pre">name</span></code> is a variable containing the name of the global as string.</p>
+<p>Example:</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; import global
+&gt; a = 1
+&gt; global.a
+1
+&gt;
+&gt; b
+syntax_error: stdin:1: &#39;b&#39; undeclared (first use in this function)
+&gt; global.b = 2
+&gt; b
+2
+&gt; global.b
+2
+&gt; var name = &quot;b&quot;
+&gt; global.(name)
+2
+</pre></div>
+</div>
+<p>Calling <code class="docutils literal notranslate"><span class="pre">global()</span></code> returns the list of all global names currently defined (builtins are not included).</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; import global
+&gt; a = 1
+&gt; global.b = 2
+&gt; global()
+[&#39;_argv&#39;, &#39;b&#39;, &#39;global&#39;, &#39;a&#39;]
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">global.contains(&lt;name)&gt;</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></code> provides an easy way to know if a global name is already defined.</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; import global
+&gt; global.contains(&quot;g&quot;)
+false
+&gt; g = 1
+&gt; global.contains(&quot;g&quot;)
+true
+</pre></div>
+</div>
+</section>
+<section id="module-introspect">
+<h3>Module <code class="docutils literal notranslate"><span class="pre">introspect</span></code><a class="headerlink" href="#module-introspect" title="Permalink to this headline"></a></h3>
+<p>Module <code class="docutils literal notranslate"><span class="pre">introspect</span></code> provides primitives to dynamically access variables or modules. Use with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">introspect</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">introspect.members(object:</span> <span class="pre">class</span> <span class="pre">or</span> <span class="pre">module</span> <span class="pre">or</span> <span class="pre">instance</span> <span class="pre">or</span> <span class="pre">nil)</span> <span class="pre">-&gt;</span> <span class="pre">list</span></code> returns the list of names of members for the <code class="docutils literal notranslate"><span class="pre">class</span></code>, <code class="docutils literal notranslate"><span class="pre">instance</span></code> or <code class="docutils literal notranslate"><span class="pre">module</span></code>. Keep in mind that it does not include potential virtual members created via <code class="docutils literal notranslate"><span class="pre">member</span></code> and <code class="docutils literal notranslate"><span class="pre">setmember</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">introspect.members()</span></code> returns the list of global variables (not including builtins) and is equivalent to <code class="docutils literal notranslate"><span class="pre">global()</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">introspect.get(object:</span> <span class="pre">class</span> <span class="pre">or</span> <span class="pre">instance</span> <span class="pre">or</span> <span class="pre">module,</span> <span class="pre">name:string)</span> <span class="pre">-&gt;</span> <span class="pre">any</span></code> and <code class="docutils literal notranslate"><span class="pre">introspect.set(object:</span> <span class="pre">class</span> <span class="pre">or</span> <span class="pre">instance</span> <span class="pre">or</span> <span class="pre">module,</span> <span class="pre">name:string,</span> <span class="pre">value:any)</span> <span class="pre">-&gt;</span> <span class="pre">nil</span></code> allows to read and write any member by name.</p>
+<p><code class="docutils literal notranslate"><span class="pre">introspect.get(o,</span> <span class="pre">&quot;a&quot;)</span></code> is equivalent ot <code class="docutils literal notranslate"><span class="pre">o.a</span></code>, <code class="docutils literal notranslate"><span class="pre">introspect.set(o,</span> <span class="pre">&quot;a&quot;,</span> <span class="pre">1)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">o.a</span> <span class="pre">=</span> <span class="pre">1</span></code>. There is also an alternative syntax: <code class="docutils literal notranslate"><span class="pre">o.(&quot;a&quot;)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">o.a</span></code> and <code class="docutils literal notranslate"><span class="pre">o.(&quot;a)</span> <span class="pre">=</span> <span class="pre">1</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">o.a</span> <span class="pre">=</span> <span class="pre">1</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">introspect.module(name:string)</span> <span class="pre">-&gt;</span> <span class="pre">any</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">name</span></code> except that it does not create the global or local variable, but returns the module. This is the only way to load a module with a dynamic name, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">name</span></code> only takes a static name.</p>
+<p><code class="docutils literal notranslate"><span class="pre">introspect.toptr(addr:int)</span> <span class="pre">-&gt;</span> <span class="pre">comptr</span></code> converts an integer to a comptr pointer. <code class="docutils literal notranslate"><span class="pre">introspect.fromptr(addr:comptr)</span> <span class="pre">-&gt;</span> <span class="pre">int</span></code> does the reverse and converts a pointer to an int. Warning: use with care. On platforms where <code class="docutils literal notranslate"><span class="pre">int</span></code> and <code class="docutils literal notranslate"><span class="pre">void*</span></code> don’t have the same size, these functions will most certainly give unusable results.</p>
+<p><code class="docutils literal notranslate"><span class="pre">introspect.ismethod(f:function)</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></code> checks if the provided function is a method of an instance (taking self as first argument), or a plain function. This is mainly use to prevent a common mistake of passing an instance method as callbakc, where you should use a closure capturing the instance like <code class="docutils literal notranslate"><span class="pre">/</span> <span class="pre">-&gt;</span> <span class="pre">self.do()</span></code>.</p>
+</section>
+<section id="module-solidify">
+<h3>Module <code class="docutils literal notranslate"><span class="pre">solidify</span></code><a class="headerlink" href="#module-solidify" title="Permalink to this headline"></a></h3>
+<p>This module allows to solidify Berry bytecode into flash. This allows
+to save RAM since the code is in Flash, makes it a good alternative
+to native C functions.</p>
+<p>See 8.4 Solidification</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Guan Wenliang &amp; Stephan Hadinger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

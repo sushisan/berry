@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roadmap &mdash; berry 1.1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> berry
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Home.html">Welcome to the berry wiki!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Bienvenido a la wiki de Berry!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">berry</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Roadmap</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/en/Roadmap.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="roadmap">
+<h1>Roadmap<a class="headerlink" href="#roadmap" title="Permalink to this headline"></a></h1>
+<section id="todo">
+<h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>[x] REPL multi-line support.</p></li>
+<li><p>[x] Runtime debug information.</p></li>
+<li><p>[x] API stack protection.</p></li>
+<li><p>[x] File operation support.</p></li>
+<li><p>[x] Fixed (ROM based) hash table.</p></li>
+<li><p>[x] Destructor support.</p></li>
+<li><p>[x] Native module support (use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">xxx</span></code> to import a module).</p></li>
+<li><p>[x] Conditional expression support.</p></li>
+<li><p>[x] Anonymous function.</p></li>
+<li><p>[x] Bitwise operation.</p></li>
+<li><p>[x] Compound assignment statement.</p></li>
+<li><p>[x] Built-in scope.</p></li>
+<li><p>[x] Variable arguments function.</p></li>
+<li><p>[x] Native function: <code class="docutils literal notranslate"><span class="pre">classof(obj)</span></code>.</p></li>
+<li><p>[ ] ~~Native function: <code class="docutils literal notranslate"><span class="pre">copy(obj)</span></code>~~.</p></li>
+<li><p>[ ] Auto release call stack.</p></li>
+<li><p>[ ] Regular expression.</p></li>
+<li><p>[x] Stack usage optimized GC (no recursion).</p></li>
+<li><p>[x] Simplify stack overflow error messages.</p></li>
+<li><p>[x] Lambda expression.</p></li>
+<li><p>[x] Exceptional handling.</p></li>
+<li><p>[x] Bytecode file support.</p></li>
+<li><p>[x] Optimized iterator and <code class="docutils literal notranslate"><span class="pre">for</span></code> statement.</p></li>
+<li><p>[x] Connection operator (redefine the range operator <code class="docutils literal notranslate"><span class="pre">..</span></code>).</p>
+<ul>
+<li><p>[x] String connection, e.g., <code class="docutils literal notranslate"><span class="pre">'string'</span> <span class="pre">..</span> <span class="pre">expr</span></code>.</p></li>
+<li><p>[x] List connection, e.g., <code class="docutils literal notranslate"><span class="pre">[]</span> <span class="pre">..</span> <span class="pre">expr</span></code>.</p></li>
+<li><p>[x] List serialization method (for high performance string connection).</p></li>
+</ul>
+</li>
+<li><p>[x] Complete module support.</p>
+<ul>
+<li><p>[x] Script file module export / import.</p></li>
+<li><p>[x] Bytecode file module build / import.</p></li>
+<li><p>[x] Shared native module (like *.so, *.dll) load.</p></li>
+</ul>
+</li>
+<li><p>[x] Universal Equality Check API (like <code class="docutils literal notranslate"><span class="pre">==</span></code> operator but use in C).</p>
+<ul>
+<li><p>[x] Complete map key matching.</p></li>
+<li><p>[x] Complete exception value matching.</p></li>
+</ul>
+</li>
+<li><p>[ ] Debugger support.</p></li>
+<li><p>[ ] Complete class and object mechanism.</p></li>
+<li><p>[ ] Support error message for <em>map_build</em> tool.</p></li>
+<li><p>[x] Overloaded call <code class="docutils literal notranslate"><span class="pre">()</span></code> operator.</p></li>
+</ul>
+</section>
+<section id="release-version">
+<h2>Release version<a class="headerlink" href="#release-version" title="Permalink to this headline"></a></h2>
+<section id="v0-2-0">
+<h3>V0.2.0<a class="headerlink" href="#v0-2-0" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>[ ] Complete Chinese documentation.</p></li>
+<li><p>[x] Exceptional handling.</p></li>
+<li><p>[x] Complete module support.</p></li>
+</ul>
+</section>
+<section id="v0-1-0">
+<h3>V0.1.0<a class="headerlink" href="#v0-1-0" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>[x] Portable file system interface.</p></li>
+<li><p>[x] Precompiled constant object support.</p></li>
+<li><p>[x] Complete precompiled constant module.</p></li>
+<li><p>[ ] ~~More complete documentation (Chinese)~~.</p></li>
+<li><p>[ ] ~~Porting guide~~.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Guan Wenliang &amp; Stephan Hadinger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Information &mdash; berry 1.1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> berry
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Home.html">Welcome to the berry wiki!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Bienvenido a la wiki de Berry!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">berry</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Basic Information</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/en/Chapter-1.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="basic-information">
+<h1>Basic Information<a class="headerlink" href="#basic-information" title="Permalink to this headline"></a></h1>
+<section id="introduction">
+<h2>1.1 Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
+<p>Berry is an ultra-lightweight dynamic type embedded scripting language.
+The language mainly supports procedural programming, as well as
+object-oriented programming and functional programming. An important
+design goal of Berry is to be able to run on embedded devices with very
+small memory, so the language is very streamlined. Nevertheless, Berry
+is still a feature-rich scripting language.</p>
+</section>
+<section id="start-using">
+<h2>1.2 Start using<a class="headerlink" href="#start-using" title="Permalink to this headline"></a></h2>
+<section id="get-interpreter">
+<h3>Get Interpreter<a class="headerlink" href="#get-interpreter" title="Permalink to this headline"></a></h3>
+<p>Readers can go to the project’s GitHub page
+<a class="reference external" href="https://github.com/berry-lang/berry">https://github.com/berry-lang/berry</a> to get the source code of the Berry
+interpreter. Readers need to compile the Berry interpreter by
+themselves. The specific compilation method can be found in the
+README.md document in the root directory of the source code, which can
+also be viewed on the GitHub page of the project.</p>
+<p>First, you must install software such as GCC, git, and make. If you do
+not use version control, you can download the source code directly on
+GitHub without installing git. Readers can use search engines to
+retrieve information about these software. Readers using Linux and macOS
+systems should also install the GNU Readline library[1]. Use <code class="docutils literal notranslate"><span class="pre">git</span></code>
+command [2] Clone the interpreter source code from the remote warehouse
+to the local:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/berry-lang/berry
+</pre></div>
+</div>
+<p>Enter the berry directory and use the <code class="docutils literal notranslate"><span class="pre">make</span></code> command to compile the
+interpreter:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> berry
+make
+</pre></div>
+</div>
+<p>Now you should be able to find the executable file of the interpreter in
+the <em>berry</em> directory (in Windows systems, the file name of the
+interpreter program is “<em>berry.exe</em>”, while in Linux and macOS systems
+the file name is “<em>berry</em>”), you can run the executable file directly
+[3] To start the interpreter. In Linux or macOS, you can use the command
+<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">make</span> <span class="pre">install</span></code> to install the interpreter, and then you can start
+the interpreter with the <code class="docutils literal notranslate"><span class="pre">berry</span></code> command in the terminal.</p>
+</section>
+<section id="repl-environment">
+<h3>REPL environment<a class="headerlink" href="#repl-environment" title="Permalink to this headline"></a></h3>
+<p>REPL (Read Eval Print Loop) is generally translated as an interactive
+interpreter, and this article has also become the interactive mode of
+the interpreter. This mode consists of four elements: <strong>Read</strong>, read the
+source code input by the user from the input device; <strong>evaluate</strong>,
+compile and execute the source code input by the user; <strong>print</strong>, output
+the result of the evaluation process; <strong>cycle</strong>, cycle the above
+operations.</p>
+<p>Start the interpreter directly (enter <code class="docutils literal notranslate"><span class="pre">berry</span></code> in the terminal or command
+window without parameters, or double-click berry.exe in Windows) to
+enter the REPL mode, and you will see the following interface:</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>Berry 1.0.0 (build in Feb 1 2022, 13:14:04)
+[GCC 8.1.0] on Windows (default)
+&gt;
+</pre></div>
+</div>
+<p>The first two lines of the interface display the version, compilation
+time, compiler and operating system of the Berry interpreter. The symbol
+“<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>” in the third line is called the prompt, and the cursor is
+displayed behind the prompt. When using the REPL mode, after inputting
+the source code, pressing the “Enter” key will immediately execute the
+code and output the result. Press the <code class="docutils literal notranslate"><span class="pre">Ctrl + C</span></code> key combination to exit
+the REPL. In the case of using the Readline library, use the <code class="docutils literal notranslate"><span class="pre">Ctrl + D</span></code>
+key combination to exit the REPL when the input is empty. Since there is
+no need to edit script files, REPL mode can be used for quick
+development or idea verification.</p>
+<section id="hello-world-program">
+<h4>Hello World Program<a class="headerlink" href="#hello-world-program" title="Permalink to this headline"></a></h4>
+<p>Take the classic “Hello World” program as an example. Enter
+<code class="docutils literal notranslate"><span class="pre">print(’Hello</span> <span class="pre">World’)</span></code> in the REPL and execute it. The results are as
+follows:</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>Berry 1.0.0 (build in Feb 1 2022, 13:14:04)
+[GCC 8.1.0] on Windows (default)
+&gt; print(&#39;Hello World&#39;)
+Hello World
+&gt;
+</pre></div>
+</div>
+<p>The interpreter output the text “<code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">World</span></code>”. This line of code
+realizes the output of the string <code class="docutils literal notranslate"><span class="pre">’Hello</span> <span class="pre">World’</span></code> by calling the <code class="docutils literal notranslate"><span class="pre">print</span></code>
+function. In REPL, if the return value of the expression is not <code class="docutils literal notranslate"><span class="pre">nil</span></code>,
+the return value will be displayed. For example, entering the expression
+<code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">2</span></code> will display the calculation result <code class="docutils literal notranslate"><span class="pre">3</span></code>:</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; 1 + 2
+3
+</pre></div>
+</div>
+<p>Therefore, the simplest “Hello World” program under REPL is to directly
+enter the string <code class="docutils literal notranslate"><span class="pre">’Hello</span> <span class="pre">World’</span></code> and run:</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; &#39;Hello World&#39;
+Hello World
+</pre></div>
+</div>
+</section>
+<section id="more-usage-of-repl">
+<h4>More usage of REPL<a class="headerlink" href="#more-usage-of-repl" title="Permalink to this headline"></a></h4>
+<p>You can also use the interactive mode of the Berry interpreter as a
+scientific calculator. However, some mathematical functions cannot be
+used directly. Instead, use the <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code> statement to import the
+mathematical library, and then use the functions in the mathematical
+library. “<code class="docutils literal notranslate"><span class="pre">math.</span></code>” as a prefix, for example <code class="docutils literal notranslate"><span class="pre">sin</span></code> function should be
+written as <code class="docutils literal notranslate"><span class="pre">math.sin</span></code>:</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; import math
+&gt; math.pi
+3.14159
+&gt; math.sin(math.pi / 2)
+1
+&gt; math.sqrt(2)
+1.41421
+</pre></div>
+</div>
+</section>
+</section>
+<section id="script-file">
+<h3>Script file<a class="headerlink" href="#script-file" title="Permalink to this headline"></a></h3>
+<p>Berry’s script file is a file that stores Berry code, and the script
+file can be executed by an interpreter. Usually, the script file is a
+text file with the extension “.be”. The command to execute the script
+using the interpreter is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>berry script_file
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">script_file</span></code> is the file name of the script file. Using this command
+will run the interpreter to execute the Berry code in the <code class="docutils literal notranslate"><span class="pre">script_file</span></code>
+script file, and the interpreter will exit after execution.</p>
+<p>If you want the interpreter to enter the REPL mode after executing the
+script file, you can add the <code class="docutils literal notranslate"><span class="pre">-i</span></code> parameter to the command to call the
+interpreter:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>berry -i script_file
+</pre></div>
+</div>
+<p>This command will first execute the code in the <code class="docutils literal notranslate"><span class="pre">script_file</span></code> file and
+then enter the REPL mode.</p>
+</section>
+</section>
+<section id="words">
+<h2>1.3 Words<a class="headerlink" href="#words" title="Permalink to this headline"></a></h2>
+<p>Before introducing Berry’s syntax, let’s take a look at a simple code
+(you can run this code in REPL mode):</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def func(x) # a function example
+    return x + 1.5
+end
+print(&#39;func(10) =&#39;, func(10))
+</pre></div>
+</div>
+<p>This code defines a function <code class="docutils literal notranslate"><span class="pre">func</span></code> and calls it later. Before
+understanding how this code works, we first introduce the syntax
+elements of the Berry language.</p>
+<p>In the above code, the specific classification of grammatical elements
+is: <code class="docutils literal notranslate"><span class="pre">def</span></code>, <code class="docutils literal notranslate"><span class="pre">return</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code> are keywords of Berry language; and
+“<code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">a</span> <span class="pre">function</span> <span class="pre">example</span></code>” in the first line is called a comment; <code class="docutils literal notranslate"><span class="pre">print</span></code>
+, <code class="docutils literal notranslate"><span class="pre">func</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code> are some identifiers, they are usually used to
+represent a variable; <code class="docutils literal notranslate"><span class="pre">1.5</span></code> and <code class="docutils literal notranslate"><span class="pre">10</span></code> these numbers are called numerical
+literals, they are equivalent to the numbers used in daily life;
+<code class="docutils literal notranslate"><span class="pre">’func(10)</span> <span class="pre">=’</span></code> It is a string literal, they are used in places where you
+need to represent text; <code class="docutils literal notranslate"><span class="pre">+</span></code> is an addition operator, here the addition
+operator can be used to add the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> and the value <code class="docutils literal notranslate"><span class="pre">1.5</span></code>.</p>
+<p>The above classification is actually done from the perspective of a
+lexical analyzer. Lexical analysis is the first step in Berry source
+code analysis. In order to write the correct source code, we start with
+the most basic lexical introduction.</p>
+<section id="comment">
+<h3>Comment<a class="headerlink" href="#comment" title="Permalink to this headline"></a></h3>
+<p>Comments are some text that does not generate any code. They are used to
+make comments in the source code and be read by people, while the
+compiler will not interpret their content. Berry supports single-line
+comments and cross-line block comments. Single-line comments start with
+the character “<code class="docutils literal notranslate"><span class="pre">#</span></code>’ until the end of the newline character. The quick
+note starts with the text “<code class="docutils literal notranslate"><span class="pre">#-</span></code>” and ends with the text “<code class="docutils literal notranslate"><span class="pre">-#</span></code>”. The
+following is an example of using annotations:</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span># This is a line comment
+#- This is a
+   block comment
+-#
+</pre></div>
+</div>
+<p>Similar to C language, quick comments do not support nesting. The
+following code will terminate the analysis of comments at the first
+“<code class="docutils literal notranslate"><span class="pre">-#</span></code>” text:</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>#- Some comments -# ... -#
+</pre></div>
+</div>
+</section>
+<section id="literal-value">
+<h3>literal value<a class="headerlink" href="#literal-value" title="Permalink to this headline"></a></h3>
+<p>The literal value is a fixed value written directly in the source code
+during programming. Berry’s literals are integers, real numbers,
+booleans, strings, and nil. For example, the value <code class="docutils literal notranslate"><span class="pre">34</span></code> is an integer
+denomination.</p>
+<section id="numerical-literal-value">
+<h4>Numerical Literal Value<a class="headerlink" href="#numerical-literal-value" title="Permalink to this headline"></a></h4>
+<p>Numerical literals include <strong>Integer</strong> (integer) literals and <strong>Real
+number</strong> (real) literals.</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>40 # Integer literal
+0x80 # Hexadecimal literal (integer)
+3.14 # Real literal
+1.1e-6 # Real literal
+</pre></div>
+</div>
+<p>Numeric literals are written similarly to everyday writing. Berry
+supports hexadecimal integer denominations. Hexadecimal literals start
+with the prefix <code class="docutils literal notranslate"><span class="pre">0x</span></code> or <code class="docutils literal notranslate"><span class="pre">0X</span></code>, followed by a hexadecimal number.</p>
+</section>
+<section id="boolean-literal-value">
+<h4>Boolean literal value<a class="headerlink" href="#boolean-literal-value" title="Permalink to this headline"></a></h4>
+<p>Boolean values (boolean) are used to represent true and false in the
+logic state. You can use the keywords <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code> to represent
+Boolean literals.</p>
+</section>
+<section id="string-literal">
+<h4>String literal<a class="headerlink" href="#string-literal" title="Permalink to this headline"></a></h4>
+<p>A string is a piece of text, and its literal writing is to use a pair of
+<code class="docutils literal notranslate"><span class="pre">’</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> to surround the string text:</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&#39;this is a string&#39;
+&quot;this is a string&quot;
+</pre></div>
+</div>
+<p>String literals provide some escape sequences to represent characters
+that cannot be input directly. The escape sequence starts with the
+character <code class="docutils literal notranslate"><span class="pre">’\’</span></code>, and then follows a specific sequence of characters to
+achieve escape. The escape sequences specified by Berry are</p>
+<div id="tab::escape_character">
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p><strong>Escape character</strong></p></th>
+<th class="text-left head"><p><strong>significance</strong></p></th>
+<th class="text-center head"><p><strong>Escape character</strong></p></th>
+<th class="text-left head"><p><strong>significance</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\a</span></code></p></td>
+<td class="text-left"><p>Ring the bell</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\b</span></code></p></td>
+<td class="text-left"><p>Backspace</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\f</span></code></p></td>
+<td class="text-left"><p>Form feed.</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\n</span></code></p></td>
+<td class="text-left"><p>Newline</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\r</span></code></p></td>
+<td class="text-left"><p>Carriage return</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\t</span></code></p></td>
+<td class="text-left"><p>Horizontal tab</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\v</span></code></p></td>
+<td class="text-left"><p>Vertical tab</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\\</span></code></p></td>
+<td class="text-left"><p>Backslash</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\’</span></code></p></td>
+<td class="text-left"><p>apostrophe</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\&quot;</span></code></p></td>
+<td class="text-left"><p>Double quotes</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\?</span></code></p></td>
+<td class="text-left"><p>question mark</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\0</span></code></p></td>
+<td class="text-left"><p>Null character</p></td>
+</tr>
+</tbody>
+</table>
+<p align="center">Escape character sequence</p>
+</div>
+<p>Escape sequences can be used in strings, for example</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>print(&#39;escape character LF\n\tnew line&#39;)
+</pre></div>
+</div>
+<p>The result of the operation is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">escape</span> <span class="n">character</span> <span class="n">LF</span>
+        <span class="n">new</span> <span class="n">line</span>
+</pre></div>
+</div>
+<p>You can also use generalized escape sequences, in the form of <code class="docutils literal notranslate"><span class="pre">\x</span></code>
+followed by 2 hexadecimal digits, or <code class="docutils literal notranslate"><span class="pre">\</span></code> 3 octal digits, using this
+escape sequence can represent any character. Here are some examples of
+using the ASCII character set:</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&#39;\115&#39; #-&#39;M&#39; -#&#39;\x34&#39; #- &#39;4&#39; -#&#39;\064&#39; #- &#39;4&#39; -#
+</pre></div>
+</div>
+</section>
+<section id="nil-literal-value">
+<h4>Nil literal value<a class="headerlink" href="#nil-literal-value" title="Permalink to this headline"></a></h4>
+<p>Nil represents a null value, and its literal value is represented by the
+keyword <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+</section>
+</section>
+<section id="identifier">
+<h3>identifier<a class="headerlink" href="#identifier" title="Permalink to this headline"></a></h3>
+<p>Identifier (identifier) is a user-defined name, which starts with an
+underscore or letter, and then consists of a combination of several
+underscores, letters or numbers. Similar to most languages, Berry is
+case-sensitive, so identifiers <code class="docutils literal notranslate"><span class="pre">A</span></code> and identifiers <code class="docutils literal notranslate"><span class="pre">a</span></code> will be resolved
+into two identifiers.</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>a
+TestVariable
+Test_Var
+_init
+baseCass
+_
+</pre></div>
+</div>
+</section>
+<section id="keywords">
+<h3>Keywords<a class="headerlink" href="#keywords" title="Permalink to this headline"></a></h3>
+<p>Berry reserves the following tokens as language keywords:</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>if elif else while for def
+end class break continue return true
+false nil var do import as static
+</pre></div>
+</div>
+<p>The specific usage of keywords will be introduced in the relevant
+chapters. Note that keywords cannot be used as identifiers. Because
+Berry is case sensitive, <code class="docutils literal notranslate"><span class="pre">If</span></code> can be used for identifiers.</p>
+<p>[1] For GNU Readline, the installation command for the Debian series of
+Linux distributions is <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">libreadline-dev</span></code>, and the
+installation command for the RedHat series of Linux distributions is
+<code class="docutils literal notranslate"><span class="pre">yum</span> <span class="pre">install</span> <span class="pre">readline-devel</span> </code>, under macOS The installation command is
+<code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">readline</span></code>. In addition, it is easy to find GNU Readline
+documentation and related materials in search engines.</p>
+<p>[2] commands need to be used in the “command line interface” after the
+preparation work is completed. The command line environment in Windows
+systems is usually a command prompt (CMD) window, while the command line
+environment in Unix-like systems is usually Called “Terminal”
+(Terminal). This is not very accurate, but it will not be expanded here.</p>
+<p>[3] In Windows, you can directly double-click to run the executable
+file. In Linux or macOS, use the terminal to run it. You can also run
+the interpreter in the Windows command prompt window. Please refer to
+the README.md file for specific usage.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Guan Wenliang &amp; Stephan Hadinger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

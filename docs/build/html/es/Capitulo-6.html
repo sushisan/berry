@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. Función orientada a objetos &mdash; berry 1.1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> berry
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../en/Home.html">Welcome to the berry wiki!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Home.html">Bienvenido a la wiki de Berry!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">berry</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>6. Función orientada a objetos</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/es/Capitulo-6.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <!-- Spanish Translation: Emiliano Gonzalez (egonzalez . hiperion @ gmail . com) -->
+<section id="funcion-orientada-a-objetos">
+<h1>6. Función orientada a objetos<a class="headerlink" href="#funcion-orientada-a-objetos" title="Permalink to this headline"></a></h1>
+<p>Por consideraciones de optimización, Berry no consideró los tipos simples como objetos. Estos tipos simples incluyen <code class="docutils literal notranslate"><span class="pre">nil</span></code>, numéricos, booleanos y cadena. Pero Berry proporciona clases para implementar el mecanismo de objetos. Entre los tipos de datos básicos de Berry, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">map</span></code> y <code class="docutils literal notranslate"><span class="pre">range</span></code> son objetos de clase. Un objeto es una colección que contiene datos y métodos, donde los datos se componen de algunas variables y los métodos son funciones. El tipo de un objeto se denomina clase y la entidad de un objeto se denomina instancia.</p>
+<section id="clase-e-instancia">
+<h2>6.1 Clase e instancia<a class="headerlink" href="#clase-e-instancia" title="Permalink to this headline"></a></h2>
+<section id="declaracion-de-clase">
+<h3>6.1.1 Declaración de clase<a class="headerlink" href="#declaracion-de-clase" title="Permalink to this headline"></a></h3>
+<p>Para usar una clase, primero debe declararla. La declaración de una clase comienza con la palabra clave <code class="docutils literal notranslate"><span class="pre">class</span></code>. Las variables miembro y los métodos de la clase deben especificarse en la declaración. Este es un ejemplo de declaración de una clase:</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class persona
+    static var mayor = 18
+    var nombre, edad
+    def init(nombre, edad)
+        self.nombre = name
+        self.edad = edad
+    end
+    def tostring()
+        return &#39;nombre: &#39;+ str(self.nombre) + &#39;, edad:&#39; + str(self.edad)
+    end
+    def es_adulto()
+        return self.edad &gt;= self.mayor
+    end
+end
+</pre></div>
+</div>
+<p>Las variables miembro de clase se declaran con la palabra clave <code class="docutils literal notranslate"><span class="pre">var</span></code>, mientras que los métodos miembro se declaran con la palabra clave <code class="docutils literal notranslate"><span class="pre">def</span></code>. Actualmente, Berry no admite la inicialización de variables miembro en el momento de la definición, por lo que el constructor debe realizar la inicialización de las variables miembro.
+Las propiedades de la clase no se pueden modificar después de completar la declaración, por lo que la clase es un objeto de solo lectura.</p>
+<p>Este diseño es para garantizar que la clase se pueda construir estáticamente en el lenguaje C cuando se implemente el intérprete y se pueda usar la propiedad <code class="docutils literal notranslate"><span class="pre">const</span></code> modificada para ahorrar RAM</p>
+<p>La clase de Berry no admite restricciones de acceso y todas las propiedades de la clase son visibles desde el exterior. En las clases nativas, puede usar algunos trucos para hacer que las propiedades sean invisibles para el código Berry (por lo general, hacer que el nombre del miembro comience con un punto “.”). Puede usar algunas convenciones para restringir el acceso a los miembros de la clase, como la convención de que los atributos que comienzan con un guión bajo son atributos privados. Esta convención no tiene ningún uso a nivel gramatical, pero favorece la estructura lógica del código.</p>
+</section>
+<section id="instanciar">
+<h3>Instanciar<a class="headerlink" href="#instanciar" title="Permalink to this headline"></a></h3>
+<p>La clase en sí es solo una descripción abstracta. Tomando los autos como ejemplo, conozco el concepto de autos, y cuando realmente queremos usar autos, necesitamos autos reales. El uso de las clases es similar. No solo usaremos esta descripción abstracta, sino que necesitaremos producir un objeto concreto basado en esta descripción. Este proceso se llama <strong>Instanciación de la clase</strong>, abreviado como instanciación, y el objeto concreto producido por la instanciación se llama <strong>Instancia</strong>. La clase en sí no tiene datos, y la creación de instancias produce una instancia basada en la información descrita por la clase y proporciona datos específicos a la instancia.</p>
+</section>
+<section id="metodo-y-parametros-self">
+<h3>Método y parámetros <code class="docutils literal notranslate"><span class="pre">self</span></code><a class="headerlink" href="#metodo-y-parametros-self" title="Permalink to this headline"></a></h3>
+<p>Los métodos de clase son esencialmente funciones. A diferencia de las funciones ordinarias, los métodos pasan implícitamente un parámetro <code class="docutils literal notranslate"><span class="pre">self</span></code>, y siempre es el primer parámetro, que almacena una referencia a la instancia actual. Debido a la existencia de parámetros <code class="docutils literal notranslate"><span class="pre">self</span></code>, el número de parámetros del método será uno más que el número de parámetros definidos en la declaración. Aquí usamos un ejemplo simple para demostrar:</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class Test
+    def metodo()
+        return self
+    end
+end
+objecto = Test()
+print(objecto)
+print(objecto.metodo())
+</pre></div>
+</div>
+<p>Este ejemplo define una clase <code class="docutils literal notranslate"><span class="pre">Test</span></code>, que tiene un método <code class="docutils literal notranslate"><span class="pre">metodo</span></code>, que devuelve su parámetro <code class="docutils literal notranslate"><span class="pre">self</span></code>. Las dos últimas líneas de la rutina imprimen el valor de la instancia ‘objeto’ de la clase <code class="docutils literal notranslate"><span class="pre">Test</span></code> y el valor de retorno del método ‘metodo’ respectivamente. El resultado de ejecución de este ejemplo es:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">instance</span><span class="p">:</span> <span class="n">Test</span><span class="p">()</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">instance</span><span class="p">:</span> <span class="n">Test</span><span class="p">()</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Se puede ver que el parámetro <code class="docutils literal notranslate"><span class="pre">self</span></code> del método y el nombre de la instancia de uso (<code class="docutils literal notranslate"><span class="pre">objecto</span></code> en el ejemplo) representan el mismo objeto y ambos son referencias de instancia. Use <code class="docutils literal notranslate"><span class="pre">self</span></code> para acceder a los miembros o atributos de la instancia en el método.</p>
+</section>
+<section id="metodos-sinteticos">
+<h3>Métodos sintéticos<a class="headerlink" href="#metodos-sinteticos" title="Permalink to this headline"></a></h3>
+<p>Puede declarar métodos y miembros dinámicos sintéticos usando <strong>Miembros virtuales</strong> como se describe en el Capítulo 8.2.</p>
+</section>
+<section id="variables-de-clase-static">
+<h3>Variables de clase <code class="docutils literal notranslate"><span class="pre">static</span></code><a class="headerlink" href="#variables-de-clase-static" title="Permalink to this headline"></a></h3>
+<p>Las variables o funciones se pueden declarar <code class="docutils literal notranslate"><span class="pre">static</span></code>.
+Las variables estáticas tienen el mismo valor para todas las instancias de la misma clase.
+Se declaran como <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">1</span></code> o <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">var</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">1</span></code>.
+Las variables estáticas se inicializan justo después de la creación de la clase.</p>
+</section>
+<section id="metodos-de-clase-static">
+<h3>Métodos de clase <code class="docutils literal notranslate"><span class="pre">static</span></code><a class="headerlink" href="#metodos-de-clase-static" title="Permalink to this headline"></a></h3>
+<p>Los métodos se pueden declarar <code class="docutils literal notranslate"><span class="pre">static</span></code>, lo que significa que actúan como una función regular y no toman <code class="docutils literal notranslate"><span class="pre">self</span></code> como primer argumento.
+Dentro de los métodos estáticos, no se declara ninguna variable “auto” implícita.
+Los métodos estáticos se pueden llamar a través de la clase o a través de una instancia.</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; class static_demo
+      static def incremento_static(i)
+          return i + 1
+      end
+      def incremento_instancia(i)
+          return i + 1
+      end
+  end
+&gt; a = static_demo()
+&gt; static_demo.incremento_static(1)    # llamada via clase
+2
+&gt; a.incremento_static(1)              # llamada via instancia
+&gt;
+&gt; static_demo.incremento_instancia(1)
+type_error: unsupported operand type(s) for +: &#39;nil&#39; and &#39;int&#39;
+stack traceback:
+   stdin:6: in function `increment_instancia`
+   stdin:1: in function `main`
+&gt; a.increment_instancia(1)
+2
+</pre></div>
+</div>
+</section>
+<section id="constructor-y-destructor">
+<h3>Constructor y Destructor<a class="headerlink" href="#constructor-y-destructor" title="Permalink to this headline"></a></h3>
+<section id="constructor">
+<h4>Constructor<a class="headerlink" href="#constructor" title="Permalink to this headline"></a></h4>
+<p>El constructor de la clase es el método <code class="docutils literal notranslate"><span class="pre">init</span></code>. Se llama al constructor cuando se crea una instancia de la clase. Por lo tanto, el constructor generalmente se usa para la inicialización de miembros, por ejemplo:</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class Test
+    var a
+    def init()
+        self.a =&#39;esto es una prueba&#39;
+    end
+end
+</pre></div>
+</div>
+<p>El constructor de este ejemplo inicializa el miembro <code class="docutils literal notranslate"><span class="pre">a</span></code> de la clase <code class="docutils literal notranslate"><span class="pre">Test</span></code> con la cadena <code class="docutils literal notranslate"><span class="pre">'esto</span> <span class="pre">es</span> <span class="pre">una</span> <span class="pre">prueba'</span></code>. Si instanciamos la clase, podemos obtener el valor del miembro <code class="docutils literal notranslate"><span class="pre">a</span></code>:</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class Test
+    var a
+    def init()
+        self.a =&#39;esta es una prueba&#39;
+    end
+end
+</pre></div>
+</div>
+</section>
+<section id="destructor">
+<h4>Destructor<a class="headerlink" href="#destructor" title="Permalink to this headline"></a></h4>
+<p>El destructor de la clase es el método <code class="docutils literal notranslate"><span class="pre">deinit</span></code>. Se llama al destructor cuando se destruye la instancia. El destructor se usa generalmente para completar algún trabajo de limpieza. Debido a que el mecanismo de recolección de basura libera automáticamente la memoria de los objetos inútiles, no hay necesidad de liberar la memoria en el destructor (y tampoco hay forma de hacerlo en el destructor). En la mayoría de los casos, no hay necesidad de usar un destructor, a menos que cierta clase requiera cierto procesamiento cuando se destruye. Un ejemplo típico es que un objeto de archivo debe cerrar el archivo cuando se destruye.</p>
+</section>
+</section>
+</section>
+<section id="herencia-de-clases">
+<h2>Herencia de clases<a class="headerlink" href="#herencia-de-clases" title="Permalink to this headline"></a></h2>
+<p>Berry solo admite herencia simple, es decir, una clase solo puede tener una clase base, y la clase base usa el operador <code class="docutils literal notranslate"><span class="pre">:</span></code> para declarar:</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class Test: Base
+    ...
+end
+</pre></div>
+</div>
+<p>Aquí la clase <code class="docutils literal notranslate"><span class="pre">Test</span></code> hereda de la clase <code class="docutils literal notranslate"><span class="pre">Base</span></code>. La subclase heredará todos los métodos y propiedades de la clase base y puede anularlos en la subclase. Este mecanismo se llama <strong>Sobrecarga</strong>.
+En circunstancias normales, solo sobrecargaremos métodos, no propiedades.</p>
+<p>El mecanismo de herencia de la clase Berry es relativamente simple.
+Las subclases contendrán referencias a la clase base y los objetos de instancia son similares. Al instanciar una clase con una clase base, en realidad se generan múltiples objetos. Estos objetos se encadenarán de acuerdo con la relación de herencia y, finalmente, obtendremos el objeto de instancia al final de la cadena de herencia.</p>
+</section>
+<section id="sobrecarga-de-metodo">
+<h2>Sobrecarga de método<a class="headerlink" href="#sobrecarga-de-metodo" title="Permalink to this headline"></a></h2>
+<p>La <strong>Sobrecarga</strong> significa que la subclase y la clase base usan el mismo método de nombre, y el método de la subclase anulará el mecanismo del método de la clase base. Para ser precisos, las variables miembro también se pueden sobrecargar, pero esta sobrecarga no tiene sentido. La sobrecarga de métodos se divide en sobrecarga de métodos ordinarios y sobrecarga de operadores.</p>
+<section id="sobrecarga-de-metodo-comun">
+<h3>Sobrecarga de método común<a class="headerlink" href="#sobrecarga-de-metodo-comun" title="Permalink to this headline"></a></h3>
+</section>
+<section id="sobrecarga-del-operador">
+<h3>Sobrecarga del operador<a class="headerlink" href="#sobrecarga-del-operador" title="Permalink to this headline"></a></h3>
+<p>Puede usar la sobrecarga de operadores de la clase para hacer que la instancia admita la operación del operador integrado. Por ejemplo, para una clase sobrecargada con el operador de suma, podemos usar el operador de suma para realizar operaciones en la instancia. Un operador sobrecargado es un método con un nombre especial, y la forma de función sobrecargada de un operador binario es</p>
+<div class="algorithm">
+<div class="highlight-ebnf notranslate"><div class="highlight"><pre><span></span>´def’ operador ´(´ otro ´)´
+  bloque
+´end’
+</pre></div>
+</div>
+</div>
+<p><strong>operador</strong> es un operador binario sobrecargado. El operando izquierdo del operador binario es el objeto <code class="docutils literal notranslate"><span class="pre">self</span></code> y el operando derecho es el valor del parámetro <strong>otro</strong>. La forma de función sobrecargada del operador unario es</p>
+<div class="algorithm">
+<div class="highlight-ebnf notranslate"><div class="highlight"><pre><span></span>´def’ operador ´()´
+  bloque
+´end’
+</pre></div>
+</div>
+</div>
+<p><strong>operador</strong> es un operador unario sobrecargado. Para distinguirlo del operador de resta, el signo menos unario se escribe como <code class="docutils literal notranslate"><span class="pre">-*</span></code> cuando está sobrecargado. Las funciones sobrecargadas del operador deben tener un valor de retorno, porque el valor de retorno <code class="docutils literal notranslate"><span class="pre">nil</span></code> predeterminado no suele ser el resultado esperado. Tomemos una clase entera como ejemplo para ilustrar el uso de la sobrecarga de operadores. Primero defina la clase <code class="docutils literal notranslate"><span class="pre">integer</span></code>:</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class integer
+    var value
+    def init(v)
+        self.value = v
+    end
+    def +(other)
+        return integer(self.value + other.value)
+    end
+    def *(other)
+        return integer(self.value * other.value)
+    end
+    def -*()
+        return integer(-self.value)
+    end
+    def tostring(other)
+        return str(self.value)
+    end
+end
+</pre></div>
+</div>
+<p>La clase <code class="docutils literal notranslate"><span class="pre">integer</span></code> sobrecarga los operadores suma, multiplicación y simbólicos, y el método <code class="docutils literal notranslate"><span class="pre">tostring</span></code> hace que la instancia use la función <code class="docutils literal notranslate"><span class="pre">print</span></code> para generar el resultado. Podemos usar una simple línea de código para probar la función de sobrecarga de operadores de la clase:</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>integer(1) + integer(2) * -integer(3) # -5
+</pre></div>
+</div>
+<p>El resultado de esta línea de código es una instancia de <code class="docutils literal notranslate"><span class="pre">integer</span></code>. El valor del miembro <code class="docutils literal notranslate"><span class="pre">value</span></code> de esta instancia es <code class="docutils literal notranslate"><span class="pre">-5</span></code>, que es el mismo resultado de las mismas cuatro operaciones aritméticas con números enteros.</p>
+<p>Los operadores lógicos no se pueden sobrecargar directamente. Si necesita una instancia para admitir operaciones lógicas, debe implementar el método <code class="docutils literal notranslate"><span class="pre">tobool</span></code>.
+El método no tiene parámetros y el valor devuelto debe ser de tipo booleano. La operación lógica de la instancia en realidad se realiza convirtiendo la instancia en un valor booleano, por lo que la operación lógica de la instancia está completamente en línea con la naturaleza de la operación lógica general. El operador de subíndice no se sobrecarga directamente, pero se implementa mediante los métodos <code class="docutils literal notranslate"><span class="pre">item</span></code> y <code class="docutils literal notranslate"><span class="pre">setitem</span></code>. El método <code class="docutils literal notranslate"><span class="pre">item</span></code> se utiliza para la lectura de subíndices, su primer parámetro es el valor del subíndice y el valor de retorno es el resultado de la operación del subíndice; <code class="docutils literal notranslate"><span class="pre">setitem</span></code> se utiliza para la escritura de subíndices, y su primer parámetro es el valor del subíndice, el segundo parámetro es el valor que se va a escribir; este método no utiliza el valor de retorno.</p>
+<p>Al operador sobrecargado se le puede asignar cualquier significado, incluso sin satisfacer las propiedades habituales de los operadores. Dada la versatilidad del código y la dificultad de comprensión, no se recomienda que los usuarios den a los operadores sobrecargados una función alejada del significado general.</p>
+<section id="sobrecarga-del-operador-de-asignacion-compuesto">
+<h4>Sobrecarga del operador de asignación compuesto<a class="headerlink" href="#sobrecarga-del-operador-de-asignacion-compuesto" title="Permalink to this headline"></a></h4>
+<p>El operador de asignación compuesto no se puede sobrecargar directamente, pero podemos lograr el propósito de “sobrecargar” el operador de asignación compuesto sobrecargando el operador binario correspondiente al operador de asignación compuesto. Por ejemplo, después de sobrecargar el operador “<code class="docutils literal notranslate"><span class="pre">+</span></code>”, puede usar el operador “<code class="docutils literal notranslate"><span class="pre">+=</span></code>” para instancias de clases relacionadas. Vale la pena señalar que el uso de operaciones de asignación compuestas en la instancia hará que las variables de la instancia vinculada pierdan su referencia a la instancia.</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class integer
+    var valor
+    def init(x)
+        self.valor = x
+    end
+    def +(other)
+        return integer(self.valor + other.valor)
+    end
+end
+a = integer(4) # a: &lt;instance: 0x55edff400a78&gt;
+a += integer(5) # a: &lt;instance: 0x55edff4011b8&gt;
+print(a.valor) # 9
+</pre></div>
+</div>
+<p>Después de que se ejecuta la línea 11 de código, la instancia enlazada en la variable <code class="docutils literal notranslate"><span class="pre">a</span></code> realmente ha cambiado. Esta línea de código es equivalente a <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">integer(4)</span> <span class="pre">+</span> <span class="pre">integer(5)</span></code>. Si el operador binario de la sobrecarga de clase no modifica el estado de la instancia, entonces el operador de asignación compuesto correspondiente no modificará ninguna instancia (puede generar nuevas instancias).</p>
+</section>
+</section>
+</section>
+<section id="instancia">
+<h2>Instancia<a class="headerlink" href="#instancia" title="Permalink to this headline"></a></h2>
+<p>Una <strong>Instancia</strong> es un objeto generado después de la instanciación de la clase. Una clase se puede instanciar varias veces para generar diferentes instancias.
+Las instancias de Berry están referenciadas por la clase a la que pertenecen y los campos de datos correspondientes. Todas las instancias de una clase se referirán a esta clase, pero los campos de datos de estas instancias son independientes entre sí.</p>
+<section id="objeto-de-clase-base-de-acceso">
+<h3>Objeto de clase base de acceso<a class="headerlink" href="#objeto-de-clase-base-de-acceso" title="Permalink to this headline"></a></h3>
+<p>La función integrada <code class="docutils literal notranslate"><span class="pre">super</span></code> se utiliza para acceder a objetos de clase superior.
+Se puede utilizar en clases o instancias.</p>
+<p>La magia ocurre cuando llamas a un método de la superclase para que se comporte como intuitivamente crees que lo haría.
+Por ejemplo, el patrón común para <code class="docutils literal notranslate"><span class="pre">init()</span></code> es el siguiente:</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def init(&lt;args&gt;)
+    # hacer cosas antes de super init
+    super(self).init(&lt;args&gt;)
+    # hacer cosas después de super init
+end
+</pre></div>
+</div>
+<p>Tenga en cuenta que las clases siempre contienen métodos <code class="docutils literal notranslate"><span class="pre">init()</span></code> implícitos que no hacen nada, por lo que siempre puede llamar a init desde la superclase incluso si no se declaró ningún método <code class="docutils literal notranslate"><span class="pre">init()</span></code>.</p>
+<p>Ejemplo completo:</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class A
+    var val
+    def init(val)
+        # super(self).init(val)    # esto sería válido pero inútil
+        self.val = val
+    end
+    def tostring()
+        return &quot;val=&quot; + str(self.val)
+    end
+end
+
+class B: A
+    var magia    # verdadero si el valor es 42
+    def init(val)
+        super(self).init(val)     # llamar a superinit
+        self.magia = (val == 42)
+    end
+    def tostring()
+        if self.magia
+            return &quot;magia!&quot;
+        else
+            return super(self).tostring()
+        end
+    end
+end
+
+####### Ejemplo de uso
+
+&gt; b1 = B(1)
+&gt; b1
+val=1
+&gt; b42 = B(42)
+&gt; b42
+magia!
+</pre></div>
+</div>
+<p><strong>Características avanzadas</strong>: Al llamar a <code class="docutils literal notranslate"><span class="pre">super(self).&lt;method&gt;</span> <span class="pre">(&lt;args&gt;</span> <span class="pre">)</span></code> ocurre algo de magia. Cuando se llama al supermétodo, los argumentos <code class="docutils literal notranslate"><span class="pre">self</span></code> se refieren a la clase específica más baja. Sin embargo, el <code class="docutils literal notranslate"><span class="pre">&lt;method&gt;</span> </code> no se busca desde la clase de <code class="docutils literal notranslate"><span class="pre">self</span></code> (que siempre es la más baja), sino desde la superclase de la clase que contiene el método que se está ejecutando actualmente.</p>
+<p>Ejemplo:</p>
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; class A
+      def init()
+          print(&quot;In A::init, self es de tipo&quot;, classname(self))
+      end
+  end
+&gt; class B:A
+      def init()
+          print(&quot;In B::init, self es de tipo&quot;, classname(self))
+          super(self).init()
+      end
+  end
+&gt; class C:B
+      def init()
+          print(&quot;En C::init, self es de tipo&quot;, classname(self))
+          super(self).init()
+      end
+  end
+&gt; c = C()
+En C::init, self es de tipo C
+In B::init, self es de tipo C
+In A::init, self es de tipo C
+&gt;
+</pre></div>
+</div>
+<p>Explicación:</p>
+<ul class="simple">
+<li><p>llamando a <code class="docutils literal notranslate"><span class="pre">C:init()</span></code> en <code class="docutils literal notranslate"><span class="pre">instancia&lt;C&gt;</span> </code> - en <code class="docutils literal notranslate"><span class="pre">C:init()</span></code> <code class="docutils literal notranslate"><span class="pre">self</span></code> es <code class="docutils literal notranslate"><span class="pre">instancia&lt;C&gt;</span> </code>, <code class="docutils literal notranslate"><span class="pre">super(self).init()</span></code> se refiere a la superclase de <code class="docutils literal notranslate"><span class="pre">C</span></code> (método actual), es decir, <code class="docutils literal notranslate"><span class="pre">B</span></code>, por lo que <code class="docutils literal notranslate"><span class="pre">B:init()</span></code> se llama con <code class="docutils literal notranslate"><span class="pre">instance&lt;C&gt;</span> </code> argumento - en <code class="docutils literal notranslate"><span class="pre">B:init()</span></code> <code class="docutils literal notranslate"><span class="pre">self</span></code> es <code class="docutils literal notranslate"><span class="pre">instancia&lt;C&gt;</span> </code>, <code class="docutils literal notranslate"><span class="pre">super(self).init()</span></code> se refiere a la superclase de <code class="docutils literal notranslate"><span class="pre">B</span></code> (método actual), es decir, <code class="docutils literal notranslate"><span class="pre">A</span></code>, por lo que <code class="docutils literal notranslate"><span class="pre">A:init()</span></code> se llama con <code class="docutils literal notranslate"><span class="pre">instance&lt;C&gt;</span> </code> argumento - en <code class="docutils literal notranslate"><span class="pre">A:init()</span></code> <code class="docutils literal notranslate"><span class="pre">self</span></code> es <code class="docutils literal notranslate"><span class="pre">instancia&lt;C&gt;</span> </code>, imprimir y devolver</p></li>
+</ul>
+<p>Nota: por compatibilidad con versiones anteriores, super puede tomar un segundo argumento <code class="docutils literal notranslate"><span class="pre">super(instancia,</span> <span class="pre">clase)</span></code> para especificar la clase donde resolver el método.
+Esta función no debe usarse más, ya que es propensa a errores.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Guan Wenliang &amp; Stephan Hadinger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

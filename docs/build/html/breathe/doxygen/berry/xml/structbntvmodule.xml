@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structbntvmodule" kind="struct" language="C++" prot="public">
+    <compoundname>bntvmodule</compoundname>
+    <includes refid="berry_8h" local="no">berry.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structbntvmodule_1a3dde37be8ea45a6b88982b1efac3d210" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* bntvmodule::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>native module name </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="244" column="16" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="244" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structbntvmodule_1a687658078a7d84f2661bd5b5cd024a32" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structbntvmodobj" kindref="compound">bntvmodobj</ref> *</type>
+        <definition>const bntvmodobj* bntvmodule::attrs</definition>
+        <argsstring></argsstring>
+        <name>attrs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>native module attributes </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="245" column="22" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="245" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structbntvmodule_1ad988c06052a10c1f3fc0002862aee7c0" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t bntvmodule::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>native module attribute count </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="246" column="12" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="246" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structbntvmodule_1a307e7f6aecb900f345d8087da758e6dd" prot="public" static="no" mutable="no">
+        <type>const struct bmodule *</type>
+        <definition>const struct bmodule* bntvmodule::module</definition>
+        <argsstring></argsstring>
+        <name>module</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>const module object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="247" column="24" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="247" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>native module object </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>bntvmodule</label>
+        <link refid="structbntvmodule"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>attrs</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>bntvmodobj::value</label>
+        <link refid="unionbntvmodobj_1_1value"/>
+      </node>
+      <node id="2">
+        <label>bntvmodobj</label>
+        <link refid="structbntvmodobj"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>u</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="243" column="1" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="243" bodyend="248"/>
+    <listofallmembers>
+      <member refid="structbntvmodule_1a687658078a7d84f2661bd5b5cd024a32" prot="public" virt="non-virtual"><scope>bntvmodule</scope><name>attrs</name></member>
+      <member refid="structbntvmodule_1a307e7f6aecb900f345d8087da758e6dd" prot="public" virt="non-virtual"><scope>bntvmodule</scope><name>module</name></member>
+      <member refid="structbntvmodule_1a3dde37be8ea45a6b88982b1efac3d210" prot="public" virt="non-virtual"><scope>bntvmodule</scope><name>name</name></member>
+      <member refid="structbntvmodule_1ad988c06052a10c1f3fc0002862aee7c0" prot="public" virt="non-virtual"><scope>bntvmodule</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structbnfuncinfo" kind="struct" language="C++" prot="public">
+    <compoundname>bnfuncinfo</compoundname>
+    <includes refid="berry_8h" local="no">berry.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structbnfuncinfo_1acbd70a063d4a6bd05476110e5d82ffef" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* bnfuncinfo::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="192" column="16" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="192" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structbnfuncinfo_1adae098eaf3181561b3cd913d96bed684" prot="public" static="no" mutable="no">
+        <type>bntvfunc</type>
+        <definition>bntvfunc bnfuncinfo::function</definition>
+        <argsstring></argsstring>
+        <name>function</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="193" column="14" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="193" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>native function information </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="191" column="1" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="191" bodyend="194"/>
+    <listofallmembers>
+      <member refid="structbnfuncinfo_1adae098eaf3181561b3cd913d96bed684" prot="public" virt="non-virtual"><scope>bnfuncinfo</scope><name>function</name></member>
+      <member refid="structbnfuncinfo_1acbd70a063d4a6bd05476110e5d82ffef" prot="public" virt="non-virtual"><scope>bnfuncinfo</scope><name>name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

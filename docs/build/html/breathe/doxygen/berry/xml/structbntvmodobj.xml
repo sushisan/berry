@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structbntvmodobj" kind="struct" language="C++" prot="public">
+    <compoundname>bntvmodobj</compoundname>
+    <includes refid="berry_8h" local="no">berry.h</includes>
+    <innerclass refid="unionbntvmodobj_1_1value" prot="public">bntvmodobj::value</innerclass>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* bntvmodobj::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="202" column="16" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structbntvmodobj_1a047832327add822e27e964c2cf73d363" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int bntvmodobj::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="203" column="9" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structbntvmodobj_1a6927d7b430bcb8af1d2b11d874bda003" prot="public" static="no" mutable="no">
+        <type>union <ref refid="unionbntvmodobj_1_1value" kindref="compound">bntvmodobj::value</ref></type>
+        <definition>union bntvmodobj::value bntvmodobj::u</definition>
+        <argsstring></argsstring>
+        <name>u</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="219" column="7"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>native module object node </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>bntvmodobj::value</label>
+        <link refid="unionbntvmodobj_1_1value"/>
+      </node>
+      <node id="1">
+        <label>bntvmodobj</label>
+        <link refid="structbntvmodobj"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>u</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="201" column="1" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="201" bodyend="236"/>
+    <listofallmembers>
+      <member refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" prot="public" virt="non-virtual"><scope>bntvmodobj</scope><name>name</name></member>
+      <member refid="structbntvmodobj_1a047832327add822e27e964c2cf73d363" prot="public" virt="non-virtual"><scope>bntvmodobj</scope><name>type</name></member>
+      <member refid="structbntvmodobj_1a6927d7b430bcb8af1d2b11d874bda003" prot="public" virt="non-virtual"><scope>bntvmodobj</scope><name>u</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
