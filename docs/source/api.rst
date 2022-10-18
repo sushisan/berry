@@ -5,5 +5,5 @@ API documentation
    :maxdepth: 2
    :caption: Contents:
 
-.. autodoxygenfile:: berry.h
-   :project: berry
+.. autodoxygenindex:: berry.h
+   :source: berry
