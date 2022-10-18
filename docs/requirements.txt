@@ -4,3 +4,5 @@ Sphinx>=1.8.1
 sphinx-intl>=0.9.11
 sphinx-rtd-theme>=0.4.2
 myst_parser>=0.18.1
+hawkmoth>=0.11.0
+mkdocs>=1.4.1
