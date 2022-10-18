@@ -10,9 +10,9 @@ Welcome to berry's documentation!
    :maxdepth: 6
    :caption: Contents:
 
-   en/Home
+   en/Home.md
 
-   es/Home
+   es/Home.md
 
    api
    
