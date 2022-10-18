@@ -13,8 +13,6 @@ Welcome to berry's documentation!
    en/Home
 
    es/Home
-
-   api
    
 Indices and tables
 ==================
