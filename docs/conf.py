@@ -94,7 +94,7 @@ source_suffix = {
 }
 
 # Breathe Configuration
-breathe_projects = "berry" : "../source"
+breathe_projects = {"berry" : "../src"}
 breathe_default_project = "berry"
 breathe_projects_source = {
     "berry" : (
