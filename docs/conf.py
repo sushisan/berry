@@ -30,7 +30,16 @@ release = '1.1.0'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['myst_parser', 'breathe']
+extensions = [
+        'myst_parser',
+        'sphinx.ext.autodoc',
+        'sphinx.ext.doctest',
+        'sphinx.ext.mathjax',
+        'sphinx.ext.viewcode',
+        'sphinx.ext.imgmath', 
+        'sphinx.ext.todo',
+        'breathe'
+]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -86,7 +95,7 @@ if not on_rtd:  # only import and set the theme if we're building docs locally
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+# html_static_path = ['_static']
 
 source_suffix = {
      '.md': 'markdown',
@@ -101,3 +110,9 @@ breathe_projects_source = {
         "../", ["src/berry.h"]
     )
 }
+
+c_id_attributes = ["BERRY_API"]
+c_paren_attributes = ["BERRY_API"]
+
+cpp_id_attributes = ["BERRY_API"]
+cpp_paren_attributes = ["BERRY_API"]

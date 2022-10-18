@@ -36,7 +36,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Home.html">Welcome to the berry wiki!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Bienvenido a la wiki de Berry!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
 </ul>
 
         </div>
@@ -64,7 +63,7 @@
            <div itemprop="articleBody">
              
   <section id="ffi">
-<h1>9. FFI<a class="headerlink" href="#ffi" title="Permalink to this headline"></a></h1>
+<h1>9. FFI<a class="headerlink" href="#ffi" title="Permalink to this headline">¶</a></h1>
 <p><strong>Foreign Function Interface</strong> (FFI) is an interface for interaction
 between different languages. Berry provides a set of FFI to realize the
 interaction with C language, this set of interfaces is also very easy to
@@ -74,13 +73,13 @@ amount of RAM used, FFI also provides a mechanism for generating a fixed
 hash table during C compilation. This mechanism must use external tools
 to generate C code.</p>
 <section id="basics">
-<h2>9.1 Basics<a class="headerlink" href="#basics" title="Permalink to this headline"></a></h2>
+<h2>9.1 Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
 <p>The most important interactive function in FFI should be the function of
 calling Berry code and C function mutually. In order to realize that two
 languages call each other’s functions, we must first understand the
 parameter passing mechanism of the Berry function.</p>
 <section id="virtual-machine">
-<h3>9.1.1 Virtual Machine<a class="headerlink" href="#virtual-machine" title="Permalink to this headline"></a></h3>
+<h3>9.1.1 Virtual Machine<a class="headerlink" href="#virtual-machine" title="Permalink to this headline">¶</a></h3>
 <p>Unlike compiled languages, Berry language cannot run directly on a
 physical machine, but in a specific software environment, which is
 <strong>Virtual Machine</strong> (VM). Similar to a real computer, the source code in
@@ -123,7 +122,7 @@ REPL through the <code class="docutils literal notranslate"><span class="pre">be
 described in the relevant chapters.</p>
 </section>
 <section id="virtual-stack">
-<h3>9.1.2 Virtual Stack<a class="headerlink" href="#virtual-stack" title="Permalink to this headline"></a></h3>
+<h3>9.1.2 Virtual Stack<a class="headerlink" href="#virtual-stack" title="Permalink to this headline">¶</a></h3>
 <p>Berry uses a virtual stack and native functions written in C to pass
 values. Each element in the stack is a Berry value. When Berry code
 calls a native function, it always creates a new stack and pushes all
@@ -173,9 +172,9 @@ location where the return value is stored is just before <code class="docutils l
 these locations are usually not accessible by the native function.</p>
 </section>
 <section id="operate-virtual-stack">
-<h3>Operate Virtual Stack<a class="headerlink" href="#operate-virtual-stack" title="Permalink to this headline"></a></h3>
+<h3>Operate Virtual Stack<a class="headerlink" href="#operate-virtual-stack" title="Permalink to this headline">¶</a></h3>
 <section id="index-and-stack-size">
-<h4>Index and stack size<a class="headerlink" href="#index-and-stack-size" title="Permalink to this headline"></a></h4>
+<h4>Index and stack size<a class="headerlink" href="#index-and-stack-size" title="Permalink to this headline">¶</a></h4>
 <p>As mentioned earlier, two indexing methods can be used to access the
 virtual stack, and the index value must be valid. At the same time, in
 many cases it is also necessary to push new values onto the stack. In
@@ -200,7 +199,7 @@ debugging information at runtime to catch errors such as stack overflow
 or invalid index.</p>
 </section>
 <section id="get-value-from-stack">
-<h4>Get value from stack<a class="headerlink" href="#get-value-from-stack" title="Permalink to this headline"></a></h4>
+<h4>Get value from stack<a class="headerlink" href="#get-value-from-stack" title="Permalink to this headline">¶</a></h4>
 <p>There is a set of functions in FFI to get values from the virtual stack.
 These functions usually convert the values in the stack into simple
 values supported by the C language and then return. The following are
@@ -229,7 +228,7 @@ there is no need to consider garbage collection in native functions.</p>
 </section>
 </section>
 <section id="native-function">
-<h3>Native function<a class="headerlink" href="#native-function" title="Permalink to this headline"></a></h3>
+<h3>Native function<a class="headerlink" href="#native-function" title="Permalink to this headline">¶</a></h3>
 <p><strong>Native function</strong> It is implemented by C language and can be called by
 Berry code. The native function can be an ordinary function. In this
 case, calling the native function will not generate any dynamically
@@ -239,7 +238,7 @@ when creating native closures. Under normal circumstances, simple native
 functions are sufficient to meet the needs. They save resources than
 native closures and are easier to use.</p>
 <section id="define-native-function">
-<h4>Define native function<a class="headerlink" href="#define-native-function" title="Permalink to this headline"></a></h4>
+<h4>Define native function<a class="headerlink" href="#define-native-function" title="Permalink to this headline">¶</a></h4>
 <p>The native function itself is a C function, but they all have a specific
 form. The definition of the native function is:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">a_native_function</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">)</span><span class="w"></span>
@@ -264,7 +263,7 @@ return:</p>
 virtual stack</p>
 </section>
 <section id="use-native-function">
-<h4>Use native function<a class="headerlink" href="#use-native-function" title="Permalink to this headline"></a></h4>
+<h4>Use native function<a class="headerlink" href="#use-native-function" title="Permalink to this headline">¶</a></h4>
 <p>After the native function is defined, it must be added to the
 interpreter in some way before it can be called in Berry code. One of
 the easiest ways is to add native functions to Berry’s built-in object
@@ -293,7 +292,7 @@ use an FFI function <code class="docutils literal notranslate"><span class="pre"
 the native function object in the virtual stack as the return value.</p>
 </section>
 <section id="complete-example">
-<h4>Complete example<a class="headerlink" href="#complete-example" title="Permalink to this headline"></a></h4>
+<h4>Complete example<a class="headerlink" href="#complete-example" title="Permalink to this headline">¶</a></h4>
 <p>We end this section with a simple example. Here, we are going to
 implement a <code class="docutils literal notranslate"><span class="pre">add</span></code> function that adds two numbers and returns the result
 of the calculation. First, we define a native function to implement this
@@ -352,9 +351,9 @@ results like this:</p>
 </section>
 </section>
 <section id="types-and-functions">
-<h2>Types and Functions<a class="headerlink" href="#types-and-functions" title="Permalink to this headline"></a></h2>
+<h2>Types and Functions<a class="headerlink" href="#types-and-functions" title="Permalink to this headline">¶</a></h2>
 <section id="type">
-<h3>Type<a class="headerlink" href="#type" title="Permalink to this headline"></a></h3>
+<h3>Type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h3>
 <p>This section will introduce some types that need to be used in FFI.
 These types are generally used by FFI functions. Generally, the types
 and declarations in FFI can be found in the <em>berry.h</em> file. Unless
@@ -448,7 +447,7 @@ objects can no longer be allocated, so the function that returns this
 error usually does not give more detailed error information.</p>
 </section>
 <section id="functions-and-macros">
-<h3>Functions and Macros<a class="headerlink" href="#functions-and-macros" title="Permalink to this headline"></a></h3>
+<h3>Functions and Macros<a class="headerlink" href="#functions-and-macros" title="Permalink to this headline">¶</a></h3>
 <p>This function is used to create a new virtual machine instance. The
 function prototype is:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">bvm</span><span class="o">*</span><span class="w"> </span><span class="nf">be_vm_new</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
@@ -1225,7 +1224,7 @@ modifies the value of <code class="docutils literal notranslate"><span class="pr
 </section>
 </section>
 <section id="compile-time-construction-technology">
-<h2>Compile-time construction technology<a class="headerlink" href="#compile-time-construction-technology" title="Permalink to this headline"></a></h2>
+<h2>Compile-time construction technology<a class="headerlink" href="#compile-time-construction-technology" title="Permalink to this headline">¶</a></h2>
 <p>The compile-time construction technology is mainly implemented by
 <em>coc</em> which is located in the
 <em>coc/coc</em> path of the interpreter
@@ -1248,7 +1247,7 @@ in the <em>generate</em> folder.</p>
 <code class="docutils literal notranslate"><span class="pre">BE_USE_PRECOMPILED_OBJECT</span></code> macro. In any case, the tool <em>coc</em> is called to generate constant object codes (the codes
 are not used when compile-time construction is turned off).</p>
 <section id="use-command">
-<h3>Use command<a class="headerlink" href="#use-command" title="Permalink to this headline"></a></h3>
+<h3>Use command<a class="headerlink" href="#use-command" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">coc</span></code> Tool is used to generate code for constant objects. The
 format of the command is</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tools/coc/coc -o &lt;dst_path&gt; &lt;src_path<span class="o">(</span>s<span class="o">)</span>&gt; -c &lt;include_path&gt;
@@ -1270,7 +1269,7 @@ interpreter project as an example, the command to use the tool in
 source path is <em>src</em> and <em>default</em>.</p>
 </section>
 <section id="output-path">
-<h3>output path<a class="headerlink" href="#output-path" title="Permalink to this headline"></a></h3>
+<h3>output path<a class="headerlink" href="#output-path" title="Permalink to this headline">¶</a></h3>
 <p>Strictly speaking, the <em>generate</em> folder used as the output path cannot
 be placed anywhere, it must be stored in a parent directory containing
 the path. The include path refers to the path where the header file will
@@ -1290,7 +1289,7 @@ will introduce how to use these tools to define and use constant
 objects.</p>
 </section>
 <section id="compile-time-string-table">
-<h3>Compile-time string table<a class="headerlink" href="#compile-time-string-table" title="Permalink to this headline"></a></h3>
+<h3>Compile-time string table<a class="headerlink" href="#compile-time-string-table" title="Permalink to this headline">¶</a></h3>
 <p>The compile-time string table is used to store constant strings.
 Constant strings are objects that are transparent to the script. They
 are not created or destroyed when the interpreter is running, but are
@@ -1310,7 +1309,7 @@ as <code class="docutils literal notranslate"><span class="pre">_XHH</span></cod
 For example <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> is represented by <code class="docutils literal notranslate"><span class="pre">_X3A</span></code>. This representation is bihective
 so it’s easy to convert to and from the original string.</p>
 <section id="use-constant-string">
-<h4>Use constant string<a class="headerlink" href="#use-constant-string" title="Permalink to this headline"></a></h4>
+<h4>Use constant string<a class="headerlink" href="#use-constant-string" title="Permalink to this headline">¶</a></h4>
 <p>Normally, there is no need to manually declare constant strings, nor to
 use them manually. If you really need to call the constant string
 manually, include the header file <em>be_constobj.h</em> to use all constant
@@ -1337,7 +1336,7 @@ To indicate weak strings, use the <code class="docutils literal notranslate"><sp
 </section>
 </section>
 <section id="construct-object-at-compile-time">
-<h3>Construct object at compile time<a class="headerlink" href="#construct-object-at-compile-time" title="Permalink to this headline"></a></h3>
+<h3>Construct object at compile time<a class="headerlink" href="#construct-object-at-compile-time" title="Permalink to this headline">¶</a></h3>
 <p>Objects constructed at compile time are also called constant objects.
 The data structure of these objects is constructed when the interpreter
 is compiled and cannot be modified at runtime. <code class="docutils literal notranslate"><span class="pre">map_build</span></code> A set of
@@ -1470,7 +1469,7 @@ the object declaration block. The 8th line in the example contains
 <em>be_fixed_be_class_map.h</em> to construct the <code class="docutils literal notranslate"><span class="pre">be_class_map</span></code> object at
 compile time.</p>
 <section id="construct-map-at-compile-time">
-<h4>Construct Map at Compile Time<a class="headerlink" href="#construct-map-at-compile-time" title="Permalink to this headline"></a></h4>
+<h4>Construct Map at Compile Time<a class="headerlink" href="#construct-map-at-compile-time" title="Permalink to this headline">¶</a></h4>
 <p>Maps constructed at compile-time are also constant <code class="docutils literal notranslate"><span class="pre">map</span></code> objects. They
 are generally not declared directly using object declaration blocks, but
 are declared in other compile-time construction structures. When
@@ -1490,7 +1489,7 @@ declaration block to directly declare a constant <code class="docutils literal n
 </div>
 </section>
 <section id="compile-time-construction-class">
-<h4>Compile-time construction class<a class="headerlink" href="#compile-time-construction-class" title="Permalink to this headline"></a></h4>
+<h4>Compile-time construction class<a class="headerlink" href="#compile-time-construction-class" title="Permalink to this headline">¶</a></h4>
 <p>To construct a class at compile time, use the object declaration block
 to declare, and the type information of the object is <code class="docutils literal notranslate"><span class="pre">class</span></code>. The
 declared properties of this object are <code class="docutils literal notranslate"><span class="pre">scope</span></code> and <code class="docutils literal notranslate"><span class="pre">name</span></code>. <code class="docutils literal notranslate"><span class="pre">scope</span></code> The
@@ -1511,7 +1510,7 @@ declaration block is:</p>
 </div>
 </section>
 <section id="building-module-at-compile-time">
-<h4>Building Module at Compile Time<a class="headerlink" href="#building-module-at-compile-time" title="Permalink to this headline"></a></h4>
+<h4>Building Module at Compile Time<a class="headerlink" href="#building-module-at-compile-time" title="Permalink to this headline">¶</a></h4>
 <p>The type information of the building block declaration block at compile
 time is <code class="docutils literal notranslate"><span class="pre">module</span></code>.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">module</span><span class="w"> </span><span class="nf">math</span><span class="w"> </span><span class="p">(</span><span class="n">scope</span><span class="o">:</span><span class="w"> </span><span class="n">global</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -1523,7 +1522,7 @@ time is <code class="docutils literal notranslate"><span class="pre">module</spa
 </div>
 </section>
 <section id="construct-built-in-domain-at-compile-time">
-<h4>Construct Built-in Domain at Compile Time<a class="headerlink" href="#construct-built-in-domain-at-compile-time" title="Permalink to this headline"></a></h4>
+<h4>Construct Built-in Domain at Compile Time<a class="headerlink" href="#construct-built-in-domain-at-compile-time" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">vartab</span><span class="w"> </span><span class="nf">m_builtin</span><span class="w"> </span><span class="p">(</span><span class="n">scope</span><span class="o">:</span><span class="w"> </span><span class="n">local</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">assert</span><span class="p">,</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="n">l_assert</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="n">print</span><span class="p">,</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="n">l_print</span><span class="p">)</span><span class="w"></span>

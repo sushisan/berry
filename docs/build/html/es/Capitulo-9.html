@@ -36,7 +36,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../en/Home.html">Welcome to the berry wiki!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Home.html">Bienvenido a la wiki de Berry!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
 </ul>
 
         </div>
@@ -65,13 +64,13 @@
              
   <!-- Spanish Translation: Emiliano Gonzalez (egonzalez . hiperion @ gmail . com) -->
 <section id="ffi">
-<h1>9. FFI<a class="headerlink" href="#ffi" title="Permalink to this headline"></a></h1>
+<h1>9. FFI<a class="headerlink" href="#ffi" title="Permalink to this headline">¶</a></h1>
 <p>La <strong>Interfaz de Función Externa</strong> (FFI) es una interfaz para la interacción entre diferentes lenguajes. Berry proporciona un conjunto de FFI para realizar la interacción con el lenguaje C, este conjunto de interfaces también es muy fácil de usar en C++. La mayoría de las interfaces FFI son funciones y sus declaraciones se colocan en el archivo <em>berry.h</em>. Para reducir la cantidad de RAM utilizada, FFI también proporciona un mecanismo para generar una tabla hash fija durante la compilación de C. Este mecanismo debe utilizar herramientas externas para generar código C.</p>
 <section id="conceptos-basicos">
-<h2>9.1 Conceptos básicos<a class="headerlink" href="#conceptos-basicos" title="Permalink to this headline"></a></h2>
+<h2>9.1 Conceptos básicos<a class="headerlink" href="#conceptos-basicos" title="Permalink to this headline">¶</a></h2>
 <p>La función interactiva más importante en FFI debería ser la función de llamar al código Berry y la función C mutuamente. Para darnos cuenta de cómo dos lenguajes llaman a las funciones del otro, primero debemos entender el mecanismo de paso de parámetros de la función de Berry.</p>
 <section id="maquina-virtual">
-<h3>9.1.1 Máquina virtual<a class="headerlink" href="#maquina-virtual" title="Permalink to this headline"></a></h3>
+<h3>9.1.1 Máquina virtual<a class="headerlink" href="#maquina-virtual" title="Permalink to this headline">¶</a></h3>
 <p>A diferencia de los lenguajes compilados, el lenguaje Berry no puede ejecutarse directamente en una máquina física, sino en un entorno de software específico, que es <strong>Máquina virtual</strong> (VM). Similar a una computadora real, el código fuente en forma de texto no se puede ejecutar en una máquina virtual, sino que un compilador debe convertirlo en “código de bytes”. La máquina virtual Berry se define como una estructura C <code class="docutils literal notranslate"><span class="pre">bvm</span></code>, el contenido de esta estructura es invisible para FFI.
 A través de algunas funciones de FFI, podemos crear e inicializar una máquina virtual. Introduciremos el uso de máquinas virtuales a través de un ejemplo sencillo:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">berry_test</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
@@ -89,7 +88,7 @@ La función <code class="docutils literal notranslate"><span class="pre">be_vm_n
 <p>En todos los escenarios, la construcción de la máquina virtual, la carga de la biblioteca y el proceso de destrucción son los mismos que en las líneas 3, 4 y 6 del ejemplo anterior. Si es necesario, la forma de compilar o cargar el código fuente puede ser diferente. Por ejemplo, para el código fuente en forma de archivo, se puede compilar a través de la función <code class="docutils literal notranslate"><span class="pre">be_loadfile</span></code>. El código fuente se compilará en una función Berry y la función se almacenará en la parte superior de la pila. La función Berry se puede ejecutar llamando a la función FFI <code class="docutils literal notranslate"><span class="pre">be_pcall</span></code> o <code class="docutils literal notranslate"><span class="pre">be_call</span></code>. También puede usar REPL a través de la función <code class="docutils literal notranslate"><span class="pre">be_repl</span></code>. La interfaz del REPL se describirá en los capítulos correspondientes.</p>
 </section>
 <section id="pila-virtual">
-<h3>9.1.2 Pila virtual<a class="headerlink" href="#pila-virtual" title="Permalink to this headline"></a></h3>
+<h3>9.1.2 Pila virtual<a class="headerlink" href="#pila-virtual" title="Permalink to this headline">¶</a></h3>
 <p>Berry usa una pila virtual y funciones nativas escritas en C para pasar valores. Cada elemento de la pila es un valor Berry. Cuando el código Berry llama a una función nativa, siempre crea una nueva pila y empuja todos los parámetros a la pila. Esta pila virtual también se puede usar en código C para almacenar datos, y el recolector de elementos no utilizados no reclamará el valor almacenado en la pila.</p>
 <p><img alt="Virtual_Stack" src="https://user-images.githubusercontent.com/49731213/135971121-059e665c-7f65-4a6a-bbe4-da9acf4cf8b5.png" /></p>
 <p>La pila virtual utilizada por Berry se muestra en la figura anterior.</p>
@@ -100,9 +99,9 @@ Cuando la pila virtual está vacía, el puntero inferior <code class="docutils l
 <p>Por conveniencia, estipulamos que el puntero inferior de la pila ‘base’ se usa como referencia, y su índice absoluto 1, y el valor anterior de ‘base’ no se considera (por lo general, ‘base’ no es la posición inferior de todo el pila). Por ejemplo, cuando regresa una función nativa, la ubicación donde se almacena el valor de retorno está justo antes de <code class="docutils literal notranslate"><span class="pre">base</span></code>, y la función nativa no suele acceder a estas ubicaciones.</p>
 </section>
 <section id="operar-con-pila-virtual">
-<h3>Operar con pila virtual<a class="headerlink" href="#operar-con-pila-virtual" title="Permalink to this headline"></a></h3>
+<h3>Operar con pila virtual<a class="headerlink" href="#operar-con-pila-virtual" title="Permalink to this headline">¶</a></h3>
 <section id="indice-y-tamano-de-pila">
-<h4>Índice y tamaño de pila<a class="headerlink" href="#indice-y-tamano-de-pila" title="Permalink to this headline"></a></h4>
+<h4>Índice y tamaño de pila<a class="headerlink" href="#indice-y-tamano-de-pila" title="Permalink to this headline">¶</a></h4>
 <p>Como se mencionó anteriormente, se pueden usar dos métodos de indexación para acceder a la pila virtual y el valor del índice debe ser válido. Al mismo tiempo, en muchos casos también es necesario introducir nuevos valores en la pila. En este caso, el programador debe asegurarse de que la pila no se desborde.
 Por defecto, Berry garantiza el espacio <code class="docutils literal notranslate"><span class="pre">BE_STACK_FREE_MIN</span></code> para que lo usen las funciones nativas. Este valor se puede modificar en el archivo <em>berry.h</em>. Su valor por defecto suele ser 10, que debería ser suficiente en la mayoría de los casos.
 Si realmente necesita expandir la pila, puede llamar a la función FFI <code class="docutils literal notranslate"><span class="pre">be_stack_require</span></code>. El prototipo de esta función es:</p>
@@ -113,7 +112,7 @@ Si realmente necesita expandir la pila, puede llamar a la función FFI <code cla
 <p><strong>Advertencia</strong>: si se produce un desbordamiento de la pila, o si se utiliza un índice no válido para acceder a la pila, el programa fallará. Puede activar el interruptor de depuración <code class="docutils literal notranslate"><span class="pre">BE_DEBUG</span></code> (sección <a href="#section::BE_DEBUG" data-reference-type="ref" data-reference="section::BE_DEBUG">[sección::BE_DEBUG]</a> ), que activará la función de aserción, y puede obtener información de depuración en tiempo de ejecución para detectar errores como desbordamiento de pila o índice no válido.</p>
 </section>
 <section id="obtener-valor-de-la-pila">
-<h4>Obtener valor de la pila<a class="headerlink" href="#obtener-valor-de-la-pila" title="Permalink to this headline"></a></h4>
+<h4>Obtener valor de la pila<a class="headerlink" href="#obtener-valor-de-la-pila" title="Permalink to this headline">¶</a></h4>
 <p>Hay un conjunto de funciones en FFI para obtener valores de la pila virtual.
 Estas funciones generalmente convierten los valores en la pila en valores simples compatibles con el lenguaje C y luego regresan. Los siguientes son FFI de uso común para obtener valores de la pila:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">bint</span><span class="w"> </span><span class="nf">be_toint</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">);</span><span class="w"></span>
@@ -128,10 +127,10 @@ Estas funciones generalmente convierten los valores en la pila en valores simple
 </section>
 </section>
 <section id="funcion-nativa">
-<h3>Función nativa<a class="headerlink" href="#funcion-nativa" title="Permalink to this headline"></a></h3>
+<h3>Función nativa<a class="headerlink" href="#funcion-nativa" title="Permalink to this headline">¶</a></h3>
 <p>Una <strong>Función nativa</strong> está implementada por lenguaje C y puede ser llamada por código Berry. La función nativa puede ser una función ordinaria. En este caso, llamar a la función nativa no generará ningún espacio asignado dinámicamente, al igual que una llamada de función C normal. Las funciones nativas también pueden ser cierres, y se debe asignar espacio para variables libres al crear cierres nativos. En circunstancias normales, las funciones nativas simples son suficientes para satisfacer las necesidades. Ahorran más recursos que los cierres nativos y son más fáciles de usar.</p>
 <section id="definir-una-funcion-nativa">
-<h4>Definir una función nativa<a class="headerlink" href="#definir-una-funcion-nativa" title="Permalink to this headline"></a></h4>
+<h4>Definir una función nativa<a class="headerlink" href="#definir-una-funcion-nativa" title="Permalink to this headline">¶</a></h4>
 <p>La función nativa en sí es una función C, pero todas tienen una forma específica. La definición de la función nativa es:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">a_native_function</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
@@ -147,7 +146,7 @@ Estas funciones generalmente convierten los valores en la pila en valores simple
 <p>Estos FFI son en realidad dos macros, y no es necesario usar la instrucción C <code class="docutils literal notranslate"><span class="pre">return</span></code> al usarlos. <code class="docutils literal notranslate"><span class="pre">be_return</span></code> pondrá la parte superior de la pila virtual</p>
 </section>
 <section id="usar-una-funcion-nativa">
-<h4>Usar una función nativa<a class="headerlink" href="#usar-una-funcion-nativa" title="Permalink to this headline"></a></h4>
+<h4>Usar una función nativa<a class="headerlink" href="#usar-una-funcion-nativa" title="Permalink to this headline">¶</a></h4>
 <p>Después de definir la función nativa, debe agregarse al intérprete de alguna manera antes de que pueda llamarse en código Berry. Una de las formas más sencillas es agregar funciones nativas a la tabla de objetos integrada de Berry. El proceso de configuración de objetos nativos como objetos incorporados de Berry se denomina <strong>registración</strong>. El FFI de la función nativa registrada es:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">be_regfunc</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">nombre</span><span class="p">,</span><span class="w"> </span><span class="n">bntvfunc</span><span class="w"> </span><span class="n">f</span><span class="p">);</span><span class="w"></span>
 </pre></div>
@@ -162,7 +161,7 @@ La definición del tipo de función nativa <code class="docutils literal notrans
 <p>También puede insertar la función nativa en la pila virtual y luego usar una función FFI <code class="docutils literal notranslate"><span class="pre">be_call</span></code> para llamarla. Un uso más común es usar el objeto de función nativa en la pila virtual como valor de retorno.</p>
 </section>
 <section id="ejemplo-completo">
-<h4>Ejemplo completo<a class="headerlink" href="#ejemplo-completo" title="Permalink to this headline"></a></h4>
+<h4>Ejemplo completo<a class="headerlink" href="#ejemplo-completo" title="Permalink to this headline">¶</a></h4>
 <p>Finalizamos esta sección con un ejemplo sencillo. Aquí, vamos a implementar una función <code class="docutils literal notranslate"><span class="pre">add</span></code> que suma dos números y devuelve el resultado del cálculo. Primero, definimos una función nativa para implementar esta función:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">l_add</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
@@ -200,9 +199,9 @@ Si todo es correcto, los parámetros se sacarán de la pila virtual, luego el re
 </section>
 </section>
 <section id="tipos-y-funciones">
-<h2>Tipos y Funciones<a class="headerlink" href="#tipos-y-funciones" title="Permalink to this headline"></a></h2>
+<h2>Tipos y Funciones<a class="headerlink" href="#tipos-y-funciones" title="Permalink to this headline">¶</a></h2>
 <section id="tipos">
-<h3>Tipos<a class="headerlink" href="#tipos" title="Permalink to this headline"></a></h3>
+<h3>Tipos<a class="headerlink" href="#tipos" title="Permalink to this headline">¶</a></h3>
 <p>Esta sección presentará algunos tipos que deben usarse en FFI y son generalmente utilizados por funciones FFI.
 Generalmente, los tipos y declaraciones en FFI se pueden encontrar en el archivo <em>berry.h</em>. A menos que se especifique lo contrario en esta sección, la definición o declaración se proporciona en <em>berry.h</em> de forma predeterminada.</p>
 <p>El tipo <code class="docutils literal notranslate"><span class="pre">bvm</span></code> se utiliza para almacenar la información de estado de la máquina virtual Berry. Los detalles de este tipo no son visibles para los programas externos.
@@ -269,7 +268,7 @@ intérprete devuelva este valor.</p></li>
 <p>Cabe señalar que cuando se produce un error <code class="docutils literal notranslate"><span class="pre">BE_MALLOC_FAIL</span></code>, ya no se puede realizar la asignación de memoria dinámica, lo que significa que ya no se pueden asignar objetos de cadena, por lo que la función que devuelve este error generalmente no brinda información más detallada sobre el error.</p>
 </section>
 <section id="funciones-y-macros">
-<h3>Funciones y Macros<a class="headerlink" href="#funciones-y-macros" title="Permalink to this headline"></a></h3>
+<h3>Funciones y Macros<a class="headerlink" href="#funciones-y-macros" title="Permalink to this headline">¶</a></h3>
 <p>Esta función se utiliza para crear una nueva instancia de máquina virtual. El prototipo de función es:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">bvm</span><span class="o">*</span><span class="w"> </span><span class="nf">be_vm_new</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 </pre></div>
@@ -712,12 +711,12 @@ El búfer se copia en la memoria asignada de Berry, no necesita mantener el búf
 </section>
 </section>
 <section id="tecnologia-de-construccion-en-tiempo-de-compilacion">
-<h2>Tecnología de construcción en tiempo de compilación<a class="headerlink" href="#tecnologia-de-construccion-en-tiempo-de-compilacion" title="Permalink to this headline"></a></h2>
+<h2>Tecnología de construcción en tiempo de compilación<a class="headerlink" href="#tecnologia-de-construccion-en-tiempo-de-compilacion" title="Permalink to this headline">¶</a></h2>
 <p>La tecnología de construcción en tiempo de compilación se implementa principalmente mediante <em>coc</em>, que se encuentra en la ruta <em>coc/coc</em> del directorio del código fuente del intérprete. La herramienta <em>coc</em> se usa para generar cadenas constantes y objetos constantes como código C, y se compilará en constantes cuando se compile el intérprete. En principio, la herramienta <em>coc</em> generará código a partir de la información de declaración del objeto constante (de acuerdo con un formato específico). El proceso calculará automáticamente el valor Hash y generará la tabla Hash.</p>
 <p>El archivo <em>Makefile</em> en el directorio raíz del proyecto del intérprete compilará automáticamente esta herramienta y la ejecutará antes de compilar el código fuente del intérprete. El contenido de <em>Makefile</em> asegura que cuando se usa el comando <code class="docutils literal notranslate"><span class="pre">make</span></code>, el código para construir el objeto en tiempo de compilación siempre se actualizará a través de la herramienta (si necesita actualizarse). El código para construir objetos en tiempo de compilación se puede generar manualmente a través del comando <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">prebuild</span></code>, que se almacena en la carpeta <em>generate</em>.</p>
 <p>La construcción en tiempo de compilación se puede activar o desactivar modificando la macro <code class="docutils literal notranslate"><span class="pre">BE_USE_PRECOMPILED_OBJECT</span></code>. En cualquier caso, se llama a la herramienta <em>coc</em> para generar códigos de objetos constantes (los códigos no se usan cuando la construcción en tiempo de compilación está desactivada).</p>
 <section id="usar-el-comando-coc">
-<h3>Usar el comando <code class="docutils literal notranslate"><span class="pre">coc</span></code><a class="headerlink" href="#usar-el-comando-coc" title="Permalink to this headline"></a></h3>
+<h3>Usar el comando <code class="docutils literal notranslate"><span class="pre">coc</span></code><a class="headerlink" href="#usar-el-comando-coc" title="Permalink to this headline">¶</a></h3>
 <p>La herramienta <code class="docutils literal notranslate"><span class="pre">coc</span></code> se utiliza para generar código para objetos constantes. El formato del comando es</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tools/coc/coc -o &lt;dst_path&gt; &lt;src_path<span class="o">(</span>s<span class="o">)</span>&gt; -c &lt;include_path&gt;
 </pre></div>
@@ -731,7 +730,7 @@ Dado que <em>generate</em> se usa como la ruta del código generado en el códig
 <p>El significado de este comando es: la ruta de salida es <em>generate</em>, y la ruta de origen es <em>src</em> y <em>default</em>.</p>
 </section>
 <section id="ruta-de-salida">
-<h3>Ruta de salida<a class="headerlink" href="#ruta-de-salida" title="Permalink to this headline"></a></h3>
+<h3>Ruta de salida<a class="headerlink" href="#ruta-de-salida" title="Permalink to this headline">¶</a></h3>
 <p>Estrictamente hablando, la carpeta <em>generate</em> utilizada como ruta de salida no se puede colocar en ningún lado, debe almacenarse en un directorio principal que contenga la ruta. La ruta de inclusión se refiere a la ruta donde se buscará el archivo de encabezado en el proyecto. Tomando el código fuente del intérprete estándar como ejemplo, la ruta de inclusión es <em>src</em> y <em>default</em>. Por lo tanto, en el proyecto de intérprete estándar, la carpeta <em>generate</em> se almacena en el directorio raíz del código fuente del intérprete (el directorio principal de <em>src</em> y <em>default</em>).</p>
 <p>El motivo de las reglas anteriores es que los siguientes códigos se utilizan en el código fuente del intérprete para hacer referencia a objetos constantes:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;../generate/be_fixed_xxx.h&quot;</span><span class="cp"></span>
@@ -740,14 +739,14 @@ Dado que <em>generate</em> se usa como la ruta del código generado en el códig
 <p>Si los lectores quieren definir objetos constantes por sí mismos, también necesitan usar dicho código para incluir los archivos de encabezado correspondientes. Esta sección presentará cómo usar estas herramientas para definir y usar objetos constantes.</p>
 </section>
 <section id="tabla-de-cadenas-en-tiempo-de-compilacion">
-<h3>Tabla de cadenas en tiempo de compilación<a class="headerlink" href="#tabla-de-cadenas-en-tiempo-de-compilacion" title="Permalink to this headline"></a></h3>
+<h3>Tabla de cadenas en tiempo de compilación<a class="headerlink" href="#tabla-de-cadenas-en-tiempo-de-compilacion" title="Permalink to this headline">¶</a></h3>
 <p>La tabla de cadenas en tiempo de compilación se utiliza para almacenar cadenas constantes.
 Las cadenas constantes son objetos que son transparentes para el script. No se crean ni destruyen cuando el intérprete se está ejecutando, pero siempre se almacenan como constantes en el segmento de datos del programa del intérprete. Si necesita usar una cadena como cadena constante, puede agregar el prefijo <code class="docutils literal notranslate"><span class="pre">be_const_str_</span></code> delante de la cadena en el código fuente del intérprete, y la declaración se puede colocar en cualquier parte del archivo fuente (incluidos los comentarios). Por ejemplo, para crear una cadena constante con el contenido <code class="docutils literal notranslate"><span class="pre">&quot;cadena&quot;</span></code>, debe declarar el símbolo <code class="docutils literal notranslate"><span class="pre">be_const_str_cadena</span></code> en el archivo fuente, y este símbolo también es el nombre de la variable que hace referencia a la cadena constante en el código C.</p>
 <p>Todas las palabras clave crearán cadenas constantes. Si modifica el código relacionado con la palabra clave en el intérprete de Berry, también se debe modificar el código correspondiente en <em>coc</em>.</p>
 <p>Si la cadena contiene símbolos especiales, se “escapean” automáticamente como <code class="docutils literal notranslate"><span class="pre">_XHH</span></code>, donde <code class="docutils literal notranslate"><span class="pre">HH</span></code> es la representación hexadecimal (en mayúsculas) del carácter.
 Por ejemplo <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> está representado por <code class="docutils literal notranslate"><span class="pre">_X3A</span></code>. Esta representación es biactiva, por lo que es fácil convertirla a la cadena original y desde ella.</p>
 <section id="usar-cadena-constante">
-<h4>Usar cadena constante<a class="headerlink" href="#usar-cadena-constante" title="Permalink to this headline"></a></h4>
+<h4>Usar cadena constante<a class="headerlink" href="#usar-cadena-constante" title="Permalink to this headline">¶</a></h4>
 <p>Normalmente, no hay necesidad de declarar cadenas constantes manualmente, ni de usarlas manualmente. Si realmente necesita llamar a la cadena constante manualmente, incluya el archivo de encabezado <em>be_constobj.h</em> para usar todas las variables de cadena constante (este archivo de encabezado tiene declaraciones para todas las cadenas constantes). El uso típico de cadenas constantes es construir objetos en tiempo de compilación. La declaración y definición de cadenas constantes en este proceso son manejadas automáticamente por la herramienta.</p>
 <p>En cualquier caso, la función FFI <code class="docutils literal notranslate"><span class="pre">be_pushstring</span></code> debe usarse directamente para crear una cadena. Cuando una cadena tiene una cadena constante, no creará repetidamente un nuevo objeto de cadena, sino que usará directamente la cadena constante correspondiente.</p>
 <p>De forma predeterminada, todas las cadenas utilizadas se referencian en una tabla hash global <code class="docutils literal notranslate"><span class="pre">m_const_string_table</span></code>. Sin embargo, algunos proyectos pueden tener muchas variantes de compilación para las que no se necesitan algunos conjuntos de cadenas.
@@ -756,7 +755,7 @@ Para indicar cadenas débiles, use el modificador <code class="docutils literal 
 </section>
 </section>
 <section id="construir-objeto-en-tiempo-de-compilacion">
-<h3>Construir objeto en tiempo de compilación<a class="headerlink" href="#construir-objeto-en-tiempo-de-compilacion" title="Permalink to this headline"></a></h3>
+<h3>Construir objeto en tiempo de compilación<a class="headerlink" href="#construir-objeto-en-tiempo-de-compilacion" title="Permalink to this headline">¶</a></h3>
 <p>Los objetos construidos en tiempo de compilación también se denominan objetos constantes.
 La estructura de datos de estos objetos se construye cuando se compila el intérprete y no se puede modificar en tiempo de ejecución. <code class="docutils literal notranslate"><span class="pre">map_build</span></code> define un conjunto de reglas de declaración en la herramienta para generar código C para objetos constantes. La información de declaración del objeto constante se almacena directamente en el archivo fuente (<em>*.c</em>). Para distinguirlo de otro contenido, se debe incluir una información de declaración completa en el siguiente código de arranque:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@const_object_info_begin</span>
@@ -833,7 +832,7 @@ definición. Esta característica es utilizada por
 <p>Para usar el objeto <code class="docutils literal notranslate"><span class="pre">be_class_map</span></code>, debemos incluir el archivo de encabezado correspondiente en el código C para garantizar que el objeto se compilará. La práctica habitual es incluir el archivo de cabecera correspondiente cerca del bloque de declaración del objeto. En el ejemplo, la línea 8 lo contiene. El archivo de encabezado correspondiente se puede usar para construir objetos <code class="docutils literal notranslate"><span class="pre">be_class_map</span></code> en tiempo de compilación.</p>
 <p>Después de procesarlo con la herramienta <strong>coc</strong>, cada bloque de declaración de objeto se compilará en un archivo de encabezado llamado <em>be_fixed_be_xxx.h</em>, donde <em>xxx</em> es el nombre de la variable C del objeto. Para compilar objetos constantes en código C, debemos incluir los archivos de encabezado correspondientes. Por lo general, se recomienda incluir los archivos de encabezado correspondientes cerca del bloque de declaración de objetos. La octava línea del ejemplo contiene <em>be_fixed_be_class_map.h</em> para construir el objeto <code class="docutils literal notranslate"><span class="pre">be_class_map</span></code> en tiempo de compilación.</p>
 <section id="construir-mapa-en-tiempo-de-compilacion">
-<h4>Construir mapa en tiempo de compilación<a class="headerlink" href="#construir-mapa-en-tiempo-de-compilacion" title="Permalink to this headline"></a></h4>
+<h4>Construir mapa en tiempo de compilación<a class="headerlink" href="#construir-mapa-en-tiempo-de-compilacion" title="Permalink to this headline">¶</a></h4>
 <p>Los mapas construidos en tiempo de compilación también son objetos <code class="docutils literal notranslate"><span class="pre">map</span></code> constantes. Por lo general, no se declaran directamente mediante bloques de declaración de objetos, sino que se declaran en otras estructuras de construcción en tiempo de compilación. Al construir el <code class="docutils literal notranslate"><span class="pre">map</span></code> constante, la información del tipo de objeto constante debe ser <code class="docutils literal notranslate"><span class="pre">map</span></code>, que admite un atributo <code class="docutils literal notranslate"><span class="pre">scope</span></code>. Cuando el valor del atributo ‘scope’ es ‘local’, el objeto constante es ‘estático’, cuando el atributo es ‘global’, es ‘externo’, y el valor de este atributo es ‘local’ por defecto. Los <code class="docutils literal notranslate"><span class="pre">member_fields</span></code> del objeto <code class="docutils literal notranslate"><span class="pre">map</span></code> constante admiten especificaciones comunes de nombre de miembro/valo, y los valores de miembro solo se almacenan como datos sin una interpretación especial. El siguiente es un ejemplo del uso del bloque de declaración de objetos para declarar directamente un objeto <code class="docutils literal notranslate"><span class="pre">map</span></code> constante:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>map map_name (scope: local/global) {
     init, func(m_init)
@@ -842,7 +841,7 @@ definición. Esta característica es utilizada por
 </div>
 </section>
 <section id="construccion-de-clases-en-tiempo-de-compilacion">
-<h4>Construcción de Clases en tiempo de compilación<a class="headerlink" href="#construccion-de-clases-en-tiempo-de-compilacion" title="Permalink to this headline"></a></h4>
+<h4>Construcción de Clases en tiempo de compilación<a class="headerlink" href="#construccion-de-clases-en-tiempo-de-compilacion" title="Permalink to this headline">¶</a></h4>
 <p>Para construir una clase en tiempo de compilación, use el bloque de declaración de objetos para declarar, y la información de tipo del objeto es <code class="docutils literal notranslate"><span class="pre">class</span></code>. Las propiedades declaradas de este objeto son <code class="docutils literal notranslate"><span class="pre">scope</span></code> y <code class="docutils literal notranslate"><span class="pre">name</span></code>. <code class="docutils literal notranslate"><span class="pre">scope</span></code> es el alcance de la variable C del objeto de declaración de atributos, cuando el valor es <code class="docutils literal notranslate"><span class="pre">local</span></code> (predeterminado), el alcance es <code class="docutils literal notranslate"><span class="pre">static</span></code>, cuando es <code class="docutils literal notranslate"><span class="pre">global</span></code>, el alcance es <code class="docutils literal notranslate"><span class="pre">extern</span></code>; <code class="docutils literal notranslate"><span class="pre">name</span></code> es el valor del atributo es ese nombre de clase, la clase anónima puede omitir este parámetro. Dado que la lista de atributos de una clase solo almacena métodos e índices de variables miembro, los <code class="docutils literal notranslate"><span class="pre">member_fields</span></code> de la clase construida en tiempo de compilación solo pueden usar los valores <code class="docutils literal notranslate"><span class="pre">var</span></code> y <code class="docutils literal notranslate"><span class="pre">func()</span></code>. Un bloque de declaración de clase de construcción simple en tiempo de compilación es:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>class be_class_map (scope: global, name: map) {
     .data, var
@@ -853,7 +852,7 @@ definición. Esta característica es utilizada por
 </div>
 </section>
 <section id="construccion-de-modulos-en-tiempo-de-compilacion">
-<h4>Construcción de Módulos en tiempo de compilación<a class="headerlink" href="#construccion-de-modulos-en-tiempo-de-compilacion" title="Permalink to this headline"></a></h4>
+<h4>Construcción de Módulos en tiempo de compilación<a class="headerlink" href="#construccion-de-modulos-en-tiempo-de-compilacion" title="Permalink to this headline">¶</a></h4>
 <p>La información de tipo del bloque de declaración del bloque de construcción en tiempo de compilación es <code class="docutils literal notranslate"><span class="pre">module</span></code>.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">module</span><span class="w"> </span><span class="nf">math</span><span class="w"> </span><span class="p">(</span><span class="n">scope</span><span class="o">:</span><span class="w"> </span><span class="n">global</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">sin</span><span class="p">,</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="n">m_sin</span><span class="p">)</span><span class="w"></span>
@@ -864,7 +863,7 @@ definición. Esta característica es utilizada por
 </div>
 </section>
 <section id="construccion-de-un-dominio-integrado-en-tiempo-de-compilacion">
-<h4>Construcción de un dominio integrado en tiempo de compilación<a class="headerlink" href="#construccion-de-un-dominio-integrado-en-tiempo-de-compilacion" title="Permalink to this headline"></a></h4>
+<h4>Construcción de un dominio integrado en tiempo de compilación<a class="headerlink" href="#construccion-de-un-dominio-integrado-en-tiempo-de-compilacion" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">vartab</span><span class="w"> </span><span class="nf">m_builtin</span><span class="w"> </span><span class="p">(</span><span class="n">scope</span><span class="o">:</span><span class="w"> </span><span class="n">local</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">assert</span><span class="p">,</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="n">l_assert</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="n">print</span><span class="p">,</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="n">l_print</span><span class="p">)</span><span class="w"></span>

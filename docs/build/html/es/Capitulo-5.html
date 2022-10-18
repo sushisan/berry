@@ -36,7 +36,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../en/Home.html">Welcome to the berry wiki!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Home.html">Bienvenido a la wiki de Berry!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
 </ul>
 
         </div>
@@ -65,17 +64,17 @@
              
   <!-- Spanish Translation: Emiliano Gonzalez (egonzalez . hiperion @ gmail . com) -->
 <section id="funcion">
-<h1>5. Función<a class="headerlink" href="#funcion" title="Permalink to this headline"></a></h1>
+<h1>5. Función<a class="headerlink" href="#funcion" title="Permalink to this headline">¶</a></h1>
 <p>Una <strong>función</strong> es una “subrutina” que puede ser llamada por un código externo. Como parte del programa, la función en sí también es una pieza de código. Una función puede tener 0 o más parámetros y devolverá un resultado, que se denomina <strong>valor de retorno</strong> de la función.</p>
 <p>En Berry, la función es un <strong>valor de primera clase</strong>. Por lo tanto, además de llamar a funciones, también puede pasar funciones como valores, por ejemplo, vincular funciones a variables, usar funciones como valores devueltos, etc.</p>
 <section id="informacion-basica">
-<h2>5.1 Información básica<a class="headerlink" href="#informacion-basica" title="Permalink to this headline"></a></h2>
+<h2>5.1 Información básica<a class="headerlink" href="#informacion-basica" title="Permalink to this headline">¶</a></h2>
 <p>El uso de funciones incluye dos partes: definición de función y llamada.
 La declaración de definición de función usa la palabra clave <code class="docutils literal notranslate"><span class="pre">def</span></code> como el comienzo. La definición de la función es el proceso de empaquetar y nombrar el código del cuerpo de la función. Este proceso solo genera la estructura de la función y no ejecuta la función. La función de ejecución debe usar un <strong>operador de llamada</strong>, que es un par de paréntesis. El operador de llamada actúa sobre una expresión cuyo resultado es un tipo de función. Los parámetros que se pasan a la función se escriben entre paréntesis y los parámetros múltiples se separan con comas. El resultado de la expresión de llamada es el valor de retorno de la función.</p>
 <section id="definicion-de-funciones">
-<h3>5.1.1 Definición de funciones<a class="headerlink" href="#definicion-de-funciones" title="Permalink to this headline"></a></h3>
+<h3>5.1.1 Definición de funciones<a class="headerlink" href="#definicion-de-funciones" title="Permalink to this headline">¶</a></h3>
 <section id="funcion-con-nombre">
-<h4>Función con nombre<a class="headerlink" href="#funcion-con-nombre" title="Permalink to this headline"></a></h4>
+<h4>Función con nombre<a class="headerlink" href="#funcion-con-nombre" title="Permalink to this headline">¶</a></h4>
 <p>Una <strong>función con nombre</strong> es una función a la que se le da un nombre cuando se define. Su declaración de definición consta de las siguientes partes: palabra clave <code class="docutils literal notranslate"><span class="pre">def</span></code>, nombre de funcion, lista que constan de 0 a múltiples parámetros y cuerpo de función, múltiples parámetros en la lista de parámetros están separados por comas, y todos los parámetros están escritos en un par de paréntesis. Llamamos al parámetro cuando la función se define como <strong>Parámetros formales</strong>, y al parámetro cuando llamamos a la función como <strong>Argumentos</strong>. La forma general de la definición de la función es:</p>
 <div class="algorithm">
 <div class="highlight-ebnf notranslate"><div class="highlight"><pre><span></span>’def’ name ´(´ argumentos ´)´
@@ -98,7 +97,7 @@ La instrucción <code class="docutils literal notranslate"><span class="pre">ret
 <p>Una función como atributo de clase se llama método. Esta parte del contenido se explicará en el capítulo orientado a objetos.</p>
 </section>
 <section id="funcion-anonima">
-<h4>Función anónima<a class="headerlink" href="#funcion-anonima" title="Permalink to this headline"></a></h4>
+<h4>Función anónima<a class="headerlink" href="#funcion-anonima" title="Permalink to this headline">¶</a></h4>
 <p>A diferencia de las funciones con nombre, la <strong>función anónima</strong> no tiene nombre y su expresión de definición tiene la forma:</p>
 <div class="algorithm">
 <div class="highlight-ebnf notranslate"><div class="highlight"><pre><span></span>´def’ ´(´ argumentos ´)´
@@ -117,7 +116,7 @@ end
 </section>
 </section>
 <section id="funcion-de-llamada">
-<h3>Función de llamada<a class="headerlink" href="#funcion-de-llamada" title="Permalink to this headline"></a></h3>
+<h3>Función de llamada<a class="headerlink" href="#funcion-de-llamada" title="Permalink to this headline">¶</a></h3>
 <p>Tome la función <code class="docutils literal notranslate"><span class="pre">add</span></code> como ejemplo. Para llamar a esta función, debe proporcionar dos valores y puede obtener la suma de los dos números llamando a la función:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>res = add(5, 3)
 print(res) # 8
@@ -140,7 +139,7 @@ print(f(5)) # 25
 </div>
 <p>Se puede ver que la función todavía se puede llamar normalmente después de reasignar <code class="docutils literal notranslate"><span class="pre">cuadrado</span></code>. Solo después de que el objeto de función ya no esté vinculado a ninguna variable, se perderá y el sistema reciclará los recursos ocupados por este tipo de objeto de función.</p>
 <section id="desviar-la-llamada">
-<h4>Desviar la llamada<a class="headerlink" href="#desviar-la-llamada" title="Permalink to this headline"></a></h4>
+<h4>Desviar la llamada<a class="headerlink" href="#desviar-la-llamada" title="Permalink to this headline">¶</a></h4>
 <p>La llamada de la función debe estar en el ámbito de la variable de función, por lo que normalmente no se puede llamar antes de que se defina la función. Para resolver este problema, puede utilizar este método para comprometer:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>var func1
 def func2(x)
@@ -155,7 +154,7 @@ print(func2(4)) # 16
 <p>En este ejemplo, <code class="docutils literal notranslate"><span class="pre">func2</span></code> llama a <code class="docutils literal notranslate"><span class="pre">func1</span></code>, pero la función <code class="docutils literal notranslate"><span class="pre">func1</span></code> se define después de <code class="docutils literal notranslate"><span class="pre">func2</span></code>. Después de ejecutar este código, el programa generará el resultado correcto <code class="docutils literal notranslate"><span class="pre">16</span></code>. Esta rutina utiliza el mecanismo de que no se llamará a la función cuando se defina. Defina la variable <code class="docutils literal notranslate"><span class="pre">func1</span></code> antes de definir <code class="docutils literal notranslate"><span class="pre">func2</span></code> para asegurarse de que el símbolo <code class="docutils literal notranslate"><span class="pre">func1</span></code> no se encontrará durante la compilación. Luego definimos la función <code class="docutils literal notranslate"><span class="pre">func1</span></code> después de <code class="docutils literal notranslate"><span class="pre">func2</span></code> para que la función se use para sobrescribir el valor de la variable <code class="docutils literal notranslate"><span class="pre">func1</span></code>. Cuando se llama a la función <code class="docutils literal notranslate"><span class="pre">func2</span></code> en la última línea <code class="docutils literal notranslate"><span class="pre">print(func2(4))</span></code>, la variable <code class="docutils literal notranslate"><span class="pre">func1</span></code> ya es la función que necesitamos, por lo que se mostrará el resultado correcto.</p>
 </section>
 <section id="llamada-recursiva">
-<h4>Llamada recursiva<a class="headerlink" href="#llamada-recursiva" title="Permalink to this headline"></a></h4>
+<h4>Llamada recursiva<a class="headerlink" href="#llamada-recursiva" title="Permalink to this headline">¶</a></h4>
 <p>Con <strong>función recursiva</strong> se refiere a funciones que se llaman a sí mismas directa o indirectamente. La recursividad se refiere a una estrategia que divide el problema en subproblemas similares y luego los resuelve. Tomando el factorial como ejemplo, la definición recursiva de factorial es 0! = 1, <em>n</em>! = <em>n</em> ⋅ (<em>n</em>−1)!. Entonces podemos escribir la función recursiva para calcular el factorial según la definición:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def fact(n)
     if n == 0
@@ -191,7 +190,7 @@ end
 <p>Estas dos funciones se llaman entre sí. Para garantizar que este nombre esté en el alcance cuando se llama a la función <code class="docutils literal notranslate"><span class="pre">es_impar</span></code> en la línea 6, la variable <code class="docutils literal notranslate"><span class="pre">es_impar</span></code> se define en la línea 1.</p>
 </section>
 <section id="llamada-de-funcion-anonima">
-<h4>Llamada de función anónima<a class="headerlink" href="#llamada-de-funcion-anonima" title="Permalink to this headline"></a></h4>
+<h4>Llamada de función anónima<a class="headerlink" href="#llamada-de-funcion-anonima" title="Permalink to this headline">¶</a></h4>
 <p>Si una función anónima solo se llamará una vez, la forma más fácil es llamarla cuando esté definida, por ejemplo:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>res = def (a, b) return a + b end (1, 2) # 3
 </pre></div>
@@ -206,7 +205,7 @@ res = add(1, 2) # 3
 </section>
 </section>
 <section id="parametros-formales-y-reales">
-<h3>Parámetros formales y reales<a class="headerlink" href="#parametros-formales-y-reales" title="Permalink to this headline"></a></h3>
+<h3>Parámetros formales y reales<a class="headerlink" href="#parametros-formales-y-reales" title="Permalink to this headline">¶</a></h3>
 <p>La función utiliza parámetros reales para inicializar los parámetros formales cuando se llama. En circunstancias normales, el parámetro real y el parámetro de forma son iguales y las posiciones se corresponden entre sí, pero Berry también permite que el parámetro real sea diferente del parámetro formal: si el parámetro real es mayor que el parámetro formal, el parámetro real adicional al parámetro será descartado. De otra forma los parámetros formales restantes se inicializarán a <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
 <p>El proceso de paso de parámetros es similar a la operación de asignación. Para los tipos <code class="docutils literal notranslate"><span class="pre">nil</span></code>, <code class="docutils literal notranslate"><span class="pre">boolean</span></code> y numéricos, el paso de parámetros es por valor, mientras que otros tipos son por referencia. Para el tipo de referencia de paso de escritura, como una instancia, modificarlos en la función llamada también modificará el objeto en la función de llamada. El siguiente ejemplo demuestra esta función:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>var l = [], i = 0
@@ -221,7 +220,7 @@ print(l, i) # [1] 0
 <p>Se puede ver que el valor de la variable <code class="docutils literal notranslate"><span class="pre">l</span></code> ha cambiado después de llamar a la función <code class="docutils literal notranslate"><span class="pre">func</span></code>, pero el valor de la variable <code class="docutils literal notranslate"><span class="pre">i</span></code> no ha cambiado.</p>
 </section>
 <section id="funcion-con-numero-variable-de-argumentos-vararg">
-<h3>Función con número variable de argumentos (vararg)<a class="headerlink" href="#funcion-con-numero-variable-de-argumentos-vararg" title="Permalink to this headline"></a></h3>
+<h3>Función con número variable de argumentos (vararg)<a class="headerlink" href="#funcion-con-numero-variable-de-argumentos-vararg" title="Permalink to this headline">¶</a></h3>
 <p>Puede definir una función para tomar cualquier número arbitrario de argumentos e iterarlos.
 Por ejemplo, <code class="docutils literal notranslate"><span class="pre">print()</span></code> toma cualquier cantidad de argumentos e imprime cada uno de ellos separados por espacios. Debe definir el último argumento como una captura de todos los argumentos usando <code class="docutils literal notranslate"><span class="pre">*</span></code> antes de su nombre.</p>
 <p>Todos los argumentos que siguen a los argumentos formales se agrupan en tiempo de ejecución en una instancia de <code class="docutils literal notranslate"><span class="pre">list</span></code>.
@@ -235,7 +234,7 @@ f(1,2,3,4) # devuelve 2, c is [3,4]
 </div>
 </section>
 <section id="llamar-a-una-funcion-con-un-numero-dinamico-de-argumentos">
-<h3>Llamar a una función con un número dinámico de argumentos<a class="headerlink" href="#llamar-a-una-funcion-con-un-numero-dinamico-de-argumentos" title="Permalink to this headline"></a></h3>
+<h3>Llamar a una función con un número dinámico de argumentos<a class="headerlink" href="#llamar-a-una-funcion-con-un-numero-dinamico-de-argumentos" title="Permalink to this headline">¶</a></h3>
 <p>La sintaxis de Berry solo permite llamar con un número fijo de argumentos.
 Utilice la función <code class="docutils literal notranslate"><span class="pre">call(f,</span> <span class="pre">[args])</span></code> para pasar cualquier número de argumentos arbitrario.</p>
 <p>Puede agregar estáticamente cualquier número de argumentos a <code class="docutils literal notranslate"><span class="pre">call()</span></code>. Si el último argumento es una <code class="docutils literal notranslate"><span class="pre">lista</span></code>, se expande automáticamente a argumentos discretos.</p>
@@ -267,12 +266,12 @@ print_upper(&quot;a&quot;,1,&quot;Foo&quot;,&quot;Bar&quot;)  # imprime: A 1 FOO
 </div>
 </section>
 <section id="funciones-y-variables-locales">
-<h3>Funciones y variables locales<a class="headerlink" href="#funciones-y-variables-locales" title="Permalink to this headline"></a></h3>
+<h3>Funciones y variables locales<a class="headerlink" href="#funciones-y-variables-locales" title="Permalink to this headline">¶</a></h3>
 <p>El cuerpo de la función en sí es un ámbito, por lo que las variables definidas en la función son todas variables locales.
 A diferencia de los bloques directamente anidados, cada vez que se llama a una función, se asigna espacio para las variables locales. El espacio para las variables locales se asigna en la pila y la información de asignación se determina en el momento de la compilación, por lo que este proceso es muy rápido. Cuando se anidan varios niveles de alcance en una función, el intérprete asigna espacio de pila para la cadena de anidamiento de alcance con la mayoría de las variables locales, en lugar del número total de variables locales en la función.</p>
 </section>
 <section id="declaracion-return">
-<h3>Declaración <code class="docutils literal notranslate"><span class="pre">return</span></code><a class="headerlink" href="#declaracion-return" title="Permalink to this headline"></a></h3>
+<h3>Declaración <code class="docutils literal notranslate"><span class="pre">return</span></code><a class="headerlink" href="#declaracion-return" title="Permalink to this headline">¶</a></h3>
 <p>La declaración <code class="docutils literal notranslate"><span class="pre">return</span></code> se utiliza para devolver el resultado de una función, es decir, el valor de retorno de la función. Todas las funciones en Berry tienen un valor de retorno, pero no puede usar ninguna declaración <code class="docutils literal notranslate"><span class="pre">return</span></code> en el cuerpo de la función. En este momento, el intérprete generará una declaración <code class="docutils literal notranslate"><span class="pre">return</span></code> predeterminada para garantizar que la función regrese <code class="docutils literal notranslate"><span class="pre">return</span></code>. Hay dos formas de escribir oraciones:</p>
 <div class="algorithm">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>´return’
@@ -292,9 +291,9 @@ end
 </section>
 </section>
 <section id="cierre-closure">
-<h2>Cierre (closure)<a class="headerlink" href="#cierre-closure" title="Permalink to this headline"></a></h2>
+<h2>Cierre (closure)<a class="headerlink" href="#cierre-closure" title="Permalink to this headline">¶</a></h2>
 <section id="conceptos-basicos">
-<h3>Conceptos básicos<a class="headerlink" href="#conceptos-basicos" title="Permalink to this headline"></a></h3>
+<h3>Conceptos básicos<a class="headerlink" href="#conceptos-basicos" title="Permalink to this headline">¶</a></h3>
 <p>Como se mencionó anteriormente, las funciones son el primer tipo de valor en Berry.
 Puede definir funciones en cualquier lugar y también puede pasar funciones como parámetros o devolver valores. Cuando se define otra función en una función, la función anidada puede acceder a las variables locales de cualquier función externa. Llamamos a las “variables locales de la función externa” utilizadas en la función la función como <strong>Variables libres</strong>. Las variables libres generalizadas también incluyen variables globales, pero no existe tal regla en Berry. El <strong>Cierre</strong> es una técnica que vincula funciones a <strong>entornos</strong>. El entorno es un mapeo que asocia cada variable libre de una función con un valor. En términos de implementación, los cierres asocian el prototipo de función con sus propias variables.
 Los prototipos de funciones se generan en tiempo de compilación y el entorno es un concepto de tiempo de ejecución, por lo que los cierres también se generan dinámicamente en tiempo de ejecución.
@@ -323,33 +322,33 @@ f()
 </div>
 <p>Este código generará <code class="docutils literal notranslate"><span class="pre">0</span></code>. Si continuamos llamando al cierre <code class="docutils literal notranslate"><span class="pre">f</span></code>, obtendremos la salida <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">3</span></code>… Esto puede no entenderse bien: la variable [2.198 ] se destruye después de que la función <code class="docutils literal notranslate"><span class="pre">func</span></code> regresa , y como la variable libre del cierre <code class="docutils literal notranslate"><span class="pre">f</span></code>, <code class="docutils literal notranslate"><span class="pre">i</span></code> se almacenará en el entorno de cierre, por lo que cada vez que se llame a <code class="docutils literal notranslate"><span class="pre">f</span></code>, el valor de <code class="docutils literal notranslate"><span class="pre">i</span></code> se sumará a 1 (definición de la función <code class="docutils literal notranslate"><span class="pre">func</span></code> línea 4).</p>
 <section id="uso-de-cierres">
-<h4>Uso de cierres<a class="headerlink" href="#uso-de-cierres" title="Permalink to this headline"></a></h4>
+<h4>Uso de cierres<a class="headerlink" href="#uso-de-cierres" title="Permalink to this headline">¶</a></h4>
 <p>Los cierres tienen muchos usos. Aquí hay algunos usos comunes:</p>
 <section id="evaluacion-perezosa">
-<h5>Evaluación perezosa<a class="headerlink" href="#evaluacion-perezosa" title="Permalink to this headline"></a></h5>
+<h5>Evaluación perezosa<a class="headerlink" href="#evaluacion-perezosa" title="Permalink to this headline">¶</a></h5>
 <p>El cierre no hace nada hasta que se llama.</p>
 </section>
 <section id="funcion-de-comunicacion-privada">
-<h5>Función de comunicación privada<a class="headerlink" href="#funcion-de-comunicacion-privada" title="Permalink to this headline"></a></h5>
+<h5>Función de comunicación privada<a class="headerlink" href="#funcion-de-comunicacion-privada" title="Permalink to this headline">¶</a></h5>
 <p>Puede permitir que algunos cierres compartan variables libres, que solo son visibles para estos cierres, y se comuniquen entre funciones cambiando los valores de estas variables libres. Esto puede evitar el uso de variables externas.</p>
 </section>
 <section id="generar-multiples-funciones">
-<h5>Generar múltiples funciones<a class="headerlink" href="#generar-multiples-funciones" title="Permalink to this headline"></a></h5>
+<h5>Generar múltiples funciones<a class="headerlink" href="#generar-multiples-funciones" title="Permalink to this headline">¶</a></h5>
 <p>A veces es posible que necesitemos usar múltiples funciones, estas funciones pueden tener solo diferentes valores de algunas variables. Podemos implementar una función y luego usar estas diferentes variables como parámetros de función.
 Una mejor manera es devolver el cierre a través de una función de fábrica y usar estas variables posiblemente diferentes como variables libres del cierre, de modo que no siempre tenga que escribir esos parámetros al llamar a la función, y cualquier número de funciones similares puede ser generado.</p>
 </section>
 <section id="simular-miembros-privados">
-<h5>Simular miembros privados<a class="headerlink" href="#simular-miembros-privados" title="Permalink to this headline"></a></h5>
+<h5>Simular miembros privados<a class="headerlink" href="#simular-miembros-privados" title="Permalink to this headline">¶</a></h5>
 <p>Algunos lenguajes admiten el uso de miembros privados en objetos, pero la clase de Berry no lo admite. Podemos usar las variables libres de los cierres para simular miembros privados. Este uso no es la intención original de diseñar cierres, pero hoy en día, este “mal uso” de los cierres es muy común.</p>
 </section>
 <section id="resultado-de-cache">
-<h5>Resultado de caché<a class="headerlink" href="#resultado-de-cache" title="Permalink to this headline"></a></h5>
+<h5>Resultado de caché<a class="headerlink" href="#resultado-de-cache" title="Permalink to this headline">¶</a></h5>
 <p>Si hay una función que requiere mucho tiempo para ejecutarse, llevará mucho tiempo llamarla cada vez. Podemos almacenar en caché el resultado de esta función, buscarlo en el caché antes de llamar a la función y devolver el valor almacenado en caché si lo encuentra; de lo contrario, se llama a la función y se actualiza el valor almacenado en caché. Podemos usar los cierres para guardar el valor almacenado en caché para que no quede expuesto al alcance externo, y el resultado almacenado en caché se conservará (hasta que se destruya el cierre).</p>
 </section>
 </section>
 </section>
 <section id="vinculacion-de-variables-libres">
-<h3>Vinculación de variables libres<a class="headerlink" href="#vinculacion-de-variables-libres" title="Permalink to this headline"></a></h3>
+<h3>Vinculación de variables libres<a class="headerlink" href="#vinculacion-de-variables-libres" title="Permalink to this headline">¶</a></h3>
 <p>Si varios cierres vinculan la misma variable libre, todos los cierres siempre compartirán esta variable libre. Por ejemplo:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def func(i) # La función externa
     return [# Devuelve la lista de cierre
@@ -389,7 +388,7 @@ end
 </div>
 </section>
 <section id="crear-cierre-en-bucle">
-<h3>Crear cierre en bucle<a class="headerlink" href="#crear-cierre-en-bucle" title="Permalink to this headline"></a></h3>
+<h3>Crear cierre en bucle<a class="headerlink" href="#crear-cierre-en-bucle" title="Permalink to this headline">¶</a></h3>
 <p>Al construir un cierre en el cuerpo del ciclo, es posible que no desee que las variables libres del cierre cambien con las variables del ciclo. Primero veamos un ejemplo de cómo crear un cierre en un bucle <code class="docutils literal notranslate"><span class="pre">while</span></code>:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def func()
     l = [] i = 0
@@ -463,7 +462,7 @@ end
 </section>
 </section>
 <section id="expresion-lambda">
-<h2>Expresión lambda<a class="headerlink" href="#expresion-lambda" title="Permalink to this headline"></a></h2>
+<h2>Expresión lambda<a class="headerlink" href="#expresion-lambda" title="Permalink to this headline">¶</a></h2>
 <p>La <strong>Expresión lambda</strong> es una función anónima especial. La expresión lambda se compone de una lista de parámetros y un cuerpo de función, pero la forma es diferente de la función general:</p>
 <div class="highlight-ebnf notranslate"><div class="highlight"><pre><span></span>´/´ args ´-&gt;´ expr ´end’
 </pre></div>

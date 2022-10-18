@@ -36,7 +36,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Home.html">Welcome to the berry wiki!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Bienvenido a la wiki de Berry!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
 </ul>
 
         </div>
@@ -64,7 +63,7 @@
            <div itemprop="articleBody">
              
   <section id="object-oriented-function">
-<h1>6. Object Oriented Function<a class="headerlink" href="#object-oriented-function" title="Permalink to this headline"></a></h1>
+<h1>6. Object Oriented Function<a class="headerlink" href="#object-oriented-function" title="Permalink to this headline">¶</a></h1>
 <p>For optimization considerations, Berry did not consider simple types as
 objects. These simple types include <code class="docutils literal notranslate"><span class="pre">nil</span></code> types, numeric types, boolean
 types, and string types. But Berry provides classes to implement the
@@ -74,9 +73,9 @@ methods, where data is composed of some variables, and methods are
 functions. The type of an object is called a class, and the entity of an
 object is called an instance.</p>
 <section id="class-and-instance">
-<h2>6.1 Class and instance<a class="headerlink" href="#class-and-instance" title="Permalink to this headline"></a></h2>
+<h2>6.1 Class and instance<a class="headerlink" href="#class-and-instance" title="Permalink to this headline">¶</a></h2>
 <section id="class-declaration">
-<h3>6.1.1 Class declaration<a class="headerlink" href="#class-declaration" title="Permalink to this headline"></a></h3>
+<h3>6.1.1 Class declaration<a class="headerlink" href="#class-declaration" title="Permalink to this headline">¶</a></h3>
 <p>To use a class, you must first declare it. The declaration of a class
 starts with the keyword <code class="docutils literal notranslate"><span class="pre">class</span></code>. The member variables and methods of the
 class must be specified in the declaration. This is an example of
@@ -116,7 +115,7 @@ convention does not have any use at the grammatical level, but is
 conducive to the logical structure of the code.</p>
 </section>
 <section id="instantiate">
-<h3>Instantiate<a class="headerlink" href="#instantiate" title="Permalink to this headline"></a></h3>
+<h3>Instantiate<a class="headerlink" href="#instantiate" title="Permalink to this headline">¶</a></h3>
 <p>The class itself is just an abstract description. Taking cars as an
 example, I know the concept of cars, and when we really want to use
 cars, we need real cars. The use of classes is similar. We will not only
@@ -128,7 +127,7 @@ data, and instantiation produces an instance based on the information
 described by the class and gives the instance specific data.</p>
 </section>
 <section id="method-and-self-parameters">
-<h3>Method and <code class="docutils literal notranslate"><span class="pre">self</span></code> Parameters<a class="headerlink" href="#method-and-self-parameters" title="Permalink to this headline"></a></h3>
+<h3>Method and <code class="docutils literal notranslate"><span class="pre">self</span></code> Parameters<a class="headerlink" href="#method-and-self-parameters" title="Permalink to this headline">¶</a></h3>
 <p>Class methods are essentially functions. Unlike ordinary functions,
 methods implicitly pass in a <code class="docutils literal notranslate"><span class="pre">self</span></code> parameter, and is always the first
 parameter, which stores a reference to the current instance. Due to the
@@ -160,19 +159,19 @@ object, and they are both instance references. Use <code class="docutils literal
 members or attributes of the instance in the method.</p>
 </section>
 <section id="synthetic-methods">
-<h3>Synthetic methods<a class="headerlink" href="#synthetic-methods" title="Permalink to this headline"></a></h3>
+<h3>Synthetic methods<a class="headerlink" href="#synthetic-methods" title="Permalink to this headline">¶</a></h3>
 <p>You can declare synthetic dynamic members and methods using the
 <strong>Virtual members</strong> as described in Chapter 8.2.</p>
 </section>
 <section id="class-variables-static">
-<h3>Class Variables <code class="docutils literal notranslate"><span class="pre">static</span></code><a class="headerlink" href="#class-variables-static" title="Permalink to this headline"></a></h3>
+<h3>Class Variables <code class="docutils literal notranslate"><span class="pre">static</span></code><a class="headerlink" href="#class-variables-static" title="Permalink to this headline">¶</a></h3>
 <p>Variables or functions can be declared <code class="docutils literal notranslate"><span class="pre">static</span></code>.
 Static variables have the same value for all instances of the same class.
 They are declare as <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">var</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">1</span></code>.
 Static variables are initialized right after the creation of the class.</p>
 </section>
 <section id="class-methods-static">
-<h3>Class Methods <code class="docutils literal notranslate"><span class="pre">static</span></code><a class="headerlink" href="#class-methods-static" title="Permalink to this headline"></a></h3>
+<h3>Class Methods <code class="docutils literal notranslate"><span class="pre">static</span></code><a class="headerlink" href="#class-methods-static" title="Permalink to this headline">¶</a></h3>
 <p>Methods can be declared <code class="docutils literal notranslate"><span class="pre">static</span></code> which means that they act like
 regular function and do not take <code class="docutils literal notranslate"><span class="pre">self</span></code> as first argument.
 Within static methods, there is no implicit <code class="docutils literal notranslate"><span class="pre">self</span></code> variable declared.
@@ -201,9 +200,9 @@ stack traceback:
 </div>
 </section>
 <section id="constructor-and-destructor">
-<h3>Constructor and Destructor<a class="headerlink" href="#constructor-and-destructor" title="Permalink to this headline"></a></h3>
+<h3>Constructor and Destructor<a class="headerlink" href="#constructor-and-destructor" title="Permalink to this headline">¶</a></h3>
 <section id="constructor">
-<h4>Constructor<a class="headerlink" href="#constructor" title="Permalink to this headline"></a></h4>
+<h4>Constructor<a class="headerlink" href="#constructor" title="Permalink to this headline">¶</a></h4>
 <p>The constructor of the class is the <code class="docutils literal notranslate"><span class="pre">init</span></code> method. The constructor is
 called when the class is instantiated. Therefore, the constructor is
 generally used for member initialization, for example:</p>
@@ -223,7 +222,7 @@ can get the value of member <code class="docutils literal notranslate"><span cla
 </div>
 </section>
 <section id="destructor">
-<h4>Destructor<a class="headerlink" href="#destructor" title="Permalink to this headline"></a></h4>
+<h4>Destructor<a class="headerlink" href="#destructor" title="Permalink to this headline">¶</a></h4>
 <p>The destructor of the class is the <code class="docutils literal notranslate"><span class="pre">deinit</span></code> method. The destructor is
 called when the instance is destroyed. The destructor is generally used
 to complete some cleanup work. Because the garbage collection mechanism
@@ -237,7 +236,7 @@ file when it is destroyed.</p>
 </section>
 </section>
 <section id="class-inheritance">
-<h2>Class inheritance<a class="headerlink" href="#class-inheritance" title="Permalink to this headline"></a></h2>
+<h2>Class inheritance<a class="headerlink" href="#class-inheritance" title="Permalink to this headline">¶</a></h2>
 <p>Berry only supports single inheritance, that is, a class can only have
 one base class, and the base class uses the operator <code class="docutils literal notranslate"><span class="pre">:</span></code> to declare:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class Test: Base
@@ -258,17 +257,17 @@ together according to the inheritance relationship, and finally we will
 get the instance object at the end of the inheritance chain.</p>
 </section>
 <section id="method-overload">
-<h2>Method Overload<a class="headerlink" href="#method-overload" title="Permalink to this headline"></a></h2>
+<h2>Method Overload<a class="headerlink" href="#method-overload" title="Permalink to this headline">¶</a></h2>
 <p><strong>Overload</strong> means that the subclass and the base class use the same
 name method, and the subclass method will override the mechanism of the
 base class method. To be precise, member variables can also be
 overloaded, but this overloading has no meaning. Method overloading is
 divided into ordinary method overloading and operator overloading.</p>
 <section id="common-method-overload">
-<h3>Common method overload<a class="headerlink" href="#common-method-overload" title="Permalink to this headline"></a></h3>
+<h3>Common method overload<a class="headerlink" href="#common-method-overload" title="Permalink to this headline">¶</a></h3>
 </section>
 <section id="operator-overloading">
-<h3>Operator Overloading<a class="headerlink" href="#operator-overloading" title="Permalink to this headline"></a></h3>
+<h3>Operator Overloading<a class="headerlink" href="#operator-overloading" title="Permalink to this headline">¶</a></h3>
 <p>You can use the operator overloading of the class to make the instance
 support the operation of the built-in operator. For example, for a class
 overloaded with the addition operator, we can use the addition operator
@@ -349,7 +348,7 @@ the usual properties of operators. Considering the versatility of the
 code and the difficulty of understanding, it is not recommended that
 users give overloaded operators a function far from the general meaning.</p>
 <section id="overload-of-compound-assignment-operator">
-<h4>Overload of compound assignment operator<a class="headerlink" href="#overload-of-compound-assignment-operator" title="Permalink to this headline"></a></h4>
+<h4>Overload of compound assignment operator<a class="headerlink" href="#overload-of-compound-assignment-operator" title="Permalink to this headline">¶</a></h4>
 <p>The compound assignment operator cannot be directly overloaded, but we
 can achieve the purpose of “overloading” the compound assignment
 operator by overloading the binary operator corresponding to the
@@ -382,7 +381,7 @@ corresponding compound assignment operator will not modify any instance
 </section>
 </section>
 <section id="instance">
-<h2>Instance<a class="headerlink" href="#instance" title="Permalink to this headline"></a></h2>
+<h2>Instance<a class="headerlink" href="#instance" title="Permalink to this headline">¶</a></h2>
 <p><strong>Instance</strong> is an object generated after class instantiation. A class
 can be instantiated multiple times to generate different instances.
 Berry instances are referenced by the class they belong to and the
@@ -390,7 +389,7 @@ corresponding data fields. All instances of a class will refer to this
 class, but the data fields of these instances are independent of each
 other.</p>
 <section id="access-base-class-object">
-<h3>Access base class object<a class="headerlink" href="#access-base-class-object" title="Permalink to this headline"></a></h3>
+<h3>Access base class object<a class="headerlink" href="#access-base-class-object" title="Permalink to this headline">¶</a></h3>
 <p>The built-in function <code class="docutils literal notranslate"><span class="pre">super</span></code> is used to access super class objects.
 It can be used on classes or instances.</p>
 <p>Magic happens when you call a method from the superclass so that it

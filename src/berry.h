@@ -179,6 +179,7 @@ typedef struct bvm bvm;
 typedef int (*bntvfunc)(bvm*);
 
 /**
+ * @struct bclass
  * @brief
  */
 struct bclass;
@@ -247,11 +248,21 @@ typedef struct bntvmodule {
     const struct bmodule *module;  /**< const module object */
 } bntvmodule;
 
-/* native class object */
+/**
+ * @struct bclass
+ * @brief native class object
+ */
 struct bclass;
-/* we need only the pointer to `bclass` here */
+
+/**
+ * @brief we need only the pointer to `bclass` here
+ */
 typedef const struct bclass *bclass_ptr;
-typedef bclass_ptr bclass_array[]; /* array of bclass* pointers, NULL terminated */
+
+/**
+ * @brief array of bclass* pointers, NULL terminated
+ */
+typedef bclass_ptr bclass_array[];
 
 /* native module node definition macro */
 #ifndef __cplusplus
@@ -646,7 +657,7 @@ typedef int (*bctypefunc)(bvm*, const void*);
  * @brief
  *
  * @param vm virtual machine instance virtual machine instance
- * @param name
+ * @param name (???)
  */
 #define be_loadfile(vm, name)   be_loadmode((vm), (name), 0)
 
@@ -667,7 +678,7 @@ typedef int (*bctypefunc)(bvm*, const void*);
  * @brief
  *
  * @param vm virtual machine instance virtual machine instance
- * @param str
+ * @param str (???)
  *
  */
 #define be_loadstring(vm, str) \
@@ -679,7 +690,7 @@ typedef int (*bctypefunc)(bvm*, const void*);
  * @brief
  *
  * @param vm virtual machine instance virtual machine instance
- * @param s
+ * @param s (???)
  *
  */
 #define be_dostring(vm, s) \
@@ -690,9 +701,9 @@ typedef int (*bctypefunc)(bvm*, const void*);
  * @note FFI function
  * @brief (???)
  *
- * @param str
- * @param endstr
- * @return
+ * @param str (???)
+ * @param endstr (???)
+ * @return (???)
  */
 BERRY_API bint be_str2int(const char *str, const char **endstr);
 
@@ -702,8 +713,8 @@ BERRY_API bint be_str2int(const char *str, const char **endstr);
  * @brief (???)
  *
  * @param str
- * @param endstr
- * @return
+ * @param endstr (???)
+ * @return (???)
  */
 BERRY_API breal be_str2real(const char *str, const char **endstr);
 
@@ -713,8 +724,8 @@ BERRY_API breal be_str2real(const char *str, const char **endstr);
  * @brief (???)
  *
  * @param vm virtual machine instance virtual machine instance
- * @param str
- * @return
+ * @param str (???)
+ * @return (???)
  */
 BERRY_API const char* be_str2num(bvm *vm, const char *str);
 
@@ -728,7 +739,7 @@ BERRY_API const char* be_str2num(bvm *vm, const char *str);
  * Call this function before adding or subtracting elements in the virtual stack to get the number of parameters of the native function.
  *
  * @param vm virtual machine instance virtual machine instance
- * @return
+ * @return (???)
  */
 BERRY_API int be_top(bvm *vm);
 
@@ -766,8 +777,8 @@ BERRY_API const char* be_classname(bvm *vm, int index);
  * @brief (???)
  *
  * @param vm virtual machine instance virtual machine instance
- * @param index
- * @return
+ * @param index (???)
+ * @return (???)
  */
 BERRY_API bbool be_classof(bvm *vm, int index);
 
@@ -798,7 +809,7 @@ BERRY_API int be_strlen(bvm *vm, int index);
  * and then put the resulting string into the position indexed by index.
  *
  * @param vm virtual machine instance virtual machine instance
- * @param index
+ * @param index (???)
  */
 BERRY_API void be_strconcat(bvm *vm, int index);
 
@@ -852,7 +863,7 @@ BERRY_API int be_absindex(bvm *vm, int index);
  * if it is, it returns 1, otherwise it returns 0
  *
  * @param vm virtual machine instance virtual machine instance
- * @param index
+ * @param index value index
  * @return true/false
  */
 BERRY_API bbool be_isnil(bvm *vm, int index);
@@ -880,7 +891,7 @@ BERRY_API bbool be_isbool(bvm *vm, int index);
  * if it is, it returns 1, otherwise it returns 0
  *
  * @param vm virtual machine instance virtual machine instance
- * @param index
+ * @param index value index
  * @return true/false
  */
 BERRY_API bbool be_isint(bvm *vm, int index);
@@ -894,7 +905,7 @@ BERRY_API bbool be_isint(bvm *vm, int index);
  * if it is, it returns 1, otherwise it returns 0
  *
  * @param vm virtual machine instance virtual machine instance
- * @param index
+ * @param index value index
  * @return true/false
  */
 BERRY_API bbool be_isreal(bvm *vm, int index);
@@ -908,7 +919,7 @@ BERRY_API bbool be_isreal(bvm *vm, int index);
  * if it is, it returns 1, otherwise it returns 0
  *
  * @param vm virtual machine instance virtual machine instance
- * @param index
+ * @param index value index
  * @return true/false
  */
 BERRY_API bbool be_isnumber(bvm *vm, int index);
@@ -922,7 +933,7 @@ BERRY_API bbool be_isnumber(bvm *vm, int index);
  * if it is, it returns 1, otherwise it returns 0
  *
  * @param vm virtual machine instance
- * @param index
+ * @param index value index
  * @return true/false
  */
 BERRY_API bbool be_isstring(bvm *vm, int index);
@@ -936,7 +947,7 @@ BERRY_API bbool be_isstring(bvm *vm, int index);
  * if it is, it returns 1, otherwise it returns 0
  *
  * @param vm virtual machine instance
- * @param index
+ * @param index value index
  * @return true/false
  */
 BERRY_API bbool be_isclosure(bvm *vm, int index);
@@ -950,7 +961,7 @@ BERRY_API bbool be_isclosure(bvm *vm, int index);
  * if it is, it returns 1, otherwise it returns 0
  *
  * @param vm virtual machine instance
- * @param index
+ * @param index value index
  * @return true/false
  */
 BERRY_API bbool be_isntvclos(bvm *vm, int index);
@@ -964,7 +975,7 @@ BERRY_API bbool be_isntvclos(bvm *vm, int index);
  * if it is, it returns 1, otherwise it returns 0
  *
  * @param vm virtual machine instance virtual machine instance
- * @param index
+ * @param index value index
  * @return true/false
  */
 BERRY_API bbool be_isfunction(bvm *vm, int index);
@@ -978,7 +989,7 @@ BERRY_API bbool be_isfunction(bvm *vm, int index);
  * if it is, it returns 1, otherwise it returns 0
  *
  * @param vm virtual machine instance virtual machine instance
- * @param index
+ * @param index value index
  * @return true/false
  */
 BERRY_API bbool be_isproto(bvm *vm, int index);
@@ -992,7 +1003,7 @@ BERRY_API bbool be_isproto(bvm *vm, int index);
  * if it is, it returns 1, otherwise it returns 0
  *
  * @param vm virtual machine instance virtual machine instance
- * @param index
+ * @param index value index
  * @return true/false
  */
 BERRY_API bbool be_isclass(bvm *vm, int index);
@@ -1006,7 +1017,7 @@ BERRY_API bbool be_isclass(bvm *vm, int index);
  * if it is, it returns 1, otherwise it returns 0
  *
  * @param vm virtual machine instance virtual machine instance
- * @param index
+ * @param index value index
  * @return true/false
  */
 BERRY_API bbool be_isinstance(bvm *vm, int index);
@@ -1020,7 +1031,7 @@ BERRY_API bbool be_isinstance(bvm *vm, int index);
  * if it is, it returns 1, otherwise it returns 0
  *
  * @param vm virtual machine instance virtual machine instance
- * @param index
+ * @param index value index
  * @return true/false
  */
 BERRY_API bbool be_ismodule(bvm *vm, int index);
@@ -1034,7 +1045,7 @@ BERRY_API bbool be_ismodule(bvm *vm, int index);
  * if it is, it returns 1, otherwise it returns 0
  *
  * @param vm virtual machine instance
- * @param index
+ * @param index value index
  * @return true/false
  */
 BERRY_API bbool be_islist(bvm *vm, int index);
@@ -1048,7 +1059,7 @@ BERRY_API bbool be_islist(bvm *vm, int index);
  * if it is, it returns 1, otherwise it returns 0
  *
  * @param vm virtual machine instance
- * @param index
+ * @param index value index
  * @return true/false
  */
 BERRY_API bbool be_ismap(bvm *vm, int index);
@@ -1062,7 +1073,7 @@ BERRY_API bbool be_ismap(bvm *vm, int index);
  * if it is, it returns 1, otherwise it returns 0
  *
  * @param vm virtual machine instance
- * @param index
+ * @param index value index
  * @return true/false
  */
 BERRY_API bbool be_iscomptr(bvm *vm, int index);
@@ -1073,7 +1084,7 @@ BERRY_API bbool be_iscomptr(bvm *vm, int index);
  * @brief (???)
  *
  * @param vm virtual machine instance virtual machine instance
- * @param index
+ * @param index value index
  * @return true/false
  */
 BERRY_API bbool be_iscomobj(bvm *vm, int index);
@@ -1084,7 +1095,7 @@ BERRY_API bbool be_iscomobj(bvm *vm, int index);
  * @brief (???)
  *
  * @param vm virtual machine instance virtual machine instance
- * @param index
+ * @param index value index
  * @return true/false
  */
 BERRY_API bbool be_isderived(bvm *vm, int index);
@@ -1098,7 +1109,7 @@ BERRY_API bbool be_isderived(bvm *vm, int index);
  * if it is, it returns 1, otherwise it returns 0
  *
  * @param vm virtual machine instance virtual machine instance
- * @param index
+ * @param index value index
  * @return true/false
  */
 BERRY_API bbool be_isbytes(bvm *vm, int index);
@@ -1113,8 +1124,8 @@ BERRY_API bbool be_isbytes(bvm *vm, int index);
  * If the value is an instance, the method toint() is called if it exists.
  *
  * @param vm virtual machine instance virtual machine instance
- * @param index
- * @return
+ * @param index value index
+ * @return (???)
  */
 BERRY_API bint be_toint(bvm *vm, int index);
 
@@ -1128,7 +1139,7 @@ BERRY_API bint be_toint(bvm *vm, int index);
  *
  * @param vm virtual machine instance virtual machine instance
  * @param index
- * @return
+ * @return (???)
  */
 BERRY_API breal be_toreal(bvm *vm, int index);
 
@@ -1143,7 +1154,7 @@ BERRY_API breal be_toreal(bvm *vm, int index);
  *
  * @param vm virtual machine instance virtual machine instance
  * @param index
- * @return
+ * @return (???)
  */
 BERRY_API int be_toindex(bvm *vm, int index);
 
@@ -1159,7 +1170,7 @@ BERRY_API int be_toindex(bvm *vm, int index);
  *
  * @param vm virtual machine instance virtual machine instance
  * @param index
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_tobool(bvm *vm, int index);
 
@@ -1176,7 +1187,7 @@ BERRY_API bbool be_tobool(bvm *vm, int index);
  *
  * @param vm virtual machine instance virtual machine instance
  * @param index
- * @return
+ * @return (???)
  */
 BERRY_API const char* be_tostring(bvm *vm, int index);
 
@@ -1188,7 +1199,7 @@ BERRY_API const char* be_tostring(bvm *vm, int index);
  * @param vm virtual machine instance virtual machine instance
  * @param index
  * @param mode
- * @return
+ * @return (???)
  */
 BERRY_API const char* be_toescape(bvm *vm, int index, int mode);
 
@@ -1303,7 +1314,7 @@ BERRY_API void be_pushnstring(bvm *vm, const char *str, size_t n);
  *
  * @param vm virtual machine instance
  * @param format
- * @return
+ * @return (???)
  */
 BERRY_API const char* be_pushfstring(bvm *vm, const char *format, ...);
 
@@ -1408,7 +1419,7 @@ BERRY_API void be_pushcomptr(bvm *vm, void *ptr);
  *
  * @param vm virtual machine instance
  * @param index
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_pushiter(bvm *vm, int index);
 
@@ -1485,7 +1496,7 @@ BERRY_API bbool be_copy(bvm *vm, int index);
  * @param vm virtual machine instance
  * @param index
  * @param name
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_setname(bvm *vm, int index, const char *name);
 
@@ -1498,7 +1509,7 @@ BERRY_API bbool be_setname(bvm *vm, int index, const char *name);
  *
  * @param vm virtual machine instance
  * @param name
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_getglobal(bvm *vm, const char *name);
 
@@ -1519,7 +1530,7 @@ BERRY_API void be_setglobal(bvm *vm, const char *name);
  *
  * @param vm virtual machine instance
  * @param name
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_getbuiltin(bvm *vm, const char *name);
 
@@ -1534,7 +1545,7 @@ BERRY_API bbool be_getbuiltin(bvm *vm, const char *name);
  * @param vm virtual machine instance
  * @param index index of the instance object
  * @param k name of the member
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_setmember(bvm *vm, int index, const char *k);
 
@@ -1548,7 +1559,7 @@ BERRY_API bbool be_setmember(bvm *vm, int index, const char *k);
  * @param vm virtual machine instance
  * @param index index of the instance object
  * @param k name of the member
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_getmember(bvm *vm, int index, const char *k);
 
@@ -1560,7 +1571,7 @@ BERRY_API bbool be_getmember(bvm *vm, int index, const char *k);
  * @param vm virtual machine instance
  * @param index
  * @param k
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_getmethod(bvm *vm, int index, const char *k);
 
@@ -1576,7 +1587,7 @@ BERRY_API bbool be_getmethod(bvm *vm, int index, const char *k);
  *
  * @param vm virtual machine instance
  * @param index index of the object to be operated
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_getindex(bvm *vm, int index);
 
@@ -1592,7 +1603,7 @@ BERRY_API bbool be_getindex(bvm *vm, int index);
  *
  * @param vm virtual machine instance
  * @param index index of the object to be operated
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_setindex(bvm *vm, int index);
 
@@ -1620,7 +1631,7 @@ BERRY_API void be_getupval(bvm *vm, int index, int pos);
  * @param vm virtual machine instance
  * @param index the native closure index value of the Up Value to be read
  * @param pos position of the Up Value in the native closure Up Value table (numbering starts from 0)
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_setupval(bvm *vm, int index, int pos);
 
@@ -1631,7 +1642,7 @@ BERRY_API bbool be_setupval(bvm *vm, int index, int pos);
  *
  * @param vm virtual machine instance
  * @param index
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_setsuper(bvm *vm, int index);
 
@@ -1660,7 +1671,7 @@ BERRY_API void be_getsuper(bvm *vm, int index);
  *
  * @param vm virtual machine instance
  * @param index index of the container object to be operated
- * @return
+ * @return (???)
  */
 BERRY_API int be_data_size(bvm *vm, int index);
 
@@ -1692,7 +1703,7 @@ BERRY_API void be_data_push(bvm *vm, int index);
  *
  * @param vm virtual machine instance
  * @param index container object to be operated
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_data_insert(bvm *vm, int index);
 
@@ -1710,7 +1721,7 @@ BERRY_API bbool be_data_insert(bvm *vm, int index);
  *
  * @param vm virtual machine instance
  * @param index container object to be operated.
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_data_remove(bvm *vm, int index);
 
@@ -1721,7 +1732,7 @@ BERRY_API bbool be_data_remove(bvm *vm, int index);
  *
  * @param vm virtual machine instance
  * @param index
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_data_merge(bvm *vm, int index);
 
@@ -1761,7 +1772,7 @@ BERRY_API void be_data_reverse(bvm *vm, int index);
  *
  * @param vm virtual machine instance
  * @param index iterator to be operated
- * @return
+ * @return (???)
  */
 BERRY_API int be_iter_next(bvm *vm, int index);
 
@@ -1775,7 +1786,7 @@ BERRY_API int be_iter_next(bvm *vm, int index);
  *
  * @param vm virtual machine instance
  * @param index iterator to be operated
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_iter_hasnext(bvm *vm, int index);
 
@@ -1792,7 +1803,7 @@ BERRY_API bbool be_iter_hasnext(bvm *vm, int index);
  *
  * @param vm virtual machine instance
  * @param index object to be operated
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_refcontains(bvm *vm, int index);
 
@@ -1839,7 +1850,7 @@ BERRY_API void be_stack_require(bvm *vm, int count);
  *
  * @param vm virtual machine instance
  * @param k
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_getmodule(bvm *vm, const char *k);
 
@@ -1849,7 +1860,7 @@ BERRY_API bbool be_getmodule(bvm *vm, const char *k);
  * @brief (???)
  *
  * @param vm virtual machine instance
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_iseq(bvm *vm);
 
@@ -1859,7 +1870,7 @@ BERRY_API bbool be_iseq(bvm *vm);
  * @brief (???)
  *
  * @param vm virtual machine instance
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_isneq(bvm *vm);
 
@@ -1869,7 +1880,7 @@ BERRY_API bbool be_isneq(bvm *vm);
  * @brief (???)
  *
  * @param vm virtual machine instance
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_islt(bvm *vm);
 
@@ -1879,7 +1890,7 @@ BERRY_API bbool be_islt(bvm *vm);
  * @brief (???)
  *
  * @param vm virtual machine instance
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_isle(bvm *vm);
 
@@ -1889,7 +1900,7 @@ BERRY_API bbool be_isle(bvm *vm);
  * @brief (???)
  *
  * @param vm virtual machine instance
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_isgt(bvm *vm);
 
@@ -1899,7 +1910,7 @@ BERRY_API bbool be_isgt(bvm *vm);
  * @brief (???)
  *
  * @param vm virtual machine instance
- * @return
+ * @return (???)
  */
 BERRY_API bbool be_isge(bvm *vm);
 
@@ -1909,7 +1920,7 @@ BERRY_API bbool be_isge(bvm *vm);
  * @brief (???)
  *
  * @param vm virtual machine instance
- * @return
+ * @return (???)
  */
 BERRY_API int be_returnvalue(bvm *vm);
 
@@ -1919,7 +1930,7 @@ BERRY_API int be_returnvalue(bvm *vm);
  * @brief (???)
  *
  * @param vm virtual machine instance
- * @return
+ * @return (???)
  */
 BERRY_API int be_returnnilvalue(bvm *vm);
 
@@ -1940,7 +1951,7 @@ BERRY_API void be_call(bvm *vm, int argc);
  *
  * @param vm virtual machine instance
  * @param argc
- * @return
+ * @return (???)
  */
 BERRY_API int be_pcall(bvm *vm, int argc);
 
@@ -1972,7 +1983,7 @@ BERRY_API void be_raise(bvm *vm, const char *except, const char *msg);
  *
  * @param vm virtual machine instance
  * @param code
- * @return
+ * @return (???)
  */
 BERRY_API int be_getexcept(bvm *vm, int code);
 
@@ -2036,7 +2047,7 @@ BERRY_API void be_regclass(bvm *vm, const char *name, const bnfuncinfo *lib);
  * @note VM management API
  * @brief Construct a VM
  *
- * @return
+ * @return (???)
  */
 BERRY_API bvm* be_vm_new(void);
 
@@ -2075,7 +2086,7 @@ BERRY_API void be_set_ctype_func_hanlder(bvm *vm, bctypefunc handler);
  * @brief (???)
  *
  * @param vm virtual machine instance
- * @return
+ * @return (???)
  */
 BERRY_API bctypefunc be_get_ctype_func_hanlder(bvm *vm);
 
@@ -2093,7 +2104,7 @@ BERRY_API bctypefunc be_get_ctype_func_hanlder(bvm *vm);
  * @param name string, which is usually used to mark the source of the source code
  * @param buffer buffer for storing the source code
  * @param length length of the buffer
- * @return
+ * @return (???)
  */
 BERRY_API int be_loadbuffer(bvm *vm, const char *name, const char *buffer, size_t length);
 
@@ -2105,7 +2116,7 @@ BERRY_API int be_loadbuffer(bvm *vm, const char *name, const char *buffer, size_
  * @param vm virtual machine instance
  * @param name
  * @param islocal
- * @return
+ * @return (???)
  */
 BERRY_API int be_loadmode(bvm *vm, const char *name, bbool islocal);
 
@@ -2116,7 +2127,7 @@ BERRY_API int be_loadmode(bvm *vm, const char *name, bbool islocal);
  *
  * @param vm virtual machine instance
  * @param path
- * @return
+ * @return (???)
  */
 BERRY_API int be_loadlib(bvm *vm, const char *path);
 
@@ -2127,7 +2138,7 @@ BERRY_API int be_loadlib(bvm *vm, const char *path);
  *
  * @param vm virtual machine instance
  * @param name
- * @return
+ * @return (???)
  */
 BERRY_API int be_savecode(bvm *vm, const char *name);
 
@@ -2236,7 +2247,7 @@ BERRY_API void be_writebuffer(const char *buffer, size_t length);
  *
  * @param buffer
  * @param size
- * @return
+ * @return (???)
  */
 BERRY_API char* be_readstring(char *buffer, size_t size);
 

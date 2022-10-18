@@ -36,7 +36,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../en/Home.html">Welcome to the berry wiki!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Home.html">Bienvenido a la wiki de Berry!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
 </ul>
 
         </div>
@@ -65,7 +64,7 @@
              
   <!-- Spanish Translation: Emiliano Gonzalez (egonzalez . hiperion @ gmail . com) -->
 <section id="hacer-una-funcion-nativa">
-<h1>Hacer una función nativa<a class="headerlink" href="#hacer-una-funcion-nativa" title="Permalink to this headline"></a></h1>
+<h1>Hacer una función nativa<a class="headerlink" href="#hacer-una-funcion-nativa" title="Permalink to this headline">¶</a></h1>
 <p>La FFI en C (interfaz de función externa) de Berry opera en una pila virtual para interactuar con la máquina virtual. Si necesitamos hacer una función <code class="docutils literal notranslate"><span class="pre">add</span></code> para sumar dos números y usarla en Berry de esta manera:</p>
 <div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
@@ -145,7 +144,7 @@
 </div>
 </section>
 <section id="crear-una-instancia-de-un-objeto-list-en-una-funcion-nativa">
-<h1>Crear una instancia de un objeto <code class="docutils literal notranslate"><span class="pre">list</span></code> en una función nativa<a class="headerlink" href="#crear-una-instancia-de-un-objeto-list-en-una-funcion-nativa" title="Permalink to this headline"></a></h1>
+<h1>Crear una instancia de un objeto <code class="docutils literal notranslate"><span class="pre">list</span></code> en una función nativa<a class="headerlink" href="#crear-una-instancia-de-un-objeto-list-en-una-funcion-nativa" title="Permalink to this headline">¶</a></h1>
 <p>La generación de clases nativas instanciadas en C puede ser engorrosa en comparación con los tipos simples. Esta sección guiará al lector a instanciar la clase <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
 <p>La clase <code class="docutils literal notranslate"><span class="pre">list</span></code> es un contenedor alrededor de la estructura de la lista, que tiene una propiedad <code class="docutils literal notranslate"><span class="pre">.data</span></code> para la estructura de la lista. Por lo tanto, primero necesitamos construir una estructura de lista:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">be_newlist</span><span class="p">(</span><span class="n">vm</span><span class="p">);</span><span class="w"></span>

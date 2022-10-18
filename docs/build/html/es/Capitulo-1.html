@@ -36,7 +36,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../en/Home.html">Welcome to the berry wiki!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Home.html">Bienvenido a la wiki de Berry!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
 </ul>
 
         </div>
@@ -65,16 +64,16 @@
              
   <!-- Spanish Translation: Emiliano Gonzalez (egonzalez . hiperion @ gmail . com) -->
 <section id="informacion-basica">
-<h1>Información básica<a class="headerlink" href="#informacion-basica" title="Permalink to this headline"></a></h1>
+<h1>Información básica<a class="headerlink" href="#informacion-basica" title="Permalink to this headline">¶</a></h1>
 <section id="introduccion">
-<h2>1.1 Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline"></a></h2>
+<h2>1.1 Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline">¶</a></h2>
 <p>Berry es un lenguaje de script integrado de tipo dinámico ultraligero.
 El lenguaje admite principalmente programación procedural, así como programación orientada a objetos y programación funcional. Un objetivo de diseño importante de Berry es poder ejecutarse en dispositivos integrados con muy poca memoria, por lo que el lenguaje está muy optimizado. Sin embargo, Berry sigue siendo un lenguaje de secuencias de comandos rico en funciones.</p>
 </section>
 <section id="empezar-a-usar">
-<h2>1.2 Empezar a usar<a class="headerlink" href="#empezar-a-usar" title="Permalink to this headline"></a></h2>
+<h2>1.2 Empezar a usar<a class="headerlink" href="#empezar-a-usar" title="Permalink to this headline">¶</a></h2>
 <section id="obtener-el-interprete">
-<h3>Obtener el intérprete<a class="headerlink" href="#obtener-el-interprete" title="Permalink to this headline"></a></h3>
+<h3>Obtener el intérprete<a class="headerlink" href="#obtener-el-interprete" title="Permalink to this headline">¶</a></h3>
 <p>Los lectores pueden ir a la página de GitHub del proyecto: <a class="reference external" href="https://github.com/berry-lang/berry">https://github.com/berry-lang/berry</a> para obtener el código fuente del intérprete de Berry. Los lectores necesitan compilar el intérprete de Berry por sí mismos. El método de compilación específico se puede encontrar en el documento README.md en el directorio raíz del código fuente, que también se puede ver en la página de GitHub del proyecto.</p>
 <p>Primero, debe instalar un software como GCC, git y make. Si no usa el control de versiones, puede descargar el código fuente directamente en GitHub sin instalar git. Los lectores pueden usar motores de búsqueda para recuperar información sobre este software. Los lectores que utilizan sistemas Linux y macOS también deben instalar la biblioteca GNU Readline[1]. Use el comando <code class="docutils literal notranslate"><span class="pre">git</span></code> [2] Clone el código fuente del intérprete del almacén remoto al local:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/berry-lang/berry
@@ -88,7 +87,7 @@ make
 <p>Ahora debería poder encontrar el archivo ejecutable del intérprete en el directorio <em>berry</em> (en los sistemas Windows, el nombre del archivo del programa intérprete es “<em>berry.exe</em>”, mientras que en los sistemas Linux y macOS el nombre del archivo es “<em>berry</em>”), puede ejecutar el archivo ejecutable directamente. Para iniciar el intérprete: En Linux o macOS, puede usar el comando <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">make</span> <span class="pre">install</span></code> para instalar el intérprete, y luego puede iniciar el intérprete con el comando <code class="docutils literal notranslate"><span class="pre">berry</span></code> en la terminal.</p>
 </section>
 <section id="entorno-repl">
-<h3>Entorno REPL<a class="headerlink" href="#entorno-repl" title="Permalink to this headline"></a></h3>
+<h3>Entorno REPL<a class="headerlink" href="#entorno-repl" title="Permalink to this headline">¶</a></h3>
 <p>REPL (Leer Evaluar Imprimir Bucle) generalmente se traduce como un intérprete interactivo, y este elemnto también se ha convertido en el modo interactivo del intérprete. Este modo consta de cuatro elementos: <strong>Leer</strong>, lee el código fuente ingresado por el usuario desde el dispositivo de entrada; <strong>Evaluar</strong>, compila y ejecuta el código fuente ingresado por el usuario; <strong>Imprimir</strong>, muestra el resultado del proceso de evaluación; <strong>Bucle</strong>, realiza un ciclo de las operaciones anteriores.</p>
 <p>Inicie el intérprete directamente (ingrese <code class="docutils literal notranslate"><span class="pre">berry</span></code> en la terminal o en la ventana de comandos sin parámetros, o haga doble clic en berry.exe en Windows) para ingresar al modo REPL y verá la siguiente interfaz:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>Berry 1.0.0 (build in Feb 1 2022, 13:14:04)
@@ -98,7 +97,7 @@ make
 </div>
 <p>Las dos primeras líneas de la interfaz muestran la versión, el tiempo de compilación, el compilador y el sistema operativo del intérprete de Berry. El símbolo “<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>” en la tercera línea se llama indicador y el cursor se muestra detrás del indicador. Al usar el modo REPL, después de ingresar el código fuente, al presionar la tecla “Enter” se ejecutará inmediatamente el código y se generará el resultado. Presione la combinación de teclas <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">C</span></code> para salir de REPL. En el caso de usar la biblioteca Readline, use la combinación de teclas <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">D</span></code> para salir de REPL cuando la entrada esté vacía. Dado que no hay necesidad de editar archivos de secuencias de comandos, el modo REPL se puede utilizar para un desarrollo rápido o verificación de ideas.</p>
 <section id="programa-hola-mundo">
-<h4>Programa Hola Mundo<a class="headerlink" href="#programa-hola-mundo" title="Permalink to this headline"></a></h4>
+<h4>Programa Hola Mundo<a class="headerlink" href="#programa-hola-mundo" title="Permalink to this headline">¶</a></h4>
 <p>Tomemos como ejemplo el clásico programa “Hola Mundo”. Introduzca <code class="docutils literal notranslate"><span class="pre">print('Hola</span> <span class="pre">Mundo')</span></code> en el REPL y ejecútelo. Los resultados son los siguientes:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>Berry 1.0.0 (build in Feb 1 2022, 13:14:04)
 [GCC 8.1.0] on Windows (default)
@@ -119,7 +118,7 @@ Hola Mundo
 </div>
 </section>
 <section id="mas-uso-de-repl">
-<h4>Más uso de REPL<a class="headerlink" href="#mas-uso-de-repl" title="Permalink to this headline"></a></h4>
+<h4>Más uso de REPL<a class="headerlink" href="#mas-uso-de-repl" title="Permalink to this headline">¶</a></h4>
 <p>También puede utilizar el modo interactivo del intérprete de Berry como calculadora científica. Sin embargo, algunas funciones matemáticas no se pueden utilizar directamente. En su lugar, use la declaración <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code> para importar la biblioteca matemática y luego use las funciones en la biblioteca. Utilice “<code class="docutils literal notranslate"><span class="pre">math.</span></code>” como prefijo, por ejemplo, la función <code class="docutils literal notranslate"><span class="pre">sin</span></code> debe escribirse como <code class="docutils literal notranslate"><span class="pre">math.sin</span></code>:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; import math
 &gt; math.pi
@@ -133,7 +132,7 @@ Hola Mundo
 </section>
 </section>
 <section id="archivo-de-comandos">
-<h3>Archivo de comandos<a class="headerlink" href="#archivo-de-comandos" title="Permalink to this headline"></a></h3>
+<h3>Archivo de comandos<a class="headerlink" href="#archivo-de-comandos" title="Permalink to this headline">¶</a></h3>
 <p>El archivo de secuencia de comandos de Berry es un archivo que almacena el código de Berry, y un intérprete puede ejecutar el archivo de script. Normalmente, el archivo de script es un archivo de texto con la extensión “.be”. El comando para ejecutar el script usando el intérprete es:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>berry script_file
 </pre></div>
@@ -147,7 +146,7 @@ Hola Mundo
 </section>
 </section>
 <section id="palabras-words">
-<h2>1.3 Palabras (Words)<a class="headerlink" href="#palabras-words" title="Permalink to this headline"></a></h2>
+<h2>1.3 Palabras (Words)<a class="headerlink" href="#palabras-words" title="Permalink to this headline">¶</a></h2>
 <p>Antes de presentar la sintaxis de Berry, echemos un vistazo a un código simple (puede ejecutar este código en modo REPL):</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def func(x) # una función ejemplo
     return x + 1.5
@@ -159,7 +158,7 @@ print(&#39;func(10) =&#39;, func(10))
 <p>En el código anterior, la clasificación específica de los elementos gramaticales es: <code class="docutils literal notranslate"><span class="pre">def</span></code>, <code class="docutils literal notranslate"><span class="pre">return</span></code> y <code class="docutils literal notranslate"><span class="pre">end</span></code>. Estas son palabras clave del lenguaje Berry; y “<code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">una</span> <span class="pre">función</span> <span class="pre">ejemplo</span></code>” en la primera línea se llama comentario; <code class="docutils literal notranslate"><span class="pre">print</span></code>, <code class="docutils literal notranslate"><span class="pre">func</span></code> y <code class="docutils literal notranslate"><span class="pre">x</span></code> son algunos identificadores, generalmente se usan para representar una variable; <code class="docutils literal notranslate"><span class="pre">1.5</span></code> y <code class="docutils literal notranslate"><span class="pre">10</span></code> estos números se llaman literales numéricos, son equivalentes a los números usados en la vida diaria; <code class="docutils literal notranslate"><span class="pre">'func(10)</span> <span class="pre">='</span></code> Es un literal de cadena, se usan en lugares donde necesitas representar texto; <code class="docutils literal notranslate"><span class="pre">+</span></code> es un operador de suma, aquí el operador de suma se puede usar para sumar la variable <code class="docutils literal notranslate"><span class="pre">x</span></code> y el valor <code class="docutils literal notranslate"><span class="pre">1.5</span></code>.</p>
 <p>La clasificación anterior se realiza en realidad desde la perspectiva de un analizador lexicográfico. El análisis lexicográfico es el primer paso en el análisis del código fuente de Berry. Para escribir el código fuente correcto, comenzamos con la introducción lexicográfica más básica.</p>
 <section id="comentario">
-<h3>Comentario<a class="headerlink" href="#comentario" title="Permalink to this headline"></a></h3>
+<h3>Comentario<a class="headerlink" href="#comentario" title="Permalink to this headline">¶</a></h3>
 <p>Los comentarios son textos que no genera ningún código. Se utilizan para hacer comentarios en el código fuente y ser leídos por personas, mientras que el compilador no interpretará su contenido. Berry admite comentarios de una sola línea y comentarios de bloque de líneas cruzadas. Los comentarios de una sola línea comienzan con el carácter “<code class="docutils literal notranslate"><span class="pre">#</span></code>’ hasta el final del carácter de nueva línea. La nota rápida comienza con el texto “<code class="docutils literal notranslate"><span class="pre">#-</span></code>” y termina con el texto “<code class="docutils literal notranslate"><span class="pre">-#</span></code>”. El siguiente es un ejemplo del uso de anotaciones:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>#  Este es un comentario de línea
 #- Este es un
@@ -173,10 +172,10 @@ print(&#39;func(10) =&#39;, func(10))
 </div>
 </section>
 <section id="valor-literal">
-<h3>Valor literal<a class="headerlink" href="#valor-literal" title="Permalink to this headline"></a></h3>
+<h3>Valor literal<a class="headerlink" href="#valor-literal" title="Permalink to this headline">¶</a></h3>
 <p>El valor literal es un valor fijo escrito directamente en el código fuente durante la programación. Los literales de Berry son números enteros, números reales, booleanos, cadenas y nil. Por ejemplo, el valor <code class="docutils literal notranslate"><span class="pre">34</span></code> es una denominación entera.</p>
 <section id="valor-literal-numerico">
-<h4>Valor literal numérico<a class="headerlink" href="#valor-literal-numerico" title="Permalink to this headline"></a></h4>
+<h4>Valor literal numérico<a class="headerlink" href="#valor-literal-numerico" title="Permalink to this headline">¶</a></h4>
 <p>Los literales numéricos incluyen literales <strong>Integer</strong> (entero) y literales <strong>Número real</strong> (real).</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>40 #  Literal entero
 0x80 # Literal hexadecimal (entero)
@@ -187,11 +186,11 @@ print(&#39;func(10) =&#39;, func(10))
 <p>Los literales numéricos se escriben de manera similar a la escritura cotidiana. Berry admite denominaciones enteras hexadecimales. Los literales hexadecimales comienzan con el prefijo <code class="docutils literal notranslate"><span class="pre">0x</span></code> o <code class="docutils literal notranslate"><span class="pre">0X</span></code>, seguido de un número hexadecimal.</p>
 </section>
 <section id="valor-literal-booleano">
-<h4>Valor literal booleano<a class="headerlink" href="#valor-literal-booleano" title="Permalink to this headline"></a></h4>
+<h4>Valor literal booleano<a class="headerlink" href="#valor-literal-booleano" title="Permalink to this headline">¶</a></h4>
 <p>Los valores booleanos (booleanos) se utilizan para representar verdadero y falso en el estado lógico. Puede utilizar las palabras clave <code class="docutils literal notranslate"><span class="pre">true</span></code> y <code class="docutils literal notranslate"><span class="pre">false</span></code> para representar literales booleanos.</p>
 </section>
 <section id="literal-de-cadena">
-<h4>Literal de cadena<a class="headerlink" href="#literal-de-cadena" title="Permalink to this headline"></a></h4>
+<h4>Literal de cadena<a class="headerlink" href="#literal-de-cadena" title="Permalink to this headline">¶</a></h4>
 <p>Una cadena es un fragmento de texto, y su escritura literal consiste en usar un par de <code class="docutils literal notranslate"><span class="pre">'</span></code> o <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> para rodear el texto de la cadena:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&#39;esto es una cadena&#39;
 &quot;esto es una cadena&quot;
@@ -257,12 +256,12 @@ print(&#39;func(10) =&#39;, func(10))
 </div>
 </section>
 <section id="valor-literal-nulo">
-<h4>Valor literal nulo<a class="headerlink" href="#valor-literal-nulo" title="Permalink to this headline"></a></h4>
+<h4>Valor literal nulo<a class="headerlink" href="#valor-literal-nulo" title="Permalink to this headline">¶</a></h4>
 <p>Nil representa un valor nulo, y su valor literal está representado por la palabra clave <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
 </section>
 </section>
 <section id="identificador">
-<h3>Identificador<a class="headerlink" href="#identificador" title="Permalink to this headline"></a></h3>
+<h3>Identificador<a class="headerlink" href="#identificador" title="Permalink to this headline">¶</a></h3>
 <p>El identificador es un nombre definido por el usuario, que comienza con un guión bajo o una letra, y luego consiste en una combinación de varios guiones bajos, letras o números. Al igual que la mayoría de los lenguajes, Berry distingue entre mayúsculas y minúsculas, por lo que los identificadores <code class="docutils literal notranslate"><span class="pre">A</span></code> y los identificadores <code class="docutils literal notranslate"><span class="pre">a</span></code> se resolverán en dos identificadores diferentes.</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>a
 TestVariable
@@ -274,7 +273,7 @@ _
 </div>
 </section>
 <section id="palabras-clave">
-<h3>Palabras clave<a class="headerlink" href="#palabras-clave" title="Permalink to this headline"></a></h3>
+<h3>Palabras clave<a class="headerlink" href="#palabras-clave" title="Permalink to this headline">¶</a></h3>
 <p>Berry reserva los siguientes tokens como palabras clave del lenguaje:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>if elif else while for def
 end class break continue return true

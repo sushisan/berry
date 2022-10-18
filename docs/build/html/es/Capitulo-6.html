@@ -36,7 +36,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../en/Home.html">Welcome to the berry wiki!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Home.html">Bienvenido a la wiki de Berry!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
 </ul>
 
         </div>
@@ -65,12 +64,12 @@
              
   <!-- Spanish Translation: Emiliano Gonzalez (egonzalez . hiperion @ gmail . com) -->
 <section id="funcion-orientada-a-objetos">
-<h1>6. Función orientada a objetos<a class="headerlink" href="#funcion-orientada-a-objetos" title="Permalink to this headline"></a></h1>
+<h1>6. Función orientada a objetos<a class="headerlink" href="#funcion-orientada-a-objetos" title="Permalink to this headline">¶</a></h1>
 <p>Por consideraciones de optimización, Berry no consideró los tipos simples como objetos. Estos tipos simples incluyen <code class="docutils literal notranslate"><span class="pre">nil</span></code>, numéricos, booleanos y cadena. Pero Berry proporciona clases para implementar el mecanismo de objetos. Entre los tipos de datos básicos de Berry, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">map</span></code> y <code class="docutils literal notranslate"><span class="pre">range</span></code> son objetos de clase. Un objeto es una colección que contiene datos y métodos, donde los datos se componen de algunas variables y los métodos son funciones. El tipo de un objeto se denomina clase y la entidad de un objeto se denomina instancia.</p>
 <section id="clase-e-instancia">
-<h2>6.1 Clase e instancia<a class="headerlink" href="#clase-e-instancia" title="Permalink to this headline"></a></h2>
+<h2>6.1 Clase e instancia<a class="headerlink" href="#clase-e-instancia" title="Permalink to this headline">¶</a></h2>
 <section id="declaracion-de-clase">
-<h3>6.1.1 Declaración de clase<a class="headerlink" href="#declaracion-de-clase" title="Permalink to this headline"></a></h3>
+<h3>6.1.1 Declaración de clase<a class="headerlink" href="#declaracion-de-clase" title="Permalink to this headline">¶</a></h3>
 <p>Para usar una clase, primero debe declararla. La declaración de una clase comienza con la palabra clave <code class="docutils literal notranslate"><span class="pre">class</span></code>. Las variables miembro y los métodos de la clase deben especificarse en la declaración. Este es un ejemplo de declaración de una clase:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class persona
     static var mayor = 18
@@ -94,11 +93,11 @@ Las propiedades de la clase no se pueden modificar después de completar la decl
 <p>La clase de Berry no admite restricciones de acceso y todas las propiedades de la clase son visibles desde el exterior. En las clases nativas, puede usar algunos trucos para hacer que las propiedades sean invisibles para el código Berry (por lo general, hacer que el nombre del miembro comience con un punto “.”). Puede usar algunas convenciones para restringir el acceso a los miembros de la clase, como la convención de que los atributos que comienzan con un guión bajo son atributos privados. Esta convención no tiene ningún uso a nivel gramatical, pero favorece la estructura lógica del código.</p>
 </section>
 <section id="instanciar">
-<h3>Instanciar<a class="headerlink" href="#instanciar" title="Permalink to this headline"></a></h3>
+<h3>Instanciar<a class="headerlink" href="#instanciar" title="Permalink to this headline">¶</a></h3>
 <p>La clase en sí es solo una descripción abstracta. Tomando los autos como ejemplo, conozco el concepto de autos, y cuando realmente queremos usar autos, necesitamos autos reales. El uso de las clases es similar. No solo usaremos esta descripción abstracta, sino que necesitaremos producir un objeto concreto basado en esta descripción. Este proceso se llama <strong>Instanciación de la clase</strong>, abreviado como instanciación, y el objeto concreto producido por la instanciación se llama <strong>Instancia</strong>. La clase en sí no tiene datos, y la creación de instancias produce una instancia basada en la información descrita por la clase y proporciona datos específicos a la instancia.</p>
 </section>
 <section id="metodo-y-parametros-self">
-<h3>Método y parámetros <code class="docutils literal notranslate"><span class="pre">self</span></code><a class="headerlink" href="#metodo-y-parametros-self" title="Permalink to this headline"></a></h3>
+<h3>Método y parámetros <code class="docutils literal notranslate"><span class="pre">self</span></code><a class="headerlink" href="#metodo-y-parametros-self" title="Permalink to this headline">¶</a></h3>
 <p>Los métodos de clase son esencialmente funciones. A diferencia de las funciones ordinarias, los métodos pasan implícitamente un parámetro <code class="docutils literal notranslate"><span class="pre">self</span></code>, y siempre es el primer parámetro, que almacena una referencia a la instancia actual. Debido a la existencia de parámetros <code class="docutils literal notranslate"><span class="pre">self</span></code>, el número de parámetros del método será uno más que el número de parámetros definidos en la declaración. Aquí usamos un ejemplo simple para demostrar:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class Test
     def metodo()
@@ -118,18 +117,18 @@ print(objecto.metodo())
 <p>Se puede ver que el parámetro <code class="docutils literal notranslate"><span class="pre">self</span></code> del método y el nombre de la instancia de uso (<code class="docutils literal notranslate"><span class="pre">objecto</span></code> en el ejemplo) representan el mismo objeto y ambos son referencias de instancia. Use <code class="docutils literal notranslate"><span class="pre">self</span></code> para acceder a los miembros o atributos de la instancia en el método.</p>
 </section>
 <section id="metodos-sinteticos">
-<h3>Métodos sintéticos<a class="headerlink" href="#metodos-sinteticos" title="Permalink to this headline"></a></h3>
+<h3>Métodos sintéticos<a class="headerlink" href="#metodos-sinteticos" title="Permalink to this headline">¶</a></h3>
 <p>Puede declarar métodos y miembros dinámicos sintéticos usando <strong>Miembros virtuales</strong> como se describe en el Capítulo 8.2.</p>
 </section>
 <section id="variables-de-clase-static">
-<h3>Variables de clase <code class="docutils literal notranslate"><span class="pre">static</span></code><a class="headerlink" href="#variables-de-clase-static" title="Permalink to this headline"></a></h3>
+<h3>Variables de clase <code class="docutils literal notranslate"><span class="pre">static</span></code><a class="headerlink" href="#variables-de-clase-static" title="Permalink to this headline">¶</a></h3>
 <p>Las variables o funciones se pueden declarar <code class="docutils literal notranslate"><span class="pre">static</span></code>.
 Las variables estáticas tienen el mismo valor para todas las instancias de la misma clase.
 Se declaran como <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">1</span></code> o <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">var</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">1</span></code>.
 Las variables estáticas se inicializan justo después de la creación de la clase.</p>
 </section>
 <section id="metodos-de-clase-static">
-<h3>Métodos de clase <code class="docutils literal notranslate"><span class="pre">static</span></code><a class="headerlink" href="#metodos-de-clase-static" title="Permalink to this headline"></a></h3>
+<h3>Métodos de clase <code class="docutils literal notranslate"><span class="pre">static</span></code><a class="headerlink" href="#metodos-de-clase-static" title="Permalink to this headline">¶</a></h3>
 <p>Los métodos se pueden declarar <code class="docutils literal notranslate"><span class="pre">static</span></code>, lo que significa que actúan como una función regular y no toman <code class="docutils literal notranslate"><span class="pre">self</span></code> como primer argumento.
 Dentro de los métodos estáticos, no se declara ninguna variable “auto” implícita.
 Los métodos estáticos se pueden llamar a través de la clase o a través de una instancia.</p>
@@ -157,9 +156,9 @@ stack traceback:
 </div>
 </section>
 <section id="constructor-y-destructor">
-<h3>Constructor y Destructor<a class="headerlink" href="#constructor-y-destructor" title="Permalink to this headline"></a></h3>
+<h3>Constructor y Destructor<a class="headerlink" href="#constructor-y-destructor" title="Permalink to this headline">¶</a></h3>
 <section id="constructor">
-<h4>Constructor<a class="headerlink" href="#constructor" title="Permalink to this headline"></a></h4>
+<h4>Constructor<a class="headerlink" href="#constructor" title="Permalink to this headline">¶</a></h4>
 <p>El constructor de la clase es el método <code class="docutils literal notranslate"><span class="pre">init</span></code>. Se llama al constructor cuando se crea una instancia de la clase. Por lo tanto, el constructor generalmente se usa para la inicialización de miembros, por ejemplo:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class Test
     var a
@@ -180,13 +179,13 @@ end
 </div>
 </section>
 <section id="destructor">
-<h4>Destructor<a class="headerlink" href="#destructor" title="Permalink to this headline"></a></h4>
+<h4>Destructor<a class="headerlink" href="#destructor" title="Permalink to this headline">¶</a></h4>
 <p>El destructor de la clase es el método <code class="docutils literal notranslate"><span class="pre">deinit</span></code>. Se llama al destructor cuando se destruye la instancia. El destructor se usa generalmente para completar algún trabajo de limpieza. Debido a que el mecanismo de recolección de basura libera automáticamente la memoria de los objetos inútiles, no hay necesidad de liberar la memoria en el destructor (y tampoco hay forma de hacerlo en el destructor). En la mayoría de los casos, no hay necesidad de usar un destructor, a menos que cierta clase requiera cierto procesamiento cuando se destruye. Un ejemplo típico es que un objeto de archivo debe cerrar el archivo cuando se destruye.</p>
 </section>
 </section>
 </section>
 <section id="herencia-de-clases">
-<h2>Herencia de clases<a class="headerlink" href="#herencia-de-clases" title="Permalink to this headline"></a></h2>
+<h2>Herencia de clases<a class="headerlink" href="#herencia-de-clases" title="Permalink to this headline">¶</a></h2>
 <p>Berry solo admite herencia simple, es decir, una clase solo puede tener una clase base, y la clase base usa el operador <code class="docutils literal notranslate"><span class="pre">:</span></code> para declarar:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class Test: Base
     ...
@@ -199,13 +198,13 @@ En circunstancias normales, solo sobrecargaremos métodos, no propiedades.</p>
 Las subclases contendrán referencias a la clase base y los objetos de instancia son similares. Al instanciar una clase con una clase base, en realidad se generan múltiples objetos. Estos objetos se encadenarán de acuerdo con la relación de herencia y, finalmente, obtendremos el objeto de instancia al final de la cadena de herencia.</p>
 </section>
 <section id="sobrecarga-de-metodo">
-<h2>Sobrecarga de método<a class="headerlink" href="#sobrecarga-de-metodo" title="Permalink to this headline"></a></h2>
+<h2>Sobrecarga de método<a class="headerlink" href="#sobrecarga-de-metodo" title="Permalink to this headline">¶</a></h2>
 <p>La <strong>Sobrecarga</strong> significa que la subclase y la clase base usan el mismo método de nombre, y el método de la subclase anulará el mecanismo del método de la clase base. Para ser precisos, las variables miembro también se pueden sobrecargar, pero esta sobrecarga no tiene sentido. La sobrecarga de métodos se divide en sobrecarga de métodos ordinarios y sobrecarga de operadores.</p>
 <section id="sobrecarga-de-metodo-comun">
-<h3>Sobrecarga de método común<a class="headerlink" href="#sobrecarga-de-metodo-comun" title="Permalink to this headline"></a></h3>
+<h3>Sobrecarga de método común<a class="headerlink" href="#sobrecarga-de-metodo-comun" title="Permalink to this headline">¶</a></h3>
 </section>
 <section id="sobrecarga-del-operador">
-<h3>Sobrecarga del operador<a class="headerlink" href="#sobrecarga-del-operador" title="Permalink to this headline"></a></h3>
+<h3>Sobrecarga del operador<a class="headerlink" href="#sobrecarga-del-operador" title="Permalink to this headline">¶</a></h3>
 <p>Puede usar la sobrecarga de operadores de la clase para hacer que la instancia admita la operación del operador integrado. Por ejemplo, para una clase sobrecargada con el operador de suma, podemos usar el operador de suma para realizar operaciones en la instancia. Un operador sobrecargado es un método con un nombre especial, y la forma de función sobrecargada de un operador binario es</p>
 <div class="algorithm">
 <div class="highlight-ebnf notranslate"><div class="highlight"><pre><span></span>´def’ operador ´(´ otro ´)´
@@ -252,7 +251,7 @@ end
 El método no tiene parámetros y el valor devuelto debe ser de tipo booleano. La operación lógica de la instancia en realidad se realiza convirtiendo la instancia en un valor booleano, por lo que la operación lógica de la instancia está completamente en línea con la naturaleza de la operación lógica general. El operador de subíndice no se sobrecarga directamente, pero se implementa mediante los métodos <code class="docutils literal notranslate"><span class="pre">item</span></code> y <code class="docutils literal notranslate"><span class="pre">setitem</span></code>. El método <code class="docutils literal notranslate"><span class="pre">item</span></code> se utiliza para la lectura de subíndices, su primer parámetro es el valor del subíndice y el valor de retorno es el resultado de la operación del subíndice; <code class="docutils literal notranslate"><span class="pre">setitem</span></code> se utiliza para la escritura de subíndices, y su primer parámetro es el valor del subíndice, el segundo parámetro es el valor que se va a escribir; este método no utiliza el valor de retorno.</p>
 <p>Al operador sobrecargado se le puede asignar cualquier significado, incluso sin satisfacer las propiedades habituales de los operadores. Dada la versatilidad del código y la dificultad de comprensión, no se recomienda que los usuarios den a los operadores sobrecargados una función alejada del significado general.</p>
 <section id="sobrecarga-del-operador-de-asignacion-compuesto">
-<h4>Sobrecarga del operador de asignación compuesto<a class="headerlink" href="#sobrecarga-del-operador-de-asignacion-compuesto" title="Permalink to this headline"></a></h4>
+<h4>Sobrecarga del operador de asignación compuesto<a class="headerlink" href="#sobrecarga-del-operador-de-asignacion-compuesto" title="Permalink to this headline">¶</a></h4>
 <p>El operador de asignación compuesto no se puede sobrecargar directamente, pero podemos lograr el propósito de “sobrecargar” el operador de asignación compuesto sobrecargando el operador binario correspondiente al operador de asignación compuesto. Por ejemplo, después de sobrecargar el operador “<code class="docutils literal notranslate"><span class="pre">+</span></code>”, puede usar el operador “<code class="docutils literal notranslate"><span class="pre">+=</span></code>” para instancias de clases relacionadas. Vale la pena señalar que el uso de operaciones de asignación compuestas en la instancia hará que las variables de la instancia vinculada pierdan su referencia a la instancia.</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class integer
     var valor
@@ -273,11 +272,11 @@ print(a.valor) # 9
 </section>
 </section>
 <section id="instancia">
-<h2>Instancia<a class="headerlink" href="#instancia" title="Permalink to this headline"></a></h2>
+<h2>Instancia<a class="headerlink" href="#instancia" title="Permalink to this headline">¶</a></h2>
 <p>Una <strong>Instancia</strong> es un objeto generado después de la instanciación de la clase. Una clase se puede instanciar varias veces para generar diferentes instancias.
 Las instancias de Berry están referenciadas por la clase a la que pertenecen y los campos de datos correspondientes. Todas las instancias de una clase se referirán a esta clase, pero los campos de datos de estas instancias son independientes entre sí.</p>
 <section id="objeto-de-clase-base-de-acceso">
-<h3>Objeto de clase base de acceso<a class="headerlink" href="#objeto-de-clase-base-de-acceso" title="Permalink to this headline"></a></h3>
+<h3>Objeto de clase base de acceso<a class="headerlink" href="#objeto-de-clase-base-de-acceso" title="Permalink to this headline">¶</a></h3>
 <p>La función integrada <code class="docutils literal notranslate"><span class="pre">super</span></code> se utiliza para acceder a objetos de clase superior.
 Se puede utilizar en clases o instancias.</p>
 <p>La magia ocurre cuando llamas a un método de la superclase para que se comporte como intuitivamente crees que lo haría.

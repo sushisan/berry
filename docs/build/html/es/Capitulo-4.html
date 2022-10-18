@@ -36,7 +36,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../en/Home.html">Welcome to the berry wiki!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Home.html">Bienvenido a la wiki de Berry!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
 </ul>
 
         </div>
@@ -65,15 +64,15 @@
              
   <!-- Spanish Translation: Emiliano Gonzalez (egonzalez . hiperion @ gmail . com) -->
 <section id="declaracion">
-<h1>4. Declaración<a class="headerlink" href="#declaracion" title="Permalink to this headline"></a></h1>
+<h1>4. Declaración<a class="headerlink" href="#declaracion" title="Permalink to this headline">¶</a></h1>
 <p>Berry es un lenguaje de programación imperativo. Este paradigma asume que los programas se ejecutan paso a paso. Normalmente, las declaraciones de Berry se ejecutan secuencialmente, y esta estructura de programa se denomina estructura secuencial. Aunque la estructura de la secuencia es muy básica, las estructuras de rama y las estructuras de bucle se utilizan normalmente en los programas reales.
 Berry proporciona varias declaraciones de control para realizar esta compleja estructura de flujo, como declaraciones condicionales y declaraciones de iteración.</p>
 <p>A excepción de los comentarios de línea, los retornos de carro o los saltos de línea (”<code class="docutils literal notranslate"><span class="pre">\r</span></code>” y “<code class="docutils literal notranslate"><span class="pre">\n</span></code>”) solo se usan como caracteres en blanco, por lo que las declaraciones se pueden escribir en líneas. Además, puede escribir varias declaraciones en la misma línea.</p>
 <p>Puede agregar un punto y coma al final de la declaración para indicar el final de la declaración, pero el intérprete generalmente puede dividir la declaración automáticamente sin usar un punto y coma. Puede usar punto y coma para decirle al intérprete cómo analizar el código para el código que será ambiguo. Sin embargo, es mejor no escribir código ambiguo.</p>
 <section id="oracion-simple">
-<h2>4.1 Oración simple<a class="headerlink" href="#oracion-simple" title="Permalink to this headline"></a></h2>
+<h2>4.1 Oración simple<a class="headerlink" href="#oracion-simple" title="Permalink to this headline">¶</a></h2>
 <section id="declaracion-de-expresion">
-<h3>4.1.1 Declaración de expresión<a class="headerlink" href="#declaracion-de-expresion" title="Permalink to this headline"></a></h3>
+<h3>4.1.1 Declaración de expresión<a class="headerlink" href="#declaracion-de-expresion" title="Permalink to this headline">¶</a></h3>
 <p>Las declaraciones de expresión son principalmente declaraciones compuestas de expresiones de asignación o expresiones de llamada de función. Otras expresiones también pueden formar oraciones, pero no tienen significado. Por ejemplo, la expresión <code class="docutils literal notranslate"><span class="pre">1+2</span></code> es una oración escrita sola, pero no tiene ningún efecto. Las siguientes rutinas dan ejemplos de sentencias de expresión y sentencias de función:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>a = 1 #  Declaración de asignación
 print(a) #  Declaración de llamada
@@ -105,7 +104,7 @@ print(a) #  Declaración de llamada
 <p>Usar expresiones simples solo en el lado izquierdo del signo de asignación no causará ambigüedad en la segmentación de oraciones. Por lo tanto, en la mayoría de los casos, no es necesario usar punto y coma para separar expresiones y no recomendamos esta forma de escritura.</p>
 </section>
 <section id="bloque">
-<h3>Bloque<a class="headerlink" href="#bloque" title="Permalink to this headline"></a></h3>
+<h3>Bloque<a class="headerlink" href="#bloque" title="Permalink to this headline">¶</a></h3>
 <p>Un <strong>Bloque</strong> es una colección de varias oraciones. Un bloque es un alcance, por lo que solo se puede acceder a las variables definidas en el bloque dentro del bloque y sus sub-bloques. Hay muchos lugares donde se utilizan bloques, como declaraciones <code class="docutils literal notranslate"><span class="pre">if</span></code>, declaraciones <code class="docutils literal notranslate"><span class="pre">while</span></code>, declaraciones de funciones, etc. Estas declaraciones contendrán un bloque a través de un par de palabras clave. Por ejemplo, el bloque utilizado en la sentencia <code class="docutils literal notranslate"><span class="pre">if</span></code>:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>if isOpen
     close()
@@ -115,7 +114,7 @@ end
 </div>
 <p>Las sentencias en las líneas 2 a 3 constituyen un bloque, que se intercala entre el par de palabras clave <code class="docutils literal notranslate"><span class="pre">if</span></code> y <code class="docutils literal notranslate"><span class="pre">end</span></code> (la expresión condicional de la sentencia en <code class="docutils literal notranslate"><span class="pre">if</span></code> no está en el bloque). No es necesario que el bloque contenga declaraciones, lo que constituye un bloque vacío, o se puede decir que es un bloque que contiene una declaración vacía. En términos generales, cualquier cantidad de oraciones consecutivas puede llamarse bloque, pero preferimos expandir el alcance del bloque tanto como sea posible, lo que puede garantizar que el área del bloque sea consistente con el alcance del alcance. En el ejemplo anterior, tendemos a pensar que las filas 2 a 3 son un bloque completo, que es el rango más grande entre las palabras clave <code class="docutils literal notranslate"><span class="pre">if</span></code> y <code class="docutils literal notranslate"><span class="pre">end</span></code>.</p>
 <section id="declaracion-do">
-<h4>Declaración <code class="docutils literal notranslate"><span class="pre">do</span></code><a class="headerlink" href="#declaracion-do" title="Permalink to this headline"></a></h4>
+<h4>Declaración <code class="docutils literal notranslate"><span class="pre">do</span></code><a class="headerlink" href="#declaracion-do" title="Permalink to this headline">¶</a></h4>
 <p>A veces solo queremos abrir un nuevo ámbito, pero no queremos usar ninguna declaración de control. En este caso, podemos usar la instrucción <code class="docutils literal notranslate"><span class="pre">do</span></code> para encapsular el bloque, entonces la sentencia no tiene función de control. La oración tiene la forma:</p>
 <p><code class="docutils literal notranslate"><span class="pre">do</span></code> <strong>bloque</strong> <code class="docutils literal notranslate"><span class="pre">end</span></code></p>
 <p>Entre ellos <strong>bloque</strong> está el bloque que necesitamos. Esta instrucción utiliza un par de palabras clave <code class="docutils literal notranslate"><span class="pre">do</span></code> y <code class="docutils literal notranslate"><span class="pre">end</span></code> para contener bloques. La declaración no tiene función de control, ni genera ninguna instrucción de tiempo de ejecución.</p>
@@ -123,10 +122,10 @@ end
 </section>
 </section>
 <section id="sentencia-condicional">
-<h2>Sentencia condicional<a class="headerlink" href="#sentencia-condicional" title="Permalink to this headline"></a></h2>
+<h2>Sentencia condicional<a class="headerlink" href="#sentencia-condicional" title="Permalink to this headline">¶</a></h2>
 <p>Berry proporciona sentencias <code class="docutils literal notranslate"><span class="pre">if</span></code> para realizar la función de ejecución de control condicional. Este tipo de estructura de programa generalmente se denomina estructura de rama <code class="docutils literal notranslate"><span class="pre">if</span></code>. La declaración determinará la rama de ejecución basada en la expresión condicional verdadera (<code class="docutils literal notranslate"><span class="pre">true</span></code>) o falsa (<code class="docutils literal notranslate"><span class="pre">false</span></code>). En algunos lenguajes, existen otras opciones para implementar el control condicional. Por ejemplo, los lenguajes como C y C++ proporcionan sentencias <code class="docutils literal notranslate"><span class="pre">switch</span></code>, pero para simplificar el diseño, Berry no admite sentencias <code class="docutils literal notranslate"><span class="pre">switch</span></code>.</p>
 <section id="declaracion-if">
-<h3>Declaración <code class="docutils literal notranslate"><span class="pre">if</span></code><a class="headerlink" href="#declaracion-if" title="Permalink to this headline"></a></h3>
+<h3>Declaración <code class="docutils literal notranslate"><span class="pre">if</span></code><a class="headerlink" href="#declaracion-if" title="Permalink to this headline">¶</a></h3>
 <p>La instrucción <strong><code class="docutils literal notranslate"><span class="pre">if</span></code></strong> se utiliza para implementar la estructura de rama, que selecciona la rama del programa de acuerdo con el verdadero o falso de una determinada condición de juicio. La sentencia también puede incluir la rama <code class="docutils literal notranslate"><span class="pre">else</span></code> o la rama <code class="docutils literal notranslate"><span class="pre">elif</span></code>. La forma simple de declaración <code class="docutils literal notranslate"><span class="pre">if</span></code> sin ramas es</p>
 <p><code class="docutils literal notranslate"><span class="pre">if</span></code> <strong>condición</strong>
     <strong>bloque</strong>
@@ -190,10 +189,10 @@ end
 </section>
 </section>
 <section id="declaracion-de-iteracion">
-<h2>Declaración de iteración<a class="headerlink" href="#declaracion-de-iteracion" title="Permalink to this headline"></a></h2>
+<h2>Declaración de iteración<a class="headerlink" href="#declaracion-de-iteracion" title="Permalink to this headline">¶</a></h2>
 <p>Las declaraciones iterativas también se denominan declaraciones de bucle, que se utilizan para repetir ciertas operaciones hasta que se cumple la condición de terminación. Berry proporciona las declaraciones <code class="docutils literal notranslate"><span class="pre">while</span></code> y <code class="docutils literal notranslate"><span class="pre">for</span></code>, dos declaraciones de iteración. Muchos lenguajes también proporcionan estas dos declaraciones para la iteración. La declaración <code class="docutils literal notranslate"><span class="pre">while</span></code> de Berry es similar a la declaración <code class="docutils literal notranslate"><span class="pre">while</span></code> en C/C++, pero la declaración <code class="docutils literal notranslate"><span class="pre">for</span></code> de Berry solo se usa para recorrer los elementos en el contenedor, similar a la declaración <code class="docutils literal notranslate"><span class="pre">foreach</span></code> proporcionada por algunos lenguajes y la que se introdujo por el nuevo estilo en C++11 de <code class="docutils literal notranslate"><span class="pre">for</span></code>. No se admite la instrucción <code class="docutils literal notranslate"><span class="pre">for</span></code> de estilo C.</p>
 <section id="sentencia-while">
-<h3>Sentencia <code class="docutils literal notranslate"><span class="pre">while</span></code><a class="headerlink" href="#sentencia-while" title="Permalink to this headline"></a></h3>
+<h3>Sentencia <code class="docutils literal notranslate"><span class="pre">while</span></code><a class="headerlink" href="#sentencia-while" title="Permalink to this headline">¶</a></h3>
 <p>La declaración <strong><code class="docutils literal notranslate"><span class="pre">while</span></code></strong> es una declaración iterativa básica. La instrucción <code class="docutils literal notranslate"><span class="pre">while</span></code> utiliza una condición de juicio. Cuando la condición es verdadera, el cuerpo del ciclo se ejecuta repetidamente; de lo contrario, el ciclo finaliza. El patrón de la declaración es</p>
 <p><code class="docutils literal notranslate"><span class="pre">while</span></code> <strong>condición</strong>
     <strong>bloque</strong>
@@ -210,7 +209,7 @@ end
 <p>Este bucle obtiene los elementos del arreglo <code class="docutils literal notranslate"><span class="pre">l</span></code> y los imprime. Usamos una variable <code class="docutils literal notranslate"><span class="pre">i</span></code> como contador de bucles e índice de matriz. Dejamos que el valor de <code class="docutils literal notranslate"><span class="pre">i</span></code> alcance la longitud de la matriz <code class="docutils literal notranslate"><span class="pre">l</span></code> para finalizar el bucle. En la última línea del cuerpo del bucle, añadimos <code class="docutils literal notranslate"><span class="pre">1</span></code> al valor de <code class="docutils literal notranslate"><span class="pre">i</span></code> para asegurar que se acceda al siguiente elemento de la matriz en el siguiente bucle, y el bucle <code class="docutils literal notranslate"><span class="pre">while</span></code> finaliza cuando el número de bucles alcanza la longitud de la matriz.</p>
 </section>
 <section id="sentencia-for">
-<h3>Sentencia <code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#sentencia-for" title="Permalink to this headline"></a></h3>
+<h3>Sentencia <code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#sentencia-for" title="Permalink to this headline">¶</a></h3>
 <p>La instrucción <strong><code class="docutils literal notranslate"><span class="pre">for</span></code></strong> de Berry se usa para recorrer los elementos en el contenedor, y su forma es</p>
 <p><code class="docutils literal notranslate"><span class="pre">for</span> </code> <strong>variable</strong> <code class="docutils literal notranslate"><span class="pre">:</span></code> <strong>expresión</strong>
 <strong>bloque</strong>
@@ -230,7 +229,7 @@ print(i)
 <p><code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">1</span> <span class="pre">2</span> <span class="pre">Hola,</span> <span class="pre">estoy</span> <span class="pre">bien</span></code></p>
 <p>Se puede ver que la variable de iteración <code class="docutils literal notranslate"><span class="pre">i</span></code> y la variable externa <code class="docutils literal notranslate"><span class="pre">i</span></code> son dos variables diferentes. Solo tienen el mismo nombre pero diferentes alcances.</p>
 <section id="principio-de-enunciado-for">
-<h4>Principio de enunciado <code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#principio-de-enunciado-for" title="Permalink to this headline"></a></h4>
+<h4>Principio de enunciado <code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#principio-de-enunciado-for" title="Permalink to this headline">¶</a></h4>
 <p>A diferencia de la sentencia iterativa tradicional <code class="docutils literal notranslate"><span class="pre">while</span></code>, la sentencia <code class="docutils literal notranslate"><span class="pre">for</span></code> utiliza iteradores para atravesar el contenedor. Si necesita usar la declaración <code class="docutils literal notranslate"><span class="pre">for</span></code> para atravesar una clase personalizada, debe comprender su mecanismo de implementación. Cuando se usa la instrucción <code class="docutils literal notranslate"><span class="pre">for</span></code>, el intérprete oculta muchos detalles de implementación. De hecho, para dicho código:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>for i: 0 .. 2
     print(i)
@@ -267,11 +266,11 @@ end
 </section>
 </section>
 <section id="declaracion-de-salto">
-<h2>Declaración de salto<a class="headerlink" href="#declaracion-de-salto" title="Permalink to this headline"></a></h2>
+<h2>Declaración de salto<a class="headerlink" href="#declaracion-de-salto" title="Permalink to this headline">¶</a></h2>
 <p>La declaración de salto proporcionada por Berry se usa para realizar el salto del flujo del programa en el proceso de bucle. Las sentencias de salto se dividen en sentencias de “ruptura” y sentencias de “continuación”. Estas dos declaraciones deben usarse dentro de declaraciones iterativas y solo pueden usarse dentro de funciones para saltar. Algunos lenguajes proporcionan sentencias <code class="docutils literal notranslate"><span class="pre">goto</span></code> para realizar saltos arbitrarios dentro de las funciones, que Berry no proporciona, pero los efectos de las sentencias <code class="docutils literal notranslate"><span class="pre">goto</span></code> se pueden reemplazar por sentencias condicionales y sentencias de iteración.</p>
 </section>
 <section id="declaracion-break">
-<h2>Declaración <code class="docutils literal notranslate"><span class="pre">break</span></code><a class="headerlink" href="#declaracion-break" title="Permalink to this headline"></a></h2>
+<h2>Declaración <code class="docutils literal notranslate"><span class="pre">break</span></code><a class="headerlink" href="#declaracion-break" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">break</span></code> se usa para terminar la declaración de iteración y saltar. Después de la ejecución de la sentencia <code class="docutils literal notranslate"><span class="pre">break</span></code>, el nivel más cercano de la sentencia de iteración terminará inmediatamente y la ejecución continuará desde la posición de la primera sentencia después de la sentencia de iteración. Para ilustrar el flujo de ejecución de la declaración <code class="docutils literal notranslate"><span class="pre">break</span></code>, usamos un ejemplo para demostrarlo:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>while true
     print(&#39;antes del break&#39;)
@@ -288,7 +287,7 @@ print(&#39;fuera del bucle&#39;)
 </div>
 <p>Esto muestra que la sentencia <code class="docutils literal notranslate"><span class="pre">while</span></code> finaliza el bucle en la posición de la sentencia <code class="docutils literal notranslate"><span class="pre">break</span></code> en la tercera línea y el programa continúa ejecutándose desde la sexta línea.</p>
 <section id="declaracion-continue">
-<h3>Declaración <code class="docutils literal notranslate"><span class="pre">continue</span></code><a class="headerlink" href="#declaracion-continue" title="Permalink to this headline"></a></h3>
+<h3>Declaración <code class="docutils literal notranslate"><span class="pre">continue</span></code><a class="headerlink" href="#declaracion-continue" title="Permalink to this headline">¶</a></h3>
 <p>Esta declaración también se usa dentro de una declaración de iteración. Su función es finalizar una iteración e iniciar inmediatamente la siguiente ronda.
 Por lo tanto, después de la ejecución de la sentencia <code class="docutils literal notranslate"><span class="pre">continue</span></code>, el código restante en la sentencia de iteración de la capa más cercana ya no se ejecutará, pero comenzará una nueva ronda de iteración. Aquí usamos una sentencia <code class="docutils literal notranslate"><span class="pre">for</span></code> para demostrar la función de la sentencia <code class="docutils literal notranslate"><span class="pre">continue</span></code>:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>for i: 0 .. 5
@@ -310,7 +309,7 @@ print(&#39;fuera del bucle&#39;)
 </section>
 </section>
 <section id="declaracion-import">
-<h2>Declaración <code class="docutils literal notranslate"><span class="pre">import</span></code><a class="headerlink" href="#declaracion-import" title="Permalink to this headline"></a></h2>
+<h2>Declaración <code class="docutils literal notranslate"><span class="pre">import</span></code><a class="headerlink" href="#declaracion-import" title="Permalink to this headline">¶</a></h2>
 <p>Berry tiene algunos módulos predefinidos, como el módulo <code class="docutils literal notranslate"><span class="pre">math</span></code> para cálculos matemáticos. Estos módulos no se pueden usar directamente, sino que se deben importar con la instrucción <code class="docutils literal notranslate"><span class="pre">import</span></code>. Hay dos formas de importar un módulo:</p>
 <p><code class="docutils literal notranslate"><span class="pre">import</span></code> <strong>nombre</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">import</span></code> <strong>nombre</strong> <code class="docutils literal notranslate"><span class="pre">as</span></code> <strong>variable</strong></p>
@@ -338,12 +337,12 @@ end
 </div>
 </section>
 <section id="manejo-de-excepciones">
-<h2>Manejo de excepciones<a class="headerlink" href="#manejo-de-excepciones" title="Permalink to this headline"></a></h2>
+<h2>Manejo de excepciones<a class="headerlink" href="#manejo-de-excepciones" title="Permalink to this headline">¶</a></h2>
 <p>El mecanismo permite que el programa capture y maneje las excepciones que ocurren durante el tiempo de ejecución. Berry admite un mecanismo de captura de excepciones que permite separar el proceso de captura y manejo de excepciones. Es decir, parte del programa se usa para detectar y recopilar excepciones, y la otra parte del programa se usa para manejar excepciones.</p>
 <p>En primer lugar, el programa problemático necesita lanzar primero una excepción.
 Cuando estos programas están en un bloque de manejo de excepciones, un programa específico atrapará y manejará la excepción.</p>
 <section id="generar-una-excepcion">
-<h3>Generar una excepción<a class="headerlink" href="#generar-una-excepcion" title="Permalink to this headline"></a></h3>
+<h3>Generar una excepción<a class="headerlink" href="#generar-una-excepcion" title="Permalink to this headline">¶</a></h3>
 <p>El uso de la instrucción <code class="docutils literal notranslate"><span class="pre">raise</span></code> genera una excepción <code class="docutils literal notranslate"><span class="pre">raise</span></code>. La declaración pasará un valor para indicar el tipo de excepción para que pueda ser identificada por un manejador de excepciones específico. A continuación se explica cómo utilizar la sentencia <code class="docutils literal notranslate"><span class="pre">raise</span></code>:</p>
 <p><code class="docutils literal notranslate"><span class="pre">raise</span></code> <strong>excepción</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">raise</span></code> <strong>excepción</strong><code class="docutils literal notranslate"><span class="pre">,</span> </code><strong>mensaje</strong></p>
@@ -353,7 +352,7 @@ Cuando estos programas están en un bloque de manejo de excepciones, un programa
 </div>
 <p>Después de que el programa se ejecute en la declaración <code class="docutils literal notranslate"><span class="pre">raise</span></code>, no continuará ejecutando las declaraciones que le siguen, sino que saltará al bloque de manejo de excepciones más cercano. Si el bloque de manejo de excepciones más reciente está en otras funciones, las funciones a lo largo de la cadena de llamadas se cerrarán antes. Si no hay un bloque de manejo de excepciones, se producirá una <strong>salida anormal</strong> y el intérprete imprimirá el mensaje de error de la excepción y la pila de llamadas de la ubicación del error. Cuando la instrucción <code class="docutils literal notranslate"><span class="pre">raise</span></code> está en el bloque de instrucciones <code class="docutils literal notranslate"><span class="pre">try</span></code>, la excepción será capturada por este último. La excepción capturada será manejada por el bloque <code class="docutils literal notranslate"><span class="pre">except</span></code> asociado con el bloque <code class="docutils literal notranslate"><span class="pre">try</span></code>. Si la excepción lanzada puede ser manejada por el bloque ‘except’, la ejecución de este bloque continuará desde la declaración después del último bloque <code class="docutils literal notranslate"><span class="pre">except</span></code>. Si ninguna de las sentencias <code class="docutils literal notranslate"><span class="pre">except</span></code> pueden manejar la excepción, la excepción se volverá a generar hasta que se pueda manejar o la excepción finalice.</p>
 <section id="valores-atipicos">
-<h4>Valores atípicos<a class="headerlink" href="#valores-atipicos" title="Permalink to this headline"></a></h4>
+<h4>Valores atípicos<a class="headerlink" href="#valores-atipicos" title="Permalink to this headline">¶</a></h4>
 <p>En Berry, puede usar cualquier valor como valor atípico, pero generalmente usamos cadenas cortas. Berry también puede lanzar algunas excepciones internamente. Llamamos a estas excepciones <strong>Excepción estándar</strong>. Todos los valores de excepción estándar son de tipo cadena.</p>
 <table class="colwidths-auto docutils align-default">
 <thead>
@@ -409,7 +408,7 @@ Cuando estos programas están en un bloque de manejo de excepciones, un programa
 </section>
 </section>
 <section id="capturar-excepciones">
-<h3>Capturar excepciones<a class="headerlink" href="#capturar-excepciones" title="Permalink to this headline"></a></h3>
+<h3>Capturar excepciones<a class="headerlink" href="#capturar-excepciones" title="Permalink to this headline">¶</a></h3>
 <p>Utilice la instrucción <code class="docutils literal notranslate"><span class="pre">except</span></code> para detectar excepciones. Debe estar emparejado con la sentencia <code class="docutils literal notranslate"><span class="pre">try</span></code>, es decir, un bloque de sentencia <code class="docutils literal notranslate"><span class="pre">try</span></code> debe ir seguido de uno o más bloques de sentencia <code class="docutils literal notranslate"><span class="pre">except</span></code>. La forma básica de la oración <code class="docutils literal notranslate"><span class="pre">try-except</span></code> es</p>
 <p>``try<code class="docutils literal notranslate"><span class="pre">**bloque**</span></code>except<code class="docutils literal notranslate"> <span class="pre">**...**</span> <span class="pre">**bloque**</span> &#160; </code>end`</p>
 <p>La rama <code class="docutils literal notranslate"><span class="pre">except</span></code> puede tener las siguientes formas</p>

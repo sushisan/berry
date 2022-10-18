@@ -36,7 +36,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../en/Home.html">Welcome to the berry wiki!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Home.html">Bienvenido a la wiki de Berry!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
 </ul>
 
         </div>
@@ -65,16 +64,16 @@
              
   <!-- Spanish Translation: Emiliano Gonzalez (egonzalez . hiperion @ gmail . com) -->
 <section id="expresiones">
-<h1>3. Expresiones<a class="headerlink" href="#expresiones" title="Permalink to this headline"></a></h1>
+<h1>3. Expresiones<a class="headerlink" href="#expresiones" title="Permalink to this headline">¶</a></h1>
 <section id="conceptos-basicos">
-<h2>3.1 Conceptos básicos<a class="headerlink" href="#conceptos-basicos" title="Permalink to this headline"></a></h2>
+<h2>3.1 Conceptos básicos<a class="headerlink" href="#conceptos-basicos" title="Permalink to this headline">¶</a></h2>
 <p>Una expresión (Declaración) se compone de uno a más operandos y operadores, y se puede obtener un resultado evaluando la expresión.
 Este resultado se llama el valor de la expresión. El operando puede ser un valor literal, una variable, una llamada de función o una subexpresión, etc. Las expresiones y operadores simples también se pueden combinar en expresiones más complejas. Similar a las cuatro operaciones aritméticas, la precedencia de los operadores afecta el orden de evaluación de las expresiones. Cuanto mayor sea la precedencia del operador, antes se evaluará la expresión.</p>
 <section id="operadores-y-expresiones">
-<h3>Operadores y expresiones<a class="headerlink" href="#operadores-y-expresiones" title="Permalink to this headline"></a></h3>
+<h3>Operadores y expresiones<a class="headerlink" href="#operadores-y-expresiones" title="Permalink to this headline">¶</a></h3>
 <p>Berry proporciona algunos operadores unarios y operadores binarios. Por ejemplo, el operador AND lógico <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> es un operador binario, y el operador de negación lógica <code class="docutils literal notranslate"><span class="pre">!</span></code> es un operador unario. Algunos operadores pueden ser operadores unarios u operadores binarios. El significado específico de tales operadores depende del contexto. Por ejemplo, el operador <code class="docutils literal notranslate"><span class="pre">-</span></code> es un símbolo unario en la expresión <code class="docutils literal notranslate"><span class="pre">-1</span></code>, pero es un signo menos binario en la expresión <code class="docutils literal notranslate"><span class="pre">1-2</span></code>.</p>
 <section id="expresion-de-combinacion-de-operadores">
-<h4>Expresión de combinación de operadores<a class="headerlink" href="#expresion-de-combinacion-de-operadores" title="Permalink to this headline"></a></h4>
+<h4>Expresión de combinación de operadores<a class="headerlink" href="#expresion-de-combinacion-de-operadores" title="Permalink to this headline">¶</a></h4>
 <p>Tanto el lado izquierdo como el derecho de un operador binario pueden ser subexpresiones, por lo que puede usar operadores binarios para combinar expresiones.
 Una expresión más compleja suele tener varios operadores y operandos. En este momento, el orden de evaluación de cada subexpresión en la expresión puede afectar el valor de la expresión. La precedencia y asociatividad de los operadores garantizan la unicidad del orden de evaluación de la expresión. Por ejemplo, una expresión combinada:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">10</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span>
@@ -83,14 +82,14 @@ Una expresión más compleja suele tener varios operadores y operandos. En este 
 <p>Las cuatro operaciones aritméticas de uso diario calcularán primero la expresión de división <code class="docutils literal notranslate"><span class="pre">10/2</span></code>, luego la expresión de multiplicación y finalmente la expresión de suma. Esto se debe a que la multiplicación y la división tienen mayor prioridad que la suma.</p>
 </section>
 <section id="tipo-de-operando">
-<h4>Tipo de operando<a class="headerlink" href="#tipo-de-operando" title="Permalink to this headline"></a></h4>
+<h4>Tipo de operando<a class="headerlink" href="#tipo-de-operando" title="Permalink to this headline">¶</a></h4>
 <p>En la operación de expresiones, los operandos pueden tener tipos que no coincidan con los operadores. Además, los operadores binarios normalmente requieren que los operandos izquierdo y derecho sean del mismo tipo. La expresión <code class="docutils literal notranslate"><span class="pre">'10'+10</span></code> es incorrecta. No puede agregar una cadena a un número entero. El problema con la expresión <code class="docutils literal notranslate"><span class="pre">-'b'</span></code> es que no puedes tomar un valor negativo en una cadena.
 A veces, un operador binario tiene diferentes tipos de operandos pero puede realizar operaciones. Por ejemplo, al agregar un número entero a un número real, el objeto entero se convertirá en un número real y se agregará a otro objeto de número real. Los operadores lógicos AND y OR lógicos permiten que los operandos a ambos lados del operador sean de cualquier tipo. En expresiones lógicas, siempre se convertirán al tipo <code class="docutils literal notranslate"><span class="pre">booleano</span></code> de acuerdo con ciertas reglas.</p>
 <p>Otra situación es que los operadores pueden sobrecargarse al usar clases personalizadas. En esencia, puede interpretar este operador arbitrariamente y depende de usted decidir qué tipo de operando debe ser.</p>
 </section>
 </section>
 <section id="prioridad-y-asociatividad">
-<h3>3.1.1 Prioridad y asociatividad<a class="headerlink" href="#prioridad-y-asociatividad" title="Permalink to this headline"></a></h3>
+<h3>3.1.1 Prioridad y asociatividad<a class="headerlink" href="#prioridad-y-asociatividad" title="Permalink to this headline">¶</a></h3>
 <p>En una expresión compuesta de varios operadores, la precedencia y la asociatividad de los operadores determinan el orden de evaluación de las expresiones. La precedencia y asociatividad de cada operador se dan en la <a href="#tab::operator_list" data-reference-type="ref" data-reference="tab::operator_list">Tabla 2</a> .</p>
 <p>La precedencia especifica el orden de evaluación entre diferentes operadores, y las expresiones con operadores de mayor precedencia se evaluarán primero. Por ejemplo, el proceso de evaluar la expresión <code class="docutils literal notranslate"><span class="pre">1+2*3</span></code> calculará primero el resultado de <code class="docutils literal notranslate"><span class="pre">2*3</span></code> y luego el resultado de la expresión de suma. El uso de paréntesis puede mejorar el orden de evaluación de las expresiones de baja prioridad. Por ejemplo, en la evaluación de la expresión <code class="docutils literal notranslate"><span class="pre">(1+2)*3</span></code>, primero se calcula el resultado de la expresión <code class="docutils literal notranslate"><span class="pre">1+2</span></code> entre paréntesis y luego se calcula la expresión de multiplicación fuera de los paréntesis.</p>
 <p>La asociatividad se refiere al orden de evaluación de los operandos en ambos lados del operador, donde los operandos pueden ser subexpresiones. Por ejemplo, en la expresión de suma <code class="docutils literal notranslate"><span class="pre">expr1</span> <span class="pre">+</span> <span class="pre">expr2</span></code>, el valor de <code class="docutils literal notranslate"><span class="pre">expr1</span></code> se calcula primero y luego el valor de <code class="docutils literal notranslate"><span class="pre">expr2</span></code>, porque el operador de suma es asociativo por la izquierda.</p>
@@ -189,15 +188,15 @@ A veces, un operador binario tiene diferentes tipos de operandos pero puede real
 <p><em>Tabla 2: Lista de operadores</em></p>
 </div>
 <section id="utilice-corchetes-para-aumentar-la-prioridad">
-<h4>Utilice corchetes para aumentar la prioridad<a class="headerlink" href="#utilice-corchetes-para-aumentar-la-prioridad" title="Permalink to this headline"></a></h4>
+<h4>Utilice corchetes para aumentar la prioridad<a class="headerlink" href="#utilice-corchetes-para-aumentar-la-prioridad" title="Permalink to this headline">¶</a></h4>
 <p>Los paréntesis se pueden usar cuando necesitamos que los operadores con menor precedencia se evalúen primero. Durante la evaluación de expresiones, primero se calcula el valor de la expresión entre paréntesis. En otras palabras, para toda la expresión, la expresión entre paréntesis es equivalente a un operando, independientemente de la composición de la expresión entre paréntesis.</p>
 </section>
 </section>
 </section>
 <section id="operador">
-<h2>3.2 Operador<a class="headerlink" href="#operador" title="Permalink to this headline"></a></h2>
+<h2>3.2 Operador<a class="headerlink" href="#operador" title="Permalink to this headline">¶</a></h2>
 <section id="operadores-aritmeticos">
-<h3>3.2.1 Operadores aritméticos<a class="headerlink" href="#operadores-aritmeticos" title="Permalink to this headline"></a></h3>
+<h3>3.2.1 Operadores aritméticos<a class="headerlink" href="#operadores-aritmeticos" title="Permalink to this headline">¶</a></h3>
 <p>Los operadores aritméticos se utilizan para implementar operaciones aritméticas. Estos operadores son similares a los símbolos matemáticos que solemos usar. Los operadores aritméticos provistos por Berry se muestran en la <a href="#tab::arthmetic_operator" data-reference-type="ref" data-reference="tab::arthmetic_operator">Tabla 3</a> .</p>
 <div id="tab::arthmetic_operator">
 <table class="colwidths-auto docutils align-default">
@@ -242,7 +241,7 @@ A veces, un operador binario tiene diferentes tipos de operandos pero puede real
 <p>Todos los operadores aritméticos se pueden sobrecargar en la clase. Los operadores sobrecargados no están necesariamente limitados a su diseño funcional original, sino que son determinados por el programador.</p>
 </section>
 <section id="operadores-relacionales">
-<h3>3.2.2 Operadores relacionales<a class="headerlink" href="#operadores-relacionales" title="Permalink to this headline"></a></h3>
+<h3>3.2.2 Operadores relacionales<a class="headerlink" href="#operadores-relacionales" title="Permalink to this headline">¶</a></h3>
 <p>Los operadores relacionales se utilizan para comparar la magnitud de los operandos.
 Los seis operadores relacionales soportados por Berry se dan en la <a href="#tab::relop_operator" data-reference-type="ref" data-reference="tab::relop_operator">Tabla 4</a> .</p>
 <div id="tab::relop_operator">
@@ -296,7 +295,7 @@ Los operadores relacionales <code class="docutils literal notranslate"><span cla
 <p>Entre los operadores relacionales, los operadores <code class="docutils literal notranslate"><span class="pre">==</span></code> y <code class="docutils literal notranslate"><span class="pre">!=</span></code> tienen requisitos más relajados que <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> y <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, que solo permiten comparaciones entre los mismos tipos. En el desarrollo de un programa real, el juicio de igualdad o desigualdad suele ser más simple que el juicio de tamaño. Es posible que algunos objetos de operación no puedan juzgar el tamaño, pero solo pueden juzgar la igualdad o desigualdad. Este es el caso del tipo booleano.</p>
 </section>
 <section id="operadores-logicos">
-<h3>Operadores logicos<a class="headerlink" href="#operadores-logicos" title="Permalink to this headline"></a></h3>
+<h3>Operadores logicos<a class="headerlink" href="#operadores-logicos" title="Permalink to this headline">¶</a></h3>
 <p>Los operadores lógicos se dividen en tres tipos: AND lógico, OR lógico y NOT lógico. Como se muestra en la <a href="#tab::logic_operator" data-reference-type="ref" data-reference="tab::logic_operator">Tabla 5</a> .</p>
 <div id="tab::logic_operator">
 <table class="colwidths-auto docutils align-default">
@@ -331,7 +330,7 @@ Los operadores relacionales <code class="docutils literal notranslate"><span cla
 La naturaleza de la evaluación de cortocircuito hace que no se ejecute todo el código de la expresión lógica.</p>
 </section>
 <section id="operador-bit-a-bit">
-<h3>Operador bit a bit<a class="headerlink" href="#operador-bit-a-bit" title="Permalink to this headline"></a></h3>
+<h3>Operador bit a bit<a class="headerlink" href="#operador-bit-a-bit" title="Permalink to this headline">¶</a></h3>
 <p>Los operadores de bits pueden implementar algunas operaciones de bits binarios, y las operaciones de bits solo se pueden usar en tipos enteros. La información detallada de los operadores de bit se muestra en la <a href="#tab::bitwise_operator" data-reference-type="ref" data-reference="tab::bitwise_operator">Tabla 6</a> .
 La operación de bits se refiere a la operación de bits binarios directamente en números enteros. Las operaciones lógicas se pueden extender a operaciones de bits. Tomando AND lógico como ejemplo, podemos realizar esta operación en cada bit binario para lograr AND bit a bit, como $110_b\ {\rm AND}\ 011_b = 010_b$. Las operaciones de bits también admiten operaciones de cambio, que mueven números de forma binaria.</p>
 <div id="tab::bitwise_operator">
@@ -389,10 +388,10 @@ Por ejemplo, <code class="docutils literal notranslate"><span class="pre">∼</s
 </div>
 </section>
 <section id="operador-de-asignacion">
-<h3>Operador de asignación<a class="headerlink" href="#operador-de-asignacion" title="Permalink to this headline"></a></h3>
+<h3>Operador de asignación<a class="headerlink" href="#operador-de-asignacion" title="Permalink to this headline">¶</a></h3>
 <p>El operador de asignación solo aparece en la expresión de asignación y el operando del operador debe ser un objeto de escritura. La expresión de asignación no tiene resultado, por lo que no se pueden utilizar operaciones de asignación continua.</p>
 <section id="operador-de-asignacion-simple">
-<h4>Operador de asignación simple<a class="headerlink" href="#operador-de-asignacion-simple" title="Permalink to this headline"></a></h4>
+<h4>Operador de asignación simple<a class="headerlink" href="#operador-de-asignacion-simple" title="Permalink to this headline">¶</a></h4>
 <p>El operador de asignación simple <code class="docutils literal notranslate"><span class="pre">=</span></code> se puede utilizar para la asignación de variables.
 Si la variable de operando de la izquierda no está definida, se definirá la variable. El operador de asignación se utiliza para vincular el valor del operando derecho con el operando izquierdo. Este proceso también se llama “asignación”.
 Por lo tanto, el operando izquierdo no puede ser una constante, ni puede ser ningún objeto que no se pueda escribir. Estas son algunas expresiones legales de asignación:</p>
@@ -407,7 +406,7 @@ a = b = 0 #  Asignación continua
 <p>Al asignar tipos <code class="docutils literal notranslate"><span class="pre">nil</span></code>, enteros, reales y booleanos a variables, el valor del objeto se pasará al operando izquierdo, pero para otros tipos, la operación de asignación simplemente pasa la referencia del objeto al operando izquierdo. Dado que las cadenas, las funciones y los tipos de clase son de solo lectura, todas las referencias que pasan no tendrán efectos secundarios, pero debe tener mucho cuidado con los tipos de instancia.</p>
 </section>
 <section id="operador-de-asignacion-compuesto">
-<h4>Operador de asignación compuesto<a class="headerlink" href="#operador-de-asignacion-compuesto" title="Permalink to this headline"></a></h4>
+<h4>Operador de asignación compuesto<a class="headerlink" href="#operador-de-asignacion-compuesto" title="Permalink to this headline">¶</a></h4>
 <p>Los operadores de asignación compuestos son operadores que combinan operadores binarios y operadores de asignación. Son extensiones prácticas de operadores de asignación simples. Los operadores de asignación compuestos pueden simplificar la escritura de algunas expresiones. La <a href="#tab::compound_assign" data-reference-type="ref" data-reference="tab::compound_assign">Tabla 7</a> enumera todos los operadores de asignación compuestos</p>
 <div id="tab::compound_assign">
 <table class="colwidths-auto docutils align-default">
@@ -476,7 +475,7 @@ n = l[2] # Write by index
 </section>
 </section>
 <section id="operador-condicional">
-<h3>Operador condicional<a class="headerlink" href="#operador-condicional" title="Permalink to this headline"></a></h3>
+<h3>Operador condicional<a class="headerlink" href="#operador-condicional" title="Permalink to this headline">¶</a></h3>
 <p>El operador condicional (<code class="docutils literal notranslate"><span class="pre">?</span> <span class="pre">:</span></code>) es similar a la declaración <strong>if else</strong>, pero la primera puede usarse en expresiones. La forma de uso del operador condicional es:
 $$\begin{gathered}
 cond\ \bm{?}\ expr1\ \bm{:}\ expr2\end{gathered}$$</p>
@@ -488,7 +487,7 @@ cond\ \bm{?}\ expr1\ \bm{:}\ expr2\end{gathered}$$</p>
 <p>Esta expresión primero determina si <code class="docutils literal notranslate"><span class="pre">alcance</span></code> es menor que <code class="docutils literal notranslate"><span class="pre">6</span></code>, si lo es, devuelve <code class="docutils literal notranslate"><span class="pre">malo</span></code>, de lo contrario, devuelve el valor de <code class="docutils literal notranslate"><span class="pre">alcance</span></code>.
 Independientemente de la condición de la expresión condicional, solo se ejecutará uno de <em><strong>expr1</strong></em> o <em><strong>expr2</strong></em>, similar a la característica de cortocircuito de las operaciones lógicas AND y lógicas OR.</p>
 <section id="operadores-de-condiciones-anidadas">
-<h4>Operadores de condiciones anidadas<a class="headerlink" href="#operadores-de-condiciones-anidadas" title="Permalink to this headline"></a></h4>
+<h4>Operadores de condiciones anidadas<a class="headerlink" href="#operadores-de-condiciones-anidadas" title="Permalink to this headline">¶</a></h4>
 <p>Un operador condicional se puede anidar en otro operador condicional, es decir, la expresión condicional se puede usar como <em><strong>cond</strong></em> o <em><strong>expr</strong></em> de otra expresión condicional. Por ejemplo, use expresiones condicionales para dividir puntajes en tres niveles: excelente, bueno y malo:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>resultado = alcance &gt;= 9 ? &#39;excelente&#39; : alcance &gt;= 6 ? &#39;bueno&#39; : &#39;malo&#39;
 </pre></div>
@@ -497,7 +496,7 @@ Independientemente de la condición de la expresión condicional, solo se ejecut
 <p>El operador condicional satisface la asociatividad correcta, por lo que el valor de la expresión de bifurcación debe evaluarse primero para obtener el valor de la expresión condicional. Por lo tanto, en una expresión condicional anidada, la expresión condicional anidada se evalúa primero y luego se evalúa la expresión condicional externa.</p>
 </section>
 <section id="prioridad-de-los-operadores-condicionales">
-<h4>Prioridad de los operadores condicionales<a class="headerlink" href="#prioridad-de-los-operadores-condicionales" title="Permalink to this headline"></a></h4>
+<h4>Prioridad de los operadores condicionales<a class="headerlink" href="#prioridad-de-los-operadores-condicionales" title="Permalink to this headline">¶</a></h4>
 <p>Dado que la precedencia de las expresiones condicionales es muy baja (sólo superada por los operadores de asignación), a menudo es necesario agregar paréntesis fuera de las expresiones condicionales. Por ejemplo, cuando se usa una expresión condicional como operando de una expresión aritmética, los paréntesis tendrán diferentes efectos en el resultado:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>resultado = 10 * (signo &lt; 0 ? -1 : 1) # el resultado es -10 ó 10
 resultado = 10 * signo &lt; 0 ? -1 : 1 # el resultado es -1 ó 1
@@ -507,9 +506,9 @@ resultado = 10 * signo &lt; 0 ? -1 : 1 # el resultado es -1 ó 1
 </section>
 </section>
 <section id="operador-de-concatenacion">
-<h3>Operador de concatenación<a class="headerlink" href="#operador-de-concatenacion" title="Permalink to this headline"></a></h3>
+<h3>Operador de concatenación<a class="headerlink" href="#operador-de-concatenacion" title="Permalink to this headline">¶</a></h3>
 <section id="id1">
-<h4>Operador <code class="docutils literal notranslate"><span class="pre">+</span></code><a class="headerlink" href="#id1" title="Permalink to this headline"></a></h4>
+<h4>Operador <code class="docutils literal notranslate"><span class="pre">+</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <p>Cuando los operandos izquierdo y derecho son cadenas, el operador <code class="docutils literal notranslate"><span class="pre">+</span></code> se usa para conectar las dos cadenas, y la nueva cadena obtenida es el valor de la expresión. Por lo tanto, este operador se usa a menudo para la concatenación de cadenas:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>resultado =&#39;abc&#39; + &#39;123&#39; # el resultado es &#39;abc123&#39;
 </pre></div>
@@ -521,7 +520,7 @@ resultado = 10 * signo &lt; 0 ? -1 : 1 # el resultado es -1 ó 1
 <p>A diferencia del método <code class="docutils literal notranslate"><span class="pre">list.push</span></code>, el operador <code class="docutils literal notranslate"><span class="pre">+</span></code> fusiona dos listas en un objeto de lista más grande, con los elementos del operando izquierdo al principio de la lista de resultados y los elementos del operando derecho al final de la lista de resultados</p>
 </section>
 <section id="id2">
-<h4>Operador <code class="docutils literal notranslate"><span class="pre">..</span></code><a class="headerlink" href="#id2" title="Permalink to this headline"></a></h4>
+<h4>Operador <code class="docutils literal notranslate"><span class="pre">..</span></code><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">..</span></code> es un operador especial. Si el operando izquierdo es una cadena, el comportamiento de la expresión es concatenar los operandos izquierdo y derecho en una nueva cadena (conversión automática si el operando derecho no es una cadena):</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>resultado =&#39;abc&#39; + 123 # el resultado es &#39;abc123&#39;
 </pre></div>

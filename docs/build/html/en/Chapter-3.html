@@ -36,7 +36,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Home.html">Welcome to the berry wiki!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Bienvenido a la wiki de Berry!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
 </ul>
 
         </div>
@@ -64,9 +63,9 @@
            <div itemprop="articleBody">
              
   <section id="expression">
-<h1>3. Expression<a class="headerlink" href="#expression" title="Permalink to this headline"></a></h1>
+<h1>3. Expression<a class="headerlink" href="#expression" title="Permalink to this headline">¶</a></h1>
 <section id="basics">
-<h2>3.1 Basics<a class="headerlink" href="#basics" title="Permalink to this headline"></a></h2>
+<h2>3.1 Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
 <p>An expression (Statement) is composed of one to more operands and
 operators, and a result can be obtained by evaluating the expression.
 This result is called the value of the expression. The operand can be a
@@ -76,7 +75,7 @@ expressions. Similar to the four arithmetic operations, the precedence
 of operators affects the evaluation order of expressions. The higher the
 precedence of the operator, the earlier the expression is evaluated.</p>
 <section id="operators-and-expressions">
-<h3>Operators and expressions<a class="headerlink" href="#operators-and-expressions" title="Permalink to this headline"></a></h3>
+<h3>Operators and expressions<a class="headerlink" href="#operators-and-expressions" title="Permalink to this headline">¶</a></h3>
 <p>Berry provides some unary operators (Unary Operator) and binary
 operators (Binary Operator). For example, the logical AND operator <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>
 is a binary operator, and the logical negation operator <code class="docutils literal notranslate"><span class="pre">!</span></code> is a unary
@@ -85,7 +84,7 @@ operators. The specific meaning of such operators depends on the
 context. For example, operator <code class="docutils literal notranslate"><span class="pre">-</span></code> is a unary symbol in expression <code class="docutils literal notranslate"><span class="pre">-1</span></code>,
 but it is a binary minus sign in expression <code class="docutils literal notranslate"><span class="pre">1-2</span></code>.</p>
 <section id="operator-combination-expression">
-<h4>Operator combination expression<a class="headerlink" href="#operator-combination-expression" title="Permalink to this headline"></a></h4>
+<h4>Operator combination expression<a class="headerlink" href="#operator-combination-expression" title="Permalink to this headline">¶</a></h4>
 <p>Both the left and right sides of a binary operator can be
 subexpressions, so you can use binary operators to combine expressions.
 A more complex expression often has multiple operators and operands. At
@@ -102,7 +101,7 @@ finally the addition expression. This is because multiplication and
 division have higher priority than addition.</p>
 </section>
 <section id="operand-type">
-<h4>operand type<a class="headerlink" href="#operand-type" title="Permalink to this headline"></a></h4>
+<h4>operand type<a class="headerlink" href="#operand-type" title="Permalink to this headline">¶</a></h4>
 <p>In the operation of expressions, the operands may have types that do not
 match the operators. In addition, binary operators usually require the
 left and right operands to be of the same type. The expression <code class="docutils literal notranslate"><span class="pre">’10’+10</span></code>
@@ -121,7 +120,7 @@ is up to you to decide what type of its operand should be.</p>
 </section>
 </section>
 <section id="priority-and-associativity">
-<h3>3.1.1 Priority and associativity<a class="headerlink" href="#priority-and-associativity" title="Permalink to this headline"></a></h3>
+<h3>3.1.1 Priority and associativity<a class="headerlink" href="#priority-and-associativity" title="Permalink to this headline">¶</a></h3>
 <p>In a compound expression composed of multiple operators, the precedence
 and associativity of the operators determine the order of evaluation of
 the expressions. The precedence and associativity of each operator are
@@ -236,7 +235,7 @@ addition operator is left-associative.</p>
 <p>Operator list</p>
 </div>
 <section id="use-brackets-to-increase-priority">
-<h4>Use brackets to increase priority<a class="headerlink" href="#use-brackets-to-increase-priority" title="Permalink to this headline"></a></h4>
+<h4>Use brackets to increase priority<a class="headerlink" href="#use-brackets-to-increase-priority" title="Permalink to this headline">¶</a></h4>
 <p>Parentheses can be used when we need operators with lower precedence to
 be evaluated first. During expression evaluation, the value of the
 expression in parentheses is calculated first. In other words, for the
@@ -246,9 +245,9 @@ operand, regardless of the composition of the expression in parentheses.</p>
 </section>
 </section>
 <section id="operator">
-<h2>3.2 Operator<a class="headerlink" href="#operator" title="Permalink to this headline"></a></h2>
+<h2>3.2 Operator<a class="headerlink" href="#operator" title="Permalink to this headline">¶</a></h2>
 <section id="arithmetic-operators">
-<h3>3.2.1 Arithmetic Operators<a class="headerlink" href="#arithmetic-operators" title="Permalink to this headline"></a></h3>
+<h3>3.2.1 Arithmetic Operators<a class="headerlink" href="#arithmetic-operators" title="Permalink to this headline">¶</a></h3>
 <p>Arithmetic operators are used to implement arithmetic operations. These
 operators are similar to the mathematical symbols we usually use. The
 arithmetic operators provided by Berry are shown in Table
@@ -307,7 +306,7 @@ operators are not necessarily limited to their original functional
 design, but are determined by the programmer.</p>
 </section>
 <section id="relational-operators">
-<h3>3.2.2 Relational operators<a class="headerlink" href="#relational-operators" title="Permalink to this headline"></a></h3>
+<h3>3.2.2 Relational operators<a class="headerlink" href="#relational-operators" title="Permalink to this headline">¶</a></h3>
 <p>Relational operators are used to compare the magnitude of the operands.
 The six relational operators supported by Berry are given in Table
 <a href="#tab::relop_operator" data-reference-type="ref" data-reference="tab::relop_operator">1.3</a>.</p>
@@ -385,7 +384,7 @@ can only judge the equality or inequality. This is the case with the
 Boolean type.</p>
 </section>
 <section id="logical-operators">
-<h3>logical operators<a class="headerlink" href="#logical-operators" title="Permalink to this headline"></a></h3>
+<h3>logical operators<a class="headerlink" href="#logical-operators" title="Permalink to this headline">¶</a></h3>
 <p>Logical operators are divided into three types: logical AND, logical OR
 and logical NOT. As shown in Table
 <a href="#tab::logic_operator" data-reference-type="ref" data-reference="tab::logic_operator">1.4</a>.</p>
@@ -436,7 +435,7 @@ The nature of short-circuit evaluation causes the code in the logical
 expression to not all run.</p>
 </section>
 <section id="bitwise-operator">
-<h3>Bitwise Operator<a class="headerlink" href="#bitwise-operator" title="Permalink to this headline"></a></h3>
+<h3>Bitwise Operator<a class="headerlink" href="#bitwise-operator" title="Permalink to this headline">¶</a></h3>
 <p>Bit operators can implement some binary bit operations, and bit
 operations can only be used on integer types. The detailed information
 of bit operators is shown in Table
@@ -529,13 +528,13 @@ converted into common bases.</p>
 </div>
 </section>
 <section id="assignment-operator">
-<h3>Assignment operator<a class="headerlink" href="#assignment-operator" title="Permalink to this headline"></a></h3>
+<h3>Assignment operator<a class="headerlink" href="#assignment-operator" title="Permalink to this headline">¶</a></h3>
 <p>The assignment operator only appears in the assignment expression, and
 the operand of the operator must be a writable object. The assignment
 expression has no result, so continuous assignment operations cannot be
 used.</p>
 <section id="simple-assignment-operator">
-<h4>Simple assignment operator<a class="headerlink" href="#simple-assignment-operator" title="Permalink to this headline"></a></h4>
+<h4>Simple assignment operator<a class="headerlink" href="#simple-assignment-operator" title="Permalink to this headline">¶</a></h4>
 <p>The simple assignment operator <code class="docutils literal notranslate"><span class="pre">=</span></code> can be used for variable assignment.
 If the left operand variable is not defined, the variable will be
 defined. The assignment operator is used to bind the value of the right
@@ -559,7 +558,7 @@ read-only, all passing references will not have side effects, but you
 must be extra careful with instance types.</p>
 </section>
 <section id="compound-assignment-operator">
-<h4>Compound Assignment Operator<a class="headerlink" href="#compound-assignment-operator" title="Permalink to this headline"></a></h4>
+<h4>Compound Assignment Operator<a class="headerlink" href="#compound-assignment-operator" title="Permalink to this headline">¶</a></h4>
 <p>Compound assignment operators are operators that combine binary
 operators and assignment operators. They are practical extensions to
 simple assignment operators. Compound assignment operators can simplify
@@ -628,7 +627,7 @@ operations.</p>
 </section>
 </section>
 <section id="domain-operator-and-subscript-operator">
-<h3>domain operator and subscript operator<a class="headerlink" href="#domain-operator-and-subscript-operator" title="Permalink to this headline"></a></h3>
+<h3>domain operator and subscript operator<a class="headerlink" href="#domain-operator-and-subscript-operator" title="Permalink to this headline">¶</a></h3>
 <p>Domain operator <code class="docutils literal notranslate"><span class="pre">.</span></code> is used to access an attribute or member of an
 object. You can use domain operators for both types of modules and
 instances:</p>
@@ -657,7 +656,7 @@ subscript writing (strings are read-only values):</p>
 subscripts cannot exceed the length of the string.</p>
 </section>
 <section id="conditional-operator">
-<h3>Conditional Operator<a class="headerlink" href="#conditional-operator" title="Permalink to this headline"></a></h3>
+<h3>Conditional Operator<a class="headerlink" href="#conditional-operator" title="Permalink to this headline">¶</a></h3>
 <p>The conditional operator (<code class="docutils literal notranslate"><span class="pre">?</span> <span class="pre">:</span></code>) is similar to the <strong>if else</strong>
 statement, but the former can be used in expressions. The usage form of
 the conditional operator is:
@@ -680,7 +679,7 @@ Regardless of the condition of the conditional expression, only one of
 similar to the short-circuit characteristic of logical AND and logical
 OR operations.</p>
 <section id="nested-condition-operators">
-<h4>Nested Condition Operators<a class="headerlink" href="#nested-condition-operators" title="Permalink to this headline"></a></h4>
+<h4>Nested Condition Operators<a class="headerlink" href="#nested-condition-operators" title="Permalink to this headline">¶</a></h4>
 <p>One conditional operator can be nested in another conditional operator,
 that is, the conditional expression can be used as <em><strong>cond</strong></em>
 or <em><strong>expr</strong></em> of another conditional expression. For example,
@@ -701,7 +700,7 @@ the nested conditional expression is evaluated first, and then the outer
 conditional expression is evaluated.</p>
 </section>
 <section id="priority-of-conditional-operators">
-<h4>Priority of conditional operators<a class="headerlink" href="#priority-of-conditional-operators" title="Permalink to this headline"></a></h4>
+<h4>Priority of conditional operators<a class="headerlink" href="#priority-of-conditional-operators" title="Permalink to this headline">¶</a></h4>
 <p>Since the precedence of conditional expressions is very low (second only
 to assignment operators), it is often necessary to add parentheses
 outside the conditional expressions. For example, when a conditional
@@ -718,9 +717,9 @@ multiplication.</p>
 </section>
 </section>
 <section id="concatenation-operator">
-<h3>Concatenation Operator<a class="headerlink" href="#concatenation-operator" title="Permalink to this headline"></a></h3>
+<h3>Concatenation Operator<a class="headerlink" href="#concatenation-operator" title="Permalink to this headline">¶</a></h3>
 <section id="id1">
-<h4><code class="docutils literal notranslate"><span class="pre">+</span></code> operator<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">+</span></code> operator<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <p>When the left and right operands are both strings, the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator is
 used to connect the two strings, and the new string obtained is the
 value of the expression. Therefore, this operator is often used for
@@ -738,7 +737,7 @@ the result list, and the elements of the right operand at the end of the
 result list.</p>
 </section>
 <section id="id2">
-<h4><code class="docutils literal notranslate"><span class="pre">..</span></code> operator<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">..</span></code> operator<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">..</span></code> is a special operator. If the left operand is a string, the
 behavior of the expression is to concatenate the left and right operands
 into a new string (automatic conversion if the right operand is not a

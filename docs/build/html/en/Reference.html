@@ -36,7 +36,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Home.html">Welcome to the berry wiki!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Bienvenido a la wiki de Berry!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
 </ul>
 
         </div>
@@ -64,13 +63,13 @@
            <div itemprop="articleBody">
              
   <section id="the-berry-script-language-reference-manual">
-<h1>The Berry Script Language Reference Manual<a class="headerlink" href="#the-berry-script-language-reference-manual" title="Permalink to this headline"></a></h1>
+<h1>The Berry Script Language Reference Manual<a class="headerlink" href="#the-berry-script-language-reference-manual" title="Permalink to this headline">¶</a></h1>
 <p>V1.0.0</p>
 <p>Guan Wenliang &amp; Stephan Hadinger</p>
 <p>July 5, 2022</p>
 </section>
 <section id="contents">
-<h1>Contents<a class="headerlink" href="#contents" title="Permalink to this headline"></a></h1>
+<h1>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="Chapter-1.html"><span class="doc std std-doc">Chapter 1 — Basic Information</span></a></p></li>
 <li><p><a class="reference internal" href="Chapter-2.html"><span class="doc std std-doc">Chapter 2 — Types and Variables</span></a></p></li>
@@ -87,7 +86,7 @@
 </ul>
 </section>
 <section id="preface">
-<h1>Preface<a class="headerlink" href="#preface" title="Permalink to this headline"></a></h1>
+<h1>Preface<a class="headerlink" href="#preface" title="Permalink to this headline">¶</a></h1>
 <p>A few years ago, I tried to port the Lua scripting language to STM32F4 microcontroller, and then I experienced a Lua-based firmware on ESP8266: NodeMCU. These experiences made me experience the convenience of script development. Later, I came into contact with some scripting languages, such as Python, JavaScript, Basic, and MATLAB. At present, only a few languages are suitable for transplanting to the microcontroller platform. I used to pay more attention to Lua because it is a very compact embedded scripting language, and its design goal is to be embedded in the host program. However, for the microcontroller, the Lua interpreter may not be small enough, and I cannot run it on a 32-bit microcontroller with a relatively small memory. To this end, I started to read Lua code and developed my own scripting language-Berry on this basis.</p>
 <p>This is an ultra-lightweight embedded scripting language, it is also a multi-paradigm dynamic language. Supports object-oriented, process-oriented and functional (less support) styles. Many aspects of this language refer to Lua, but its syntax also borrows from the design of other languages. If the reader already knows a high-level language, Berry’s grammar should be very easy to grasp: the language has only some simple rules and a very natural scope design.</p>
 <p>The main application scenario I consider is embedded systems with low performance. The memory of these systems may be very small, so it is very difficult to run a full-featured scripting language. This means that we may have to make a choice. Berry may only provide the most commonly used and basic core functions, while other unnecessary features are only used as optional modules. This will inevitably lead to the language’s standard library being too small, even the language There will also be uncertain designs (such as the implementation of floating-point numbers and integers, etc.). The benefits of these trade-offs are more room for optimization, while the disadvantage is obviously the inconsistency of language standards.

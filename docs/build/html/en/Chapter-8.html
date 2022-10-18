@@ -36,7 +36,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Home.html">Welcome to the berry wiki!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Bienvenido a la wiki de Berry!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
 </ul>
 
         </div>
@@ -64,13 +63,13 @@
            <div itemprop="articleBody">
              
   <section id="advanced-features">
-<h1>8. Advanced features<a class="headerlink" href="#advanced-features" title="Permalink to this headline"></a></h1>
+<h1>8. Advanced features<a class="headerlink" href="#advanced-features" title="Permalink to this headline">¶</a></h1>
 <section id="strict-mode">
-<h2>8.1 <code class="docutils literal notranslate"><span class="pre">strict</span></code> mode<a class="headerlink" href="#strict-mode" title="Permalink to this headline"></a></h2>
+<h2>8.1 <code class="docutils literal notranslate"><span class="pre">strict</span></code> mode<a class="headerlink" href="#strict-mode" title="Permalink to this headline">¶</a></h2>
 <p>Berry allows full freedom from the developer. But after some experience in coding with Berry, you will find that there are common mistakes that are hard to find and that the compiler could help you catch. The <code class="docutils literal notranslate"><span class="pre">strict</span></code> mode does additional checks <strong>at compile time</strong> about some common mistakes.</p>
 <p>This mode is enabled with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">strict</span></code> or when running Berry with <code class="docutils literal notranslate"><span class="pre">-s</span></code> option: <code class="docutils literal notranslate"><span class="pre">berry</span> <span class="pre">-s</span></code></p>
 <section id="mandatory-var-for-local-variables">
-<h3>Mandatory <code class="docutils literal notranslate"><span class="pre">var</span></code> for local variables<a class="headerlink" href="#mandatory-var-for-local-variables" title="Permalink to this headline"></a></h3>
+<h3>Mandatory <code class="docutils literal notranslate"><span class="pre">var</span></code> for local variables<a class="headerlink" href="#mandatory-var-for-local-variables" title="Permalink to this headline">¶</a></h3>
 <p>This is the most common mistake, a variable assigned without <code class="docutils literal notranslate"><span class="pre">var</span></code> is either global if a global already exists or local otherwise. Strict mode rejects the assignment if there is no global with the same name.</p>
 <p>No more allowed:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>def f()
@@ -89,7 +88,7 @@ syntax_error: stdin:2: strict: no global &#39;i&#39;, did you mean &#39;var i&#3
 </div>
 </section>
 <section id="no-overriding-of-builtins">
-<h3>No overriding of builtins<a class="headerlink" href="#no-overriding-of-builtins" title="Permalink to this headline"></a></h3>
+<h3>No overriding of builtins<a class="headerlink" href="#no-overriding-of-builtins" title="Permalink to this headline">¶</a></h3>
 <p>Berry allows to override a builtin. This is however generally not desirable and a source of hard to find bugs.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">map</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">syntax_error</span><span class="p">:</span> <span class="n">stdin</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span> <span class="n">strict</span><span class="p">:</span> <span class="n">redefinition</span> <span class="n">of</span> <span class="n">builtin</span> <span class="s1">&#39;map&#39;</span>
@@ -97,7 +96,7 @@ syntax_error: stdin:2: strict: no global &#39;i&#39;, did you mean &#39;var i&#3
 </div>
 </section>
 <section id="multiple-var-with-same-name-not-allowed-in-same-scope">
-<h3>Multiple <code class="docutils literal notranslate"><span class="pre">var</span></code> with same name not allowed in same scope<a class="headerlink" href="#multiple-var-with-same-name-not-allowed-in-same-scope" title="Permalink to this headline"></a></h3>
+<h3>Multiple <code class="docutils literal notranslate"><span class="pre">var</span></code> with same name not allowed in same scope<a class="headerlink" href="#multiple-var-with-same-name-not-allowed-in-same-scope" title="Permalink to this headline">¶</a></h3>
 <p>Berry tolerated multiple declaration of a local variable with the same name. This is now considered as an error (even without strict mode).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">()</span>
   <span class="n">var</span> <span class="n">a</span>
@@ -108,7 +107,7 @@ syntax_error: stdin:2: strict: no global &#39;i&#39;, did you mean &#39;var i&#3
 </div>
 </section>
 <section id="no-hiding-of-local-variable-from-outer-scope">
-<h3>No hiding of local variable from outer scope<a class="headerlink" href="#no-hiding-of-local-variable-from-outer-scope" title="Permalink to this headline"></a></h3>
+<h3>No hiding of local variable from outer scope<a class="headerlink" href="#no-hiding-of-local-variable-from-outer-scope" title="Permalink to this headline">¶</a></h3>
 <p>In Berry you can declare local variables with the same name in inner scope. The variable in the inner scope hides the variable from outer scope for the duration of the scope.</p>
 <p>The only exception is that variables starting with dot ‘.’ can mask from outer scope. This is the case with hidden local variable <code class="docutils literal notranslate"><span class="pre">.it</span></code> when multiple <code class="docutils literal notranslate"><span class="pre">for</span></code> are embedded.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">()</span>
@@ -123,7 +122,7 @@ syntax_error: stdin:2: strict: no global &#39;i&#39;, did you mean &#39;var i&#3
 </section>
 </section>
 <section id="virtual-members">
-<h2>8.2 Virtual members<a class="headerlink" href="#virtual-members" title="Permalink to this headline"></a></h2>
+<h2>8.2 Virtual members<a class="headerlink" href="#virtual-members" title="Permalink to this headline">¶</a></h2>
 <p>Virtual members allows you to dynamically and programmatically add members and methods to classes and modules. You are no more limited to the members declared at creation time.</p>
 <p>This feature is inspired from Python’s <code class="docutils literal notranslate"><span class="pre">__getattr__()</span></code> / <code class="docutils literal notranslate"><span class="pre">__setattr__()</span></code>.
 The motivation comes from LVGL integration to Berry in Tasmota. The integration needs hundreds of constants in a module and thousands of methods mapped to C functions. Statically creation of attributes and methods does work but consumes a significant amount of code space.</p>
@@ -144,7 +143,7 @@ The motivation comes from LVGL integration to Berry in Tasmota. The integration 
 </tbody>
 </table>
 <section id="module-undefined">
-<h3>module <code class="docutils literal notranslate"><span class="pre">undefined</span></code><a class="headerlink" href="#module-undefined" title="Permalink to this headline"></a></h3>
+<h3>module <code class="docutils literal notranslate"><span class="pre">undefined</span></code><a class="headerlink" href="#module-undefined" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">member()</span></code> function must be able to distinguish between a member with
 a <code class="docutils literal notranslate"><span class="pre">nil</span></code> value and the member not existing. To avoid any ambiguity, the <code class="docutils literal notranslate"><span class="pre">member()</span></code> function can indicate that the member does not exist in two ways:</p>
 <ul class="simple">
@@ -187,7 +186,7 @@ stack traceback:
 </div>
 </section>
 <section id="implicit-call-of-member">
-<h3>implicit call of <code class="docutils literal notranslate"><span class="pre">member()</span></code><a class="headerlink" href="#implicit-call-of-member" title="Permalink to this headline"></a></h3>
+<h3>implicit call of <code class="docutils literal notranslate"><span class="pre">member()</span></code><a class="headerlink" href="#implicit-call-of-member" title="Permalink to this headline">¶</a></h3>
 <p>When the following code <code class="docutils literal notranslate"><span class="pre">a.b</span></code> is executed, the Berry VM does the following:</p>
 <ul class="simple">
 <li><p>Get the object named <code class="docutils literal notranslate"><span class="pre">a</span></code> (local or global), raise an exception if it doesn’t exist</p></li>
@@ -199,7 +198,7 @@ stack traceback:
 </ul>
 </section>
 <section id="implicit-call-of-setmember">
-<h3>implicit call of <code class="docutils literal notranslate"><span class="pre">setmember()</span></code><a class="headerlink" href="#implicit-call-of-setmember" title="Permalink to this headline"></a></h3>
+<h3>implicit call of <code class="docutils literal notranslate"><span class="pre">setmember()</span></code><a class="headerlink" href="#implicit-call-of-setmember" title="Permalink to this headline">¶</a></h3>
 <p>When the following code <code class="docutils literal notranslate"><span class="pre">a.b</span> <span class="pre">=</span> <span class="pre">0</span></code> (mutator) is executed, the Berry VM does the following:</p>
 <ul class="simple">
 <li><p>Get the object named <code class="docutils literal notranslate"><span class="pre">a</span></code> (local or global), raise an exception if it doesn’t exist</p></li>
@@ -217,25 +216,25 @@ stack traceback:
 </ul>
 </section>
 <section id="exception-handling">
-<h3>Exception handling<a class="headerlink" href="#exception-handling" title="Permalink to this headline"></a></h3>
+<h3>Exception handling<a class="headerlink" href="#exception-handling" title="Permalink to this headline">¶</a></h3>
 <p>To indicate that a member does not exist, <code class="docutils literal notranslate"><span class="pre">member()</span></code> shall return <code class="docutils literal notranslate"><span class="pre">undefined</span></code> after <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">undefined</span></code>.</p>
 <p>You can also raise an exception in <code class="docutils literal notranslate"><span class="pre">member()</span></code> but be aware that Berry might try to call methods like <code class="docutils literal notranslate"><span class="pre">tostring()</span></code> that will land on your <code class="docutils literal notranslate"><span class="pre">member()</span></code> method if they don’t exist as static methods.</p>
 <p>To indicate that a member is invalid, <code class="docutils literal notranslate"><span class="pre">setmember()</span></code> should raise an exception or return <code class="docutils literal notranslate"><span class="pre">undefined</span></code>. Returning anything else like <code class="docutils literal notranslate"><span class="pre">nil</span></code> inficates that the assignment was succesful.</p>
 <p>Be aware that you may receive member names that are not valid Berry identifiers. The syntax <code class="docutils literal notranslate"><span class="pre">a.(&quot;&lt;-&gt;&quot;)</span></code> will call <code class="docutils literal notranslate"><span class="pre">a.member(&quot;&lt;-&gt;&quot;)</span></code> with a virtual member name that is not lexically valid, i.e. cannot be called in regular code, except by using indirect ways like <code class="docutils literal notranslate"><span class="pre">introspect</span></code> or <code class="docutils literal notranslate"><span class="pre">member()</span></code>.</p>
 </section>
 <section id="specificities-for-classes">
-<h3>Specificities for classes<a class="headerlink" href="#specificities-for-classes" title="Permalink to this headline"></a></h3>
+<h3>Specificities for classes<a class="headerlink" href="#specificities-for-classes" title="Permalink to this headline">¶</a></h3>
 <p>Access to members of class object do not trigger virtual members. Hence it is not possible to have virtual static methods.</p>
 </section>
 <section id="specificities-for-modules">
-<h3>Specificities for modules<a class="headerlink" href="#specificities-for-modules" title="Permalink to this headline"></a></h3>
+<h3>Specificities for modules<a class="headerlink" href="#specificities-for-modules" title="Permalink to this headline">¶</a></h3>
 <p>Modules do support reading static members with <code class="docutils literal notranslate"><span class="pre">member()</span></code>.</p>
 <p>When writing to a member, the behavior depends whether the module is writable (in memory) or read-only (in firmware).</p>
 <p>If the module is writable, the new members are added directly to the module and <code class="docutils literal notranslate"><span class="pre">setmember()</span></code> is never called.</p>
 <p>If the module is read-only, then <code class="docutils literal notranslate"><span class="pre">setmember()</span></code> is called whenever you try to change or create a member. It is then your responsibility to store the values in a separate object like a global.</p>
 </section>
 <section id="example">
-<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline"></a></h3>
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">T</span>
     <span class="n">var</span> <span class="n">a</span>
@@ -318,10 +317,10 @@ stack traceback:
 </section>
 </section>
 <section id="how-to-package-a-module">
-<h2>8.3 How-to package a module<a class="headerlink" href="#how-to-package-a-module" title="Permalink to this headline"></a></h2>
+<h2>8.3 How-to package a module<a class="headerlink" href="#how-to-package-a-module" title="Permalink to this headline">¶</a></h2>
 <p>This guide drives you through the different options of packaging code for reuse using Berry’s <code class="docutils literal notranslate"><span class="pre">import</span></code> directive.</p>
 <section id="behavior-of-import">
-<h3>Behavior of <code class="docutils literal notranslate"><span class="pre">import</span></code><a class="headerlink" href="#behavior-of-import" title="Permalink to this headline"></a></h3>
+<h3>Behavior of <code class="docutils literal notranslate"><span class="pre">import</span></code><a class="headerlink" href="#behavior-of-import" title="Permalink to this headline">¶</a></h3>
 <p>When you use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">&lt;module&gt;</span> <span class="pre">[as</span> <span class="pre">&lt;name&gt;]</span></code>, the following steps happen:</p>
 <ul class="simple">
 <li><p>There is a global cache of all modules already imported. If <code class="docutils literal notranslate"><span class="pre">&lt;module&gt;</span></code> was already imported, <code class="docutils literal notranslate"><span class="pre">import</span></code> returns the value in cache already returned by the first call to <code class="docutils literal notranslate"><span class="pre">import</span></code>. No other actions are taken.</p></li>
@@ -338,7 +337,7 @@ stack traceback:
 <p>Note: an implicit <code class="docutils literal notranslate"><span class="pre">init(m)</span></code> function is always present in all modules, even if none was declared. This implicit function has no effect.</p>
 </section>
 <section id="packaging-a-module">
-<h3>Packaging a module<a class="headerlink" href="#packaging-a-module" title="Permalink to this headline"></a></h3>
+<h3>Packaging a module<a class="headerlink" href="#packaging-a-module" title="Permalink to this headline">¶</a></h3>
 <p>Here is a simple example of a module:</p>
 <p>File <code class="docutils literal notranslate"><span class="pre">demo_module.be</span></code>:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span># simple module
@@ -373,7 +372,7 @@ Hello Berry!
 </div>
 </section>
 <section id="package-a-singleton-monad">
-<h3>Package a singleton (monad)<a class="headerlink" href="#package-a-singleton-monad" title="Permalink to this headline"></a></h3>
+<h3>Package a singleton (monad)<a class="headerlink" href="#package-a-singleton-monad" title="Permalink to this headline">¶</a></h3>
 <p>The problem of using modules is that they don’t have instance variables to keep track of data. They are essentially designed for state-less libraries.</p>
 <p>Below you will find an elegant way of packaging a class singleton returned as an <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">statement</span></code>.</p>
 <p>To do this, we use different tricks. First we declare the class for the singleton as an inner class of a function, this prevents from polluting the global namespace with this class. I.e. the class will not be accessible by other code.</p>
@@ -429,10 +428,10 @@ stack traceback:
 </section>
 </section>
 <section id="solidification">
-<h2>8.4 Solidification<a class="headerlink" href="#solidification" title="Permalink to this headline"></a></h2>
+<h2>8.4 Solidification<a class="headerlink" href="#solidification" title="Permalink to this headline">¶</a></h2>
 <p>Solidification is the process of capturing compiled Berry structures and code (classes, modules, maps, lists…) and storing them into firmware. It reduces dramatically the use of memory, but has some limitations.</p>
 <section id="solidify-module">
-<h3><code class="docutils literal notranslate"><span class="pre">solidify</span></code> module<a class="headerlink" href="#solidify-module" title="Permalink to this headline"></a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">solidify</span></code> module<a class="headerlink" href="#solidify-module" title="Permalink to this headline">¶</a></h3>
 <p>Solidification is handle by <code class="docutils literal notranslate"><span class="pre">solidify</span></code> module. This module is not compiled by default because of its size (~10kB). You need to compile with <code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">BE_USE_SOLIDIFY_MODULE</span> <span class="pre">1</span></code> directive.</p>
 <p>The module has a single member <code class="docutils literal notranslate"><span class="pre">dump(x)</span></code> that takes a single argument (the object to solidify) and output to <code class="docutils literal notranslate"><span class="pre">stdout</span></code> the solidified code.</p>
 <p>By default, solidify adds all string constants to the global pool. You can generate weak strings instead (eligible to pruning by the linker) by setting the second argument to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
@@ -440,7 +439,7 @@ stack traceback:
 <p><code class="docutils literal notranslate"><span class="pre">solidify.dump(object:any,</span> <span class="pre">[,</span> <span class="pre">strings_weak:bool,</span> <span class="pre">file_out:file])</span> <span class="pre">-&gt;</span> <span class="pre">nil</span></code></p>
 </section>
 <section id="solidification-of-functions">
-<h3>Solidification of functions<a class="headerlink" href="#solidification-of-functions" title="Permalink to this headline"></a></h3>
+<h3>Solidification of functions<a class="headerlink" href="#solidification-of-functions" title="Permalink to this headline">¶</a></h3>
 <p>You can solidify a single function.</p>
 <p>Example:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; def f() return &quot;hello&quot; end
@@ -504,7 +503,7 @@ stack traceback:
 </div>
 </section>
 <section id="solidification-of-classes">
-<h3>Solidification of classes<a class="headerlink" href="#solidification-of-classes" title="Permalink to this headline"></a></h3>
+<h3>Solidification of classes<a class="headerlink" href="#solidification-of-classes" title="Permalink to this headline">¶</a></h3>
 <p>When you solidify a class, it embeds all the sub-elements. An <code class="docutils literal notranslate"><span class="pre">C</span></code> stub is also added to create the class and add it to the global scope.</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt;  class demo
       var i
@@ -674,7 +673,7 @@ stack traceback:
 </div>
 </section>
 <section id="solidification-of-modules">
-<h3>Solidification of modules<a class="headerlink" href="#solidification-of-modules" title="Permalink to this headline"></a></h3>
+<h3>Solidification of modules<a class="headerlink" href="#solidification-of-modules" title="Permalink to this headline">¶</a></h3>
 <p>When you solidify a module, it embeds all the sub-elements. It also works with embedded lists or maps.</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; def say_hello() print(&quot;Hello Berry!&quot;) end
 &gt; m = module(&quot;demo_module&quot;)
@@ -747,7 +746,7 @@ stack traceback:
 </div>
 </section>
 <section id="limitations-of-solidification">
-<h3>Limitations of solidification<a class="headerlink" href="#limitations-of-solidification" title="Permalink to this headline"></a></h3>
+<h3>Limitations of solidification<a class="headerlink" href="#limitations-of-solidification" title="Permalink to this headline">¶</a></h3>
 <p>Solidification works for many objects: <code class="docutils literal notranslate"><span class="pre">class</span></code>, <code class="docutils literal notranslate"><span class="pre">module</span></code>, <code class="docutils literal notranslate"><span class="pre">functions</span></code> and embedded constants or objects like <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">real</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code> and <code class="docutils literal notranslate"><span class="pre">map</span></code>.</p>
 <p>Limitations:</p>
 <ul class="simple">

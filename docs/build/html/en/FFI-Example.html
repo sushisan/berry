@@ -36,7 +36,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Home.html">Welcome to the berry wiki!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Bienvenido a la wiki de Berry!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
 </ul>
 
         </div>
@@ -64,7 +63,7 @@
            <div itemprop="articleBody">
              
   <section id="making-a-native-function">
-<h1>Making a Native Function<a class="headerlink" href="#making-a-native-function" title="Permalink to this headline"></a></h1>
+<h1>Making a Native Function<a class="headerlink" href="#making-a-native-function" title="Permalink to this headline">¶</a></h1>
 <p>Berry’s C FFI (Foreign Function Interface) operates on a virtual stack to interact with the VM. If we need to make an <code class="docutils literal notranslate"><span class="pre">add</span></code> function to add two numbers and use it in Berry in this way:</p>
 <div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
@@ -144,7 +143,7 @@
 </div>
 </section>
 <section id="instantiate-a-list-object-in-a-native-function">
-<h1>Instantiate a <code class="docutils literal notranslate"><span class="pre">list</span></code> object in a native function<a class="headerlink" href="#instantiate-a-list-object-in-a-native-function" title="Permalink to this headline"></a></h1>
+<h1>Instantiate a <code class="docutils literal notranslate"><span class="pre">list</span></code> object in a native function<a class="headerlink" href="#instantiate-a-list-object-in-a-native-function" title="Permalink to this headline">¶</a></h1>
 <p>Generating instantiated native classes in C can be cumbersome compared to simple types. This section will guide the reader to instantiate the <code class="docutils literal notranslate"><span class="pre">list</span></code> class.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">list</span></code> class is a wrapper around the list structure, which has a <code class="docutils literal notranslate"><span class="pre">.data</span></code> property for the list structure. Therefore, we first need to construct a list structure:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">be_newlist</span><span class="p">(</span><span class="n">vm</span><span class="p">);</span><span class="w"></span>

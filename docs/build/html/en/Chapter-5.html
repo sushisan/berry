@@ -36,7 +36,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Home.html">Welcome to the berry wiki!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Bienvenido a la wiki de Berry!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
 </ul>
 
         </div>
@@ -64,7 +63,7 @@
            <div itemprop="articleBody">
              
   <section id="function">
-<h1>5. Function<a class="headerlink" href="#function" title="Permalink to this headline"></a></h1>
+<h1>5. Function<a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h1>
 <p><strong>function</strong> is a “subroutine” that can be called by external code. As a
 part of the program, the function itself is also a piece of code. A
 function can have 0 or more parameters and will return a result, which
@@ -74,7 +73,7 @@ to calling functions, you can also pass functions as values, for
 example, bind functions to variables, use functions as return values,
 and so on.</p>
 <section id="basic-information">
-<h2>5.1 Basic Information<a class="headerlink" href="#basic-information" title="Permalink to this headline"></a></h2>
+<h2>5.1 Basic Information<a class="headerlink" href="#basic-information" title="Permalink to this headline">¶</a></h2>
 <p>The use of functions includes two parts: function definition and call.
 The function definition statement uses the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword as the
 beginning. The function definition is the process of packaging and
@@ -86,9 +85,9 @@ parameters passed to the function are written in parentheses, and
 multiple parameters are separated by commas. The result of the calling
 expression is the return value of the function.</p>
 <section id="function-definition">
-<h3>5.1.1 Function Definition<a class="headerlink" href="#function-definition" title="Permalink to this headline"></a></h3>
+<h3>5.1.1 Function Definition<a class="headerlink" href="#function-definition" title="Permalink to this headline">¶</a></h3>
 <section id="named-function">
-<h4>Named Function<a class="headerlink" href="#named-function" title="Permalink to this headline"></a></h4>
+<h4>Named Function<a class="headerlink" href="#named-function" title="Permalink to this headline">¶</a></h4>
 <p><strong>named function</strong> is a function given a name when it is defined. Its
 definition statement consists of the following parts: <code class="docutils literal notranslate"><span class="pre">def</span></code> keywords,
 function names, lists consisting of 0 to multiple parameters, and
@@ -128,7 +127,7 @@ are passed into the function through these parameters for calculation.
 content will be explained in the object-oriented chapter.</p>
 </section>
 <section id="anonymous-function">
-<h4>Anonymous Function<a class="headerlink" href="#anonymous-function" title="Permalink to this headline"></a></h4>
+<h4>Anonymous Function<a class="headerlink" href="#anonymous-function" title="Permalink to this headline">¶</a></h4>
 <p>Unlike named functions, <strong>anonymous function</strong> has no name, and its
 definition expression has the form:</p>
 <div class="algorithm">
@@ -157,7 +156,7 @@ indivisible whole.</p>
 </section>
 </section>
 <section id="call-function">
-<h3>Call function<a class="headerlink" href="#call-function" title="Permalink to this headline"></a></h3>
+<h3>Call function<a class="headerlink" href="#call-function" title="Permalink to this headline">¶</a></h3>
 <p>Take the <code class="docutils literal notranslate"><span class="pre">add</span></code> function as an example. To call this function, you need
 to provide two values, and you can get the sum of the two numbers by
 calling the function:</p>
@@ -204,7 +203,7 @@ reassigning <code class="docutils literal notranslate"><span class="pre">square<
 to any variable will it be lost, and the resources occupied by this type
 of function object will be recycled by the system.</p>
 <section id="forward-call">
-<h4>Forward call<a class="headerlink" href="#forward-call" title="Permalink to this headline"></a></h4>
+<h4>Forward call<a class="headerlink" href="#forward-call" title="Permalink to this headline">¶</a></h4>
 <p>The call of the function must be in the scope of the function variable,
 so it usually cannot be called before the function is defined. In order
 to solve this problem, you can use this method to compromise:</p>
@@ -230,7 +229,7 @@ is called in the last line <code class="docutils literal notranslate"><span clas
 already the function we need, so the correct result will be output.</p>
 </section>
 <section id="recursive-call">
-<h4>Recursive call<a class="headerlink" href="#recursive-call" title="Permalink to this headline"></a></h4>
+<h4>Recursive call<a class="headerlink" href="#recursive-call" title="Permalink to this headline">¶</a></h4>
 <p><strong>recursive function</strong> refers to functions that call themselves directly
 or indirectly. Recursion refers to a strategy that divides the problem
 into similar sub-problems and then solves them. Taking factorial as an
@@ -285,7 +284,7 @@ is in the scope when calling the function <code class="docutils literal notransl
 variable <code class="docutils literal notranslate"><span class="pre">is_odd</span></code> is defined on line 1.</p>
 </section>
 <section id="anonymous-function-call">
-<h4>Anonymous function call<a class="headerlink" href="#anonymous-function-call" title="Permalink to this headline"></a></h4>
+<h4>Anonymous function call<a class="headerlink" href="#anonymous-function-call" title="Permalink to this headline">¶</a></h4>
 <p>If an anonymous function will only be called once, the easiest way is to
 call it when it is defined, for example:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>res = def (a, b) return a + b end (1, 2) # 3
@@ -306,7 +305,7 @@ functions, unless you use forward call techniques.</p>
 </section>
 </section>
 <section id="formal-and-actual-parameters">
-<h3>Formal and actual parameters<a class="headerlink" href="#formal-and-actual-parameters" title="Permalink to this headline"></a></h3>
+<h3>Formal and actual parameters<a class="headerlink" href="#formal-and-actual-parameters" title="Permalink to this headline">¶</a></h3>
 <p>The function uses actual parameters to initialize the formal parameters
 when it is called. Under normal circumstances, the actual parameter and
 the shape parameter are equal and the positions correspond to each
@@ -334,7 +333,7 @@ print(l, i) # [1] 0
 function <code class="docutils literal notranslate"><span class="pre">func</span></code>, but the value of variable <code class="docutils literal notranslate"><span class="pre">i</span></code> has not changed.</p>
 </section>
 <section id="function-with-variable-number-of-arguments-vararg">
-<h3>Function with variable number of arguments (vararg)<a class="headerlink" href="#function-with-variable-number-of-arguments-vararg" title="Permalink to this headline"></a></h3>
+<h3>Function with variable number of arguments (vararg)<a class="headerlink" href="#function-with-variable-number-of-arguments-vararg" title="Permalink to this headline">¶</a></h3>
 <p>You can define a function to take any arbitrary number of arguments and iterate on them.
 For example <code class="docutils literal notranslate"><span class="pre">print()</span></code> takes any number of arguments and prints each of them separated
 by spaces. You need to define the last argument as a capture-all-arguments using <code class="docutils literal notranslate"><span class="pre">*</span></code>
@@ -350,7 +349,7 @@ f(1,2,3,4) # returns 2, c is [3,4]
 </div>
 </section>
 <section id="calling-a-function-with-dynamic-number-of-arguments">
-<h3>Calling a function with dynamic number of arguments<a class="headerlink" href="#calling-a-function-with-dynamic-number-of-arguments" title="Permalink to this headline"></a></h3>
+<h3>Calling a function with dynamic number of arguments<a class="headerlink" href="#calling-a-function-with-dynamic-number-of-arguments" title="Permalink to this headline">¶</a></h3>
 <p>Berry syntax allows only to call with a fixed number of arguments.
 Use the <code class="docutils literal notranslate"><span class="pre">call(f,</span> <span class="pre">[args])</span></code> function to pass any arbitrary number or arguments.</p>
 <p>You can statically add any number of arguments to <code class="docutils literal notranslate"><span class="pre">call()</span></code>. If the last argument
@@ -384,7 +383,7 @@ print_upper(&quot;a&quot;,1,&quot;Foo&quot;,&quot;Bar&quot;)  # prints: A 1 FOO 
 </div>
 </section>
 <section id="functions-and-local-variables">
-<h3>Functions and local variables<a class="headerlink" href="#functions-and-local-variables" title="Permalink to this headline"></a></h3>
+<h3>Functions and local variables<a class="headerlink" href="#functions-and-local-variables" title="Permalink to this headline">¶</a></h3>
 <p>The function body itself is a scope, so the variables defined in the
 function are all local variables.
 Unlike directly nested blocks, every time a function is called, space is
@@ -396,7 +395,7 @@ for the scope nesting chain with the most local variables, rather than
 the total number of local variables in the function.</p>
 </section>
 <section id="return-statement">
-<h3><code class="docutils literal notranslate"><span class="pre">return</span></code> Statement<a class="headerlink" href="#return-statement" title="Permalink to this headline"></a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">return</span></code> Statement<a class="headerlink" href="#return-statement" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">return</span></code> The statement is used to return the result of a function, that
 is, the return value of the function. All functions in Berry have a
 return value, but you can not use any <code class="docutils literal notranslate"><span class="pre">return</span></code> statement in the function
@@ -434,9 +433,9 @@ statement is used, there is no need to worry about ambiguity.</p>
 </section>
 </section>
 <section id="closure">
-<h2>closure<a class="headerlink" href="#closure" title="Permalink to this headline"></a></h2>
+<h2>closure<a class="headerlink" href="#closure" title="Permalink to this headline">¶</a></h2>
 <section id="basic-concepts">
-<h3>Basic Concepts<a class="headerlink" href="#basic-concepts" title="Permalink to this headline"></a></h3>
+<h3>Basic Concepts<a class="headerlink" href="#basic-concepts" title="Permalink to this headline">¶</a></h3>
 <p>As mentioned earlier, functions are the first type of value in Berry.
 You can define functions anywhere, and you can also pass functions as
 parameters or return values. When another function is defined in a
@@ -494,21 +493,21 @@ as a free variable of the closure <code class="docutils literal notranslate"><sp
 environment, so every time <code class="docutils literal notranslate"><span class="pre">f</span></code> is called, the value of <code class="docutils literal notranslate"><span class="pre">i</span></code> will be added
 to 1 (<code class="docutils literal notranslate"><span class="pre">func</span></code> function definition line 4).</p>
 <section id="use-of-closures">
-<h4>Use of closures<a class="headerlink" href="#use-of-closures" title="Permalink to this headline"></a></h4>
+<h4>Use of closures<a class="headerlink" href="#use-of-closures" title="Permalink to this headline">¶</a></h4>
 <p>Closures have many uses. Here are a few common uses:</p>
 <section id="lazy-evaluation">
-<h5>Lazy evaluation<a class="headerlink" href="#lazy-evaluation" title="Permalink to this headline"></a></h5>
+<h5>Lazy evaluation<a class="headerlink" href="#lazy-evaluation" title="Permalink to this headline">¶</a></h5>
 <p>The closure does not do anything until it is called.</p>
 </section>
 <section id="function-private-communication">
-<h5>Function private communication<a class="headerlink" href="#function-private-communication" title="Permalink to this headline"></a></h5>
+<h5>Function private communication<a class="headerlink" href="#function-private-communication" title="Permalink to this headline">¶</a></h5>
 <p>You can let some closures share free variables, which are only visible
 to these closures, and communicate between functions by changing the
 values of these free variables. This can avoid the use of external
 variables.</p>
 </section>
 <section id="generate-multiple-functions">
-<h5>Generate multiple functions<a class="headerlink" href="#generate-multiple-functions" title="Permalink to this headline"></a></h5>
+<h5>Generate multiple functions<a class="headerlink" href="#generate-multiple-functions" title="Permalink to this headline">¶</a></h5>
 <p>Sometimes we may need to use multiple functions, these functions may
 only have different values of some variables. We can implement a
 function and then use these different variables as function parameters.
@@ -518,7 +517,7 @@ so that you don’t always have to write those parameters when calling the
 function, and any number of similar functions can be generated.</p>
 </section>
 <section id="simulate-private-members">
-<h5>Simulate private members<a class="headerlink" href="#simulate-private-members" title="Permalink to this headline"></a></h5>
+<h5>Simulate private members<a class="headerlink" href="#simulate-private-members" title="Permalink to this headline">¶</a></h5>
 <p>Some languages support the use of private members in objects, but
 Berry’s class does not support private members. We can use the free
 variables of closures to simulate private members. This use is not the
@@ -526,7 +525,7 @@ original intention of designing closures, but nowadays, this “misuse” of
 closures is very common.</p>
 </section>
 <section id="cache-result">
-<h5>Cache result<a class="headerlink" href="#cache-result" title="Permalink to this headline"></a></h5>
+<h5>Cache result<a class="headerlink" href="#cache-result" title="Permalink to this headline">¶</a></h5>
 <p>If there is a function that is very time-consuming to run, it will take
 a lot of time to call it every time. We can cache the result of this
 function, look it up in the cache before calling the function, and
@@ -538,7 +537,7 @@ retained (until the closure is destroyed).</p>
 </section>
 </section>
 <section id="binding-free-variables">
-<h3>Binding free variables<a class="headerlink" href="#binding-free-variables" title="Permalink to this headline"></a></h3>
+<h3>Binding free variables<a class="headerlink" href="#binding-free-variables" title="Permalink to this headline">¶</a></h3>
 <p>If multiple closures bind the same free variable, all closures will
 always share this free variable. E.g:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def func(i) # The outer function
@@ -592,7 +591,7 @@ of the free variable <code class="docutils literal notranslate"><span class="pre
 </div>
 </section>
 <section id="create-closure-in-loop">
-<h3>Create closure in loop<a class="headerlink" href="#create-closure-in-loop" title="Permalink to this headline"></a></h3>
+<h3>Create closure in loop<a class="headerlink" href="#create-closure-in-loop" title="Permalink to this headline">¶</a></h3>
 <p>When constructing a closure in the loop body, you may not want the free
 variables of the closure to change with the loop variables. Let’s first
 look at an example of creating a closure in a loop <code class="docutils literal notranslate"><span class="pre">while</span></code>:</p>
@@ -685,7 +684,7 @@ previous method.</p>
 </section>
 </section>
 <section id="lambda-expression">
-<h2>Lambda expression<a class="headerlink" href="#lambda-expression" title="Permalink to this headline"></a></h2>
+<h2>Lambda expression<a class="headerlink" href="#lambda-expression" title="Permalink to this headline">¶</a></h2>
 <p><strong>Lambda expression</strong> is a special anonymous function. Lambda expression
 is composed of parameter list and function body, but the form is
 different from general function:</p>

@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
+  <compound refid="structbclass" kind="struct"><name>bclass</name>
+  </compound>
   <compound refid="structbhookinfo" kind="struct"><name>bhookinfo</name>
     <member refid="structbhookinfo_1a4785708ba3004bf512d1f822fd84659b" kind="variable"><name>type</name></member>
     <member refid="structbhookinfo_1aa1a595b1c1a2431b2ff4433d4aa16fbb" kind="variable"><name>line</name></member>

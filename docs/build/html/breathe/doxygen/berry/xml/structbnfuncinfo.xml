@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="192" column="16" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="192" bodyend="-1"/>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="193" column="16" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="193" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structbnfuncinfo_1adae098eaf3181561b3cd913d96bed684" prot="public" static="no" mutable="no">
         <type>bntvfunc</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="193" column="14" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="193" bodyend="-1"/>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="194" column="14" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="194" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -36,7 +36,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="191" column="1" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="191" bodyend="194"/>
+    <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="192" column="1" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="192" bodyend="195"/>
     <listofallmembers>
       <member refid="structbnfuncinfo_1adae098eaf3181561b3cd913d96bed684" prot="public" virt="non-virtual"><scope>bnfuncinfo</scope><name>function</name></member>
       <member refid="structbnfuncinfo_1acbd70a063d4a6bd05476110e5d82ffef" prot="public" virt="non-virtual"><scope>bnfuncinfo</scope><name>name</name></member>

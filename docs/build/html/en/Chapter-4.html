@@ -36,7 +36,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Home.html">Welcome to the berry wiki!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Bienvenido a la wiki de Berry!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
 </ul>
 
         </div>
@@ -64,7 +63,7 @@
            <div itemprop="articleBody">
              
   <section id="statement">
-<h1>4. Statement<a class="headerlink" href="#statement" title="Permalink to this headline"></a></h1>
+<h1>4. Statement<a class="headerlink" href="#statement" title="Permalink to this headline">¶</a></h1>
 <p>Berry is an imperative programming language. This paradigm assumes that
 programs are executed step by step. Normally, Berry statements are
 executed sequentially, and this program structure is called sequential
@@ -82,9 +81,9 @@ automatically without using a semicolon. You can use semicolons to tell
 the interpreter how to parse the code for the code that will be
 ambiguous. However, it is better not to write ambiguous code.</p>
 <section id="simple-sentence">
-<h2>4.1 Simple sentence<a class="headerlink" href="#simple-sentence" title="Permalink to this headline"></a></h2>
+<h2>4.1 Simple sentence<a class="headerlink" href="#simple-sentence" title="Permalink to this headline">¶</a></h2>
 <section id="expression-statement">
-<h3>4.1.1 Expression statement<a class="headerlink" href="#expression-statement" title="Permalink to this headline"></a></h3>
+<h3>4.1.1 Expression statement<a class="headerlink" href="#expression-statement" title="Permalink to this headline">¶</a></h3>
 <p>Expression statements are mainly statements composed of assignment
 expressions or function call expressions. Other expressions can also
 form sentences, but they have no meaning. For example, expression <code class="docutils literal notranslate"><span class="pre">1+2</span></code>
@@ -142,7 +141,7 @@ cases, there is no need to use semicolons to separate expressions, and
 we do not recommend this way of writing.</p>
 </section>
 <section id="block">
-<h3>Block<a class="headerlink" href="#block" title="Permalink to this headline"></a></h3>
+<h3>Block<a class="headerlink" href="#block" title="Permalink to this headline">¶</a></h3>
 <p>A <strong>Block</strong> is a collection of several sentences. A block is a scope, so
 the variables defined in the block can only be accessed inside the block
 and its sub-blocks. There are many places where blocks are used, such as
@@ -166,7 +165,7 @@ that the area of the block is consistent with the scope of the scope. In
 the above example, we tend to think that rows 2 to 3 are a whole block,
 which is the largest range between <code class="docutils literal notranslate"><span class="pre">if</span></code> keywords and <code class="docutils literal notranslate"><span class="pre">end</span></code> keywords.</p>
 <section id="do-statement">
-<h4><code class="docutils literal notranslate"><span class="pre">do</span></code> Statement<a class="headerlink" href="#do-statement" title="Permalink to this headline"></a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">do</span></code> Statement<a class="headerlink" href="#do-statement" title="Permalink to this headline">¶</a></h4>
 <p>Sometimes we just want to open up a new scope, but don’t want to use any
 control statements. In this case, we can use the <code class="docutils literal notranslate"><span class="pre">do</span></code> statement to
 encapsulate the block. <code class="docutils literal notranslate"><span class="pre">do</span></code> The statement has no control function. <code class="docutils literal notranslate"><span class="pre">do</span></code>
@@ -180,7 +179,7 @@ instructions.</p>
 </section>
 </section>
 <section id="conditional-statement">
-<h2>conditional statement<a class="headerlink" href="#conditional-statement" title="Permalink to this headline"></a></h2>
+<h2>conditional statement<a class="headerlink" href="#conditional-statement" title="Permalink to this headline">¶</a></h2>
 <p>Berry provides <code class="docutils literal notranslate"><span class="pre">if</span></code> statements to realize the function of conditional
 control execution. This kind of program structure is generally called
 branch structure. <code class="docutils literal notranslate"><span class="pre">if</span></code> The statement will determine the branch of
@@ -190,7 +189,7 @@ conditional control. For example, languages such as C and C++ provide
 <code class="docutils literal notranslate"><span class="pre">switch</span></code> statements, but in order to simplify the design, Berry does not
 support <code class="docutils literal notranslate"><span class="pre">switch</span></code> statements.</p>
 <section id="if-statement">
-<h3><code class="docutils literal notranslate"><span class="pre">if</span></code> Statement<a class="headerlink" href="#if-statement" title="Permalink to this headline"></a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">if</span></code> Statement<a class="headerlink" href="#if-statement" title="Permalink to this headline">¶</a></h3>
 <p><strong><code class="docutils literal notranslate"><span class="pre">if</span></code> statement</strong> is used to implement the branch structure, which
 selects the branch of the program according to the true or false of a
 certain judgment condition. The statement can also include <code class="docutils literal notranslate"><span class="pre">else</span></code> branch
@@ -302,7 +301,7 @@ not have the problem of overhanging <code class="docutils literal notranslate"><
 </section>
 </section>
 <section id="iteration-statement">
-<h2>Iteration Statement<a class="headerlink" href="#iteration-statement" title="Permalink to this headline"></a></h2>
+<h2>Iteration Statement<a class="headerlink" href="#iteration-statement" title="Permalink to this headline">¶</a></h2>
 <p>Iterative statements are also called loop statements, which are used to
 repeat certain operations until the termination condition is met. Berry
 provides <code class="docutils literal notranslate"><span class="pre">while</span></code> statement and <code class="docutils literal notranslate"><span class="pre">for</span></code> two iteration statements. Many
@@ -313,7 +312,7 @@ container, similar to the <code class="docutils literal notranslate"><span class
 and the one introduced by C++11 New <code class="docutils literal notranslate"><span class="pre">for</span></code> sentence style. The C-style
 <code class="docutils literal notranslate"><span class="pre">for</span></code> statement is not supported.</p>
 <section id="while-statement">
-<h3><code class="docutils literal notranslate"><span class="pre">while</span></code> Statement<a class="headerlink" href="#while-statement" title="Permalink to this headline"></a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">while</span></code> Statement<a class="headerlink" href="#while-statement" title="Permalink to this headline">¶</a></h3>
 <p><strong><code class="docutils literal notranslate"><span class="pre">while</span></code> statement</strong> is a basic iterative statement. <code class="docutils literal notranslate"><span class="pre">while</span></code> statement
 uses a judgment condition. When the condition is true, the loop body is
 executed repeatedly, otherwise the loop is ended. The pattern of the
@@ -356,7 +355,7 @@ element of the array is accessed in the next loop, and the <code class="docutils
 ends when the number of loops reaches the length of the array.</p>
 </section>
 <section id="for-statement">
-<h3><code class="docutils literal notranslate"><span class="pre">for</span></code> Statement<a class="headerlink" href="#for-statement" title="Permalink to this headline"></a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">for</span></code> Statement<a class="headerlink" href="#for-statement" title="Permalink to this headline">¶</a></h3>
 <p>Berry’s <strong><code class="docutils literal notranslate"><span class="pre">for</span></code> statement</strong> is used to traverse the elements in the
 container, and its form is</p>
 <p><code class="docutils literal notranslate"><span class="pre">for</span> </code> <strong>variable</strong> <code class="docutils literal notranslate"><span class="pre">:</span></code> <strong>expression</strong><br />
@@ -407,7 +406,7 @@ this example will get the following result</p>
 <code class="docutils literal notranslate"><span class="pre">i</span></code> are two different variables. They just have the same name but
 different scopes.</p>
 <section id="for-principle-of-statement">
-<h4><code class="docutils literal notranslate"><span class="pre">for</span></code> Principle of Statement<a class="headerlink" href="#for-principle-of-statement" title="Permalink to this headline"></a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">for</span></code> Principle of Statement<a class="headerlink" href="#for-principle-of-statement" title="Permalink to this headline">¶</a></h4>
 <p>Unlike the traditional iterative statement <code class="docutils literal notranslate"><span class="pre">while</span></code>, the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement
 uses iterators to traverse the container. If you need to use the <code class="docutils literal notranslate"><span class="pre">for</span></code>
 statement to traverse a custom class, you need to understand its
@@ -472,7 +471,7 @@ will define new iteration variables.</p>
 </section>
 </section>
 <section id="jump-statement">
-<h2>Jump Statement<a class="headerlink" href="#jump-statement" title="Permalink to this headline"></a></h2>
+<h2>Jump Statement<a class="headerlink" href="#jump-statement" title="Permalink to this headline">¶</a></h2>
 <p>The jump statement provided by Berry is used to realize the jump of the
 program flow in the loop process. Jump statements are divided into
 <code class="docutils literal notranslate"><span class="pre">break</span></code> statements and <code class="docutils literal notranslate"><span class="pre">continue</span></code> statements. These two statements must
@@ -482,7 +481,7 @@ arbitrary jumps within functions, which Berry does not provide, but the
 effects of <code class="docutils literal notranslate"><span class="pre">goto</span></code> statements can be replaced by conditional statements
 and iteration statements.</p>
 <section id="break-statement">
-<h3><code class="docutils literal notranslate"><span class="pre">break</span></code> Statement<a class="headerlink" href="#break-statement" title="Permalink to this headline"></a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">break</span></code> Statement<a class="headerlink" href="#break-statement" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">break</span></code> Used to terminate the iteration statement and jump out. After
 the execution of the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement, the nearest level of the
 iteration statement will be terminated immediately and execution will
@@ -510,7 +509,7 @@ statement position on the 3rd line and the program continues to execute
 from the 6th line.</p>
 </section>
 <section id="continue-statement">
-<h3><code class="docutils literal notranslate"><span class="pre">continue</span></code> Statement<a class="headerlink" href="#continue-statement" title="Permalink to this headline"></a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">continue</span></code> Statement<a class="headerlink" href="#continue-statement" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">continue</span></code> The statement is also used inside an iteration statement. Its
 function is to end an iteration and immediately start the next round.
 Therefore, after the execution of the <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement, the
@@ -546,7 +545,7 @@ statement does not terminate the iteration.</p>
 </section>
 </section>
 <section id="import-statement">
-<h2><code class="docutils literal notranslate"><span class="pre">import</span></code> Statement<a class="headerlink" href="#import-statement" title="Permalink to this headline"></a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">import</span></code> Statement<a class="headerlink" href="#import-statement" title="Permalink to this headline">¶</a></h2>
 <p>Berry has some predefined modules, such as the <code class="docutils literal notranslate"><span class="pre">math</span></code> module for
 mathematical calculations. These modules cannot be used directly, but
 must be imported with the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement. There are two ways to
@@ -587,7 +586,7 @@ end
 </div>
 </section>
 <section id="exception-handling">
-<h2>Exception Handling<a class="headerlink" href="#exception-handling" title="Permalink to this headline"></a></h2>
+<h2>Exception Handling<a class="headerlink" href="#exception-handling" title="Permalink to this headline">¶</a></h2>
 <p>The mechanism allows the program to capture and
 handle exceptions that occur during runtime. Berry supports an exception
 capture mechanism, which allows the exception capture and handling
@@ -598,7 +597,7 @@ handle exceptions.</p>
 When these programs are in an exception handling block, a specific
 program will catch and handle the exception.</p>
 <section id="raise-an-exception">
-<h3>Raise an exception<a class="headerlink" href="#raise-an-exception" title="Permalink to this headline"></a></h3>
+<h3>Raise an exception<a class="headerlink" href="#raise-an-exception" title="Permalink to this headline">¶</a></h3>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">raise</span></code> statement raises an exception. <code class="docutils literal notranslate"><span class="pre">raise</span></code> The statement
 will pass a value to indicate the type of exception so that it can be
 identified by a specific exception handler. Here is how to use the
@@ -630,7 +629,7 @@ the statement after the last <code class="docutils literal notranslate"><span cl
 cannot handle the exception, the exception will be rethrown until it can
 be handled or the exception exits.</p>
 <section id="outliers">
-<h4>Outliers<a class="headerlink" href="#outliers" title="Permalink to this headline"></a></h4>
+<h4>Outliers<a class="headerlink" href="#outliers" title="Permalink to this headline">¶</a></h4>
 <p>In Berry, you can use any value as an outlier, but we usually use short
 strings. Berry may also throw some exceptions internally. We call these
 exceptions <strong>Standard exception</strong>. All standard exception values are of
@@ -689,7 +688,7 @@ string type.</p>
 </section>
 </section>
 <section id="catch-exceptions">
-<h3>Catch exceptions<a class="headerlink" href="#catch-exceptions" title="Permalink to this headline"></a></h3>
+<h3>Catch exceptions<a class="headerlink" href="#catch-exceptions" title="Permalink to this headline">¶</a></h3>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">except</span></code> statement to catch exceptions. It must be paired with
 the <code class="docutils literal notranslate"><span class="pre">try</span></code> statement, that is, a <code class="docutils literal notranslate"><span class="pre">try</span></code> statement block must be followed
 by one or more <code class="docutils literal notranslate"><span class="pre">except</span></code> statement blocks. <code class="docutils literal notranslate"><span class="pre">try-except</span></code> The basic form of

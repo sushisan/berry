@@ -36,7 +36,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Home.html">Welcome to the berry wiki!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Bienvenido a la wiki de Berry!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
 </ul>
 
         </div>
@@ -64,7 +63,7 @@
            <div itemprop="articleBody">
              
   <section id="types-and-variables">
-<h1>2. Types and Variables<a class="headerlink" href="#types-and-variables" title="Permalink to this headline"></a></h1>
+<h1>2. Types and Variables<a class="headerlink" href="#types-and-variables" title="Permalink to this headline">¶</a></h1>
 <p><strong>Type</strong> is an attribute of data, which defines the meaning of the
 data and the operations that can be performed on the data. Types can be
 divided into built-in types and user-defined types. Built-in types refer
@@ -74,11 +73,11 @@ Types based on class definitions are called <strong>Class type</strong>, some of
 built-in types are class types, and user-defined types are also class
 types.</p>
 <section id="built-in-type">
-<h2>2.1 Built-in type<a class="headerlink" href="#built-in-type" title="Permalink to this headline"></a></h2>
+<h2>2.1 Built-in type<a class="headerlink" href="#built-in-type" title="Permalink to this headline">¶</a></h2>
 <section id="simple-type">
-<h3>2.1.1 Simple Type<a class="headerlink" href="#simple-type" title="Permalink to this headline"></a></h3>
+<h3>2.1.1 Simple Type<a class="headerlink" href="#simple-type" title="Permalink to this headline">¶</a></h3>
 <section id="nil">
-<h4><code class="docutils literal notranslate"><span class="pre">nil</span></code><a class="headerlink" href="#nil" title="Permalink to this headline"></a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">nil</span></code><a class="headerlink" href="#nil" title="Permalink to this headline">¶</a></h4>
 <p>The Nil type is the null type, which means that the object has an
 invalid value, or it can be said that the object has no meaningful
 value. This is a very special type. Although we might say that a
@@ -90,7 +89,7 @@ can be used in logic operations. In logic operations, <code class="docutils lite
 equivalent to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 </section>
 <section id="integer-type">
-<h4>Integer type<a class="headerlink" href="#integer-type" title="Permalink to this headline"></a></h4>
+<h4>Integer type<a class="headerlink" href="#integer-type" title="Permalink to this headline">¶</a></h4>
 <p>The integer type (integer) represents a signed integer, referred to as
 an integer. The number of bits of the integer represented by this type
 depends on the specific implementation, and usually consists of a 32-bit
@@ -103,7 +102,7 @@ integers is between  −2147483648 and 2147483647.</p>
 member <code class="docutils literal notranslate"><span class="pre">toint()</span></code> it we be called and the return value converted to <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
 </section>
 <section id="real-number-type">
-<h4>Real Number Type<a class="headerlink" href="#real-number-type" title="Permalink to this headline"></a></h4>
+<h4>Real Number Type<a class="headerlink" href="#real-number-type" title="Permalink to this headline">¶</a></h4>
 <p>The real type (real), to be precise, is a floating-point type. Real
 number types are usually implemented as single-precision floating-point
 numbers or double-precision floating-point numbers. The real number type
@@ -117,7 +116,7 @@ two values of type <code class="docutils literal notranslate"><span class="pre">
 time, the integers are usually converted to real numbers.</p>
 </section>
 <section id="boolean-type">
-<h4>Boolean type<a class="headerlink" href="#boolean-type" title="Permalink to this headline"></a></h4>
+<h4>Boolean type<a class="headerlink" href="#boolean-type" title="Permalink to this headline">¶</a></h4>
 <p>The Boolean type (boolean) is used for logical operations. It has two
 values <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code>, which represent the two true values (true and
 false) in logic and Boolean algebra. The Boolean type is mainly used for
@@ -148,7 +147,7 @@ otherwise it will be converted to <code class="docutils literal notranslate"><sp
 <p>Any value can be converted to <code class="docutils literal notranslate"><span class="pre">bool</span></code> using <code class="docutils literal notranslate"><span class="pre">bool()</span></code> function.</p>
 </section>
 <section id="string">
-<h4>String<a class="headerlink" href="#string" title="Permalink to this headline"></a></h4>
+<h4>String<a class="headerlink" href="#string" title="Permalink to this headline">¶</a></h4>
 <p>A string is a sequence of characters. In terms of storage, Berry divides
 strings into long strings and short strings. There is only one instance
 of the same short character string in memory, and all short character
@@ -172,7 +171,7 @@ transparent to the Berry program.</p>
 operations.</p>
 </section>
 <section id="function">
-<h4>Function<a class="headerlink" href="#function" title="Permalink to this headline"></a></h4>
+<h4>Function<a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h4>
 <p>A function is a piece of code that is encapsulated and available for
 call, generally used to implement a specific function. Function is
 actually a big category, which includes several subtypes such as
@@ -193,7 +192,7 @@ frequently and has performance requirements, it is also recommended to
 rewrite it as a native function or native closure.</p>
 </section>
 <section id="class">
-<h4>Class<a class="headerlink" href="#class" title="Permalink to this headline"></a></h4>
+<h4>Class<a class="headerlink" href="#class" title="Permalink to this headline">¶</a></h4>
 <p>In object-oriented programming, a class is an extensible program code
 template. Classes are used to create instance objects, so the class can
 be said to be the “type” of the instance. All instance objects are of
@@ -205,7 +204,7 @@ read-only object, once defined, it cannot be modified.</p>
 <p>Classes can only compare equals and unequals, but cannot compare sizes.</p>
 </section>
 <section id="examples">
-<h4>Examples<a class="headerlink" href="#examples" title="Permalink to this headline"></a></h4>
+<h4>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h4>
 <p>An instance is a materialized object generated by a class, and the
 process of generating an instance from a class is called <code class="docutils literal notranslate"><span class="pre">Instantiate</span></code>.
 In object-oriented programming, “instance” is usually synonymous with
@@ -223,12 +222,12 @@ methods.</p>
 </section>
 </section>
 <section id="class-type">
-<h3>2.1.2 Class Type<a class="headerlink" href="#class-type" title="Permalink to this headline"></a></h3>
+<h3>2.1.2 Class Type<a class="headerlink" href="#class-type" title="Permalink to this headline">¶</a></h3>
 <p>Some of the built-in types are class types, they are <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">map</span></code> and
 <code class="docutils literal notranslate"><span class="pre">range</span></code>. Unlike custom types, built-in class types can be constructed
 using literals, for example <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> is a literal of type <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
 <section id="list">
-<h4>List<a class="headerlink" href="#list" title="Permalink to this headline"></a></h4>
+<h4>List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h4>
 <p>The List class is a container that provides support for list data types.
 Berry’s list is an ordered collection of elements, and each element in
 the list has a unique integer index, and each element can be accessed
@@ -252,7 +251,7 @@ separated by commas, for example:</p>
 <p>Operations: see chapter 7.</p>
 </section>
 <section id="map">
-<h4>Map<a class="headerlink" href="#map" title="Permalink to this headline"></a></h4>
+<h4>Map<a class="headerlink" href="#map" title="Permalink to this headline">¶</a></h4>
 <p>Map is also a kind of container, map is a collection of key-value pairs,
 and each possible key appears at most once in the collection. The Map
 container provides the following basic operations:</p>
@@ -277,7 +276,7 @@ key-value pairs. E.g:</p>
 <p>Operations: see chapter 7.</p>
 </section>
 <section id="range">
-<h4>Range<a class="headerlink" href="#range" title="Permalink to this headline"></a></h4>
+<h4>Range<a class="headerlink" href="#range" title="Permalink to this headline">¶</a></h4>
 <p>The Range container represents an integer range, which is usually used
 to iterate in an integer range. This type has a <code class="docutils literal notranslate"><span class="pre">__lower__</span></code> member and
 <code class="docutils literal notranslate"><span class="pre">__upper__</span></code> member, which represent the lower and upper bounds of the
@@ -307,7 +306,7 @@ number of iterations is <em>n</em> + 1. A common construct to iterate throug
 </div>
 </section>
 <section id="bytes">
-<h4>Bytes<a class="headerlink" href="#bytes" title="Permalink to this headline"></a></h4>
+<h4>Bytes<a class="headerlink" href="#bytes" title="Permalink to this headline">¶</a></h4>
 <p>Bytes object denote a bytes buffer which can be used to manipulate bytes
 buffers or to read/write some C memory areas or structures.</p>
 <p>See Chapter 7.</p>
@@ -315,7 +314,7 @@ buffers or to read/write some C memory areas or structures.</p>
 </section>
 </section>
 <section id="variables">
-<h2>2.2 Variables<a class="headerlink" href="#variables" title="Permalink to this headline"></a></h2>
+<h2>2.2 Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
 <p>A variable is a storage space with a name, and the data or information
 stored in the storage space is called the value of the variable.
 Variable names are used to refer to variables in source code. In
@@ -325,7 +324,7 @@ be accessed or changed at any time during the running of the program.
 Berry is a dynamically typed language, so the type of variable value is
 determined at runtime, and the variable can store any type of value.</p>
 <section id="define-variables">
-<h3>2.2.1 define variables<a class="headerlink" href="#define-variables" title="Permalink to this headline"></a></h3>
+<h3>2.2.1 define variables<a class="headerlink" href="#define-variables" title="Permalink to this headline">¶</a></h3>
 <p>The first way to define a variable is to use an assignment statement to
 assign a value to a new variable name:</p>
 <div class="algorithm">
@@ -400,7 +399,7 @@ initialize one or more variables when defining variables:</p>
 </div>
 </section>
 <section id="scope-and-life-cycle">
-<h3>2.2.2 Scope and Life Cycle<a class="headerlink" href="#scope-and-life-cycle" title="Permalink to this headline"></a></h3>
+<h3>2.2.2 Scope and Life Cycle<a class="headerlink" href="#scope-and-life-cycle" title="Permalink to this headline">¶</a></h3>
 <p>As mentioned earlier, variable names can be bound to multiple variable
 entities (storage spaces), and variable names are bound to only one
 entity at each position. The entity bound by the variable name needs to
@@ -441,7 +440,7 @@ built-in scope are read-only, so “assignment” to the variables in the
 built-in scope actually defines a variable with the same name in the
 global scope, which overrides The symbols in the built-in scope.</p>
 <section id="nested-scope">
-<h4>nested scope<a class="headerlink" href="#nested-scope" title="Permalink to this headline"></a></h4>
+<h4>nested scope<a class="headerlink" href="#nested-scope" title="Permalink to this headline">¶</a></h4>
 <p>Nested scope means that the scope contains another scope. We call the
 contained scope <strong>Inner scope</strong>, and the scope that contains the inner
 scope <strong>Outer scope</strong>. The name defined in the outer scope can be
@@ -450,7 +449,7 @@ already defined in the outer scope. The previous example using <code class="docu
 define variables describes this scenario.</p>
 </section>
 <section id="variable-life-cycle">
-<h4>Variable Life Cycle<a class="headerlink" href="#variable-life-cycle" title="Permalink to this headline"></a></h4>
+<h4>Variable Life Cycle<a class="headerlink" href="#variable-life-cycle" title="Permalink to this headline">¶</a></h4>
 <p>There is no concept of variable names when the program is running, and
 variables exist in the form of entities at this time. The “validity
 period” of a variable during program execution is the variable’s <strong>Life
@@ -472,7 +471,7 @@ and the table can be accessed anywhere in the program.</p>
 </section>
 </section>
 <section id="type-of-variable">
-<h3>2.2.3 Type of variable<a class="headerlink" href="#type-of-variable" title="Permalink to this headline"></a></h3>
+<h3>2.2.3 Type of variable<a class="headerlink" href="#type-of-variable" title="Permalink to this headline">¶</a></h3>
 <p>Berry determines the type of the variable at runtime. In other words,
 the variable can store any type of value. Therefore Berry is a <strong>Dynamic
 typing</strong> language. The interpreter does not deduce the type of the

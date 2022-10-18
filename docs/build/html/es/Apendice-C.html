@@ -36,7 +36,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../en/Home.html">Welcome to the berry wiki!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Home.html">Bienvenido a la wiki de Berry!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
 </ul>
 
         </div>
@@ -65,14 +64,14 @@
              
   <!-- Spanish Translation: Emiliano Gonzalez (egonzalez . hiperion @ gmail . com) -->
 <section id="guia-de-portabilidad">
-<h1>Guía de portabilidad<a class="headerlink" href="#guia-de-portabilidad" title="Permalink to this headline"></a></h1>
+<h1>Guía de portabilidad<a class="headerlink" href="#guia-de-portabilidad" title="Permalink to this headline">¶</a></h1>
 <section id="archivo-de-configuracion">
-<h2>Archivo de configuración<a class="headerlink" href="#archivo-de-configuracion" title="Permalink to this headline"></a></h2>
+<h2>Archivo de configuración<a class="headerlink" href="#archivo-de-configuracion" title="Permalink to this headline">¶</a></h2>
 <p>El archivo de encabezado de configuración del intérprete de Berry es <em>berry_conf.h</em>. Este archivo incluye un lote de macros para la configuración y define algunos contenidos relacionados con la plataforma.</p>
 <section id="berry-conf-h-archivo">
-<h3><em>berry_conf.h</em> Archivo<a class="headerlink" href="#berry-conf-h-archivo" title="Permalink to this headline"></a></h3>
+<h3><em>berry_conf.h</em> Archivo<a class="headerlink" href="#berry-conf-h-archivo" title="Permalink to this headline">¶</a></h3>
 <section id="interruptor-de-macro-de-configuracion">
-<h4>Interruptor de macro de configuración<a class="headerlink" href="#interruptor-de-macro-de-configuracion" title="Permalink to this headline"></a></h4>
+<h4>Interruptor de macro de configuración<a class="headerlink" href="#interruptor-de-macro-de-configuracion" title="Permalink to this headline">¶</a></h4>
 <p>Las macros de configuración presentadas en esta sección generalmente se usan para compilar conmutadores de algunos códigos fuente. Para facilitar la descripción, llamamos a esta macro “cambio de macro”. Para el interruptor de macro, “on” se refiere a establecer el interruptor de macro en un valor distinto de cero, y “off” se refiere a establecer el valor del interruptor de macro en <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 <p>Algunos interruptores macro tienen varios estados, no solo “encendido” o “apagado”. Estos interruptores macro se usan generalmente para configuraciones con múltiples opciones. También hay algunas macros de configuración que no son conmutadores de macro. No importa cuál sea el valor de estas macros, no habrá código y, por lo tanto, no participará en la compilación. Estas macros se utilizan generalmente para configurar el valor de la cantidad.</p>
 <p><span id="section::BE_DEBUG"
@@ -111,7 +110,7 @@ La tabla de objetos integrada no se puede modificar cuando se utiliza la constru
 </section>
 </section>
 <section id="archivo-berry-port-c">
-<h2>Archivo <em>berry_port.c</em><a class="headerlink" href="#archivo-berry-port-c" title="Permalink to this headline"></a></h2>
+<h2>Archivo <em>berry_port.c</em><a class="headerlink" href="#archivo-berry-port-c" title="Permalink to this headline">¶</a></h2>
 <p>Este archivo implementa las funciones de E/S de bajo nivel del intérprete de Berry, incluida la entrada y salida estándar y la compatibilidad con el sistema de archivos. El archivo <em>berry_port.c</em> en el directorio <em>predeterminado</em> contiene un conjunto de soporte de E/S portátil. Las operaciones de archivo y la entrada y salida estándar se implementan mediante API en la biblioteca estándar de C. Las operaciones de ruta y carpeta son compatibles con las API estándar de Windows y POSIX. Este archivo también implementa un conjunto de funciones de operación de E/S basadas en FatFs para que los usuarios las usen directamente. Si necesita usar el intérprete de Berry en otros entornos, estas funciones deben implementarse por separado (es posible que solo deban implementarse parcialmente).</p>
 <p>Esta sección presentará las funciones de las funciones implementadas en el archivo <em>berry_port.c</em> y guiará a los usuarios para implementar su propia versión.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">be_writebuffer</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">length</span><span class="p">);</span><span class="w"></span>
