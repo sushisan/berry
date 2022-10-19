@@ -14,7 +14,9 @@
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6. Object Oriented Function" href="Chapter-6.html" />
+    <link rel="prev" title="4. Statement" href="Chapter-4.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,49 +34,36 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">5. Function</a><ul>
-<li><a class="reference internal" href="#basic-information">5.1 Basic Information</a><ul>
-<li><a class="reference internal" href="#function-definition">5.1.1 Function Definition</a><ul>
-<li><a class="reference internal" href="#named-function">Named Function</a></li>
-<li><a class="reference internal" href="#anonymous-function">Anonymous Function</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#call-function">Call function</a><ul>
-<li><a class="reference internal" href="#forward-call">Forward call</a></li>
-<li><a class="reference internal" href="#recursive-call">Recursive call</a></li>
-<li><a class="reference internal" href="#anonymous-function-call">Anonymous function call</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#formal-and-actual-parameters">Formal and actual parameters</a></li>
-<li><a class="reference internal" href="#function-with-variable-number-of-arguments-vararg">Function with variable number of arguments (vararg)</a></li>
-<li><a class="reference internal" href="#calling-a-function-with-dynamic-number-of-arguments">Calling a function with dynamic number of arguments</a></li>
-<li><a class="reference internal" href="#functions-and-local-variables">Functions and local variables</a></li>
-<li><a class="reference internal" href="#return-statement"><code class="docutils literal notranslate"><span class="pre">return</span></code> Statement</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#closure">closure</a><ul>
-<li><a class="reference internal" href="#basic-concepts">Basic Concepts</a><ul>
-<li><a class="reference internal" href="#use-of-closures">Use of closures</a><ul>
-<li><a class="reference internal" href="#lazy-evaluation">Lazy evaluation</a></li>
-<li><a class="reference internal" href="#function-private-communication">Function private communication</a></li>
-<li><a class="reference internal" href="#generate-multiple-functions">Generate multiple functions</a></li>
-<li><a class="reference internal" href="#simulate-private-members">Simulate private members</a></li>
-<li><a class="reference internal" href="#cache-result">Cache result</a></li>
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="Home.html">English</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="Reference.html">The Berry Script Language Reference Manual</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="Reference.html#preface">Preface</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Chapter-1.html">Chapter 1 — Basic Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-2.html">Chapter 2 — Types and Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-3.html">Chapter 3 — Expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-4.html">Chapter 4 — Statement</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Chapter 5 — Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-6.html">Chapter 6 — Object Oriented Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-7.html">Chapter 7 — Libraries and Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-8.html">Chapter 8 — Advanced features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-9.html">Chapter 9 — Language Interactive Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix-A.html">Appendix A — Grammar Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix-B.html">Appendix B — Compiler Interpreter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix-C.html">Appendix C — Porting Guide</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#binding-free-variables">Binding free variables</a></li>
-<li><a class="reference internal" href="#create-closure-in-loop">Create closure in loop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FFI-Example.html">Making a Native Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FFI-Example.html#instantiate-a-list-object-in-a-native-function">Instantiate a <code class="docutils literal notranslate"><span class="pre">list</span></code> object in a native function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Roadmap.html">Roadmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Memory-Requirements.html">Memory Requirements</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#lambda-expression">Lambda expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Spanish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">Berry API</a></li>
 </ul>
-</li>
-</ul>
-</div>
+
         </div>
       </div>
     </nav>
@@ -89,6 +78,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="Home.html">Welcome to the berry wiki!</a> &raquo;</li>
+          <li><a href="Reference.html">The Berry Script Language Reference Manual</a> &raquo;</li>
       <li>5. Function</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/en/Chapter-5.md.txt" rel="nofollow"> View page source</a>
@@ -759,7 +750,10 @@ direct call, so that it will be called as a whole.</p>
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Chapter-4.html" class="btn btn-neutral float-left" title="4. Statement" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Chapter-6.html" class="btn btn-neutral float-right" title="6. Object Oriented Function" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

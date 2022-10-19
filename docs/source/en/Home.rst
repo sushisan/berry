@@ -2,10 +2,9 @@ Welcome to the berry wiki!
 ==========================
 
 .. toctree::
-   :maxdepth: 6
-   :caption: Contents:
 
-* :doc:`The Berry Script Language Reference Manual <Reference>`
-* :doc:`FFI-Example <FFI-Example>`
-* :doc:`Roadmap <Roadmap>`
+   The Berry Script Language Reference Manual <Reference>
+   FFI-Example <FFI-Example>
+   Roadmap <Roadmap>
+   Memory Requirements <Memory-Requirements>
   

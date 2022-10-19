@@ -2,9 +2,8 @@ Bienvenido a la wiki de Berry!
 ==============================
 
 .. toctree::
-   :maxdepth: 6
-   :caption: Contents:
 
-* :doc:`Manual de referencia del lenguaje Berry Script <Referencia>`
-* :doc:`FFI-Ejemplo <FFI-Ejemplo>`
-* :doc:`Hoja de ruta <Hoja-de-ruta>`
+   Manual de referencia del lenguaje Berry Script <Referencia>
+   FFI-Ejemplo <FFI-Ejemplo>
+   Hoja de ruta <Hoja-de-ruta>
+   Requerimientos de Memoria <Requerimientos-de-Memoria>

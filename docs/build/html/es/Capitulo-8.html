@@ -14,7 +14,9 @@
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9. FFI" href="Capitulo-9.html" />
+    <link rel="prev" title="7. Bibliotecas y Módulos" href="Capitulo-7.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,44 +34,36 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">8. Características avanzadas</a><ul>
-<li><a class="reference internal" href="#modo-estricto">8.1 Modo <code class="docutils literal notranslate"><span class="pre">estricto</span></code></a><ul>
-<li><a class="reference internal" href="#var-obligatorio-para-variables-locales"><code class="docutils literal notranslate"><span class="pre">var</span></code> obligatorio para variables locales</a></li>
-<li><a class="reference internal" href="#sin-anulacion-de-elementos-integrados">Sin anulación de elementos integrados</a></li>
-<li><a class="reference internal" href="#multiples-var-con-el-mismo-nombre-no-permitidos-en-el-mismo-ambito">Múltiples <code class="docutils literal notranslate"><span class="pre">var</span></code> con el mismo nombre no permitidos en el mismo ámbito</a></li>
-<li><a class="reference internal" href="#no-ocultar-la-variable-local-del-alcance-externo">No ocultar la variable local del alcance externo</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#miembros-virtuales">8.2 Miembros virtuales</a><ul>
-<li><a class="reference internal" href="#modulo-undefined">Módulo <code class="docutils literal notranslate"><span class="pre">undefined</span></code></a></li>
-<li><a class="reference internal" href="#llamada-implicita-de-member">Llamada implícita de <code class="docutils literal notranslate"><span class="pre">member()</span></code></a></li>
-<li><a class="reference internal" href="#llamada-implicita-de-setmember">Llamada implícita de <code class="docutils literal notranslate"><span class="pre">setmember()</span></code></a></li>
-<li><a class="reference internal" href="#manejo-de-excepciones">Manejo de excepciones</a></li>
-<li><a class="reference internal" href="#especificidades-para-las-clases">Especificidades para las clases</a></li>
-<li><a class="reference internal" href="#especificidades-de-los-modulos">Especificidades de los módulos</a></li>
-<li><a class="reference internal" href="#ejemplo">Ejemplo</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#como-empaquetar-un-modulo">8.3 Cómo empaquetar un módulo</a><ul>
-<li><a class="reference internal" href="#comportamiento-de-import">Comportamiento de <code class="docutils literal notranslate"><span class="pre">import</span></code></a></li>
-<li><a class="reference internal" href="#empaquetado-de-un-modulo">Empaquetado de un módulo</a></li>
-<li><a class="reference internal" href="#empaquetar-un-singleton-monada">Empaquetar un singleton (mónada)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#solidificacion">8.4 Solidificación</a><ul>
-<li><a class="reference internal" href="#modulo-solidify">Módulo <code class="docutils literal notranslate"><span class="pre">solidify</span></code></a></li>
-<li><a class="reference internal" href="#solidificacion-de-funciones">Solidificación de funciones</a></li>
-<li><a class="reference internal" href="#solidificacion-de-clases">Solidificación de clases</a></li>
-<li><a class="reference internal" href="#solidificacion-de-modulos">Solidificación de módulos</a></li>
-<li><a class="reference internal" href="#limitaciones-de-la-solidificacion">limitaciones de la solidificación</a></li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../en/Home.html">English</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="Home.html">Spanish</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="Referencia.html">Manual de referencia del lenguaje Berry Script</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="Referencia.html#prefacio">Prefacio</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Capitulo-1.html">Capítulo 1 - Información básica</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Capitulo-2.html">Capítulo 2 - Tipos y variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Capitulo-3.html">Capítulo 3 - Expresión</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Capitulo-4.html">Capítulo 4 - Declaración</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Capitulo-5.html">Capítulo 5 - Función</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Capitulo-6.html">Capítulo 6 - Función orientada a objetos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Capitulo-7.html">Capítulo 7 - Bibliotecas y módulos</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Capítulo 8 - Funciones avanzadas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Capitulo-9.html">Capítulo 9 - Interfaz interactiva del lenguaje</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Apendice-A.html">Apéndice A - Definición de gramática</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Apendice-B.html">Apéndice B - Intérprete del compilador</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Apendice-C.html">Apéndice C - Guía de Portabilidad</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="FFI-Ejemplo.html">Hacer una función nativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FFI-Ejemplo.html#crear-una-instancia-de-un-objeto-list-en-una-funcion-nativa">Crear una instancia de un objeto <code class="docutils literal notranslate"><span class="pre">list</span></code> en una función nativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hoja-de-ruta.html">Hoja de ruta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Requerimientos-de-Memoria.html">Requerimientos de Memoria</a></li>
 </ul>
-</div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">Berry API</a></li>
+</ul>
+
         </div>
       </div>
     </nav>
@@ -84,6 +78,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="Home.html">Bienvenido a la wiki de Berry!</a> &raquo;</li>
+          <li><a href="Referencia.html">Manual de referencia del lenguaje Berry Script</a> &raquo;</li>
       <li>8. Características avanzadas</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/es/Capitulo-8.md.txt" rel="nofollow"> View page source</a>
@@ -788,7 +784,10 @@ stack traceback:
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Capitulo-7.html" class="btn btn-neutral float-left" title="7. Bibliotecas y Módulos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Capitulo-9.html" class="btn btn-neutral float-right" title="9. FFI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

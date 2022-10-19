@@ -1,23 +1,6 @@
 The Berry Script Language Reference Manual
 ##########################################
 
-.. toctree::
-   :maxdepth: 30
-   :caption: Contents:
-
-* :doc:`Chapter 1 — Basic Information <Chapter-1>`
-* :doc:`Chapter 2 — Types and Variables <Chapter-2>`
-* :doc:`Chapter 3 — Expression <Chapter-3>`
-* :doc:`Chapter 4 — Statement <Chapter-4>`
-* :doc:`Chapter 5 — Function <Chapter-5>`
-* :doc:`Chapter 6 — Object Oriented Function <Chapter-6>`
-* :doc:`Chapter 7 — Libraries and Modules <Chapter-7>`
-* :doc:`Chapter 8 — Advanced features <Chapter-8>`
-* :doc:`Chapter 9 — Language Interactive Interface <Chapter-9>`
-* :doc:`Appendix A — Grammar Definition <Appendix-A>`
-* :doc:`Appendix B — Compiler Interpreter <Appendix-B>`
-* :doc:`Appendix C — Porting Guide <Appendix-C>`
-
 Preface
 ^^^^^^^
 
@@ -38,3 +21,19 @@ The author’s level is limited, and the writing is in a hurry. If there are any
 Guan Wenliang
 
 April 2019
+
+.. toctree::
+
+   Chapter 1 — Basic Information <Chapter-1>
+   Chapter 2 — Types and Variables <Chapter-2>
+   Chapter 3 — Expression <Chapter-3>
+   Chapter 4 — Statement <Chapter-4>
+   Chapter 5 — Function <Chapter-5>
+   Chapter 6 — Object Oriented Function <Chapter-6>
+   Chapter 7 — Libraries and Modules <Chapter-7>
+   Chapter 8 — Advanced features <Chapter-8>
+   Chapter 9 — Language Interactive Interface <Chapter-9>
+   Appendix A — Grammar Definition <Appendix-A>
+   Appendix B — Compiler Interpreter <Appendix-B>
+   Appendix C — Porting Guide <Appendix-C>
+

@@ -14,7 +14,9 @@
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. Statement" href="Chapter-4.html" />
+    <link rel="prev" title="2. Types and Variables" href="Chapter-2.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,48 +34,36 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">3. Expression</a><ul>
-<li><a class="reference internal" href="#basics">3.1 Basics</a><ul>
-<li><a class="reference internal" href="#operators-and-expressions">Operators and expressions</a><ul>
-<li><a class="reference internal" href="#operator-combination-expression">Operator combination expression</a></li>
-<li><a class="reference internal" href="#operand-type">operand type</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#priority-and-associativity">3.1.1 Priority and associativity</a><ul>
-<li><a class="reference internal" href="#use-brackets-to-increase-priority">Use brackets to increase priority</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#operator">3.2 Operator</a><ul>
-<li><a class="reference internal" href="#arithmetic-operators">3.2.1 Arithmetic Operators</a></li>
-<li><a class="reference internal" href="#relational-operators">3.2.2 Relational operators</a></li>
-<li><a class="reference internal" href="#logical-operators">logical operators</a></li>
-<li><a class="reference internal" href="#bitwise-operator">Bitwise Operator</a></li>
-<li><a class="reference internal" href="#assignment-operator">Assignment operator</a><ul>
-<li><a class="reference internal" href="#simple-assignment-operator">Simple assignment operator</a></li>
-<li><a class="reference internal" href="#compound-assignment-operator">Compound Assignment Operator</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#domain-operator-and-subscript-operator">domain operator and subscript operator</a></li>
-<li><a class="reference internal" href="#conditional-operator">Conditional Operator</a><ul>
-<li><a class="reference internal" href="#nested-condition-operators">Nested Condition Operators</a></li>
-<li><a class="reference internal" href="#priority-of-conditional-operators">Priority of conditional operators</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#concatenation-operator">Concatenation Operator</a><ul>
-<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">+</span></code> operator</a></li>
-<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">..</span></code> operator</a></li>
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="Home.html">English</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="Reference.html">The Berry Script Language Reference Manual</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="Reference.html#preface">Preface</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Chapter-1.html">Chapter 1 — Basic Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-2.html">Chapter 2 — Types and Variables</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Chapter 3 — Expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-4.html">Chapter 4 — Statement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-5.html">Chapter 5 — Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-6.html">Chapter 6 — Object Oriented Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-7.html">Chapter 7 — Libraries and Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-8.html">Chapter 8 — Advanced features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-9.html">Chapter 9 — Language Interactive Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix-A.html">Appendix A — Grammar Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix-B.html">Appendix B — Compiler Interpreter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix-C.html">Appendix C — Porting Guide</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="FFI-Example.html">Making a Native Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FFI-Example.html#instantiate-a-list-object-in-a-native-function">Instantiate a <code class="docutils literal notranslate"><span class="pre">list</span></code> object in a native function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Roadmap.html">Roadmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Memory-Requirements.html">Memory Requirements</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Spanish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">Berry API</a></li>
 </ul>
-</div>
+
         </div>
       </div>
     </nav>
@@ -88,6 +78,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="Home.html">Welcome to the berry wiki!</a> &raquo;</li>
+          <li><a href="Reference.html">The Berry Script Language Reference Manual</a> &raquo;</li>
       <li>3. Expression</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/en/Chapter-3.md.txt" rel="nofollow"> View page source</a>
@@ -811,7 +803,10 @@ limit. Such integer range objects are often used for iteration.</p>
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Chapter-2.html" class="btn btn-neutral float-left" title="2. Types and Variables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Chapter-4.html" class="btn btn-neutral float-right" title="4. Statement" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

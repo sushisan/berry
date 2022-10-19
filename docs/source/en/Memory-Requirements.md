@@ -1,4 +1,4 @@
-# Memory Requeirements
+# Memory Requirements
 
 ## RAM required
 

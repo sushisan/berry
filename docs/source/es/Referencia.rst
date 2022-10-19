@@ -1,23 +1,6 @@
 Manual de referencia del lenguaje Berry Script
 ##############################################
 
-.. toctree::
-   :maxdepth: 30
-   :caption: Contents:
-
-* :doc:`Capítulo 1 - Información básica <Capitulo-1>`
-* :doc:`Capítulo 2 - Tipos y variables <Capitulo-2>`
-* :doc:`Capítulo 3 - Expresión <Capitulo-3>`
-* :doc:`Capítulo 4 - Declaración <Capitulo-4>`
-* :doc:`Capítulo 5 - Función <Capitulo-5>`
-* :doc:`Capítulo 6 - Función orientada a objetos <Capitulo-6>`
-* :doc:`Capítulo 7 - Bibliotecas y módulos <Capitulo-7>`
-* :doc:`Capítulo 8 - Funciones avanzadas <Capitulo-8>`
-* :doc:`Capítulo 9 - Interfaz interactiva del lenguaje <Capitulo-9>`
-* :doc:`Apéndice A - Definición de gramática <Apendice-A>`
-* :doc:`Apéndice B - Intérprete del compilador <Apendice-B>`
-* :doc:`Apéndice C - Guía de Portabilidad <Apendice-C>`
-
 Prefacio
 ^^^^^^^^
 
@@ -38,3 +21,18 @@ El nivel del autor es limitado y la escritura apresurada. Si hay omisiones o err
 Guan Wenliang
 
 abril 2019
+
+.. toctree::
+
+   Capítulo 1 - Información básica <Capitulo-1>
+   Capítulo 2 - Tipos y variables <Capitulo-2>
+   Capítulo 3 - Expresión <Capitulo-3>
+   Capítulo 4 - Declaración <Capitulo-4>
+   Capítulo 5 - Función <Capitulo-5>
+   Capítulo 6 - Función orientada a objetos <Capitulo-6>
+   Capítulo 7 - Bibliotecas y módulos <Capitulo-7>
+   Capítulo 8 - Funciones avanzadas <Capitulo-8>
+   Capítulo 9 - Interfaz interactiva del lenguaje <Capitulo-9>
+   Apéndice A - Definición de gramática <Apendice-A>
+   Apéndice B - Intérprete del compilador <Apendice-B>
+   Apéndice C - Guía de Portabilidad <Apendice-C>

@@ -14,7 +14,9 @@
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8. Advanced features" href="Chapter-8.html" />
+    <link rel="prev" title="6. Object Oriented Function" href="Chapter-6.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,142 +34,36 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">7. Libraries and Modules</a><ul>
-<li><a class="reference internal" href="#basic-library">7.1 Basic library</a><ul>
-<li><a class="reference internal" href="#built-in-function">7.1.1 Built-in function</a><ul>
-<li><a class="reference internal" href="#print-function"><code class="docutils literal notranslate"><span class="pre">print</span></code> function</a></li>
-<li><a class="reference internal" href="#input-function"><code class="docutils literal notranslate"><span class="pre">input</span></code> function</a></li>
-<li><a class="reference internal" href="#type-function"><code class="docutils literal notranslate"><span class="pre">type</span></code> function</a></li>
-<li><a class="reference internal" href="#classname-function"><code class="docutils literal notranslate"><span class="pre">classname</span></code> function</a></li>
-<li><a class="reference internal" href="#classof-function"><code class="docutils literal notranslate"><span class="pre">classof</span></code> function</a></li>
-<li><a class="reference internal" href="#str-function"><code class="docutils literal notranslate"><span class="pre">str</span></code> function</a><ul>
-<li><a class="reference internal" href="#number-function"><code class="docutils literal notranslate"><span class="pre">number</span></code> function</a></li>
-<li><a class="reference internal" href="#int-function"><code class="docutils literal notranslate"><span class="pre">int</span></code> function</a></li>
-<li><a class="reference internal" href="#real-function"><code class="docutils literal notranslate"><span class="pre">real</span></code> function</a></li>
-<li><a class="reference internal" href="#bool-function"><code class="docutils literal notranslate"><span class="pre">bool</span></code> function</a></li>
-<li><a class="reference internal" href="#size-function"><code class="docutils literal notranslate"><span class="pre">size</span></code> function</a></li>
-<li><a class="reference internal" href="#super-function"><code class="docutils literal notranslate"><span class="pre">super</span></code> function</a></li>
-<li><a class="reference internal" href="#assert-function"><code class="docutils literal notranslate"><span class="pre">assert</span></code> function</a></li>
-<li><a class="reference internal" href="#compile-function"><code class="docutils literal notranslate"><span class="pre">compile</span></code> function</a></li>
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="Home.html">English</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="Reference.html">The Berry Script Language Reference Manual</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="Reference.html#preface">Preface</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Chapter-1.html">Chapter 1 — Basic Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-2.html">Chapter 2 — Types and Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-3.html">Chapter 3 — Expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-4.html">Chapter 4 — Statement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-5.html">Chapter 5 — Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-6.html">Chapter 6 — Object Oriented Function</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Chapter 7 — Libraries and Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-8.html">Chapter 8 — Advanced features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-9.html">Chapter 9 — Language Interactive Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix-A.html">Appendix A — Grammar Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix-B.html">Appendix B — Compiler Interpreter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix-C.html">Appendix C — Porting Guide</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#list-class"><code class="docutils literal notranslate"><span class="pre">list</span></code> Class</a><ul>
-<li><a class="reference internal" href="#list-method-constructor"><code class="docutils literal notranslate"><span class="pre">list</span></code> method (Constructor)</a></li>
-<li><a class="reference internal" href="#tostring-method"><code class="docutils literal notranslate"><span class="pre">tostring</span></code> method</a></li>
-<li><a class="reference internal" href="#concat-method"><code class="docutils literal notranslate"><span class="pre">concat</span></code> method</a></li>
-<li><a class="reference internal" href="#push-method"><code class="docutils literal notranslate"><span class="pre">push</span></code> method</a></li>
-<li><a class="reference internal" href="#insert-method"><code class="docutils literal notranslate"><span class="pre">insert</span></code> method</a></li>
-<li><a class="reference internal" href="#remove-method"><code class="docutils literal notranslate"><span class="pre">remove</span></code> method</a></li>
-<li><a class="reference internal" href="#item-method"><code class="docutils literal notranslate"><span class="pre">item</span></code> method</a></li>
-<li><a class="reference internal" href="#setitem-method"><code class="docutils literal notranslate"><span class="pre">setitem</span></code> method</a></li>
-<li><a class="reference internal" href="#size-method"><code class="docutils literal notranslate"><span class="pre">size</span></code> method</a></li>
-<li><a class="reference internal" href="#resize-method"><code class="docutils literal notranslate"><span class="pre">resize</span></code> method</a></li>
-<li><a class="reference internal" href="#iter-method"><code class="docutils literal notranslate"><span class="pre">iter</span></code> method</a></li>
-<li><a class="reference internal" href="#find-method"><code class="docutils literal notranslate"><span class="pre">find</span></code> method</a></li>
-<li><a class="reference internal" href="#reverse-method"><code class="docutils literal notranslate"><span class="pre">reverse</span></code> method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FFI-Example.html">Making a Native Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FFI-Example.html#instantiate-a-list-object-in-a-native-function">Instantiate a <code class="docutils literal notranslate"><span class="pre">list</span></code> object in a native function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Roadmap.html">Roadmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Memory-Requirements.html">Memory Requirements</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#map-class"><code class="docutils literal notranslate"><span class="pre">map</span></code> Class</a><ul>
-<li><a class="reference internal" href="#map-method-constructor"><code class="docutils literal notranslate"><span class="pre">map</span></code> method (Constructor)</a></li>
-<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">tostring</span></code> method</a></li>
-<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">insert</span></code> method</a></li>
-<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">remove</span></code> method</a></li>
-<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">item</span></code> method</a></li>
-<li><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">setitem</span></code> method</a></li>
-<li><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">size</span></code> method</a></li>
-<li><a class="reference internal" href="#contains-method"><code class="docutils literal notranslate"><span class="pre">contains</span></code> method</a></li>
-<li><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">find</span></code> method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Spanish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">Berry API</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#range-class"><code class="docutils literal notranslate"><span class="pre">range</span></code> Class</a></li>
-<li><a class="reference internal" href="#bytes-class"><code class="docutils literal notranslate"><span class="pre">bytes</span></code> Class</a><ul>
-<li><a class="reference internal" href="#bytes-method-constructor"><code class="docutils literal notranslate"><span class="pre">bytes</span></code> method (Constructor)</a></li>
-<li><a class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">size</span></code> method</a></li>
-<li><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">tostring</span></code> method</a></li>
-<li><a class="reference internal" href="#tohex-method"><code class="docutils literal notranslate"><span class="pre">tohex</span></code> method</a></li>
-<li><a class="reference internal" href="#fromhex-method"><code class="docutils literal notranslate"><span class="pre">fromhex</span></code> method</a></li>
-<li><a class="reference internal" href="#clear-method"><code class="docutils literal notranslate"><span class="pre">clear</span></code> method</a></li>
-<li><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">resize</span></code> method</a></li>
-<li><a class="reference internal" href="#concatenation-and-methods">Concatenation <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">..</span></code> methods</a></li>
-<li><a class="reference internal" href="#bytes-access-method">bytes access <code class="docutils literal notranslate"><span class="pre">[]</span></code> method</a></li>
-<li><a class="reference internal" href="#range-access-method">range access <code class="docutils literal notranslate"><span class="pre">[]</span></code> method</a></li>
-<li><a class="reference internal" href="#copy-method"><code class="docutils literal notranslate"><span class="pre">copy</span></code> method</a></li>
-<li><a class="reference internal" href="#get-geti-methods"><code class="docutils literal notranslate"><span class="pre">get,</span> <span class="pre">geti</span></code> methods</a></li>
-<li><a class="reference internal" href="#set-seti-methods"><code class="docutils literal notranslate"><span class="pre">set,</span> <span class="pre">seti</span></code> methods</a></li>
-<li><a class="reference internal" href="#add-method"><code class="docutils literal notranslate"><span class="pre">add</span></code> method</a></li>
-<li><a class="reference internal" href="#asstring-method"><code class="docutils literal notranslate"><span class="pre">asstring</span></code> method</a></li>
-<li><a class="reference internal" href="#fromstring-method"><code class="docutils literal notranslate"><span class="pre">fromstring</span></code> method</a></li>
-<li><a class="reference internal" href="#bits-manipulation-setbits-getbits-methods">bits manipulation <code class="docutils literal notranslate"><span class="pre">setbits,</span> <span class="pre">getbits</span></code> methods</a></li>
-<li><a class="reference internal" href="#base64-encode-tob64-method">base64 encode <code class="docutils literal notranslate"><span class="pre">tob64</span></code> method</a></li>
-<li><a class="reference internal" href="#base64-decode-fromb64-method">base64 decode <code class="docutils literal notranslate"><span class="pre">fromb64</span></code> method</a></li>
-<li><a class="reference internal" href="#getfloat-and-setfloat-methods"><code class="docutils literal notranslate"><span class="pre">getfloat</span></code> and <code class="docutils literal notranslate"><span class="pre">setfloat</span></code> methods</a></li>
-<li><a class="reference internal" href="#buffer-method"><code class="docutils literal notranslate"><span class="pre">_buffer</span></code> method</a></li>
-<li><a class="reference internal" href="#change-buffer-method"><code class="docutils literal notranslate"><span class="pre">_change_buffer</span></code> method</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#expansion-modules">Expansion Modules</a><ul>
-<li><a class="reference internal" href="#json-module">JSON Module</a><ul>
-<li><a class="reference internal" href="#load-function"><code class="docutils literal notranslate"><span class="pre">load</span></code> function</a></li>
-<li><a class="reference internal" href="#dump-function"><code class="docutils literal notranslate"><span class="pre">dump</span></code> function</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#math-module">Math Module</a><ul>
-<li><a class="reference internal" href="#pi-constant"><code class="docutils literal notranslate"><span class="pre">pi</span></code> constant</a></li>
-<li><a class="reference internal" href="#abs-function"><code class="docutils literal notranslate"><span class="pre">abs</span></code> function</a></li>
-<li><a class="reference internal" href="#ceil-function"><code class="docutils literal notranslate"><span class="pre">ceil</span></code> function</a></li>
-<li><a class="reference internal" href="#floor-function"><code class="docutils literal notranslate"><span class="pre">floor</span></code> function</a></li>
-<li><a class="reference internal" href="#sin-function"><code class="docutils literal notranslate"><span class="pre">sin</span></code> function</a></li>
-<li><a class="reference internal" href="#cos-function"><code class="docutils literal notranslate"><span class="pre">cos</span></code> function</a></li>
-<li><a class="reference internal" href="#tan-function"><code class="docutils literal notranslate"><span class="pre">tan</span></code> function</a></li>
-<li><a class="reference internal" href="#asin-function"><code class="docutils literal notranslate"><span class="pre">asin</span></code> function</a></li>
-<li><a class="reference internal" href="#acos-function"><code class="docutils literal notranslate"><span class="pre">acos</span></code> function</a></li>
-<li><a class="reference internal" href="#atan-function"><code class="docutils literal notranslate"><span class="pre">atan</span></code> function</a></li>
-<li><a class="reference internal" href="#sinh-function"><code class="docutils literal notranslate"><span class="pre">sinh</span></code> function</a></li>
-<li><a class="reference internal" href="#cosh-function"><code class="docutils literal notranslate"><span class="pre">cosh</span></code> function</a></li>
-<li><a class="reference internal" href="#tanh-function"><code class="docutils literal notranslate"><span class="pre">tanh</span></code> function</a></li>
-<li><a class="reference internal" href="#sqrt-function"><code class="docutils literal notranslate"><span class="pre">sqrt</span></code> function</a></li>
-<li><a class="reference internal" href="#exp-function"><code class="docutils literal notranslate"><span class="pre">exp</span></code> function</a></li>
-<li><a class="reference internal" href="#log-function"><code class="docutils literal notranslate"><span class="pre">log</span></code> function</a></li>
-<li><a class="reference internal" href="#log10-function"><code class="docutils literal notranslate"><span class="pre">log10</span></code> function</a></li>
-<li><a class="reference internal" href="#deg-function"><code class="docutils literal notranslate"><span class="pre">deg</span></code> function</a></li>
-<li><a class="reference internal" href="#rad-function"><code class="docutils literal notranslate"><span class="pre">rad</span></code> function</a></li>
-<li><a class="reference internal" href="#pow-function"><code class="docutils literal notranslate"><span class="pre">pow</span></code> function</a></li>
-<li><a class="reference internal" href="#srand-function"><code class="docutils literal notranslate"><span class="pre">srand</span></code> function</a></li>
-<li><a class="reference internal" href="#rand-function"><code class="docutils literal notranslate"><span class="pre">rand</span></code> function</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#time-module">Time Module</a><ul>
-<li><a class="reference internal" href="#time-function"><code class="docutils literal notranslate"><span class="pre">time</span></code> function</a></li>
-<li><a class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">dump</span></code> function</a></li>
-<li><a class="reference internal" href="#clock-function"><code class="docutils literal notranslate"><span class="pre">clock</span></code> function</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#string-module">String Module</a><ul>
-<li><a class="reference internal" href="#count-function"><code class="docutils literal notranslate"><span class="pre">count</span></code> function</a></li>
-<li><a class="reference internal" href="#split-function"><code class="docutils literal notranslate"><span class="pre">split</span></code> function</a></li>
-<li><a class="reference internal" href="#find-function"><code class="docutils literal notranslate"><span class="pre">find</span></code> function</a></li>
-<li><a class="reference internal" href="#hex-function"><code class="docutils literal notranslate"><span class="pre">hex</span></code> function</a></li>
-<li><a class="reference internal" href="#byte-function"><code class="docutils literal notranslate"><span class="pre">byte</span></code> function</a></li>
-<li><a class="reference internal" href="#char-function"><code class="docutils literal notranslate"><span class="pre">char</span></code> function</a></li>
-<li><a class="reference internal" href="#format-function"><code class="docutils literal notranslate"><span class="pre">format</span></code> function</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-os">Module <code class="docutils literal notranslate"><span class="pre">os</span></code></a></li>
-<li><a class="reference internal" href="#module-global">Module <code class="docutils literal notranslate"><span class="pre">global</span></code></a></li>
-<li><a class="reference internal" href="#module-introspect">Module <code class="docutils literal notranslate"><span class="pre">introspect</span></code></a></li>
-<li><a class="reference internal" href="#module-solidify">Module <code class="docutils literal notranslate"><span class="pre">solidify</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
+
         </div>
       </div>
     </nav>
@@ -182,6 +78,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="Home.html">Welcome to the berry wiki!</a> &raquo;</li>
+          <li><a href="Reference.html">The Berry Script Language Reference Manual</a> &raquo;</li>
       <li>7. Libraries and Modules</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/en/Chapter-7.md.txt" rel="nofollow"> View page source</a>
@@ -1844,7 +1742,10 @@ to native C functions.</p>
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Chapter-6.html" class="btn btn-neutral float-left" title="6. Object Oriented Function" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Chapter-8.html" class="btn btn-neutral float-right" title="8. Advanced features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

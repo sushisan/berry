@@ -14,7 +14,9 @@
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Grammar Definition" href="Appendix-A.html" />
+    <link rel="prev" title="8. Advanced features" href="Chapter-8.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,50 +34,36 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">9. FFI</a><ul>
-<li><a class="reference internal" href="#basics">9.1 Basics</a><ul>
-<li><a class="reference internal" href="#virtual-machine">9.1.1 Virtual Machine</a></li>
-<li><a class="reference internal" href="#virtual-stack">9.1.2 Virtual Stack</a></li>
-<li><a class="reference internal" href="#operate-virtual-stack">Operate Virtual Stack</a><ul>
-<li><a class="reference internal" href="#index-and-stack-size">Index and stack size</a></li>
-<li><a class="reference internal" href="#get-value-from-stack">Get value from stack</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#native-function">Native function</a><ul>
-<li><a class="reference internal" href="#define-native-function">Define native function</a></li>
-<li><a class="reference internal" href="#use-native-function">Use native function</a></li>
-<li><a class="reference internal" href="#complete-example">Complete example</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#types-and-functions">Types and Functions</a><ul>
-<li><a class="reference internal" href="#type">Type</a></li>
-<li><a class="reference internal" href="#functions-and-macros">Functions and Macros</a></li>
-<li><a class="reference internal" href="#compile-time-construction-technology">Compile-time construction technology</a><ul>
-<li><a class="reference internal" href="#use-command">Use command</a></li>
-<li><a class="reference internal" href="#output-path">output path</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#compile-time-string-table">Compile-time string table</a><ul>
-<li><a class="reference internal" href="#use-constant-string">Use constant string</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#construct-object-at-compile-time">Construct object at compile time</a><ul>
-<li><a class="reference internal" href="#construct-map-at-compile-time">Construct Map at Compile Time</a></li>
-<li><a class="reference internal" href="#compile-time-construction-class">Compile-time construction class</a></li>
-<li><a class="reference internal" href="#building-module-at-compile-time">Building Module at Compile Time</a></li>
-<li><a class="reference internal" href="#construct-built-in-domain-at-compile-time">Construct Built-in Domain at Compile Time</a></li>
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="Home.html">English</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="Reference.html">The Berry Script Language Reference Manual</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="Reference.html#preface">Preface</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Chapter-1.html">Chapter 1 — Basic Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-2.html">Chapter 2 — Types and Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-3.html">Chapter 3 — Expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-4.html">Chapter 4 — Statement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-5.html">Chapter 5 — Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-6.html">Chapter 6 — Object Oriented Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-7.html">Chapter 7 — Libraries and Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Chapter-8.html">Chapter 8 — Advanced features</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Chapter 9 — Language Interactive Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix-A.html">Appendix A — Grammar Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix-B.html">Appendix B — Compiler Interpreter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix-C.html">Appendix C — Porting Guide</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="FFI-Example.html">Making a Native Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FFI-Example.html#instantiate-a-list-object-in-a-native-function">Instantiate a <code class="docutils literal notranslate"><span class="pre">list</span></code> object in a native function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Roadmap.html">Roadmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Memory-Requirements.html">Memory Requirements</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Spanish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">Berry API</a></li>
 </ul>
-</div>
+
         </div>
       </div>
     </nav>
@@ -90,6 +78,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="Home.html">Welcome to the berry wiki!</a> &raquo;</li>
+          <li><a href="Reference.html">The Berry Script Language Reference Manual</a> &raquo;</li>
       <li>9. FFI</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/en/Chapter-9.md.txt" rel="nofollow"> View page source</a>
@@ -1576,7 +1566,10 @@ time is <code class="docutils literal notranslate"><span class="pre">module</spa
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Chapter-8.html" class="btn btn-neutral float-left" title="8. Advanced features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Appendix-A.html" class="btn btn-neutral float-right" title="Grammar Definition" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
