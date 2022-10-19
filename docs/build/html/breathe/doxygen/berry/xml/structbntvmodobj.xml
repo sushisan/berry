@@ -45,11 +45,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="199" column="56"/>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="200" column="56"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>native module object node </para>
+<para>bntvmodobj </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
@@ -66,7 +66,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="181" column="1" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="181" bodyend="216"/>
+    <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="181" column="1" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="181" bodyend="217"/>
     <listofallmembers>
       <member refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" prot="public" virt="non-virtual"><scope>bntvmodobj</scope><name>name</name></member>
       <member refid="structbntvmodobj_1a047832327add822e27e964c2cf73d363" prot="public" virt="non-virtual"><scope>bntvmodobj</scope><name>type</name></member>

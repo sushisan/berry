@@ -885,7 +885,7 @@ El parámetro `vm` es el puntero de la instancia de la máquina virtual; `msg` e
 
 Mueve el valor en el índice `desde` a la posición del índice `hasta`. Esta función no elimina el valor de la posición del índice `desde`, solo modifica el valor de la posición del índice `hasta`.
 
-## Tecnología de construcción en tiempo de compilación
+### Tecnología de construcción en tiempo de compilación
 
 La tecnología de construcción en tiempo de compilación se implementa principalmente mediante *coc*, que se encuentra en la ruta *coc/coc* del directorio del código fuente del intérprete. La herramienta *coc* se usa para generar cadenas constantes y objetos constantes como código C, y se compilará en constantes cuando se compile el intérprete. En principio, la herramienta *coc* generará código a partir de la información de declaración del objeto constante (de acuerdo con un formato específico). El proceso calculará automáticamente el valor Hash y generará la tabla Hash.
 
