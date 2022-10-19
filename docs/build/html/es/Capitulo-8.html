@@ -32,12 +32,44 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../en/Home.html">Welcome to the berry wiki!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Home.html">Bienvenido a la wiki de Berry!</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">8. Características avanzadas</a><ul>
+<li><a class="reference internal" href="#modo-estricto">8.1 Modo <code class="docutils literal notranslate"><span class="pre">estricto</span></code></a><ul>
+<li><a class="reference internal" href="#var-obligatorio-para-variables-locales"><code class="docutils literal notranslate"><span class="pre">var</span></code> obligatorio para variables locales</a></li>
+<li><a class="reference internal" href="#sin-anulacion-de-elementos-integrados">Sin anulación de elementos integrados</a></li>
+<li><a class="reference internal" href="#multiples-var-con-el-mismo-nombre-no-permitidos-en-el-mismo-ambito">Múltiples <code class="docutils literal notranslate"><span class="pre">var</span></code> con el mismo nombre no permitidos en el mismo ámbito</a></li>
+<li><a class="reference internal" href="#no-ocultar-la-variable-local-del-alcance-externo">No ocultar la variable local del alcance externo</a></li>
 </ul>
-
+</li>
+<li><a class="reference internal" href="#miembros-virtuales">8.2 Miembros virtuales</a><ul>
+<li><a class="reference internal" href="#modulo-undefined">Módulo <code class="docutils literal notranslate"><span class="pre">undefined</span></code></a></li>
+<li><a class="reference internal" href="#llamada-implicita-de-member">Llamada implícita de <code class="docutils literal notranslate"><span class="pre">member()</span></code></a></li>
+<li><a class="reference internal" href="#llamada-implicita-de-setmember">Llamada implícita de <code class="docutils literal notranslate"><span class="pre">setmember()</span></code></a></li>
+<li><a class="reference internal" href="#manejo-de-excepciones">Manejo de excepciones</a></li>
+<li><a class="reference internal" href="#especificidades-para-las-clases">Especificidades para las clases</a></li>
+<li><a class="reference internal" href="#especificidades-de-los-modulos">Especificidades de los módulos</a></li>
+<li><a class="reference internal" href="#ejemplo">Ejemplo</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#como-empaquetar-un-modulo">8.3 Cómo empaquetar un módulo</a><ul>
+<li><a class="reference internal" href="#comportamiento-de-import">Comportamiento de <code class="docutils literal notranslate"><span class="pre">import</span></code></a></li>
+<li><a class="reference internal" href="#empaquetado-de-un-modulo">Empaquetado de un módulo</a></li>
+<li><a class="reference internal" href="#empaquetar-un-singleton-monada">Empaquetar un singleton (mónada)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#solidificacion">8.4 Solidificación</a><ul>
+<li><a class="reference internal" href="#modulo-solidify">Módulo <code class="docutils literal notranslate"><span class="pre">solidify</span></code></a></li>
+<li><a class="reference internal" href="#solidificacion-de-funciones">Solidificación de funciones</a></li>
+<li><a class="reference internal" href="#solidificacion-de-clases">Solidificación de clases</a></li>
+<li><a class="reference internal" href="#solidificacion-de-modulos">Solidificación de módulos</a></li>
+<li><a class="reference internal" href="#limitaciones-de-la-solidificacion">limitaciones de la solidificación</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
@@ -150,23 +182,23 @@ La motivación proviene de la integración de LVGL a Berry en Tasmota. La integr
 <li><p>generar una excepción - o <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">undefined</span></code> y devolver el módulo <code class="docutils literal notranslate"><span class="pre">undefined</span></code>. Esto se usa como un marcador para que la VM sepa que el atributo no existe, mientras se beneficia de excepciones consistentes.</p></li>
 </ul>
 <p>Ejemplo de un objeto dinámico al que puede agregar miembros, pero devolvería un error si el miembro no se agregó previamente.</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class dyn
-    var _attr
-    def init()
-        self._attr = {}
-    end
-    def setmember(nombre, valor)
-        self._attr[nombre] = valor
-    end
-    def member(nombre)
-        if self._attr.contains(nombre)
-            return self._attr[nombre]
-        else
-            import undefined
-            return undefined
-        end
-    end
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">dyn</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">_attr</span><span class="w"></span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="kr">self</span><span class="p">.</span><span class="na">_attr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="nf">setmember</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span><span class="w"> </span><span class="n">valor</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="kr">self</span><span class="p">.</span><span class="na">_attr</span><span class="p">[</span><span class="n">nombre</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">valor</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="nf">member</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="ow">if</span><span class="w"> </span><span class="kr">self</span><span class="p">.</span><span class="na">_attr</span><span class="p">.</span><span class="nf">contains</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="ow">return</span><span class="w"> </span><span class="kr">self</span><span class="p">.</span><span class="na">_attr</span><span class="p">[</span><span class="n">nombre</span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="ow">else</span><span class="w"></span>
+<span class="w">            </span><span class="kr">import</span><span class="w"> </span><span class="n">undefined</span><span class="w"></span>
+<span class="w">            </span><span class="ow">return</span><span class="w"> </span><span class="n">undefined</span><span class="w"></span>
+<span class="w">        </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Ejemplo de uso:</p>
@@ -252,25 +284,25 @@ Si el módulo es de solo lectura, se llama a <code class="docutils literal notra
 </pre></div>
 </div>
 <p>Ahora intentémoslo:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; t.a
-&#39;a&#39;
-&gt; t.b
-&#39;miembro b&#39;
-&gt; t.foo
-&#39;miembro foo&#39;
-&gt; t.bar = 2
-Almacenar &#39;bar&#39;: 2
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="na">a</span><span class="w"></span>
+<span class="s1">&#39;a&#39;</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="na">b</span><span class="w"></span>
+<span class="s1">&#39;miembro b&#39;</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="na">foo</span><span class="w"></span>
+<span class="s1">&#39;miembro foo&#39;</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="na">bar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">Almacenar</span><span class="w"> </span><span class="s1">&#39;bar&#39;</span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Esto también funciona para los módulos:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>m = module()
-m.a = 1
-m.member = def (nombre)
-    return &quot;miembro &quot;+nombre
-end
-m.setmember(nombre, valor)
-    print(&quot;Almacenar &#39;&quot;+nombre+&quot;&#39;: &quot;+str(valor))
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">module</span><span class="p">()</span><span class="w"></span>
+<span class="n">m</span><span class="p">.</span><span class="na">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">m</span><span class="p">.</span><span class="na">member</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">def</span><span class="w"> </span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="s2">&quot;miembro &quot;</span><span class="o">+</span><span class="n">nombre</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
+<span class="n">m</span><span class="p">.</span><span class="nf">setmember</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span><span class="w"> </span><span class="n">valor</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Almacenar &#39;&quot;</span><span class="o">+</span><span class="n">nombre</span><span class="o">+</span><span class="s2">&quot;&#39;: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">valor</span><span class="p">))</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Intentemoslo:</p>
@@ -338,34 +370,34 @@ stack traceback:
 <h3>Empaquetado de un módulo<a class="headerlink" href="#empaquetado-de-un-modulo" title="Permalink to this headline">¶</a></h3>
 <p>Aquí hay un ejemplo simple de un módulo:</p>
 <p>Archivo <code class="docutils literal notranslate"><span class="pre">demo_modulo.be</span></code>:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span># modulo simple
-# use `import demo_modulo`
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="c1"># modulo simple</span>
+<span class="c1"># use `import demo_modulo`</span>
 
-demo_module = module(&quot;demo_module&quot;)
+<span class="n">demo_module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">module</span><span class="p">(</span><span class="s2">&quot;demo_module&quot;</span><span class="p">)</span><span class="w"></span>
 
-demo_modulo.foo = &quot;bar&quot;
+<span class="n">demo_modulo</span><span class="p">.</span><span class="na">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bar&quot;</span><span class="w"></span>
 
-demo_modulo.decir_hola = def ()
-    print(&quot;Hola Berry!&quot;)
-end
+<span class="n">demo_modulo</span><span class="p">.</span><span class="na">decir_hola</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">def</span><span class="w"> </span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola Berry!&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 
-return demo_modulo      # devuelve el módulo como salida de import
+<span class="ow">return</span><span class="w"> </span><span class="n">demo_modulo</span><span class="w">      </span><span class="c1"># devuelve el módulo como salida de import</span>
 </pre></div>
 </div>
 <p>Ejemplo de uso:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; import demo_modulo
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="kr">import</span><span class="w"> </span><span class="n">demo_modulo</span><span class="w"></span>
 
-&gt; demo_modulo
-&lt;module: demo_modulo&gt;
+<span class="o">&gt;</span><span class="w"> </span><span class="n">demo_modulo</span><span class="w"></span>
+<span class="o">&lt;</span><span class="nb">module</span><span class="o">:</span><span class="w"> </span><span class="n">demo_modulo</span><span class="o">&gt;</span><span class="w"></span>
 
-&gt; demo_module.decir_hola()
-Hola Berry!
+<span class="o">&gt;</span><span class="w"> </span><span class="n">demo_module</span><span class="p">.</span><span class="nf">decir_hola</span><span class="p">()</span><span class="w"></span>
+<span class="n">Hola</span><span class="w"> </span><span class="n">Berry</span><span class="o">!</span><span class="w"></span>
 
-&gt; demo_modulo.foo
-&#39;bar&#39;
-&gt; demo_modulo.foo = &quot;baz&quot;   # el módulo se puede escribir, aunque esto es muy desaconsejado
-&gt; demo_modulo.foo
-&#39;baz&#39;
+<span class="o">&gt;</span><span class="w"> </span><span class="n">demo_modulo</span><span class="p">.</span><span class="na">foo</span><span class="w"></span>
+<span class="s1">&#39;bar&#39;</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">demo_modulo</span><span class="p">.</span><span class="na">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;baz&quot;</span><span class="w">   </span><span class="c1"># el módulo se puede escribir, aunque esto es muy desaconsejado</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">demo_modulo</span><span class="p">.</span><span class="na">foo</span><span class="w"></span>
+<span class="s1">&#39;baz&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -377,32 +409,32 @@ Hola Berry!
 <p>En segundo lugar, declaramos una función <code class="docutils literal notranslate"><span class="pre">init()</span></code> del módulo que crea la clase, crea la instancia y la devuelve.</p>
 <p>Según este esquema, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">&lt;modulo&gt;</span> </code> en realidad devuelve una instancia de una clase oculta.</p>
 <p>Ejemplo de <code class="docutils literal notranslate"><span class="pre">demo_monad.be</span></code>:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span># monada simple
-# use `import demo_monad`
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="c1"># monada simple</span>
+<span class="c1"># use `import demo_monad`</span>
 
-demo_monad = module(&quot;demo_monad&quot;)
+<span class="n">demo_monad</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">module</span><span class="p">(</span><span class="s2">&quot;demo_monad&quot;</span><span class="p">)</span><span class="w"></span>
 
-#  el módulo tiene un solo miembro `init()` y delega todo a la clase interna
-demo_monad.init = def (m)
+<span class="c1">#  el módulo tiene un solo miembro `init()` y delega todo a la clase interna</span>
+<span class="n">demo_monad</span><span class="p">.</span><span class="na">init</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">def</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="w"></span>
 
-    # inncer class
-    class my_monad
-        var i
+<span class="w">    </span><span class="c1"># inncer class</span>
+<span class="w">    </span><span class="kd">class</span> <span class="nc">my_monad</span><span class="w"></span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
 
-        def init()
-            self.i = 0
-        end
+<span class="w">        </span><span class="kd">def</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="kr">self</span><span class="p">.</span><span class="na">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">        </span><span class="ow">end</span><span class="w"></span>
 
-        def say_hello()
-            print(&quot;Hola Berry!&quot;)
-        end
-    end
+<span class="w">        </span><span class="kd">def</span><span class="w"> </span><span class="nf">say_hello</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola Berry!&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
 
-    # rdevolver una sola instancia para esta clase
-    return my_monad()
-end
+<span class="w">    </span><span class="c1"># rdevolver una sola instancia para esta clase</span>
+<span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="nf">my_monad</span><span class="p">()</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 
-return demo_monad      # evuelve el módulo como la salida de importación, que eventualmente se reemplaza por el valor de retorno de &#39;init()&#39;
+<span class="ow">return</span><span class="w"> </span><span class="n">demo_monad</span><span class="w">      </span><span class="c1"># evuelve el módulo como la salida de importación, que eventualmente se reemplaza por el valor de retorno de &#39;init()&#39;</span>
 </pre></div>
 </div>
 <p>Ejemplo:</p>
@@ -440,9 +472,9 @@ stack traceback:
 <h3>Solidificación de funciones<a class="headerlink" href="#solidificacion-de-funciones" title="Permalink to this headline">¶</a></h3>
 <p>Puede solidificar una sola función.</p>
 <p>Ejemplo:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; def f() return &quot;hello&quot; end
-&gt; import solidify
-&gt; solidify.dump(f)
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="kd">def</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="ow">return</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="w"> </span><span class="ow">end</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="kr">import</span><span class="w"> </span><span class="n">solidify</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">solidify</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************************************************</span>
@@ -502,20 +534,20 @@ stack traceback:
 <section id="solidificacion-de-clases">
 <h3>Solidificación de clases<a class="headerlink" href="#solidificacion-de-clases" title="Permalink to this headline">¶</a></h3>
 <p>Cuando solidifica una clase, incrusta todos los subelementos. También se agrega un código auxiliar <code class="docutils literal notranslate"><span class="pre">C</span></code> para crear la clase y agregarla al ámbito global.</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt;  class demo
-      var i
-      static foo = &quot;bar&quot;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w">  </span><span class="kd">class</span> <span class="nc">demo</span><span class="w"></span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">      </span><span class="kr">static</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bar&quot;</span><span class="w"></span>
 
-      def init()
-          self.i = 0
-      end
+<span class="w">      </span><span class="kd">def</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"></span>
+<span class="w">          </span><span class="kr">self</span><span class="p">.</span><span class="na">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="ow">end</span><span class="w"></span>
 
-      def say_hello()
-          print(&quot;Hello Berry!&quot;)
-      end
-  end
-&gt; import solidify
-&gt; solidify.dump(demo)
+<span class="w">      </span><span class="kd">def</span><span class="w"> </span><span class="nf">say_hello</span><span class="p">()</span><span class="w"></span>
+<span class="w">          </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello Berry!&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="ow">end</span><span class="w"></span>
+<span class="w">  </span><span class="ow">end</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="kr">import</span><span class="w"> </span><span class="n">solidify</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">solidify</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">demo</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************************************************</span>
@@ -598,15 +630,15 @@ stack traceback:
 </pre></div>
 </div>
 <p>Las subclases también son compatibles.</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; class demo_sub : demo
-      var j
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="kd">class</span> <span class="nc">demo_sub</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">demo</span><span class="w"></span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="n">j</span><span class="w"></span>
 
-      def init()
-          super(self).init()
-          self.j = 1
-      end
-  end
-&gt; solidify.dump(demo_sub)
+<span class="w">      </span><span class="kd">def</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"></span>
+<span class="w">          </span><span class="kr">super</span><span class="p">(</span><span class="kr">self</span><span class="p">).</span><span class="nf">init</span><span class="p">()</span><span class="w"></span>
+<span class="w">          </span><span class="kr">self</span><span class="p">.</span><span class="na">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="ow">end</span><span class="w"></span>
+<span class="w">  </span><span class="ow">end</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">solidify</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">demo_sub</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************************************************</span>
@@ -669,15 +701,15 @@ stack traceback:
 <section id="solidificacion-de-modulos">
 <h3>Solidificación de módulos<a class="headerlink" href="#solidificacion-de-modulos" title="Permalink to this headline">¶</a></h3>
 <p>Cuando solidifica un módulo, incrusta todos los subelementos. También funciona con listas o mapas incrustados.</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; def say_hello() print(&quot;Hello Berry!&quot;) end
-&gt; m = module(&quot;demo_module&quot;)
-&gt; m.i = 0
-&gt; m.s = &quot;foo&quot;
-&gt; m.f = say_hello
-&gt; m.l = [0,1,&quot;a&quot;]
-&gt; m.m = {&quot;a&quot;:&quot;b&quot;, &quot;2&quot;:3}
-&gt; import solidify
-&gt; solidify.dump(m)
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="kd">def</span><span class="w"> </span><span class="nf">say_hello</span><span class="p">()</span><span class="w"> </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello Berry!&quot;</span><span class="p">)</span><span class="w"> </span><span class="ow">end</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">module</span><span class="p">(</span><span class="s2">&quot;demo_module&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">say_hello</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">]</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="o">:</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="o">:</span><span class="mi">3</span><span class="p">}</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="kr">import</span><span class="w"> </span><span class="n">solidify</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">solidify</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************************************************</span>

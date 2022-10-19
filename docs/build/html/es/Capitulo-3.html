@@ -32,12 +32,47 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../en/Home.html">Welcome to the berry wiki!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Home.html">Bienvenido a la wiki de Berry!</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">3. Expresiones</a><ul>
+<li><a class="reference internal" href="#conceptos-basicos">3.1 Conceptos básicos</a><ul>
+<li><a class="reference internal" href="#operadores-y-expresiones">Operadores y expresiones</a><ul>
+<li><a class="reference internal" href="#expresion-de-combinacion-de-operadores">Expresión de combinación de operadores</a></li>
+<li><a class="reference internal" href="#tipo-de-operando">Tipo de operando</a></li>
 </ul>
-
+</li>
+<li><a class="reference internal" href="#prioridad-y-asociatividad">3.1.1 Prioridad y asociatividad</a><ul>
+<li><a class="reference internal" href="#utilice-corchetes-para-aumentar-la-prioridad">Utilice corchetes para aumentar la prioridad</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#operador">3.2 Operador</a><ul>
+<li><a class="reference internal" href="#operadores-aritmeticos">3.2.1 Operadores aritméticos</a></li>
+<li><a class="reference internal" href="#operadores-relacionales">3.2.2 Operadores relacionales</a></li>
+<li><a class="reference internal" href="#operadores-logicos">Operadores logicos</a></li>
+<li><a class="reference internal" href="#operador-bit-a-bit">Operador bit a bit</a></li>
+<li><a class="reference internal" href="#operador-de-asignacion">Operador de asignación</a><ul>
+<li><a class="reference internal" href="#operador-de-asignacion-simple">Operador de asignación simple</a></li>
+<li><a class="reference internal" href="#operador-de-asignacion-compuesto">Operador de asignación compuesto</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#operador-condicional">Operador condicional</a><ul>
+<li><a class="reference internal" href="#operadores-de-condiciones-anidadas">Operadores de condiciones anidadas</a></li>
+<li><a class="reference internal" href="#prioridad-de-los-operadores-condicionales">Prioridad de los operadores condicionales</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#operador-de-concatenacion">Operador de concatenación</a><ul>
+<li><a class="reference internal" href="#id1">Operador <code class="docutils literal notranslate"><span class="pre">+</span></code></a></li>
+<li><a class="reference internal" href="#id2">Operador <code class="docutils literal notranslate"><span class="pre">..</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
@@ -378,12 +413,12 @@ La operación de bits se refiere a la operación de bits binarios directamente e
 <p>El operador de inversión bit a bit “~” es un operador unario, y el resultado de la expresión es invertir el valor de cada bit binario del operando.
 Por ejemplo, <code class="docutils literal notranslate"><span class="pre">∼</span></code>10100011 <sub><em>b</em></sub> = 01011100 <sub><em>b</em></sub> .</p>
 <p>Los siguientes son algunos ejemplos del uso de operaciones con bits. Por lo general, no usamos binario directamente. Los resultados de los ejemplos se han convertido en bases comunes.</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>1 &lt;&lt; 1 # 2
-168 &gt;&gt; 4 # 10
-456 &amp; 127 # 72
-456 | 127 # 511
-0xA5 ^ 0x5A # 255
-~2 # -3
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c1"># 2</span>
+<span class="mi">168</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="c1"># 10</span>
+<span class="mi">456</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">127</span><span class="w"> </span><span class="c1"># 72</span>
+<span class="mi">456</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">127</span><span class="w"> </span><span class="c1"># 511</span>
+<span class="mh">0xA5</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="mh">0x5A</span><span class="w"> </span><span class="c1"># 255</span>
+<span class="o">~</span><span class="mi">2</span><span class="w"> </span><span class="c1"># -3</span>
 </pre></div>
 </div>
 </section>
@@ -395,12 +430,12 @@ Por ejemplo, <code class="docutils literal notranslate"><span class="pre">∼</s
 <p>El operador de asignación simple <code class="docutils literal notranslate"><span class="pre">=</span></code> se puede utilizar para la asignación de variables.
 Si la variable de operando de la izquierda no está definida, se definirá la variable. El operador de asignación se utiliza para vincular el valor del operando derecho con el operando izquierdo. Este proceso también se llama “asignación”.
 Por lo tanto, el operando izquierdo no puede ser una constante, ni puede ser ningún objeto que no se pueda escribir. Estas son algunas expresiones legales de asignación:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>a = 45 b =&#39;string&#39; c = 0
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">45</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Y la siguiente expresión de asignación es incorrecta:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>1 = 5 # Tratando de asignar una constante 1
-a = b = 0 #  Asignación continua
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="c1"># Tratando de asignar una constante 1</span>
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c1">#  Asignación continua</span>
 </pre></div>
 </div>
 <p>Al asignar tipos <code class="docutils literal notranslate"><span class="pre">nil</span></code>, enteros, reales y booleanos a variables, el valor del objeto se pasará al operando izquierdo, pero para otros tipos, la operación de asignación simplemente pasa la referencia del objeto al operando izquierdo. Dado que las cadenas, las funciones y los tipos de clase son de solo lectura, todas las referencias que pasan no tendrán efectos secundarios, pero debe tener mucho cuidado con los tipos de instancia.</p>
@@ -456,19 +491,19 @@ Tomando <code class="docutils literal notranslate"><span class="pre">+=</span></
 El operador de asignación en sí no se puede sobrecargar en la clase. Los usuarios solo pueden sobrecargar el operador binario correspondiente al operador de asignación compuesto. Esto también asegura que el operador de asignación compuesto siempre se ajustará a las características básicas de las operaciones de asignación.</p>
 <p>Operador de dominio y operador de subíndice</p>
 <p>El operador de dominio <code class="docutils literal notranslate"><span class="pre">.</span></code> se utiliza para acceder a un atributo o miembro de un objeto. Puede utilizar operadores de dominio para ambos tipos de módulos e instancias:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>l = list[]
-l.push(&#39;item 0&#39;)
-s = l.item(0) # &#39;item 0&#39;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">list</span><span class="p">[]</span><span class="w"></span>
+<span class="n">l</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="s1">&#39;item 0&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">.</span><span class="nf">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1"># &#39;item 0&#39;</span>
 </pre></div>
 </div>
 <p>El operador de subíndice <code class="docutils literal notranslate"><span class="pre">[]</span></code> se utiliza para acceder a los elementos de un objeto, por ejemplo</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>l[2] = 10 # Read by index
-n = l[2] # Write by index
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="c1"># Read by index</span>
+<span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="c1"># Write by index</span>
 </pre></div>
 </div>
 <p>Las clases que admiten la lectura de subíndices deben implementar el método <code class="docutils literal notranslate"><span class="pre">item</span></code> y las clases que admiten la escritura de subíndices deben implementar el método <code class="docutils literal notranslate"><span class="pre">setitem</span></code>. El mapa y la lista en el contenedor estándar implementan estos dos métodos, por lo que admiten la lectura y escritura mediante el operador de subíndice. La cadena admite la lectura de subíndices, pero no admite la escritura de subíndices (las cadenas son valores de solo lectura):</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&#39;string&#39;[2] #&#39;r&#39;
-&#39;string&#39;[2] =&#39;a&#39; # error:  valor &#39;string&#39; no admite asignación de índice
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;string&#39;</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="c1">#&#39;r&#39;</span>
+<span class="s1">&#39;string&#39;</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="w"> </span><span class="c1"># error:  valor &#39;string&#39; no admite asignación de índice</span>
 </pre></div>
 </div>
 <p>Actualmente, las cadenas admiten subíndices enteros y el rango de subíndices no puede exceder la longitud de la cadena.</p>
@@ -481,7 +516,7 @@ $$\begin{gathered}
 cond\ \bm{?}\ expr1\ \bm{:}\ expr2\end{gathered}$$</p>
 <p><em><strong>cond</strong></em> es la expresión utilizada para juzgar la condición. El proceso de evaluación del operador condicional es: primero encuentra el valor de <em><strong>cond</strong></em>, si la condición es verdadera, evalúa <em><strong>expr1</strong></em> y devuelve el valor, de lo contrario, el valor de <em>**expr2 **</em> ] Evalúa y devuelve el valor.
 <em><strong>expr1</strong></em> y <em><strong>expr2</strong></em> pueden tener diferentes tipos, por lo que lo siguiente es correcto:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>resultado = alcance &lt; 6 ? &#39;malo&#39; : alcance
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">resultado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alcance</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;malo&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">alcance</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Esta expresión primero determina si <code class="docutils literal notranslate"><span class="pre">alcance</span></code> es menor que <code class="docutils literal notranslate"><span class="pre">6</span></code>, si lo es, devuelve <code class="docutils literal notranslate"><span class="pre">malo</span></code>, de lo contrario, devuelve el valor de <code class="docutils literal notranslate"><span class="pre">alcance</span></code>.
@@ -489,7 +524,7 @@ Independientemente de la condición de la expresión condicional, solo se ejecut
 <section id="operadores-de-condiciones-anidadas">
 <h4>Operadores de condiciones anidadas<a class="headerlink" href="#operadores-de-condiciones-anidadas" title="Permalink to this headline">¶</a></h4>
 <p>Un operador condicional se puede anidar en otro operador condicional, es decir, la expresión condicional se puede usar como <em><strong>cond</strong></em> o <em><strong>expr</strong></em> de otra expresión condicional. Por ejemplo, use expresiones condicionales para dividir puntajes en tres niveles: excelente, bueno y malo:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>resultado = alcance &gt;= 9 ? &#39;excelente&#39; : alcance &gt;= 6 ? &#39;bueno&#39; : &#39;malo&#39;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">resultado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alcance</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;excelente&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">alcance</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;bueno&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;malo&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>La primera condición comprueba si la puntuación no es inferior a <code class="docutils literal notranslate"><span class="pre">9</span></code> puntos. Si es así, ejecute la rama después de <code class="docutils literal notranslate"><span class="pre">?</span></code> y devuelva <code class="docutils literal notranslate"><span class="pre">'excelente'</span></code>; de lo contrario, ejecute la rama después de <code class="docutils literal notranslate"><span class="pre">:</span></code>, que también es una expresión condicional. La condición comprueba si la puntuación no es inferior a <code class="docutils literal notranslate"><span class="pre">6</span></code>, si lo es, devuelve <code class="docutils literal notranslate"><span class="pre">'bueno'</span></code>, de lo contrario, devuelve <code class="docutils literal notranslate"><span class="pre">'malo'</span></code>.</p>
@@ -498,8 +533,8 @@ Independientemente de la condición de la expresión condicional, solo se ejecut
 <section id="prioridad-de-los-operadores-condicionales">
 <h4>Prioridad de los operadores condicionales<a class="headerlink" href="#prioridad-de-los-operadores-condicionales" title="Permalink to this headline">¶</a></h4>
 <p>Dado que la precedencia de las expresiones condicionales es muy baja (sólo superada por los operadores de asignación), a menudo es necesario agregar paréntesis fuera de las expresiones condicionales. Por ejemplo, cuando se usa una expresión condicional como operando de una expresión aritmética, los paréntesis tendrán diferentes efectos en el resultado:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>resultado = 10 * (signo &lt; 0 ? -1 : 1) # el resultado es -10 ó 10
-resultado = 10 * signo &lt; 0 ? -1 : 1 # el resultado es -1 ó 1
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">resultado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">signo</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1"># el resultado es -10 ó 10</span>
+<span class="n">resultado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">signo</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c1"># el resultado es -1 ó 1</span>
 </pre></div>
 </div>
 <p>El resultado de la primera expresión es correcto, y la segunda expresión toma <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">*</span> <span class="pre">signo</span> <span class="pre">&lt;</span> <span class="pre">0</span></code> como condición a juzgar, lo que no cumple con la expectativa de la expresión condicional como el operando derecho de la multiplicación.</p>
@@ -510,11 +545,11 @@ resultado = 10 * signo &lt; 0 ? -1 : 1 # el resultado es -1 ó 1
 <section id="id1">
 <h4>Operador <code class="docutils literal notranslate"><span class="pre">+</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <p>Cuando los operandos izquierdo y derecho son cadenas, el operador <code class="docutils literal notranslate"><span class="pre">+</span></code> se usa para conectar las dos cadenas, y la nueva cadena obtenida es el valor de la expresión. Por lo tanto, este operador se usa a menudo para la concatenación de cadenas:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>resultado =&#39;abc&#39; + &#39;123&#39; # el resultado es &#39;abc123&#39;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">resultado</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;abc&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;123&#39;</span><span class="w"> </span><span class="c1"># el resultado es &#39;abc123&#39;</span>
 </pre></div>
 </div>
 <p>Los operadores <code class="docutils literal notranslate"><span class="pre">+</span></code> también se pueden usar para conectar dos instancias de lista:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>resultado = [1, 2] + [3, 4] # el resultado es [1, 2, 3, 4]
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">resultado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="c1"># el resultado es [1, 2, 3, 4]</span>
 </pre></div>
 </div>
 <p>A diferencia del método <code class="docutils literal notranslate"><span class="pre">list.push</span></code>, el operador <code class="docutils literal notranslate"><span class="pre">+</span></code> fusiona dos listas en un objeto de lista más grande, con los elementos del operando izquierdo al principio de la lista de resultados y los elementos del operando derecho al final de la lista de resultados</p>
@@ -522,21 +557,21 @@ resultado = 10 * signo &lt; 0 ? -1 : 1 # el resultado es -1 ó 1
 <section id="id2">
 <h4>Operador <code class="docutils literal notranslate"><span class="pre">..</span></code><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">..</span></code> es un operador especial. Si el operando izquierdo es una cadena, el comportamiento de la expresión es concatenar los operandos izquierdo y derecho en una nueva cadena (conversión automática si el operando derecho no es una cadena):</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>resultado =&#39;abc&#39; + 123 # el resultado es &#39;abc123&#39;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">resultado</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;abc&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">123</span><span class="w"> </span><span class="c1"># el resultado es &#39;abc123&#39;</span>
 </pre></div>
 </div>
 <p>El operador <code class="docutils literal notranslate"><span class="pre">..</span></code> se usa a menudo cuando se concatena una cadena y un valor que no es una cadena. Si el operando izquierdo es una instancia de lista, el operador <code class="docutils literal notranslate"><span class="pre">..</span></code> agregará el operando derecho al final de la lista y luego usará esta lista como el valor de la expresión:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>resultado =&#39;abc&#39; + 123 # el resultado es &#39;abc123&#39;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">resultado</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;abc&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">123</span><span class="w"> </span><span class="c1"># el resultado es &#39;abc123&#39;</span>
 </pre></div>
 </div>
 <p>Este proceso modificará directamente el operando izquierdo, que es muy similar al método <code class="docutils literal notranslate"><span class="pre">push</span></code> de <code class="docutils literal notranslate"><span class="pre">list</span></code> (excepto las cadenas que son objetos inmutables).
 La operación de unión de la lista se puede ejecutar en cadena:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>resultado = [1, 2] .. 3 .. 4 # el resultado es [1, 2, 3, 4]
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">resultado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="c1"># el resultado es [1, 2, 3, 4]</span>
 </pre></div>
 </div>
 <p>Todos los valores en este proceso se agregarán al objeto de lista más a la izquierda.</p>
 <p>Si los operandos izquierdo y derecho son enteros, utilice el operador <code class="docutils literal notranslate"><span class="pre">..</span></code> para obtener un objeto de rango de enteros:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>resultado = 1 .. 10 # el resultado es (1..10)
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">resultado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="c1"># el resultado es (1..10)</span>
 </pre></div>
 </div>
 <p>Este objeto se utiliza para representar un intervalo cerrado de enteros, donde el operando izquierdo es el límite inferior y el operando derecho es el límite superior. Dichos objetos de rango de enteros se utilizan a menudo para la iteración.</p>

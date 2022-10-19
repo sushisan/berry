@@ -32,12 +32,50 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Home.html">Welcome to the berry wiki!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Bienvenido a la wiki de Berry!</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">9. FFI</a><ul>
+<li><a class="reference internal" href="#basics">9.1 Basics</a><ul>
+<li><a class="reference internal" href="#virtual-machine">9.1.1 Virtual Machine</a></li>
+<li><a class="reference internal" href="#virtual-stack">9.1.2 Virtual Stack</a></li>
+<li><a class="reference internal" href="#operate-virtual-stack">Operate Virtual Stack</a><ul>
+<li><a class="reference internal" href="#index-and-stack-size">Index and stack size</a></li>
+<li><a class="reference internal" href="#get-value-from-stack">Get value from stack</a></li>
 </ul>
-
+</li>
+<li><a class="reference internal" href="#native-function">Native function</a><ul>
+<li><a class="reference internal" href="#define-native-function">Define native function</a></li>
+<li><a class="reference internal" href="#use-native-function">Use native function</a></li>
+<li><a class="reference internal" href="#complete-example">Complete example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#types-and-functions">Types and Functions</a><ul>
+<li><a class="reference internal" href="#type">Type</a></li>
+<li><a class="reference internal" href="#functions-and-macros">Functions and Macros</a></li>
+<li><a class="reference internal" href="#compile-time-construction-technology">Compile-time construction technology</a><ul>
+<li><a class="reference internal" href="#use-command">Use command</a></li>
+<li><a class="reference internal" href="#output-path">output path</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compile-time-string-table">Compile-time string table</a><ul>
+<li><a class="reference internal" href="#use-constant-string">Use constant string</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#construct-object-at-compile-time">Construct object at compile time</a><ul>
+<li><a class="reference internal" href="#construct-map-at-compile-time">Construct Map at Compile Time</a></li>
+<li><a class="reference internal" href="#compile-time-construction-class">Compile-time construction class</a></li>
+<li><a class="reference internal" href="#building-module-at-compile-time">Building Module at Compile Time</a></li>
+<li><a class="reference internal" href="#construct-built-in-domain-at-compile-time">Construct Built-in Domain at Compile Time</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
@@ -337,14 +375,14 @@ it <code class="docutils literal notranslate"><span class="pre">myadd</span></co
 function is complete. As a verification, you can compile the
 interpreter, then enter the REPL and run some tests. You should get
 results like this:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; myadd
-&lt;function: 0x562a210f0f90&gt;
-&gt; myadd(1.0, 2.5)
-3.5
-&gt; myadd(2.5, 2)
-4.5
-&gt; myadd(1, 2)
-3
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="n">myadd</span><span class="w"></span>
+<span class="o">&lt;</span><span class="n">function</span><span class="o">:</span><span class="w"> </span><span class="mh">0x562a210f0f90</span><span class="o">&gt;</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="nf">myadd</span><span class="p">(</span><span class="mi">1</span><span class="mf">.0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="mf">.5</span><span class="p">)</span><span class="w"></span>
+<span class="mi">3</span><span class="mf">.5</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="nf">myadd</span><span class="p">(</span><span class="mi">2</span><span class="mf">.5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="mi">4</span><span class="mf">.5</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="nf">myadd</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="mi">3</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -1222,9 +1260,8 @@ is the string containing the error information.</p>
 function does not delete the value of <code class="docutils literal notranslate"><span class="pre">from</span></code> index position, only
 modifies the value of <code class="docutils literal notranslate"><span class="pre">to</span></code> index position.</p>
 </section>
-</section>
 <section id="compile-time-construction-technology">
-<h2>Compile-time construction technology<a class="headerlink" href="#compile-time-construction-technology" title="Permalink to this headline">¶</a></h2>
+<h3>Compile-time construction technology<a class="headerlink" href="#compile-time-construction-technology" title="Permalink to this headline">¶</a></h3>
 <p>The compile-time construction technology is mainly implemented by
 <em>coc</em> which is located in the
 <em>coc/coc</em> path of the interpreter
@@ -1247,7 +1284,7 @@ in the <em>generate</em> folder.</p>
 <code class="docutils literal notranslate"><span class="pre">BE_USE_PRECOMPILED_OBJECT</span></code> macro. In any case, the tool <em>coc</em> is called to generate constant object codes (the codes
 are not used when compile-time construction is turned off).</p>
 <section id="use-command">
-<h3>Use command<a class="headerlink" href="#use-command" title="Permalink to this headline">¶</a></h3>
+<h4>Use command<a class="headerlink" href="#use-command" title="Permalink to this headline">¶</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">coc</span></code> Tool is used to generate code for constant objects. The
 format of the command is</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tools/coc/coc -o &lt;dst_path&gt; &lt;src_path<span class="o">(</span>s<span class="o">)</span>&gt; -c &lt;include_path&gt;
@@ -1269,7 +1306,7 @@ interpreter project as an example, the command to use the tool in
 source path is <em>src</em> and <em>default</em>.</p>
 </section>
 <section id="output-path">
-<h3>output path<a class="headerlink" href="#output-path" title="Permalink to this headline">¶</a></h3>
+<h4>output path<a class="headerlink" href="#output-path" title="Permalink to this headline">¶</a></h4>
 <p>Strictly speaking, the <em>generate</em> folder used as the output path cannot
 be placed anywhere, it must be stored in a parent directory containing
 the path. The include path refers to the path where the header file will
@@ -1287,6 +1324,7 @@ the interpreter source code to refer to constant objects:</p>
 use such code to include the corresponding header files. This section
 will introduce how to use these tools to define and use constant
 objects.</p>
+</section>
 </section>
 <section id="compile-time-string-table">
 <h3>Compile-time string table<a class="headerlink" href="#compile-time-string-table" title="Permalink to this headline">¶</a></h3>

@@ -32,12 +32,142 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Home.html">Welcome to the berry wiki!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Bienvenido a la wiki de Berry!</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">7. Libraries and Modules</a><ul>
+<li><a class="reference internal" href="#basic-library">7.1 Basic library</a><ul>
+<li><a class="reference internal" href="#built-in-function">7.1.1 Built-in function</a><ul>
+<li><a class="reference internal" href="#print-function"><code class="docutils literal notranslate"><span class="pre">print</span></code> function</a></li>
+<li><a class="reference internal" href="#input-function"><code class="docutils literal notranslate"><span class="pre">input</span></code> function</a></li>
+<li><a class="reference internal" href="#type-function"><code class="docutils literal notranslate"><span class="pre">type</span></code> function</a></li>
+<li><a class="reference internal" href="#classname-function"><code class="docutils literal notranslate"><span class="pre">classname</span></code> function</a></li>
+<li><a class="reference internal" href="#classof-function"><code class="docutils literal notranslate"><span class="pre">classof</span></code> function</a></li>
+<li><a class="reference internal" href="#str-function"><code class="docutils literal notranslate"><span class="pre">str</span></code> function</a><ul>
+<li><a class="reference internal" href="#number-function"><code class="docutils literal notranslate"><span class="pre">number</span></code> function</a></li>
+<li><a class="reference internal" href="#int-function"><code class="docutils literal notranslate"><span class="pre">int</span></code> function</a></li>
+<li><a class="reference internal" href="#real-function"><code class="docutils literal notranslate"><span class="pre">real</span></code> function</a></li>
+<li><a class="reference internal" href="#bool-function"><code class="docutils literal notranslate"><span class="pre">bool</span></code> function</a></li>
+<li><a class="reference internal" href="#size-function"><code class="docutils literal notranslate"><span class="pre">size</span></code> function</a></li>
+<li><a class="reference internal" href="#super-function"><code class="docutils literal notranslate"><span class="pre">super</span></code> function</a></li>
+<li><a class="reference internal" href="#assert-function"><code class="docutils literal notranslate"><span class="pre">assert</span></code> function</a></li>
+<li><a class="reference internal" href="#compile-function"><code class="docutils literal notranslate"><span class="pre">compile</span></code> function</a></li>
 </ul>
-
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#list-class"><code class="docutils literal notranslate"><span class="pre">list</span></code> Class</a><ul>
+<li><a class="reference internal" href="#list-method-constructor"><code class="docutils literal notranslate"><span class="pre">list</span></code> method (Constructor)</a></li>
+<li><a class="reference internal" href="#tostring-method"><code class="docutils literal notranslate"><span class="pre">tostring</span></code> method</a></li>
+<li><a class="reference internal" href="#concat-method"><code class="docutils literal notranslate"><span class="pre">concat</span></code> method</a></li>
+<li><a class="reference internal" href="#push-method"><code class="docutils literal notranslate"><span class="pre">push</span></code> method</a></li>
+<li><a class="reference internal" href="#insert-method"><code class="docutils literal notranslate"><span class="pre">insert</span></code> method</a></li>
+<li><a class="reference internal" href="#remove-method"><code class="docutils literal notranslate"><span class="pre">remove</span></code> method</a></li>
+<li><a class="reference internal" href="#item-method"><code class="docutils literal notranslate"><span class="pre">item</span></code> method</a></li>
+<li><a class="reference internal" href="#setitem-method"><code class="docutils literal notranslate"><span class="pre">setitem</span></code> method</a></li>
+<li><a class="reference internal" href="#size-method"><code class="docutils literal notranslate"><span class="pre">size</span></code> method</a></li>
+<li><a class="reference internal" href="#resize-method"><code class="docutils literal notranslate"><span class="pre">resize</span></code> method</a></li>
+<li><a class="reference internal" href="#iter-method"><code class="docutils literal notranslate"><span class="pre">iter</span></code> method</a></li>
+<li><a class="reference internal" href="#find-method"><code class="docutils literal notranslate"><span class="pre">find</span></code> method</a></li>
+<li><a class="reference internal" href="#reverse-method"><code class="docutils literal notranslate"><span class="pre">reverse</span></code> method</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#map-class"><code class="docutils literal notranslate"><span class="pre">map</span></code> Class</a><ul>
+<li><a class="reference internal" href="#map-method-constructor"><code class="docutils literal notranslate"><span class="pre">map</span></code> method (Constructor)</a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">tostring</span></code> method</a></li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">insert</span></code> method</a></li>
+<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">remove</span></code> method</a></li>
+<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">item</span></code> method</a></li>
+<li><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">setitem</span></code> method</a></li>
+<li><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">size</span></code> method</a></li>
+<li><a class="reference internal" href="#contains-method"><code class="docutils literal notranslate"><span class="pre">contains</span></code> method</a></li>
+<li><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">find</span></code> method</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#range-class"><code class="docutils literal notranslate"><span class="pre">range</span></code> Class</a></li>
+<li><a class="reference internal" href="#bytes-class"><code class="docutils literal notranslate"><span class="pre">bytes</span></code> Class</a><ul>
+<li><a class="reference internal" href="#bytes-method-constructor"><code class="docutils literal notranslate"><span class="pre">bytes</span></code> method (Constructor)</a></li>
+<li><a class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">size</span></code> method</a></li>
+<li><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">tostring</span></code> method</a></li>
+<li><a class="reference internal" href="#tohex-method"><code class="docutils literal notranslate"><span class="pre">tohex</span></code> method</a></li>
+<li><a class="reference internal" href="#fromhex-method"><code class="docutils literal notranslate"><span class="pre">fromhex</span></code> method</a></li>
+<li><a class="reference internal" href="#clear-method"><code class="docutils literal notranslate"><span class="pre">clear</span></code> method</a></li>
+<li><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">resize</span></code> method</a></li>
+<li><a class="reference internal" href="#concatenation-and-methods">Concatenation <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">..</span></code> methods</a></li>
+<li><a class="reference internal" href="#bytes-access-method">bytes access <code class="docutils literal notranslate"><span class="pre">[]</span></code> method</a></li>
+<li><a class="reference internal" href="#range-access-method">range access <code class="docutils literal notranslate"><span class="pre">[]</span></code> method</a></li>
+<li><a class="reference internal" href="#copy-method"><code class="docutils literal notranslate"><span class="pre">copy</span></code> method</a></li>
+<li><a class="reference internal" href="#get-geti-methods"><code class="docutils literal notranslate"><span class="pre">get,</span> <span class="pre">geti</span></code> methods</a></li>
+<li><a class="reference internal" href="#set-seti-methods"><code class="docutils literal notranslate"><span class="pre">set,</span> <span class="pre">seti</span></code> methods</a></li>
+<li><a class="reference internal" href="#add-method"><code class="docutils literal notranslate"><span class="pre">add</span></code> method</a></li>
+<li><a class="reference internal" href="#asstring-method"><code class="docutils literal notranslate"><span class="pre">asstring</span></code> method</a></li>
+<li><a class="reference internal" href="#fromstring-method"><code class="docutils literal notranslate"><span class="pre">fromstring</span></code> method</a></li>
+<li><a class="reference internal" href="#bits-manipulation-setbits-getbits-methods">bits manipulation <code class="docutils literal notranslate"><span class="pre">setbits,</span> <span class="pre">getbits</span></code> methods</a></li>
+<li><a class="reference internal" href="#base64-encode-tob64-method">base64 encode <code class="docutils literal notranslate"><span class="pre">tob64</span></code> method</a></li>
+<li><a class="reference internal" href="#base64-decode-fromb64-method">base64 decode <code class="docutils literal notranslate"><span class="pre">fromb64</span></code> method</a></li>
+<li><a class="reference internal" href="#getfloat-and-setfloat-methods"><code class="docutils literal notranslate"><span class="pre">getfloat</span></code> and <code class="docutils literal notranslate"><span class="pre">setfloat</span></code> methods</a></li>
+<li><a class="reference internal" href="#buffer-method"><code class="docutils literal notranslate"><span class="pre">_buffer</span></code> method</a></li>
+<li><a class="reference internal" href="#change-buffer-method"><code class="docutils literal notranslate"><span class="pre">_change_buffer</span></code> method</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#expansion-modules">Expansion Modules</a><ul>
+<li><a class="reference internal" href="#json-module">JSON Module</a><ul>
+<li><a class="reference internal" href="#load-function"><code class="docutils literal notranslate"><span class="pre">load</span></code> function</a></li>
+<li><a class="reference internal" href="#dump-function"><code class="docutils literal notranslate"><span class="pre">dump</span></code> function</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#math-module">Math Module</a><ul>
+<li><a class="reference internal" href="#pi-constant"><code class="docutils literal notranslate"><span class="pre">pi</span></code> constant</a></li>
+<li><a class="reference internal" href="#abs-function"><code class="docutils literal notranslate"><span class="pre">abs</span></code> function</a></li>
+<li><a class="reference internal" href="#ceil-function"><code class="docutils literal notranslate"><span class="pre">ceil</span></code> function</a></li>
+<li><a class="reference internal" href="#floor-function"><code class="docutils literal notranslate"><span class="pre">floor</span></code> function</a></li>
+<li><a class="reference internal" href="#sin-function"><code class="docutils literal notranslate"><span class="pre">sin</span></code> function</a></li>
+<li><a class="reference internal" href="#cos-function"><code class="docutils literal notranslate"><span class="pre">cos</span></code> function</a></li>
+<li><a class="reference internal" href="#tan-function"><code class="docutils literal notranslate"><span class="pre">tan</span></code> function</a></li>
+<li><a class="reference internal" href="#asin-function"><code class="docutils literal notranslate"><span class="pre">asin</span></code> function</a></li>
+<li><a class="reference internal" href="#acos-function"><code class="docutils literal notranslate"><span class="pre">acos</span></code> function</a></li>
+<li><a class="reference internal" href="#atan-function"><code class="docutils literal notranslate"><span class="pre">atan</span></code> function</a></li>
+<li><a class="reference internal" href="#sinh-function"><code class="docutils literal notranslate"><span class="pre">sinh</span></code> function</a></li>
+<li><a class="reference internal" href="#cosh-function"><code class="docutils literal notranslate"><span class="pre">cosh</span></code> function</a></li>
+<li><a class="reference internal" href="#tanh-function"><code class="docutils literal notranslate"><span class="pre">tanh</span></code> function</a></li>
+<li><a class="reference internal" href="#sqrt-function"><code class="docutils literal notranslate"><span class="pre">sqrt</span></code> function</a></li>
+<li><a class="reference internal" href="#exp-function"><code class="docutils literal notranslate"><span class="pre">exp</span></code> function</a></li>
+<li><a class="reference internal" href="#log-function"><code class="docutils literal notranslate"><span class="pre">log</span></code> function</a></li>
+<li><a class="reference internal" href="#log10-function"><code class="docutils literal notranslate"><span class="pre">log10</span></code> function</a></li>
+<li><a class="reference internal" href="#deg-function"><code class="docutils literal notranslate"><span class="pre">deg</span></code> function</a></li>
+<li><a class="reference internal" href="#rad-function"><code class="docutils literal notranslate"><span class="pre">rad</span></code> function</a></li>
+<li><a class="reference internal" href="#pow-function"><code class="docutils literal notranslate"><span class="pre">pow</span></code> function</a></li>
+<li><a class="reference internal" href="#srand-function"><code class="docutils literal notranslate"><span class="pre">srand</span></code> function</a></li>
+<li><a class="reference internal" href="#rand-function"><code class="docutils literal notranslate"><span class="pre">rand</span></code> function</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#time-module">Time Module</a><ul>
+<li><a class="reference internal" href="#time-function"><code class="docutils literal notranslate"><span class="pre">time</span></code> function</a></li>
+<li><a class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">dump</span></code> function</a></li>
+<li><a class="reference internal" href="#clock-function"><code class="docutils literal notranslate"><span class="pre">clock</span></code> function</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#string-module">String Module</a><ul>
+<li><a class="reference internal" href="#count-function"><code class="docutils literal notranslate"><span class="pre">count</span></code> function</a></li>
+<li><a class="reference internal" href="#split-function"><code class="docutils literal notranslate"><span class="pre">split</span></code> function</a></li>
+<li><a class="reference internal" href="#find-function"><code class="docutils literal notranslate"><span class="pre">find</span></code> function</a></li>
+<li><a class="reference internal" href="#hex-function"><code class="docutils literal notranslate"><span class="pre">hex</span></code> function</a></li>
+<li><a class="reference internal" href="#byte-function"><code class="docutils literal notranslate"><span class="pre">byte</span></code> function</a></li>
+<li><a class="reference internal" href="#char-function"><code class="docutils literal notranslate"><span class="pre">char</span></code> function</a></li>
+<li><a class="reference internal" href="#format-function"><code class="docutils literal notranslate"><span class="pre">format</span></code> function</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-os">Module <code class="docutils literal notranslate"><span class="pre">os</span></code></a></li>
+<li><a class="reference internal" href="#module-global">Module <code class="docutils literal notranslate"><span class="pre">global</span></code></a></li>
+<li><a class="reference internal" href="#module-introspect">Module <code class="docutils literal notranslate"><span class="pre">introspect</span></code></a></li>
+<li><a class="reference internal" href="#module-solidify">Module <code class="docutils literal notranslate"><span class="pre">solidify</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
@@ -956,45 +1086,45 @@ example, <code class="docutils literal notranslate"><span class="pre">0..10</spa
 <span class="n">b</span><span class="o">.</span><span class="n">getfloat</span><span class="p">(</span><span class="o">&lt;</span><span class="n">offset</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">number</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>b = bytes(&quot;00000000&quot;)
-b.getfloat(0)	  # 0
-b.setfloat(0, -1.5)
-print(b)  # bytes(&#39;0000C0BF&#39;)
-b.getfloat(0)  # -1.5
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;00000000&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="n">b</span><span class="p">.</span><span class="nf">getfloat</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w">	  </span><span class="c1"># 0</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">setfloat</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="mf">.5</span><span class="p">)</span><span class="w"></span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w">  </span><span class="c1"># bytes(&#39;0000C0BF&#39;)</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">getfloat</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w">  </span><span class="c1"># -1.5</span>
 </pre></div>
 </div>
 </section>
 <section id="buffer-method">
 <h4><code class="docutils literal notranslate"><span class="pre">_buffer</span></code> method<a class="headerlink" href="#buffer-method" title="Permalink to this headline">¶</a></h4>
 <p><strong>Advanced feature</strong>: returns the address of the buffer in memory, to be used with C code.</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>b = bytes(&#39;1122&#39;)
-b._buffer()  # &lt;ptr: 0x600000c283c0&gt;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">bytes</span><span class="p">(</span><span class="s1">&#39;1122&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="n">b</span><span class="p">.</span><span class="nf">_buffer</span><span class="p">()</span><span class="w">  </span><span class="c1"># &lt;ptr: 0x600000c283c0&gt;</span>
 </pre></div>
 </div>
 </section>
 <section id="change-buffer-method">
 <h4><code class="docutils literal notranslate"><span class="pre">_change_buffer</span></code> method<a class="headerlink" href="#change-buffer-method" title="Permalink to this headline">¶</a></h4>
 <p><strong>Advanced feature</strong>: works only for mapped buffers (i.e. <code class="docutils literal notranslate"><span class="pre">b.ismapped()</span> <span class="pre">==</span> <span class="pre">true</span></code>), allows to remap the buffer to a new memory address. This allows to reuse the bytes() object without reallocating a new instance.</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span># this example uses pointer allocation, use with great care
-b1 = bytes(&quot;11223344&quot;)
-b2 = bytes(&quot;AABBCCDD&quot;)
-b1._buffer()  # &lt;ptr: 0x600000c2c390&gt;
-b2._buffer()  # &lt;ptr: 0x600000c24270&gt;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="c1"># this example uses pointer allocation, use with great care</span>
+<span class="n">b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;11223344&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="n">b2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;AABBCCDD&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="n">b1</span><span class="p">.</span><span class="nf">_buffer</span><span class="p">()</span><span class="w">  </span><span class="c1"># &lt;ptr: 0x600000c2c390&gt;</span>
+<span class="n">b2</span><span class="p">.</span><span class="nf">_buffer</span><span class="p">()</span><span class="w">  </span><span class="c1"># &lt;ptr: 0x600000c24270&gt;</span>
 
-# now we create c as a mapped buffer of 4 bytes to the address of b1
-c = bytes(b1._buffer(), 4)
-print(c)  # bytes(&#39;11223344&#39;) -- mapped to b1
-c._buffer()   # &lt;ptr: 0x600000c2c390&gt;
+<span class="c1"># now we create c as a mapped buffer of 4 bytes to the address of b1</span>
+<span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">bytes</span><span class="p">(</span><span class="n">b1</span><span class="p">.</span><span class="nf">_buffer</span><span class="p">(),</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"></span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w">  </span><span class="c1"># bytes(&#39;11223344&#39;) -- mapped to b1</span>
+<span class="n">c</span><span class="p">.</span><span class="nf">_buffer</span><span class="p">()</span><span class="w">   </span><span class="c1"># &lt;ptr: 0x600000c2c390&gt;</span>
 
-# let&#39;s change a byte to prove it
-c[0] = 254
-print(c)  # bytes(&#39;FE223344&#39;)
-print(b1) # bytes(&#39;FE223344&#39;) -- b1 was changed
+<span class="c1"># let&#39;s change a byte to prove it</span>
+<span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">254</span><span class="w"></span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w">  </span><span class="c1"># bytes(&#39;FE223344&#39;)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b1</span><span class="p">)</span><span class="w"> </span><span class="c1"># bytes(&#39;FE223344&#39;) -- b1 was changed</span>
 
-# reallocate c to map b2
-c._change_buffer(b2._buffer())
-print(c)  # bytes(&#39;AABBCCDD&#39;)
-c._buffer()  # &lt;ptr: 0x600000c24270&gt;
+<span class="c1"># reallocate c to map b2</span>
+<span class="n">c</span><span class="p">.</span><span class="nf">_change_buffer</span><span class="p">(</span><span class="n">b2</span><span class="p">.</span><span class="nf">_buffer</span><span class="p">())</span><span class="w"></span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w">  </span><span class="c1"># bytes(&#39;AABBCCDD&#39;)</span>
+<span class="n">c</span><span class="p">.</span><span class="nf">_buffer</span><span class="p">()</span><span class="w">  </span><span class="c1"># &lt;ptr: 0x600000c24270&gt;</span>
 </pre></div>
 </div>
 </section>
@@ -1655,38 +1785,38 @@ module are not guaranteed to be provided.</p>
 <p>Module <code class="docutils literal notranslate"><span class="pre">global</span></code> provides a way to access global variables via a module. The Berry compiler checks that a global exists when compiling code. However there are cases when globals are created dynamically by code and are not yet known at compile time. Using the module <code class="docutils literal notranslate"><span class="pre">global</span></code> gives complete freedom to access statically or dynamically global variables.</p>
 <p>Accessing a global is simplay made with <code class="docutils literal notranslate"><span class="pre">global.&lt;name&gt;</span></code> for reading and writing. You can also use the special syntax <code class="docutils literal notranslate"><span class="pre">global.(name)</span></code> if <code class="docutils literal notranslate"><span class="pre">name</span></code> is a variable containing the name of the global as string.</p>
 <p>Example:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; import global
-&gt; a = 1
-&gt; global.a
-1
-&gt;
-&gt; b
-syntax_error: stdin:1: &#39;b&#39; undeclared (first use in this function)
-&gt; global.b = 2
-&gt; b
-2
-&gt; global.b
-2
-&gt; var name = &quot;b&quot;
-&gt; global.(name)
-2
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="kr">import</span><span class="w"> </span><span class="n">global</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">global</span><span class="p">.</span><span class="na">a</span><span class="w"></span>
+<span class="mi">1</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
+<span class="n">syntax_error</span><span class="o">:</span><span class="w"> </span><span class="n">stdin</span><span class="o">:</span><span class="mi">1</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;b&#39;</span><span class="w"> </span><span class="nf">undeclared</span><span class="w"> </span><span class="p">(</span><span class="n">first</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">function</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">global</span><span class="p">.</span><span class="na">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
+<span class="mi">2</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">global</span><span class="p">.</span><span class="na">b</span><span class="w"></span>
+<span class="mi">2</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;b&quot;</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">global</span><span class="p">.(</span><span class="n">name</span><span class="p">)</span><span class="w"></span>
+<span class="mi">2</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Calling <code class="docutils literal notranslate"><span class="pre">global()</span></code> returns the list of all global names currently defined (builtins are not included).</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; import global
-&gt; a = 1
-&gt; global.b = 2
-&gt; global()
-[&#39;_argv&#39;, &#39;b&#39;, &#39;global&#39;, &#39;a&#39;]
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="kr">import</span><span class="w"> </span><span class="n">global</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">global</span><span class="p">.</span><span class="na">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="nf">global</span><span class="p">()</span><span class="w"></span>
+<span class="p">[</span><span class="s1">&#39;_argv&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;global&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;a&#39;</span><span class="p">]</span><span class="w"></span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">global.contains(&lt;name)&gt;</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></code> provides an easy way to know if a global name is already defined.</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; import global
-&gt; global.contains(&quot;g&quot;)
-false
-&gt; g = 1
-&gt; global.contains(&quot;g&quot;)
-true
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="kr">import</span><span class="w"> </span><span class="n">global</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">global</span><span class="p">.</span><span class="nf">contains</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="kc">false</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">global</span><span class="p">.</span><span class="nf">contains</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="kc">true</span><span class="w"></span>
 </pre></div>
 </div>
 </section>

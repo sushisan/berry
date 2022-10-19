@@ -1,27 +1,25 @@
-# The Berry Script Language Reference Manual
+The Berry Script Language Reference Manual
+##########################################
 
-V1.0.0
+.. toctree::
+   :maxdepth: 30
+   :caption: Contents:
 
-Guan Wenliang & Stephan Hadinger
+* :doc:`Chapter 1 — Basic Information <Chapter-1>`
+* :doc:`Chapter 2 — Types and Variables <Chapter-2>`
+* :doc:`Chapter 3 — Expression <Chapter-3>`
+* :doc:`Chapter 4 — Statement <Chapter-4>`
+* :doc:`Chapter 5 — Function <Chapter-5>`
+* :doc:`Chapter 6 — Object Oriented Function <Chapter-6>`
+* :doc:`Chapter 7 — Libraries and Modules <Chapter-7>`
+* :doc:`Chapter 8 — Advanced features <Chapter-8>`
+* :doc:`Chapter 9 — Language Interactive Interface <Chapter-9>`
+* :doc:`Appendix A — Grammar Definition <Appendix-A>`
+* :doc:`Appendix B — Compiler Interpreter <Appendix-B>`
+* :doc:`Appendix C — Porting Guide <Appendix-C>`
 
-July 5, 2022
-
-# Contents
-
-* [Chapter 1 — Basic Information](Chapter-1)
-* [Chapter 2 — Types and Variables](Chapter-2)
-* [Chapter 3 — Expression](Chapter-3)
-* [Chapter 4 — Statement](Chapter-4)
-* [Chapter 5 — Function](Chapter-5)
-* [Chapter 6 — Object Oriented Function](Chapter-6)
-* [Chapter 7 — Libraries and Modules](Chapter-7)
-* [Chapter 8 — Advanced features](Chapter-8)
-* [Chapter 9 — Language Interactive Interface](Chapter-9)
-* [Appendix A — Grammar Definition](Appendix-A)
-* [Appendix B — Compiler Interpreter](Appendix-B)
-* [Appendix C — Porting Guide](Appendix-C)
-
-# Preface
+Preface
+^^^^^^^
 
 A few years ago, I tried to port the Lua scripting language to STM32F4 microcontroller, and then I experienced a Lua-based firmware on ESP8266: NodeMCU. These experiences made me experience the convenience of script development. Later, I came into contact with some scripting languages, such as Python, JavaScript, Basic, and MATLAB. At present, only a few languages are suitable for transplanting to the microcontroller platform. I used to pay more attention to Lua because it is a very compact embedded scripting language, and its design goal is to be embedded in the host program. However, for the microcontroller, the Lua interpreter may not be small enough, and I cannot run it on a 32-bit microcontroller with a relatively small memory. To this end, I started to read Lua code and developed my own scripting language-Berry on this basis.
 

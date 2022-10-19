@@ -32,12 +32,37 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../en/Home.html">Welcome to the berry wiki!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Home.html">Bienvenido a la wiki de Berry!</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Información básica</a><ul>
+<li><a class="reference internal" href="#introduccion">1.1 Introducción</a></li>
+<li><a class="reference internal" href="#empezar-a-usar">1.2 Empezar a usar</a><ul>
+<li><a class="reference internal" href="#obtener-el-interprete">Obtener el intérprete</a></li>
+<li><a class="reference internal" href="#entorno-repl">Entorno REPL</a><ul>
+<li><a class="reference internal" href="#programa-hola-mundo">Programa Hola Mundo</a></li>
+<li><a class="reference internal" href="#mas-uso-de-repl">Más uso de REPL</a></li>
 </ul>
-
+</li>
+<li><a class="reference internal" href="#archivo-de-comandos">Archivo de comandos</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#palabras-words">1.3 Palabras (Words)</a><ul>
+<li><a class="reference internal" href="#comentario">Comentario</a></li>
+<li><a class="reference internal" href="#valor-literal">Valor literal</a><ul>
+<li><a class="reference internal" href="#valor-literal-numerico">Valor literal numérico</a></li>
+<li><a class="reference internal" href="#valor-literal-booleano">Valor literal booleano</a></li>
+<li><a class="reference internal" href="#literal-de-cadena">Literal de cadena</a></li>
+<li><a class="reference internal" href="#valor-literal-nulo">Valor literal nulo</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#identificador">Identificador</a></li>
+<li><a class="reference internal" href="#palabras-clave">Palabras clave</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
@@ -90,43 +115,43 @@ make
 <h3>Entorno REPL<a class="headerlink" href="#entorno-repl" title="Permalink to this headline">¶</a></h3>
 <p>REPL (Leer Evaluar Imprimir Bucle) generalmente se traduce como un intérprete interactivo, y este elemnto también se ha convertido en el modo interactivo del intérprete. Este modo consta de cuatro elementos: <strong>Leer</strong>, lee el código fuente ingresado por el usuario desde el dispositivo de entrada; <strong>Evaluar</strong>, compila y ejecuta el código fuente ingresado por el usuario; <strong>Imprimir</strong>, muestra el resultado del proceso de evaluación; <strong>Bucle</strong>, realiza un ciclo de las operaciones anteriores.</p>
 <p>Inicie el intérprete directamente (ingrese <code class="docutils literal notranslate"><span class="pre">berry</span></code> en la terminal o en la ventana de comandos sin parámetros, o haga doble clic en berry.exe en Windows) para ingresar al modo REPL y verá la siguiente interfaz:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>Berry 1.0.0 (build in Feb 1 2022, 13:14:04)
-[GCC 8.1.0] on Windows (default)
-&gt;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">Berry</span><span class="w"> </span><span class="mi">1</span><span class="mf">.0.0</span><span class="w"> </span><span class="p">(</span><span class="n">build</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">Feb</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2022</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="o">:</span><span class="mi">14</span><span class="o">:</span><span class="mi">04</span><span class="p">)</span><span class="w"></span>
+<span class="p">[</span><span class="n">GCC</span><span class="w"> </span><span class="mi">8</span><span class="mf">.1.0</span><span class="p">]</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="nf">Windows</span><span class="w"> </span><span class="p">(</span><span class="n">default</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Las dos primeras líneas de la interfaz muestran la versión, el tiempo de compilación, el compilador y el sistema operativo del intérprete de Berry. El símbolo “<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>” en la tercera línea se llama indicador y el cursor se muestra detrás del indicador. Al usar el modo REPL, después de ingresar el código fuente, al presionar la tecla “Enter” se ejecutará inmediatamente el código y se generará el resultado. Presione la combinación de teclas <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">C</span></code> para salir de REPL. En el caso de usar la biblioteca Readline, use la combinación de teclas <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">D</span></code> para salir de REPL cuando la entrada esté vacía. Dado que no hay necesidad de editar archivos de secuencias de comandos, el modo REPL se puede utilizar para un desarrollo rápido o verificación de ideas.</p>
 <section id="programa-hola-mundo">
 <h4>Programa Hola Mundo<a class="headerlink" href="#programa-hola-mundo" title="Permalink to this headline">¶</a></h4>
 <p>Tomemos como ejemplo el clásico programa “Hola Mundo”. Introduzca <code class="docutils literal notranslate"><span class="pre">print('Hola</span> <span class="pre">Mundo')</span></code> en el REPL y ejecútelo. Los resultados son los siguientes:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>Berry 1.0.0 (build in Feb 1 2022, 13:14:04)
-[GCC 8.1.0] on Windows (default)
-&gt; print(&#39;Hola Mundo&#39;)
-Hola Mundo
-&gt;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">Berry</span><span class="w"> </span><span class="mi">1</span><span class="mf">.0.0</span><span class="w"> </span><span class="p">(</span><span class="n">build</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">Feb</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2022</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="o">:</span><span class="mi">14</span><span class="o">:</span><span class="mi">04</span><span class="p">)</span><span class="w"></span>
+<span class="p">[</span><span class="n">GCC</span><span class="w"> </span><span class="mi">8</span><span class="mf">.1.0</span><span class="p">]</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="nf">Windows</span><span class="w"> </span><span class="p">(</span><span class="n">default</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hola Mundo&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="n">Hola</span><span class="w"> </span><span class="n">Mundo</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>El intérprete emite el texto “<code class="docutils literal notranslate"><span class="pre">Hola</span> <span class="pre">Mundo</span></code>”. Esta línea de código realiza la salida de la cadena <code class="docutils literal notranslate"><span class="pre">'Hola</span> <span class="pre">Mundo'</span></code> llamando a la función <code class="docutils literal notranslate"><span class="pre">print</span></code>. En REPL, si el valor de retorno de la expresión no es <code class="docutils literal notranslate"><span class="pre">nil</span></code>, se mostrará el valor de retorno. Por ejemplo, ingresar la expresión <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">2</span></code> mostrará el resultado del cálculo <code class="docutils literal notranslate"><span class="pre">3</span></code>:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; 1 + 2
-3
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="mi">3</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Por lo tanto, el programa “Hola Mundo” más simple bajo REPL es ingresar directamente la cadena <code class="docutils literal notranslate"><span class="pre">'Hola</span> <span class="pre">Mundo'</span></code> y ejecutar:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; &#39;Hola Mundo&#39;
-Hola Mundo
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="s1">&#39;Hola Mundo&#39;</span><span class="w"></span>
+<span class="n">Hola</span><span class="w"> </span><span class="n">Mundo</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="mas-uso-de-repl">
 <h4>Más uso de REPL<a class="headerlink" href="#mas-uso-de-repl" title="Permalink to this headline">¶</a></h4>
 <p>También puede utilizar el modo interactivo del intérprete de Berry como calculadora científica. Sin embargo, algunas funciones matemáticas no se pueden utilizar directamente. En su lugar, use la declaración <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code> para importar la biblioteca matemática y luego use las funciones en la biblioteca. Utilice “<code class="docutils literal notranslate"><span class="pre">math.</span></code>” como prefijo, por ejemplo, la función <code class="docutils literal notranslate"><span class="pre">sin</span></code> debe escribirse como <code class="docutils literal notranslate"><span class="pre">math.sin</span></code>:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; import math
-&gt; math.pi
-3.14159
-&gt; math.sin(math.pi / 2)
-1
-&gt; math.sqrt(2)
-1.41421
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="kr">import</span><span class="w"> </span><span class="n">math</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">math</span><span class="p">.</span><span class="na">pi</span><span class="w"></span>
+<span class="mi">3</span><span class="mf">.14159</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">math</span><span class="p">.</span><span class="nf">sin</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="na">pi</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="mi">1</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">math</span><span class="p">.</span><span class="nf">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="mi">1</span><span class="mf">.41421</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -148,10 +173,10 @@ Hola Mundo
 <section id="palabras-words">
 <h2>1.3 Palabras (Words)<a class="headerlink" href="#palabras-words" title="Permalink to this headline">¶</a></h2>
 <p>Antes de presentar la sintaxis de Berry, echemos un vistazo a un código simple (puede ejecutar este código en modo REPL):</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def func(x) # una función ejemplo
-    return x + 1.5
-end
-print(&#39;func(10) =&#39;, func(10))
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c1"># una función ejemplo</span>
+<span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="mf">.5</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;func(10) =&#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Este código define una función <code class="docutils literal notranslate"><span class="pre">func</span></code> y la llama más tarde. Antes de entender cómo funciona este código, primero presentaremos los elementos de sintaxis del lenguaje Berry.</p>
@@ -160,14 +185,14 @@ print(&#39;func(10) =&#39;, func(10))
 <section id="comentario">
 <h3>Comentario<a class="headerlink" href="#comentario" title="Permalink to this headline">¶</a></h3>
 <p>Los comentarios son textos que no genera ningún código. Se utilizan para hacer comentarios en el código fuente y ser leídos por personas, mientras que el compilador no interpretará su contenido. Berry admite comentarios de una sola línea y comentarios de bloque de líneas cruzadas. Los comentarios de una sola línea comienzan con el carácter “<code class="docutils literal notranslate"><span class="pre">#</span></code>’ hasta el final del carácter de nueva línea. La nota rápida comienza con el texto “<code class="docutils literal notranslate"><span class="pre">#-</span></code>” y termina con el texto “<code class="docutils literal notranslate"><span class="pre">-#</span></code>”. El siguiente es un ejemplo del uso de anotaciones:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>#  Este es un comentario de línea
-#- Este es un
-   bloque de comentario
--#
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Este es un comentario de línea</span>
+<span class="cm">#- Este es un</span>
+<span class="cm">   bloque de comentario</span>
+<span class="cm">-#</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Similar al lenguaje C, los comentarios rápidos no admiten el anidamiento. El siguiente código terminará el análisis de los comentarios en el primer texto “<code class="docutils literal notranslate"><span class="pre">-#</span></code>”:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>#- - Algunos comentarios -# ... -#
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="cm">#- - Algunos comentarios -#</span><span class="w"> </span><span class="o">..</span><span class="p">.</span><span class="w"> </span><span class="o">-</span><span class="c1">#</span>
 </pre></div>
 </div>
 </section>
@@ -177,10 +202,10 @@ print(&#39;func(10) =&#39;, func(10))
 <section id="valor-literal-numerico">
 <h4>Valor literal numérico<a class="headerlink" href="#valor-literal-numerico" title="Permalink to this headline">¶</a></h4>
 <p>Los literales numéricos incluyen literales <strong>Integer</strong> (entero) y literales <strong>Número real</strong> (real).</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>40 #  Literal entero
-0x80 # Literal hexadecimal (entero)
-3.14 #  Literal real
-1.1e-6 #  Literal real
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="mi">40</span><span class="w"> </span><span class="c1">#  Literal entero</span>
+<span class="mh">0x80</span><span class="w"> </span><span class="c1"># Literal hexadecimal (entero)</span>
+<span class="mi">3</span><span class="mf">.14</span><span class="w"> </span><span class="c1">#  Literal real</span>
+<span class="mi">1</span><span class="mf">.1e-6</span><span class="w"> </span><span class="c1">#  Literal real</span>
 </pre></div>
 </div>
 <p>Los literales numéricos se escriben de manera similar a la escritura cotidiana. Berry admite denominaciones enteras hexadecimales. Los literales hexadecimales comienzan con el prefijo <code class="docutils literal notranslate"><span class="pre">0x</span></code> o <code class="docutils literal notranslate"><span class="pre">0X</span></code>, seguido de un número hexadecimal.</p>
@@ -192,8 +217,8 @@ print(&#39;func(10) =&#39;, func(10))
 <section id="literal-de-cadena">
 <h4>Literal de cadena<a class="headerlink" href="#literal-de-cadena" title="Permalink to this headline">¶</a></h4>
 <p>Una cadena es un fragmento de texto, y su escritura literal consiste en usar un par de <code class="docutils literal notranslate"><span class="pre">'</span></code> o <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> para rodear el texto de la cadena:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&#39;esto es una cadena&#39;
-&quot;esto es una cadena&quot;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;esto es una cadena&#39;</span><span class="w"></span>
+<span class="s2">&quot;esto es una cadena&quot;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Los literales de cadena proporcionan algunas secuencias de escape para representar caracteres que no se pueden ingresar directamente. La secuencia de escape comienza con el carácter <code class="docutils literal notranslate"><span class="pre">'\'</span></code> y luego sigue una secuencia específica de caracteres para lograr el escape. Las secuencias de escape especificadas por Berry son</p>
@@ -242,7 +267,7 @@ print(&#39;func(10) =&#39;, func(10))
 <p><em>Tabla 1: Secuencia de Caracter de Escape</em></p>
 </div>
 <p>Las secuencias de escape se pueden usar en cadenas, por ejemplo</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>print(&#39;caracter de escape LF\n\tnueva línea&#39;)
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;caracter de escape LF\n\tnueva línea&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>El resultado de la operación es:</p>
@@ -251,7 +276,7 @@ print(&#39;func(10) =&#39;, func(10))
 </pre></div>
 </div>
 <p>También puede usar secuencias de escape generalizadas, en forma de <code class="docutils literal notranslate"><span class="pre">\x</span></code> seguido de 2 dígitos hexadecimales, o <code class="docutils literal notranslate"><span class="pre">\</span></code> 3 dígitos octales, usando esta secuencia de escape puede representar cualquier carácter. Estos son algunos ejemplos del uso del conjunto de caracteres ASCII:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&#39;\115&#39; #-&#39;M&#39; -#&#39;\x34&#39; #- &#39;4&#39; -#&#39;\064&#39; #- &#39;4&#39; -#
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;\115&#39;</span><span class="w"> </span><span class="cm">#-&#39;M&#39; -#</span><span class="s1">&#39;\x34&#39;</span><span class="w"> </span><span class="cm">#- &#39;4&#39; -#</span><span class="s1">&#39;\064&#39;</span><span class="w"> </span><span class="cm">#- &#39;4&#39; -#</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -263,21 +288,21 @@ print(&#39;func(10) =&#39;, func(10))
 <section id="identificador">
 <h3>Identificador<a class="headerlink" href="#identificador" title="Permalink to this headline">¶</a></h3>
 <p>El identificador es un nombre definido por el usuario, que comienza con un guión bajo o una letra, y luego consiste en una combinación de varios guiones bajos, letras o números. Al igual que la mayoría de los lenguajes, Berry distingue entre mayúsculas y minúsculas, por lo que los identificadores <code class="docutils literal notranslate"><span class="pre">A</span></code> y los identificadores <code class="docutils literal notranslate"><span class="pre">a</span></code> se resolverán en dos identificadores diferentes.</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>a
-TestVariable
-Test_Var
-_init
-baseCass
-_
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"></span>
+<span class="n">TestVariable</span><span class="w"></span>
+<span class="n">Test_Var</span><span class="w"></span>
+<span class="n">_init</span><span class="w"></span>
+<span class="n">baseCass</span><span class="w"></span>
+<span class="n">_</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="palabras-clave">
 <h3>Palabras clave<a class="headerlink" href="#palabras-clave" title="Permalink to this headline">¶</a></h3>
 <p>Berry reserva los siguientes tokens como palabras clave del lenguaje:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>if elif else while for def
-end class break continue return true
-false nil var do import as static
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="ow">if</span><span class="w"> </span><span class="ow">elif</span><span class="w"> </span><span class="ow">else</span><span class="w"> </span><span class="ow">while</span><span class="w"> </span><span class="ow">for</span><span class="w"> </span><span class="kd">def</span><span class="w"></span>
+<span class="ow">end</span><span class="w"> </span><span class="kd">class</span> <span class="nc">break</span><span class="w"> </span><span class="kr">continue</span><span class="w"> </span><span class="ow">return</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="kc">false</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="ow">do</span><span class="w"> </span><span class="kr">import</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="kr">static</span><span class="w"></span>
 </pre></div>
 </div>
 <p>El uso específico de palabras clave se presentará en los capítulos correspondientes. Tenga en cuenta que las palabras clave no se pueden utilizar como identificadores. Debido a que Berry distingue entre mayúsculas y minúsculas, <code class="docutils literal notranslate"><span class="pre">If</span></code> puede usarse para identificadores.</p>

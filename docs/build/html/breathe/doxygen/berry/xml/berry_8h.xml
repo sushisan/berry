@@ -1186,11 +1186,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>bntvmodule_ </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="229" column="18"/>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="229" column="12"/>
       </memberdef>
       <memberdef kind="typedef" id="berry_8h_1a7452d322aeb4e2ff71d24211f42461c3" prot="public" static="no">
         <type>const struct <ref refid="structbclass" kindref="compound">bclass</ref> *</type>
@@ -6876,7 +6875,8 @@ Input a piece of data from the standard input device, and read at most one row o
 <codeline lineno="226" refid="structbntvmodule_1a687658078a7d84f2661bd5b5cd024a32" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structbntvmodobj" kindref="compound">bntvmodobj</ref><sp/>*<ref refid="structbntvmodule_1a687658078a7d84f2661bd5b5cd024a32" kindref="member">attrs</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="227" refid="structbntvmodule_1ad988c06052a10c1f3fc0002862aee7c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="structbntvmodule_1ad988c06052a10c1f3fc0002862aee7c0" kindref="member">size</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="228" refid="structbntvmodule_1a307e7f6aecb900f345d8087da758e6dd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">bmodule<sp/>*<ref refid="structbntvmodule_1a307e7f6aecb900f345d8087da758e6dd" kindref="member">module</ref>;<sp/><sp/></highlight></codeline>
-<codeline lineno="229" refid="berry_8h_1a4ef1e830d6d1dd69cb5568275d0be3c9" refkind="member"><highlight class="normal">}<sp/><ref refid="berry_8h_1a4ef1e830d6d1dd69cb5568275d0be3c9" kindref="member">bntvmodule</ref>;<sp/></highlight></codeline>
+<codeline lineno="229"><highlight class="normal">}<sp/><ref refid="structbntvmodule" kindref="compound">bntvmodule</ref>;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
 <codeline lineno="235"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structbclass" kindref="compound">bclass</ref>;</highlight></codeline>
 <codeline lineno="236"><highlight class="normal"></highlight></codeline>
 <codeline lineno="240" refid="berry_8h_1a7452d322aeb4e2ff71d24211f42461c3" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structbclass" kindref="compound">bclass</ref><sp/>*<ref refid="berry_8h_1a7452d322aeb4e2ff71d24211f42461c3" kindref="member">bclass_ptr</ref>;</highlight></codeline>

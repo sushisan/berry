@@ -32,12 +32,47 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Home.html">Welcome to the berry wiki!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Bienvenido a la wiki de Berry!</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">4. Statement</a><ul>
+<li><a class="reference internal" href="#simple-sentence">4.1 Simple sentence</a><ul>
+<li><a class="reference internal" href="#expression-statement">4.1.1 Expression statement</a></li>
+<li><a class="reference internal" href="#block">Block</a><ul>
+<li><a class="reference internal" href="#do-statement"><code class="docutils literal notranslate"><span class="pre">do</span></code> Statement</a></li>
 </ul>
-
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#conditional-statement">conditional statement</a><ul>
+<li><a class="reference internal" href="#if-statement"><code class="docutils literal notranslate"><span class="pre">if</span></code> Statement</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iteration-statement">Iteration Statement</a><ul>
+<li><a class="reference internal" href="#while-statement"><code class="docutils literal notranslate"><span class="pre">while</span></code> Statement</a></li>
+<li><a class="reference internal" href="#for-statement"><code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a><ul>
+<li><a class="reference internal" href="#for-principle-of-statement"><code class="docutils literal notranslate"><span class="pre">for</span></code> Principle of Statement</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#jump-statement">Jump Statement</a><ul>
+<li><a class="reference internal" href="#break-statement"><code class="docutils literal notranslate"><span class="pre">break</span></code> Statement</a></li>
+<li><a class="reference internal" href="#continue-statement"><code class="docutils literal notranslate"><span class="pre">continue</span></code> Statement</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#import-statement"><code class="docutils literal notranslate"><span class="pre">import</span></code> Statement</a></li>
+<li><a class="reference internal" href="#exception-handling">Exception Handling</a><ul>
+<li><a class="reference internal" href="#raise-an-exception">Raise an exception</a><ul>
+<li><a class="reference internal" href="#outliers">Outliers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#catch-exceptions">Catch exceptions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
@@ -89,8 +124,8 @@ expressions or function call expressions. Other expressions can also
 form sentences, but they have no meaning. For example, expression <code class="docutils literal notranslate"><span class="pre">1+2</span></code>
 is a sentence written alone, but it has no effect. The following
 routines give examples of expression statements and function statements:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>a = 1 # Assignment statement
-print(a) # Call statement
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c1"># Assignment statement</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="c1"># Call statement</span>
 </pre></div>
 </div>
 <p>Line 2 is a simple assignment statement that assigns the literal value
@@ -99,22 +134,22 @@ statement, which prints the value of variable <code class="docutils literal notr
 function.</p>
 <p>Cross-line expressions are written in the same way as single-line
 expressions, and no special line continuation symbols are required. E.g:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>a = 1 +
-    func() # Wrap line
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"></span>
+<span class="w">    </span><span class="nf">func</span><span class="p">()</span><span class="w"> </span><span class="c1"># Wrap line</span>
 </pre></div>
 </div>
 <p>You can also write multiple expression statements on one line, and
 various types of statements can be written on one line. This example
 puts two expression statements on the same line:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>b = 1 c = 2 # Multiple statements
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="c1"># Multiple statements</span>
 </pre></div>
 </div>
 <p>Sometimes the programmer wants to write two statements, but the
 interpreter may mistakenly think it is one statement. This problem is
 caused by the ambiguity in the process of grammatical analysis. Take
 this code as an example:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>a = c
-(b) = 1 # Be regarded as a function call
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="w"></span>
+<span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c1"># Be regarded as a function call</span>
 </pre></div>
 </div>
 <p>Suppose the 4th and 5th lines are intended to be two expression
@@ -123,7 +158,7 @@ them as a sentence: <code class="docutils literal notranslate"><span class="pre"
 the interpreter incorrectly parses <code class="docutils literal notranslate"><span class="pre">c</span></code> and <code class="docutils literal notranslate"><span class="pre">(b)</span></code> into function calls. To
 avoid ambiguity, we can add a semicolon at the end of the statement to
 clearly separate the statement:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>a = c; (b) = 1;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>A better way is not to use parentheses on the left side of the
@@ -132,7 +167,7 @@ here. Under normal circumstances, complex expressions should not appear
 on the left side of the assignment operator, but only simple expressions
 composed of variable names, domain operation expressions, and subscript
 operation expressions:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>a = c b = 1
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Using simple expressions only on the left side of the assignment sign
@@ -148,10 +183,10 @@ and its sub-blocks. There are many places where blocks are used, such as
 <code class="docutils literal notranslate"><span class="pre">if</span></code> statements, <code class="docutils literal notranslate"><span class="pre">while</span></code> statements, function declarations, etc. These
 statements will contain a block through a pair of keywords. For example,
 the block used in the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>if isOpen
-    close()
-    print(&#39;the device was closed&#39;)
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="ow">if</span><span class="w"> </span><span class="n">isOpen</span><span class="w"></span>
+<span class="w">    </span><span class="nf">close</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the device was closed&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The statements in lines 2 to 3 constitute a block, which is sandwiched
@@ -207,9 +242,9 @@ following <code class="docutils literal notranslate"><span class="pre">end</span
 the block is executed, it will leave the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement and start
 executing the statement following <code class="docutils literal notranslate"><span class="pre">end</span></code>.</p>
 <p>Here is an example to illustrate the usage of the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>if 8 % 2 == 0
-    print(&#39;this number is even&#39;)
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="ow">if</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;this number is even&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>This code is used to judge whether the number <code class="docutils literal notranslate"><span class="pre">8</span></code> is even, and if it is,
@@ -235,11 +270,11 @@ words, no matter whether the value of
 <p>Continue to use the judgment of parity as an example, this time change
 the demand to output corresponding information according to the parity
 of the input number. The code to achieve this requirement is:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>if x % 2 == 0
-    print(&#39;this number is even&#39;)
-else
-    print(&#39;this number is odd&#39;)
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="ow">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;this number is even&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="ow">else</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;this number is odd&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Before running this code, we must first assign an integer value to the
@@ -250,13 +285,13 @@ statements. One way is to nest a <code class="docutils literal notranslate"><spa
 This is a very common requirement because many conditions need to be
 judged consecutively. For this kind of demand, use the <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">else</span></code>
 statement to write:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>if expr
-    block
-else
-    if expr
-        block
-    end
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="ow">if</span><span class="w"> </span><span class="n">expr</span><span class="w"></span>
+<span class="w">    </span><span class="n">block</span><span class="w"></span>
+<span class="ow">else</span><span class="w"></span>
+<span class="w">    </span><span class="ow">if</span><span class="w"> </span><span class="n">expr</span><span class="w"></span>
+<span class="w">        </span><span class="n">block</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Obviously, this way of writing will increase the indentation level of
@@ -279,13 +314,13 @@ branch will be executed. <code class="docutils literal notranslate"><span class=
 that require multiple conditions to be judged in sequence.</p>
 <p>We use a piece of code that judges positive, negative, and 0 to
 demonstrate the <code class="docutils literal notranslate"><span class="pre">elif</span></code> branch:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>if x&gt; 0
-    print(&#39;positive&#39;)
-elif x == 0
-    print(&#39;zero&#39;)
-else
-    print(&#39;negative&#39;)
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="ow">if</span><span class="w"> </span><span class="n">x</span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;positive&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="ow">elif</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;zero&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="ow">else</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;negative&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Here too, the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> must be assigned first. This code is very
@@ -339,12 +374,12 @@ usually expect the loop to execute a specified number of times and then
 terminate. For example, when using the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop to access all
 elements in the array, we hope that the number of loop executions is the
 length of the array, for example:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>i = 0
-l = [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]
-while i &lt; l.size()
-    print(l[i])
-    i = i + 1
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span><span class="w"></span>
+<span class="ow">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">l</span><span class="p">.</span><span class="nb">size</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"></span>
+<span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>This loop gets the elements from the array <code class="docutils literal notranslate"><span class="pre">l</span></code> and prints them. We use a
@@ -386,11 +421,11 @@ illustrate this point, let’s use an example to illustrate. In this
 example, we use the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement to access all the elements in the
 <code class="docutils literal notranslate"><span class="pre">rang</span></code> instance and print them out. Of course, we also use this example
 to demonstrate the scope of loop variables.</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>i = &quot;Hi, I&#39;m fine.&quot; # Outer variable
-for i: 0 .. 2
-    print(i) # Iteration variable
-end
-print(i)
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Hi, I&#39;m fine.&quot;</span><span class="w"> </span><span class="c1"># Outer variable</span>
+<span class="ow">for</span><span class="w"> </span><span class="n">i</span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c1"># Iteration variable</span>
+<span class="ow">end</span><span class="w"></span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>In this example, relative to the iteration variable <code class="docutils literal notranslate"><span class="pre">i</span></code> defined in line
@@ -413,22 +448,22 @@ statement to traverse a custom class, you need to understand its
 implementation mechanism. When using the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement, the
 interpreter hides a lot of implementation details. In fact, for such
 code:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>for i: 0 .. 2
-    print(i)
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="ow">for</span><span class="w"> </span><span class="n">i</span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Will be translated into the following equivalent code by the
 interpreter:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>var it = __iterator__(0 .. 2)
-try
-    while true
-        var i = it()
-        print(i)
-    end
-except &#39;stop_iteration&#39;
-    # do nothing
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">__iterator__</span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="ow">try</span><span class="w"></span>
+<span class="w">    </span><span class="ow">while</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">it</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="ow">except</span><span class="w"> </span><span class="s1">&#39;stop_iteration&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="c1"># do nothing</span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>To some extent, the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement is just a syntactic sugar, it is
@@ -453,13 +488,13 @@ iterator, which gets the next element in the iterator by calling the
 simply call some methods of the container or iterator and then return
 the return value of these methods. Therefore, the equivalent writing of
 the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement can also be simplified into this form:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>do
-    var it = (0 .. 2).iter()
-    while (it.hasnext())
-        var i = it.next()
-        print(i)
-    end
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="ow">do</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">2</span><span class="p">).</span><span class="nf">iter</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="ow">while</span><span class="w"> </span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="nf">hasnext</span><span class="p">())</span><span class="w"></span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">it</span><span class="p">.</span><span class="nf">next</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>This code is easier to read. It can be seen from the effective code that
@@ -488,12 +523,12 @@ iteration statement will be terminated immediately and execution will
 continue from the position of the first statement after the iteration
 statement. In order to illustrate the execution flow of the <code class="docutils literal notranslate"><span class="pre">break</span></code>
 statement, we use an example to demonstrate:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>while true
-    print(&#39;before break&#39;)
-    break
-    print(&#39;after break&#39;)
-end
-print(&#39;out of the loop&#39;)
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="ow">while</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;before break&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="kr">break</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;after break&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;out of the loop&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>In this code, the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement is in a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop. Before and
@@ -517,13 +552,13 @@ remaining code in the iteration statement of the nearest layer will no
 longer be executed, but a new round of iteration will start. Here we use
 a <code class="docutils literal notranslate"><span class="pre">for</span></code> statement to demonstrate the function of the <code class="docutils literal notranslate"><span class="pre">continue</span></code>
 statement:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>for i: 0 .. 5
-    if i &gt;= 2
-        continue
-    end
-    print(&#39;i =&#39;, i)
-end
-print(&#39;out of the loop&#39;)
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="ow">for</span><span class="w"> </span><span class="n">i</span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+<span class="w">    </span><span class="ow">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">        </span><span class="kr">continue</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;i =&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;out of the loop&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Here, the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement will iterate 6 times. When the iteration
@@ -559,8 +594,8 @@ writing is to import a module named <strong>name</strong> and modify the
 module name when calling it to <strong>variable</strong>.
 For example, a module named <code class="docutils literal notranslate"><span class="pre">math</span></code>, we use the first method to import
 and use:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>import math
-math.sin(0)
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span><span class="w"> </span><span class="n">math</span><span class="w"></span>
+<span class="n">math</span><span class="p">.</span><span class="nf">sin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Here directly use <code class="docutils literal notranslate"><span class="pre">math</span></code> to call the module. If the name of a module is
@@ -568,20 +603,20 @@ relatively long and it is not convenient to write, you can use the
 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">as</span></code> statement. Here, assume a module named <code class="docutils literal notranslate"><span class="pre">hardware</span></code>. We want
 to call the function <code class="docutils literal notranslate"><span class="pre">setled</span></code> of the module, we can import the module
 <code class="docutils literal notranslate"><span class="pre">hardware</span></code> into the variable named <code class="docutils literal notranslate"><span class="pre">hw</span></code> and use:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>import hardware as hw
-hw.setled(true)
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span><span class="w"> </span><span class="n">hardware</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="n">hw</span><span class="w"></span>
+<span class="n">hw</span><span class="p">.</span><span class="nf">setled</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>To find modules, all paths in <code class="docutils literal notranslate"><span class="pre">sys.path()</span></code> are explored sequentially.
 If you want to add a specific path before the import (like reading from SD card)
 you can use the following helper function:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def push_path(p)
-  import sys
-  var path = sys.path()
-  if path.find(p) == nil  # append only if it&#39;s not already there
-    path.push(p)
-  end
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">push_path</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="kr">import</span><span class="w"> </span><span class="n">sys</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sys</span><span class="p">.</span><span class="nf">path</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="ow">if</span><span class="w"> </span><span class="n">path</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">nil</span><span class="w">  </span><span class="c1"># append only if it&#39;s not already there</span>
+<span class="w">    </span><span class="n">path</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="ow">end</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -611,7 +646,7 @@ expression is usually a string describing the exception information, and
 this expression is called <strong>Abnormal parameter</strong>. Berry allows any value
 to be used as an abnormal value, for example, a string can be used as an
 abnormal value:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>raise &#39;my_error&#39;,&#39;an example of raise&#39;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="ow">raise</span><span class="w"> </span><span class="s1">&#39;my_error&#39;</span><span class="p">,</span><span class="s1">&#39;an example of raise&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>After the program executes to the <code class="docutils literal notranslate"><span class="pre">raise</span></code> statement, it will not

@@ -32,12 +32,50 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../en/Home.html">Welcome to the berry wiki!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Home.html">Bienvenido a la wiki de Berry!</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">9. FFI</a><ul>
+<li><a class="reference internal" href="#conceptos-basicos">9.1 Conceptos básicos</a><ul>
+<li><a class="reference internal" href="#maquina-virtual">9.1.1 Máquina virtual</a></li>
+<li><a class="reference internal" href="#pila-virtual">9.1.2 Pila virtual</a></li>
+<li><a class="reference internal" href="#operar-con-pila-virtual">Operar con pila virtual</a><ul>
+<li><a class="reference internal" href="#indice-y-tamano-de-pila">Índice y tamaño de pila</a></li>
+<li><a class="reference internal" href="#obtener-valor-de-la-pila">Obtener valor de la pila</a></li>
 </ul>
-
+</li>
+<li><a class="reference internal" href="#funcion-nativa">Función nativa</a><ul>
+<li><a class="reference internal" href="#definir-una-funcion-nativa">Definir una función nativa</a></li>
+<li><a class="reference internal" href="#usar-una-funcion-nativa">Usar una función nativa</a></li>
+<li><a class="reference internal" href="#ejemplo-completo">Ejemplo completo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tipos-y-funciones">Tipos y Funciones</a><ul>
+<li><a class="reference internal" href="#tipos">Tipos</a></li>
+<li><a class="reference internal" href="#funciones-y-macros">Funciones y Macros</a></li>
+<li><a class="reference internal" href="#tecnologia-de-construccion-en-tiempo-de-compilacion">Tecnología de construcción en tiempo de compilación</a><ul>
+<li><a class="reference internal" href="#usar-el-comando-coc">Usar el comando <code class="docutils literal notranslate"><span class="pre">coc</span></code></a></li>
+<li><a class="reference internal" href="#ruta-de-salida">Ruta de salida</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tabla-de-cadenas-en-tiempo-de-compilacion">Tabla de cadenas en tiempo de compilación</a><ul>
+<li><a class="reference internal" href="#usar-cadena-constante">Usar cadena constante</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#construir-objeto-en-tiempo-de-compilacion">Construir objeto en tiempo de compilación</a><ul>
+<li><a class="reference internal" href="#construir-mapa-en-tiempo-de-compilacion">Construir mapa en tiempo de compilación</a></li>
+<li><a class="reference internal" href="#construccion-de-clases-en-tiempo-de-compilacion">Construcción de Clases en tiempo de compilación</a></li>
+<li><a class="reference internal" href="#construccion-de-modulos-en-tiempo-de-compilacion">Construcción de Módulos en tiempo de compilación</a></li>
+<li><a class="reference internal" href="#construccion-de-un-dominio-integrado-en-tiempo-de-compilacion">Construcción de un dominio integrado en tiempo de compilación</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
@@ -185,14 +223,14 @@ Si todo es correcto, los parámetros se sacarán de la pila virtual, luego el re
 </pre></div>
 </div>
 <p>La segunda línea es donde se registra la función nativa y la llamamos <code class="docutils literal notranslate"><span class="pre">myadd</span></code>. En este punto, la definición y el registro de la función nativa están completos. Como verificación, puede compilar el intérprete, luego ingresar el REPL y ejecutar algunas pruebas. Debería obtener resultados como este:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; myadd
-&lt;function: 0x562a210f0f90&gt;
-&gt; myadd(1.0, 2.5)
-3.5
-&gt; myadd(2.5, 2)
-4.5
-&gt; myadd(1, 2)
-3
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="n">myadd</span><span class="w"></span>
+<span class="o">&lt;</span><span class="n">function</span><span class="o">:</span><span class="w"> </span><span class="mh">0x562a210f0f90</span><span class="o">&gt;</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="nf">myadd</span><span class="p">(</span><span class="mi">1</span><span class="mf">.0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="mf">.5</span><span class="p">)</span><span class="w"></span>
+<span class="mi">3</span><span class="mf">.5</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="nf">myadd</span><span class="p">(</span><span class="mi">2</span><span class="mf">.5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="mi">4</span><span class="mf">.5</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="nf">myadd</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="mi">3</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -709,14 +747,13 @@ El búfer se copia en la memoria asignada de Berry, no necesita mantener el búf
 <p>El parámetro <code class="docutils literal notranslate"><span class="pre">vm</span></code> es el puntero de la instancia de la máquina virtual; <code class="docutils literal notranslate"><span class="pre">msg</span></code> es la cadena que contiene la información del error.</p>
 <p>Mueve el valor en el índice <code class="docutils literal notranslate"><span class="pre">desde</span></code> a la posición del índice <code class="docutils literal notranslate"><span class="pre">hasta</span></code>. Esta función no elimina el valor de la posición del índice <code class="docutils literal notranslate"><span class="pre">desde</span></code>, solo modifica el valor de la posición del índice <code class="docutils literal notranslate"><span class="pre">hasta</span></code>.</p>
 </section>
-</section>
 <section id="tecnologia-de-construccion-en-tiempo-de-compilacion">
-<h2>Tecnología de construcción en tiempo de compilación<a class="headerlink" href="#tecnologia-de-construccion-en-tiempo-de-compilacion" title="Permalink to this headline">¶</a></h2>
+<h3>Tecnología de construcción en tiempo de compilación<a class="headerlink" href="#tecnologia-de-construccion-en-tiempo-de-compilacion" title="Permalink to this headline">¶</a></h3>
 <p>La tecnología de construcción en tiempo de compilación se implementa principalmente mediante <em>coc</em>, que se encuentra en la ruta <em>coc/coc</em> del directorio del código fuente del intérprete. La herramienta <em>coc</em> se usa para generar cadenas constantes y objetos constantes como código C, y se compilará en constantes cuando se compile el intérprete. En principio, la herramienta <em>coc</em> generará código a partir de la información de declaración del objeto constante (de acuerdo con un formato específico). El proceso calculará automáticamente el valor Hash y generará la tabla Hash.</p>
 <p>El archivo <em>Makefile</em> en el directorio raíz del proyecto del intérprete compilará automáticamente esta herramienta y la ejecutará antes de compilar el código fuente del intérprete. El contenido de <em>Makefile</em> asegura que cuando se usa el comando <code class="docutils literal notranslate"><span class="pre">make</span></code>, el código para construir el objeto en tiempo de compilación siempre se actualizará a través de la herramienta (si necesita actualizarse). El código para construir objetos en tiempo de compilación se puede generar manualmente a través del comando <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">prebuild</span></code>, que se almacena en la carpeta <em>generate</em>.</p>
 <p>La construcción en tiempo de compilación se puede activar o desactivar modificando la macro <code class="docutils literal notranslate"><span class="pre">BE_USE_PRECOMPILED_OBJECT</span></code>. En cualquier caso, se llama a la herramienta <em>coc</em> para generar códigos de objetos constantes (los códigos no se usan cuando la construcción en tiempo de compilación está desactivada).</p>
 <section id="usar-el-comando-coc">
-<h3>Usar el comando <code class="docutils literal notranslate"><span class="pre">coc</span></code><a class="headerlink" href="#usar-el-comando-coc" title="Permalink to this headline">¶</a></h3>
+<h4>Usar el comando <code class="docutils literal notranslate"><span class="pre">coc</span></code><a class="headerlink" href="#usar-el-comando-coc" title="Permalink to this headline">¶</a></h4>
 <p>La herramienta <code class="docutils literal notranslate"><span class="pre">coc</span></code> se utiliza para generar código para objetos constantes. El formato del comando es</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tools/coc/coc -o &lt;dst_path&gt; &lt;src_path<span class="o">(</span>s<span class="o">)</span>&gt; -c &lt;include_path&gt;
 </pre></div>
@@ -730,13 +767,14 @@ Dado que <em>generate</em> se usa como la ruta del código generado en el códig
 <p>El significado de este comando es: la ruta de salida es <em>generate</em>, y la ruta de origen es <em>src</em> y <em>default</em>.</p>
 </section>
 <section id="ruta-de-salida">
-<h3>Ruta de salida<a class="headerlink" href="#ruta-de-salida" title="Permalink to this headline">¶</a></h3>
+<h4>Ruta de salida<a class="headerlink" href="#ruta-de-salida" title="Permalink to this headline">¶</a></h4>
 <p>Estrictamente hablando, la carpeta <em>generate</em> utilizada como ruta de salida no se puede colocar en ningún lado, debe almacenarse en un directorio principal que contenga la ruta. La ruta de inclusión se refiere a la ruta donde se buscará el archivo de encabezado en el proyecto. Tomando el código fuente del intérprete estándar como ejemplo, la ruta de inclusión es <em>src</em> y <em>default</em>. Por lo tanto, en el proyecto de intérprete estándar, la carpeta <em>generate</em> se almacena en el directorio raíz del código fuente del intérprete (el directorio principal de <em>src</em> y <em>default</em>).</p>
 <p>El motivo de las reglas anteriores es que los siguientes códigos se utilizan en el código fuente del intérprete para hacer referencia a objetos constantes:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;../generate/be_fixed_xxx.h&quot;</span><span class="cp"></span>
 </pre></div>
 </div>
 <p>Si los lectores quieren definir objetos constantes por sí mismos, también necesitan usar dicho código para incluir los archivos de encabezado correspondientes. Esta sección presentará cómo usar estas herramientas para definir y usar objetos constantes.</p>
+</section>
 </section>
 <section id="tabla-de-cadenas-en-tiempo-de-compilacion">
 <h3>Tabla de cadenas en tiempo de compilación<a class="headerlink" href="#tabla-de-cadenas-en-tiempo-de-compilacion" title="Permalink to this headline">¶</a></h3>

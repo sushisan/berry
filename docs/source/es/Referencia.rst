@@ -1,35 +1,25 @@
-<!-- Spanish Translation: Emiliano Gonzalez (egonzalez . hiperion @ gmail . com) -->
-<p align="center">
-  <h1 align="center">
-    <img src="https://gitee.com/mirrors/Berry/raw/master/berry-logo.png" alt="Berry" width=272 height=128>
-  </h1>
-  <p align="center">El lenguaje Berry Script.</p>
-</p>
+Manual de referencia del lenguaje Berry Script
+##############################################
 
-# Manual de referencia del lenguaje Berry Script
+.. toctree::
+   :maxdepth: 30
+   :caption: Contents:
 
-V1.0.0
+* :doc:`Capítulo 1 - Información básica <Capitulo-1>`
+* :doc:`Capítulo 2 - Tipos y variables <Capitulo-2>`
+* :doc:`Capítulo 3 - Expresión <Capitulo-3>`
+* :doc:`Capítulo 4 - Declaración <Capitulo-4>`
+* :doc:`Capítulo 5 - Función <Capitulo-5>`
+* :doc:`Capítulo 6 - Función orientada a objetos <Capitulo-6>`
+* :doc:`Capítulo 7 - Bibliotecas y módulos <Capitulo-7>`
+* :doc:`Capítulo 8 - Funciones avanzadas <Capitulo-8>`
+* :doc:`Capítulo 9 - Interfaz interactiva del lenguaje <Capitulo-9>`
+* :doc:`Apéndice A - Definición de gramática <Apendice-A>`
+* :doc:`Apéndice B - Intérprete del compilador <Apendice-B>`
+* :doc:`Apéndice C - Guía de Portabilidad <Apendice-C>`
 
-Guan Wenliang y Stephan Hadinger
-
-5 de julio de 2022
-
-# Contenidos
-
- * [Capítulo 1 - Información básica](Capitulo-1)
- * [Capítulo 2 - Tipos y variables](Capitulo-2)
- * [Capítulo 3 - Expresión](Capitulo-3)
- * [Capítulo 4 - Declaración](Capitulo-4 )
- * [Capítulo 5 - Función](Capitulo-5)
- * [Capítulo 6 - Función orientada a objetos](Capitulo-6)
- * [Capítulo 7 - Bibliotecas y módulos](Capitulo-7)
- * [Capítulo 8 - Funciones avanzadas](Capitulo-8)
- * [Capítulo 9 - Interfaz interactiva del lenguaje](Capitulo-9)
- * [Apéndice A - Definición de gramática](Apendice-A)
- * [Apéndice B - Intérprete del compilador](Apendice-B)
- * [Apéndice C - Guía de Portabilidad](Apendice-C)
-
-# Prefacio
+Prefacio
+^^^^^^^^
 
 Hace algunos años, traté de portar el lenguaje de script Lua al microcontrolador STM32F4 y luego experimenté un firmware basado en Lua en ESP8266: NodeMCU. Estas experiencias me hicieron experimentar la conveniencia del desarrollo de guiones. Más tarde, entré en contacto con algunos lenguajes de script, como Python, JavaScript, Basic y MATLAB. En la actualidad, solo unos pocos lenguajes son adecuados para portar a la plataforma de microcontroladores. Solía prestar más atención a Lua porque es un lenguaje de script integrado muy compacto y su objetivo de diseño es estar integrado en el programa host. Sin embargo, para el microcontrolador, el intérprete de Lua puede no ser lo suficientemente pequeño y no puede ser ejecutado en un microcontrolador de 32 bits con una memoria relativamente pequeña. Con este fin, comencé a leer el código Lua y desarrollé mi propio lenguaje de script, Berry, sobre esta base.
 

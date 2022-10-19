@@ -32,12 +32,44 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Home.html">Welcome to the berry wiki!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Bienvenido a la wiki de Berry!</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">2. Types and Variables</a><ul>
+<li><a class="reference internal" href="#built-in-type">2.1 Built-in type</a><ul>
+<li><a class="reference internal" href="#simple-type">2.1.1 Simple Type</a><ul>
+<li><a class="reference internal" href="#nil"><code class="docutils literal notranslate"><span class="pre">nil</span></code></a></li>
+<li><a class="reference internal" href="#integer-type">Integer type</a></li>
+<li><a class="reference internal" href="#real-number-type">Real Number Type</a></li>
+<li><a class="reference internal" href="#boolean-type">Boolean type</a></li>
+<li><a class="reference internal" href="#string">String</a></li>
+<li><a class="reference internal" href="#function">Function</a></li>
+<li><a class="reference internal" href="#class">Class</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
-
+</li>
+<li><a class="reference internal" href="#class-type">2.1.2 Class Type</a><ul>
+<li><a class="reference internal" href="#list">List</a></li>
+<li><a class="reference internal" href="#map">Map</a></li>
+<li><a class="reference internal" href="#range">Range</a></li>
+<li><a class="reference internal" href="#bytes">Bytes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#variables">2.2 Variables</a><ul>
+<li><a class="reference internal" href="#define-variables">2.2.1 define variables</a></li>
+<li><a class="reference internal" href="#scope-and-life-cycle">2.2.2 Scope and Life Cycle</a><ul>
+<li><a class="reference internal" href="#nested-scope">nested scope</a></li>
+<li><a class="reference internal" href="#variable-life-cycle">Variable Life Cycle</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type-of-variable">2.2.3 Type of variable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
@@ -243,9 +275,9 @@ low.</p>
 <p>The literal initialization method of the List container is to use a list
 of objects surrounded by square brackets, and multiple objects are
 separated by commas, for example:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>[]
-[&#39;string&#39;]
-[0, 1, 2,&#39;list&#39;]
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="p">[]</span><span class="w"></span>
+<span class="p">[</span><span class="s1">&#39;string&#39;</span><span class="p">]</span><span class="w"></span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;list&#39;</span><span class="p">]</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Operations: see chapter 7.</p>
@@ -268,9 +300,9 @@ time if “re-hashing” occurs.</p>
 in curly braces to enclose a list of key-value pairs, separated by
 colons between keys and values, and separated by commas between
 key-value pairs. E.g:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>{}
-{&#39;str&#39;:&#39;hello&#39;}
-{&#39;str&#39;:&#39;hello&#39;,&#39;int&#39;: 45, 78: nil}
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span><span class="w"></span>
+<span class="p">{</span><span class="s1">&#39;str&#39;</span><span class="o">:</span><span class="s1">&#39;hello&#39;</span><span class="p">}</span><span class="w"></span>
+<span class="p">{</span><span class="s1">&#39;str&#39;</span><span class="o">:</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span><span class="s1">&#39;int&#39;</span><span class="o">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w"> </span><span class="mi">78</span><span class="o">:</span><span class="w"> </span><span class="kc">nil</span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Operations: see chapter 7.</p>
@@ -282,26 +314,26 @@ to iterate in an integer range. This type has a <code class="docutils literal no
 <code class="docutils literal notranslate"><span class="pre">__upper__</span></code> member, which represent the lower and upper bounds of the
 range, respectively. The literal value of Range is a pair of integers
 connected using the <code class="docutils literal notranslate"><span class="pre">..</span></code> operator:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>0 .. 10
--5 .. 5
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
+<span class="mi">-5</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
 </pre></div>
 </div>
 <p>When the Range class is used for iteration, the elements of the
 iteration are all integer values from the lower bound to the upper
 bound, including boundary values. For example, the iteration result of
 <code class="docutils literal notranslate"><span class="pre">0..5</span></code> is:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>0 1 2 3 4 5
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Therefore, it should be noted that for a range of <em>x</em> .. (<em>x</em>+<em>n</em>), the
 number of iterations is <em>n</em> + 1. A common construct to iterate through elements of a list by item is:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>for i: 0..size(l)-1
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="ow">for</span><span class="w"> </span><span class="n">i</span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="nb">size</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="mi">-1</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Open range: if you omit the last range, it is implicitly replaced with MAXINT.</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; r = 10..
-&gt; r
-(10..9223372036854775807)
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="o">..</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="nf">r</span><span class="w"></span>
+<span class="p">(</span><span class="mi">10</span><span class="o">..</span><span class="mi">9223372036854775807</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -337,18 +369,18 @@ and the variable name is an identifier (see section
 identifier).
 <strong>expression</strong> is the expression to
 initialize the variable.</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>a = 1
-b =&#39;str&#39;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;str&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>However, this method of defining variables has some limitations. Take
 the following code as an example:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>i = 0
-do
-    i = 1
-    print(i) # 1
-end
-print(i) # 1
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="ow">do</span><span class="w"></span>
+<span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c1"># 1</span>
+<span class="ow">end</span><span class="w"></span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c1"># 1</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">do</span></code> statement in the routine constitutes the inner scope. We
@@ -377,12 +409,12 @@ Therefore, the variable defined with <code class="docutils literal notranslate">
 the same name in the outer scope.</p>
 <p>Now we change the previous example to use the <code class="docutils literal notranslate"><span class="pre">var</span></code> keyword to define
 variables:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>i = 0
-do
-    var i = 1
-    print(i) # 1
-end
-print(i) # 0
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="ow">do</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c1"># 1</span>
+<span class="ow">end</span><span class="w"></span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c1"># 0</span>
 </pre></div>
 </div>
 <p>From the modified routine, it can be found that the value of the
@@ -394,7 +426,7 @@ the outer scope is blocked. After the inner scope ends, the identifier
 <p>When using the <code class="docutils literal notranslate"><span class="pre">var</span></code> keyword to define a variable, you can also use a
 list of multiple variable names, separated by commas. You can also
 initialize one or more variables when defining variables:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>var a = 0, b, c =&#39;test&#39;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -412,13 +444,13 @@ scope.A code block (see block)
 is a scope. A variable is only available inside the block, and names in
 different blocks may bind different variable entities. The following
 example demonstrates the scope of variables:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>var i = 0
-do
-    var j =&#39;str&#39;
-    print(i, j) # 0 str
-end
-# The variable j is not available here
-print(i) # 0
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="ow">do</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;str&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="c1"># 0 str</span>
+<span class="ow">end</span><span class="w"></span>
+<span class="c1"># The variable j is not available here</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c1"># 0</span>
 </pre></div>
 </div>
 <p>The names <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> are defined in this routine. The name <code class="docutils literal notranslate"><span class="pre">i</span></code> is

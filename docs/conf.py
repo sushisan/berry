@@ -116,3 +116,9 @@ c_paren_attributes = ["BERRY_API"]
 
 cpp_id_attributes = ["BERRY_API"]
 cpp_paren_attributes = ["BERRY_API"]
+
+import sys
+def setup(sphinx):
+    sys.path.insert(0, os.path.abspath('../tools/highlighters/Pygments'))
+    from berry import BerryLexer
+    sphinx.add_lexer("berry", BerryLexer)

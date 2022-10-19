@@ -32,12 +32,49 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Home.html">Welcome to the berry wiki!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Bienvenido a la wiki de Berry!</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">5. Function</a><ul>
+<li><a class="reference internal" href="#basic-information">5.1 Basic Information</a><ul>
+<li><a class="reference internal" href="#function-definition">5.1.1 Function Definition</a><ul>
+<li><a class="reference internal" href="#named-function">Named Function</a></li>
+<li><a class="reference internal" href="#anonymous-function">Anonymous Function</a></li>
 </ul>
-
+</li>
+<li><a class="reference internal" href="#call-function">Call function</a><ul>
+<li><a class="reference internal" href="#forward-call">Forward call</a></li>
+<li><a class="reference internal" href="#recursive-call">Recursive call</a></li>
+<li><a class="reference internal" href="#anonymous-function-call">Anonymous function call</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#formal-and-actual-parameters">Formal and actual parameters</a></li>
+<li><a class="reference internal" href="#function-with-variable-number-of-arguments-vararg">Function with variable number of arguments (vararg)</a></li>
+<li><a class="reference internal" href="#calling-a-function-with-dynamic-number-of-arguments">Calling a function with dynamic number of arguments</a></li>
+<li><a class="reference internal" href="#functions-and-local-variables">Functions and local variables</a></li>
+<li><a class="reference internal" href="#return-statement"><code class="docutils literal notranslate"><span class="pre">return</span></code> Statement</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#closure">closure</a><ul>
+<li><a class="reference internal" href="#basic-concepts">Basic Concepts</a><ul>
+<li><a class="reference internal" href="#use-of-closures">Use of closures</a><ul>
+<li><a class="reference internal" href="#lazy-evaluation">Lazy evaluation</a></li>
+<li><a class="reference internal" href="#function-private-communication">Function private communication</a></li>
+<li><a class="reference internal" href="#generate-multiple-functions">Generate multiple functions</a></li>
+<li><a class="reference internal" href="#simulate-private-members">Simulate private members</a></li>
+<li><a class="reference internal" href="#cache-result">Cache result</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#binding-free-variables">Binding free variables</a></li>
+<li><a class="reference internal" href="#create-closure-in-loop">Create closure in loop</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lambda-expression">Lambda expression</a></li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
@@ -115,9 +152,9 @@ in the current scope, defining the function is equivalent to binding the
 function object to this variable.</p>
 <p>The following example defines a function named <code class="docutils literal notranslate"><span class="pre">add</span></code>. The function of
 this function is to sum two numbers and return.</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def add(a, b)
-    return a + b
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">add</span></code> The function has two parameters <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, and the two addends
@@ -142,9 +179,9 @@ name in the definition of anonymous functions <strong>name</strong>. The
 definition of an anonymous function is essentially an expression, which
 is called <strong>Function literal</strong>. In order to use anonymous functions, we
 can bind the function literal value to a variable:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>add = def (a, b)
-    return a + b
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">def</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The function of this code is exactly the same as that of the function
@@ -160,8 +197,8 @@ indivisible whole.</p>
 <p>Take the <code class="docutils literal notranslate"><span class="pre">add</span></code> function as an example. To call this function, you need
 to provide two values, and you can get the sum of the two numbers by
 calling the function:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>res = add(5, 3)
-print(res) # 8
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="w"> </span><span class="c1"># 8</span>
 </pre></div>
 </div>
 <p>We call the called function (the <code class="docutils literal notranslate"><span class="pre">add</span></code> function in the example) as
@@ -181,11 +218,11 @@ of the function is also the result of the function call expression. The
 following example defines a function <code class="docutils literal notranslate"><span class="pre">square</span></code> and binds this function to
 a variable <code class="docutils literal notranslate"><span class="pre">f</span></code>, and then calls the function <code class="docutils literal notranslate"><span class="pre">square</span></code> through the
 variable <code class="docutils literal notranslate"><span class="pre">f</span></code>. This usage is similar to function pointers in C language.</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def square(n)
-    return n * n
-end
-f = square
-print(f(5)) # 25
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
+<span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">square</span><span class="w"></span>
+<span class="nb">print</span><span class="p">(</span><span class="nf">f</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="c1"># 25</span>
 </pre></div>
 </div>
 <p>It should be noted that the function object is only bound to these
@@ -193,9 +230,9 @@ variables (refer to section
 <a href="#section::assign_operator" data-reference-type="ref" data-reference="section::assign_operator">[section::assign_operator]</a>)
 and cannot be modified, so reassigning the variable corresponding to the
 function name will not make the function lose:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>f = square
-square = nil
-print(f(5)) # 25
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">square</span><span class="w"></span>
+<span class="n">square</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span><span class="w"></span>
+<span class="nb">print</span><span class="p">(</span><span class="nf">f</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="c1"># 25</span>
 </pre></div>
 </div>
 <p>It can be seen that the function can still be called normally after
@@ -207,14 +244,14 @@ of function object will be recycled by the system.</p>
 <p>The call of the function must be in the scope of the function variable,
 so it usually cannot be called before the function is defined. In order
 to solve this problem, you can use this method to compromise:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>var func1
-def func2(x)
-    return func1(x)
-end
-def func1(x)
-    return x * x
-end
-print(func2(4)) # 16
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">func1</span><span class="w"></span>
+<span class="kd">def</span><span class="w"> </span><span class="nf">func2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="nf">func1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
+<span class="kd">def</span><span class="w"> </span><span class="nf">func1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
+<span class="nb">print</span><span class="p">(</span><span class="nf">func2</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span><span class="w"> </span><span class="c1"># 16</span>
 </pre></div>
 </div>
 <p>In this example, <code class="docutils literal notranslate"><span class="pre">func2</span></code> calls <code class="docutils literal notranslate"><span class="pre">func1</span></code>, but the function <code class="docutils literal notranslate"><span class="pre">func1</span></code> is
@@ -236,19 +273,19 @@ into similar sub-problems and then solves them. Taking factorial as an
 example, the recursive definition of factorial is
 0! = 1, <em>n</em>! = <em>n</em> ⋅ (<em>n</em>−1)!, we can write the recursive function for
 calculating factorial according to the definition:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def fact(n)
-    if n == 0
-        return 1
-    end
-    return n * fact(n-1)
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">fact</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">        </span><span class="ow">return</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">fact</span><span class="p">(</span><span class="n">n</span><span class="mi">-1</span><span class="p">)</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Take the factorial of 5 as an example, the process of manually
 calculating the factorial of 5 is:
 5! = 5 × 4 × 3 × 2 × 1 = 120
 The result of calling the <code class="docutils literal notranslate"><span class="pre">fact</span></code> function is also 120:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>print(fact(5)) # 120
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nf">fact</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="c1"># 120</span>
 </pre></div>
 </div>
 <p>In order to ensure that the depth of the recursive call is limited (too
@@ -264,19 +301,19 @@ is not called by itself but by another function (directly or indirectly)
 called by it. Indirect recursion usually requires the use of forward
 function call techniques. Take the functions <code class="docutils literal notranslate"><span class="pre">is_odd</span></code> and <code class="docutils literal notranslate"><span class="pre">is_even</span></code> for
 calculating odd and even numbers as examples:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>var is_odd
-def is_even(n)
-    if n == 0
-        return true
-    end
-    return is_odd(n-1)
-end
-def is_odd(n)
-    if n == 0
-        return false
-    end
-    return is_even(n-1)
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">is_odd</span><span class="w"></span>
+<span class="kd">def</span><span class="w"> </span><span class="nf">is_even</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">        </span><span class="ow">return</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="nf">is_odd</span><span class="p">(</span><span class="n">n</span><span class="mi">-1</span><span class="p">)</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
+<span class="kd">def</span><span class="w"> </span><span class="nf">is_odd</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">        </span><span class="ow">return</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="nf">is_even</span><span class="p">(</span><span class="n">n</span><span class="mi">-1</span><span class="p">)</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>These two functions call each other. In order to ensure that this name
@@ -287,15 +324,15 @@ variable <code class="docutils literal notranslate"><span class="pre">is_odd</sp
 <h4>Anonymous function call<a class="headerlink" href="#anonymous-function-call" title="Permalink to this headline">¶</a></h4>
 <p>If an anonymous function will only be called once, the easiest way is to
 call it when it is defined, for example:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>res = def (a, b) return a + b end (1, 2) # 3
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">def</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="ow">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">end</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c1"># 3</span>
 </pre></div>
 </div>
 <p>In this routine, we use the call expression directly after the function
 literal to call the function. This usage is very suitable for functions
 that will only be called in one place.</p>
 <p>You can also bind an anonymous function to a variable and call it:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>add = def (a, b) return a + b end
-res = add(1, 2) # 3
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">def</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="ow">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">end</span><span class="w"></span>
+<span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c1"># 3</span>
 </pre></div>
 </div>
 <p>This usage is similar to the call of a named function, essentially
@@ -320,13 +357,13 @@ other types are by reference. For the writable pass-by-reference type
 such as instance, modifying them in the called function will also modify
 the object in the calling function. The following example demonstrates
 this feature:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>var l = [], i = 0
-def func(a, b)
-    a.push(1)
-    b =&#39;string&#39;
-end
-func(l, i)
-print(l, i) # [1] 0
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
+<span class="nf">func</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c1"># [1] 0</span>
 </pre></div>
 </div>
 <p>It can be seen that the value of variable <code class="docutils literal notranslate"><span class="pre">l</span></code> has changed after calling
@@ -341,10 +378,10 @@ before its name.</p>
 <p>All arguments following the formal arguments are grouped at runtime in a <code class="docutils literal notranslate"><span class="pre">list</span></code> instance.
 If no arguments are captured, the list is empty.</p>
 <p>Example:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def f(a, b, *c) return size(c) end
-f(1,2) # returns 0, c is []
-f(1,2,3) # returns 1, c is [3]
-f(1,2,3,4) # returns 2, c is [3,4]
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="ow">return</span><span class="w"> </span><span class="nb">size</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="ow">end</span><span class="w"></span>
+<span class="nf">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c1"># returns 0, c is []</span>
+<span class="nf">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1"># returns 1, c is [3]</span>
+<span class="nf">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="c1"># returns 2, c is [3,4]</span>
 </pre></div>
 </div>
 </section>
@@ -355,30 +392,30 @@ Use the <code class="docutils literal notranslate"><span class="pre">call(f,</sp
 <p>You can statically add any number of arguments to <code class="docutils literal notranslate"><span class="pre">call()</span></code>. If the last argument
 is a <code class="docutils literal notranslate"><span class="pre">list</span></code>, it is automatically expanded to discrete arguments.</p>
 <p>Example:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def f(a,b) return nil end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="ow">return</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="ow">end</span><span class="w"></span>
 
-call(f,1)        # calls f(1)
-call(f,1,2)      # calls f(1,2)
-call(f,1,2,3)    # calls f(1,2,3), last arg is ignored by f
-call(f,1,[2,3])  # calls f(1,2,3), last arg is ignored by f
-call(f,[1,2])    # calls f(1,2)
-call(f,[])       # calls f()
+<span class="nb">call</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w">        </span><span class="c1"># calls f(1)</span>
+<span class="nb">call</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w">      </span><span class="c1"># calls f(1,2)</span>
+<span class="nb">call</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w">    </span><span class="c1"># calls f(1,2,3), last arg is ignored by f</span>
+<span class="nb">call</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">1</span><span class="p">,[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span><span class="w">  </span><span class="c1"># calls f(1,2,3), last arg is ignored by f</span>
+<span class="nb">call</span><span class="p">(</span><span class="n">f</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span><span class="w">    </span><span class="c1"># calls f(1,2)</span>
+<span class="nb">call</span><span class="p">(</span><span class="n">f</span><span class="p">,[])</span><span class="w">       </span><span class="c1"># calls f()</span>
 </pre></div>
 </div>
 <p>You can combine <code class="docutils literal notranslate"><span class="pre">call</span></code> and vararg. For example let’s create a function that
 acts like <code class="docutils literal notranslate"><span class="pre">print()</span></code> but converts all arguments to uppercase.</p>
 <p>Full example:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def print_upper(*a)  # take arbitrary number of arguments, args is a list
-    import string
-    for i:0..size(a)-1
-        if type(a[i]) == &#39;string&#39;
-            a[i] = string.toupper(a[i])
-        end
-    end
-    call(print, a)   # call print with all arguments
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">print_upper</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">)</span><span class="w">  </span><span class="c1"># take arbitrary number of arguments, args is a list</span>
+<span class="w">    </span><span class="kr">import</span><span class="w"> </span><span class="n">string</span><span class="w"></span>
+<span class="w">    </span><span class="ow">for</span><span class="w"> </span><span class="n">i</span><span class="o">:</span><span class="mi">0</span><span class="o">..</span><span class="nb">size</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="mi">-1</span><span class="w"></span>
+<span class="w">        </span><span class="ow">if</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;string&#39;</span><span class="w"></span>
+<span class="w">            </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string</span><span class="p">.</span><span class="nf">toupper</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"></span>
+<span class="w">        </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="nb">call</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w">   </span><span class="c1"># call print with all arguments</span>
+<span class="ow">end</span><span class="w"></span>
 
-print_upper(&quot;a&quot;,1,&quot;Foo&quot;,&quot;Bar&quot;)  # prints: A 1 FOO BAR
+<span class="nf">print_upper</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;Foo&quot;</span><span class="p">,</span><span class="s2">&quot;Bar&quot;</span><span class="p">)</span><span class="w">  </span><span class="c1"># prints: A 1 FOO BAR</span>
 </pre></div>
 </div>
 </section>
@@ -419,10 +456,10 @@ to the code that called the function to continue running.</p>
 <p>When using a separate keyword <code class="docutils literal notranslate"><span class="pre">return</span></code> as the return statement of a
 function, it is easy to cause ambiguity. At this time, it is recommended
 to add a semicolon after <code class="docutils literal notranslate"><span class="pre">return</span></code> to prevent errors:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def func()
-    return;
-    x = 1
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="ow">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>In this example, the <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1</span></code> statement after the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement will
@@ -451,12 +488,12 @@ Function prototypes are generated at compile time, and environment is a
 runtime concept, so closures are also dynamically generated at runtime.
 Each closure binds the function prototype to the environment when it is
 generated, for example, in the following example:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def func(i) # The outer function
-    def foo() # The inner function (closure)
-        print(i)
-    end
-    foo()
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c1"># The outer function</span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="c1"># The inner function (closure)</span>
+<span class="w">        </span><span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="nf">foo</span><span class="p">()</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The inner function <code class="docutils literal notranslate"><span class="pre">foo</span></code> is a closure, which has a free variable <code class="docutils literal notranslate"><span class="pre">i</span></code>,
@@ -465,12 +502,12 @@ which is a parameter of the outer function <code class="docutils literal notrans
 containing the free variable <code class="docutils literal notranslate"><span class="pre">i</span></code>. When the variable <code class="docutils literal notranslate"><span class="pre">foo</span></code> leaves the
 scope, the closure will be destroyed. Usually, the inner function will
 be the return value of the outer function, for example:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def func(i) # The outer function
-    return def () # Return a closure (anonymous function)
-        print(i)
-        i = i + 1
-    end
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c1"># The outer function</span>
+<span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="kd">def</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="c1"># Return a closure (anonymous function)</span>
+<span class="w">        </span><span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The closure returned here is an anonymous function. When the closure is
@@ -482,8 +519,8 @@ variable is destroyed. The life cycle of these free variables is the
 same as the closure, and can only be accessed by the closure. The
 returned function or closure will not be executed automatically, so we
 need to call the closure returned by the function <code class="docutils literal notranslate"><span class="pre">func</span></code>:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>f = func(0)
-f()
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="nf">f</span><span class="p">()</span><span class="w"></span>
 </pre></div>
 </div>
 <p>This code will output <code class="docutils literal notranslate"><span class="pre">0</span></code>. If we continue to call the closure <code class="docutils literal notranslate"><span class="pre">f</span></code>, we
@@ -540,26 +577,26 @@ retained (until the closure is destroyed).</p>
 <h3>Binding free variables<a class="headerlink" href="#binding-free-variables" title="Permalink to this headline">¶</a></h3>
 <p>If multiple closures bind the same free variable, all closures will
 always share this free variable. E.g:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def func(i) # The outer function
-    return [# Return a closure list
-        def () # The closure #1
-            print(&quot;closure 1 log:&quot;, i)
-            i = i + 1
-        end,
-        def () # The closure #2
-            print(&quot;closure 2 log:&quot;, i)
-            i = i + 1
-        end
-    ]
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c1"># The outer function</span>
+<span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="p">[</span><span class="c1"># Return a closure list</span>
+<span class="w">        </span><span class="kd">def</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="c1"># The closure #1</span>
+<span class="w">            </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;closure 1 log:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">        </span><span class="ow">end</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="kd">def</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="c1"># The closure #2</span>
+<span class="w">            </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;closure 2 log:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">        </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The function <code class="docutils literal notranslate"><span class="pre">func</span></code> in this example returns two closures through a list,
 and these two closures share free variables <code class="docutils literal notranslate"><span class="pre">i</span></code>. If we call these
 closures:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>f = func(0)
-f[0]() # closure 1 log: 0
-f[1]() # closure 2 log: 1
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]()</span><span class="w"> </span><span class="c1"># closure 1 log: 0</span>
+<span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]()</span><span class="w"> </span><span class="c1"># closure 2 log: 1</span>
 </pre></div>
 </div>
 <p>As you can see, we updated the free variable <code class="docutils literal notranslate"><span class="pre">i</span></code> when we called the
@@ -572,21 +609,21 @@ the free variable.</p>
 <p>Similarly, before the local variables of the outer function are
 destroyed, modifying the value of the free variable will also affect the
 closure:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def func()
-    i = 0
-    def foo()
-        print(i)
-    end
-    i = 1
-    return foo
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="n">foo</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>In this example, we change the value of the variable <code class="docutils literal notranslate"><span class="pre">i</span></code> (which is the
 free variable of the closure <code class="docutils literal notranslate"><span class="pre">foo</span></code>) from <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">1</span></code> before the outer
 function <code class="docutils literal notranslate"><span class="pre">func</span></code> returns, then we call the closure afterwards The value
 of the free variable <code class="docutils literal notranslate"><span class="pre">i</span></code> when the package <code class="docutils literal notranslate"><span class="pre">foo</span></code> is also <code class="docutils literal notranslate"><span class="pre">1</span></code>:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>func()() # 1
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="nf">func</span><span class="p">()()</span><span class="w"> </span><span class="c1"># 1</span>
 </pre></div>
 </div>
 </section>
@@ -595,14 +632,14 @@ of the free variable <code class="docutils literal notranslate"><span class="pre
 <p>When constructing a closure in the loop body, you may not want the free
 variables of the closure to change with the loop variables. Let’s first
 look at an example of creating a closure in a loop <code class="docutils literal notranslate"><span class="pre">while</span></code>:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def func()
-    l = [] i = 0
-    while i &lt;= 2
-        l.push(def () print(i) end)
-        i = i + 1
-    end
-    return l
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="ow">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">        </span><span class="n">l</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="kd">def</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="ow">end</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="n">l</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>In this example, we construct a closure in a loop and put this closure
@@ -610,34 +647,34 @@ in a <code class="docutils literal notranslate"><span class="pre">list</span></c
 <code class="docutils literal notranslate"><span class="pre">i</span></code> will be <code class="docutils literal notranslate"><span class="pre">3</span></code>, and all the closures in the list <code class="docutils literal notranslate"><span class="pre">l</span></code> are also
 references using this variable. If we execute the closure returned by
 <code class="docutils literal notranslate"><span class="pre">func</span></code> we will get the same result:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>res = func()
-res[0]() # 3
-res[1]() # 3
-res[2]() # 3
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"></span>
+<span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]()</span><span class="w"> </span><span class="c1"># 3</span>
+<span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]()</span><span class="w"> </span><span class="c1"># 3</span>
+<span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">]()</span><span class="w"> </span><span class="c1"># 3</span>
 </pre></div>
 </div>
 <p>If we want each closure to refer to different free variables, we can
 define another layer of functions, and then bind the current loop
 variables with the function parameters:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def func()
-    l = [] i = 0
-    while i &lt;= 2
-        l.push(def (n)
-            return def () print(n) end
-        end (i))
-        i = i + 1
-    end
-    return l
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="ow">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">        </span><span class="n">l</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="kd">def</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="ow">return</span><span class="w"> </span><span class="kd">def</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="ow">end</span><span class="w"></span>
+<span class="w">        </span><span class="ow">end</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">        </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="n">l</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>To help understand this seemingly incomprehensible code, we focus on the
 code from lines 4 to 6:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def (n)
-    return def ()
-        print(n)
-    end
-end (i)
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="kd">def</span><span class="w"> </span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="ow">end</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Here actually defines an anonymous function and calls it immediately.
@@ -646,36 +683,36 @@ of the loop variable <code class="docutils literal notranslate"><span class="pre
 also what we need to close The free variables of the package, so that
 the free variables bound to the closure constructed during each loop are
 different. Now we will get the desired output:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>res = func()
-res[0]() # 0
-res[1]() # 1
-res[2]() # 2
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"></span>
+<span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]()</span><span class="w"> </span><span class="c1"># 0</span>
+<span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]()</span><span class="w"> </span><span class="c1"># 1</span>
+<span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">]()</span><span class="w"> </span><span class="c1"># 2</span>
 </pre></div>
 </div>
 <p>There are some ways to solve the problem of loop variables as free
 variables. A slightly simpler way is to define a temporary variable in
 the loop body:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def func()
-    l = [] i = 0
-    while i &lt;= 2
-        temp = i
-        l.push(def () print(temp) end)
-        i = i + 1
-    end
-    return l
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="ow">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">        </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">        </span><span class="n">l</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="kd">def</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="nb">print</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="w"> </span><span class="ow">end</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="n">l</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Here <code class="docutils literal notranslate"><span class="pre">temp</span></code> is a temporary variable. The scope of this variable is in
 the loop body, so it will be redefined every time it loops. We can also
 use the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement to solve the problem:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def func()
-    l = []
-    for i: 0 .. 2
-        l.push(def () print(i) end)
-    end
-    return l
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="w">    </span><span class="ow">for</span><span class="w"> </span><span class="n">i</span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">        </span><span class="n">l</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="kd">def</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="ow">end</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="n">l</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>This may be the simplest way. <code class="docutils literal notranslate"><span class="pre">for</span></code> The iteration variable of the
@@ -698,7 +735,7 @@ return expression, the lambda expression will return the expression
 value. Lambda expressions are suitable for implementing functions with
 very simple functions. For example, the lambda expression for judging
 the size of two numbers is:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>/ a b -&gt; a &lt; b
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
 </pre></div>
 </div>
 <p>This is easier than writing a function of the same function. In some
@@ -708,9 +745,9 @@ code and improve readability.</p>
 <p>Like general functions, lambda expressions can form closures. Lambda
 expressions are called in the same way as ordinary functions. If you use
 the immediate calling method similar to anonymous functions:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>lambda = / a b -&gt; a &lt; b
-result = lambda(1, 2) # normal calling
-result = (/ a b -&gt; a &lt; b)(1, 2) # direct calling
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">lambda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
+<span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">lambda</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c1"># normal calling</span>
+<span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">)(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c1"># direct calling</span>
 </pre></div>
 </div>
 <p>Since the function call operator has a higher priority, a pair of

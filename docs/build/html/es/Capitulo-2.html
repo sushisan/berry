@@ -32,12 +32,44 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../en/Home.html">Welcome to the berry wiki!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Home.html">Bienvenido a la wiki de Berry!</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">2. Tipos y Variables</a><ul>
+<li><a class="reference internal" href="#tipo-incorporado">2.1 Tipo incorporado</a><ul>
+<li><a class="reference internal" href="#tipo-simple">2.1.1 Tipo simple</a><ul>
+<li><a class="reference internal" href="#nil"><code class="docutils literal notranslate"><span class="pre">nil</span></code></a></li>
+<li><a class="reference internal" href="#tipo-entero">Tipo entero</a></li>
+<li><a class="reference internal" href="#tipo-de-numero-real">Tipo de número real</a></li>
+<li><a class="reference internal" href="#tipo-booleano">Tipo booleano</a></li>
+<li><a class="reference internal" href="#cadena">Cadena</a></li>
+<li><a class="reference internal" href="#funcion">Función</a></li>
+<li><a class="reference internal" href="#clase">Clase</a></li>
+<li><a class="reference internal" href="#ejemplos">Ejemplos</a></li>
 </ul>
-
+</li>
+<li><a class="reference internal" href="#tipo-de-clase">2.1.2 Tipo de clase</a><ul>
+<li><a class="reference internal" href="#lista">Lista</a></li>
+<li><a class="reference internal" href="#mapa">Mapa</a></li>
+<li><a class="reference internal" href="#rango">Rango</a></li>
+<li><a class="reference internal" href="#bytes">Bytes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#variables">2.2 Variables</a><ul>
+<li><a class="reference internal" href="#definir-variables">2.2.1 Definir variables</a></li>
+<li><a class="reference internal" href="#alcance-y-ciclo-de-vida">2.2.2 Alcance y Ciclo de Vida</a><ul>
+<li><a class="reference internal" href="#alcance-anidado">Alcance anidado</a></li>
+<li><a class="reference internal" href="#ciclo-de-vida-variable">Ciclo de vida variable</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tipo-de-variable">2.2.3 Tipo de variable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
@@ -143,9 +175,9 @@ En la programación orientada a objetos, “instancia” suele ser sinónimo de 
 La lista de Berry es una colección ordenada de elementos, y cada elemento de la lista tiene un índice entero único, y se puede acceder a cada elemento directamente según el índice. List admite la inserción o eliminación de elementos en cualquier posición, y el elemento puede ser de cualquier tipo. Además de usar índices, también puede usar iteradores para acceder a los elementos de la lista.</p>
 <p>La implementación de List es una matriz dinámica y esta estructura de datos tiene un buen rendimiento de acceso aleatorio. La eficiencia de agregar y eliminar elementos al final de la lista es muy alta, pero la eficiencia de agregar y eliminar elementos en el medio de la lista es baja.</p>
 <p>El método de inicialización literal del contenedor List es usar una lista de objetos entre corchetes y múltiples objetos separados por comas, por ejemplo:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>[]
-[&#39;string&#39;]
-[0, 1, 2,&#39;list&#39;]
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="p">[]</span><span class="w"></span>
+<span class="p">[</span><span class="s1">&#39;string&#39;</span><span class="p">]</span><span class="w"></span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;list&#39;</span><span class="p">]</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Operaciones: ver capítulo 7.</p>
@@ -162,9 +194,9 @@ La lista de Berry es una colección ordenada de elementos, y cada elemento de la
 <p>El mapa se implementa utilizando una tabla hash y tiene una alta eficiencia de búsqueda.
 La operación de agregar y eliminar pares clave-valor consumirá más tiempo si se produce un “rehashing”.</p>
 <p>El contenedor Map también se puede inicializar con valores literales, escritos entre llaves para encerrar una lista de pares clave-valor, separados por dos puntos entre claves y valores, y separados por comas entre pares clave-valor. P.ej:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>{}
-{&#39;str&#39;:&#39;hola&#39;}
-{&#39;str&#39;:&#39;hola&#39;,&#39;int&#39;: 45, 78: nil}
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span><span class="w"></span>
+<span class="p">{</span><span class="s1">&#39;str&#39;</span><span class="o">:</span><span class="s1">&#39;hola&#39;</span><span class="p">}</span><span class="w"></span>
+<span class="p">{</span><span class="s1">&#39;str&#39;</span><span class="o">:</span><span class="s1">&#39;hola&#39;</span><span class="p">,</span><span class="s1">&#39;int&#39;</span><span class="o">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w"> </span><span class="mi">78</span><span class="o">:</span><span class="w"> </span><span class="kc">nil</span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Operaciones: ver capítulo 7.</p>
@@ -172,22 +204,22 @@ La operación de agregar y eliminar pares clave-valor consumirá más tiempo si 
 <section id="rango">
 <h4>Rango<a class="headerlink" href="#rango" title="Permalink to this headline">¶</a></h4>
 <p>El contenedor Range representa un rango de enteros, que generalmente se usa para iterar en un rango de enteros. Este tipo tiene un miembro <code class="docutils literal notranslate"><span class="pre">__lower__</span></code> y un miembro <code class="docutils literal notranslate"><span class="pre">__upper__</span></code>, que representan los límites inferior y superior del rango, respectivamente. El valor literal de Range es un par de enteros conectados mediante el operador <code class="docutils literal notranslate"><span class="pre">..</span></code>:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>0 .. 10
--5 .. 5
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
+<span class="mi">-5</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Cuando la clase Range se usa para la iteración, los elementos de la iteración son todos valores enteros desde el límite inferior hasta el límite superior, incluidos los valores límite. Por ejemplo, el resultado de la iteración de <code class="docutils literal notranslate"><span class="pre">0..5</span></code> es:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>0 1 2 3 4 5
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Por tanto, cabe señalar que para un rango de <em>x</em> .. (<em>x</em>+<em>n</em>), el número de iteraciones es <em>n</em> + 1. Una construcción común para iterar a través de los elementos de una lista por elemento es:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>for i: 0..size(l)-1
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="ow">for</span><span class="w"> </span><span class="n">i</span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="nb">size</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="mi">-1</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Rango abierto: si omite el último rango, se reemplaza implícitamente con MAXINT.</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; r = 10..
-&gt; r
-(10..9223372036854775807)
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="o">..</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="nf">r</span><span class="w"></span>
+<span class="p">(</span><span class="mi">10</span><span class="o">..</span><span class="mi">9223372036854775807</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -212,17 +244,17 @@ Berry es un lenguaje de tipo dinámico, por lo que el tipo de valor de la variab
 </div>
 <p><strong>var</strong> es el nombre de la variable, y el nombre de la variable es un identificador (consulte la sección identificador).
 <strong>expresión</strong> es la expresión para inicializar la variable.</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>a = 1
-b =&#39;str&#39;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;str&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Sin embargo, este método de definición de variables tiene algunas limitaciones. Tome el siguiente código como ejemplo:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>i = 0
-do
-    i = 1
-    print(i) # 1
-end
-print(i) # 1
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="ow">do</span><span class="w"></span>
+<span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c1"># 1</span>
+<span class="ow">end</span><span class="w"></span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c1"># 1</span>
 </pre></div>
 </div>
 <p>La instrucción <code class="docutils literal notranslate"><span class="pre">do</span></code> en la rutina constituye el alcance interno. Modificamos el valor de la variable <code class="docutils literal notranslate"><span class="pre">i</span></code> en la línea 3, y el valor de <code class="docutils literal notranslate"><span class="pre">i</span></code> sigue siendo <code class="docutils literal notranslate"><span class="pre">1</span></code> después de dejar el alcance interno en la línea 6. Si queremos que la variable <code class="docutils literal notranslate"><span class="pre">i</span></code> del ámbito interno sea una variable independiente, el método de definir la variable mediante la asignación directa al nuevo nombre de variable no puede cumplir el requisito, porque el identificador <code class="docutils literal notranslate"><span class="pre">i</span></code> ya existe en el ámbito externo. En este caso, la variable se puede definir mediante la palabra clave <code class="docutils literal notranslate"><span class="pre">var</span></code>:</p>
@@ -233,17 +265,17 @@ print(i) # 1
 <p>Hay dos formas de usar <code class="docutils literal notranslate"><span class="pre">var</span></code> para definir una variable: la primera es seguir el nombre de la variable <strong>variable</strong> después de la palabra clave <code class="docutils literal notranslate"><span class="pre">var</span></code>, en este caso la variable se inicializará a <code class="docutils literal notranslate"><span class="pre">nil</span></code>, y la otra se escribe en la variable y se inicializa al mismo tiempo que se define la variable. En este caso, se requiere una expresión de valor inicial <strong>expresión</strong>. Usar <code class="docutils literal notranslate"><span class="pre">var</span></code> para definir una variable tiene dos posibles resultados: si el alcance actual no define la variable de <strong>variable</strong>, definir e inicializar la variable, de lo contrario, es equivalente a reinicializar la variable.
 Por lo tanto, la variable definida con <code class="docutils literal notranslate"><span class="pre">var</span></code> protegerá a la variable con el mismo nombre en el ámbito externo.</p>
 <p>Ahora cambiamos el ejemplo anterior para usar la palabra clave <code class="docutils literal notranslate"><span class="pre">var</span></code> para definir variables:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>i = 0
-do
-    var i = 1
-    print(i) # 1
-end
-print(i) # 0
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="ow">do</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c1"># 1</span>
+<span class="ow">end</span><span class="w"></span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c1"># 0</span>
 </pre></div>
 </div>
 <p>A partir de la rutina modificada, se puede encontrar que el valor de la variable <code class="docutils literal notranslate"><span class="pre">i</span></code> en el ámbito interno es <code class="docutils literal notranslate"><span class="pre">1</span></code>, y su valor en el ámbito externo es <code class="docutils literal notranslate"><span class="pre">0</span></code>. Esto prueba que después de usar la palabra clave <code class="docutils literal notranslate"><span class="pre">var</span></code>, se define una nueva variable <code class="docutils literal notranslate"><span class="pre">i</span></code> en el ámbito interno y se bloquea la variable con el mismo nombre en el ámbito externo. Una vez que finaliza el ámbito interno, el identificador <code class="docutils literal notranslate"><span class="pre">i</span></code> vuelve a vincularse a la variable <code class="docutils literal notranslate"><span class="pre">i</span></code> en el ámbito externo.</p>
 <p>Al usar la palabra clave <code class="docutils literal notranslate"><span class="pre">var</span></code> para definir una variable, también puede usar una lista de múltiples nombres de variables, separados por comas. También puede inicializar una o más variables al definir variables:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>var a = 0, b, c =&#39;test&#39;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -251,13 +283,13 @@ print(i) # 0
 <h3>2.2.2 Alcance y Ciclo de Vida<a class="headerlink" href="#alcance-y-ciclo-de-vida" title="Permalink to this headline">¶</a></h3>
 <p>Como se mencionó anteriormente, los nombres de las variables se pueden vincular a varias entidades de variables (espacios de almacenamiento) y los nombres de las variables se vinculan a una sola entidad en cada posición. La entidad vinculada por el nombre de la variable debe determinarse de acuerdo con la posición en la que aparece el nombre de la variable.</p>
 <p><strong>Ámbito</strong> se refiere al área de código donde el nombre y la entidad están vinculados de forma única. Fuera del alcance, el nombre puede estar vinculado a otras entidades, o no estar vinculado a ninguna entidad. La entidad solo es visible en el alcance asociado al nombre, es decir, la variable solo es válida en su alcance. Un bloque de código (ver bloque) es un alcance. Una variable solo está disponible dentro del bloque, y los nombres en diferentes bloques pueden vincular diferentes entidades variables. El siguiente ejemplo demuestra el alcance de las variables:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>var i = 0
-do
-    var j =&#39;str&#39;
-    print(i, j) # 0 str
-end
-#  La variable j no está disponible aquí
-print(i) # 0
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="ow">do</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;str&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="c1"># 0 str</span>
+<span class="ow">end</span><span class="w"></span>
+<span class="c1">#  La variable j no está disponible aquí</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c1"># 0</span>
 </pre></div>
 </div>
 <p>Los nombres <code class="docutils literal notranslate"><span class="pre">i</span></code> y <code class="docutils literal notranslate"><span class="pre">j</span></code> se definen en esta rutina. El nombre <code class="docutils literal notranslate"><span class="pre">i</span></code> se define fuera de la oración <code class="docutils literal notranslate"><span class="pre">do</span></code>, y el nombre definido en el bloque más externo tiene <strong>Alcance global</strong>. El nombre con alcance global está disponible en todo el programa después de la personalización. El nombre <code class="docutils literal notranslate"><span class="pre">j</span></code> se define en el bloque en la oración <code class="docutils literal notranslate"><span class="pre">do</span></code>, y el nombre de este tipo de definición en el bloque no exterior tiene <strong>Ámbito local</strong>.

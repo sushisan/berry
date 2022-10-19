@@ -32,12 +32,48 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Home.html">Welcome to the berry wiki!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../es/Home.html">Bienvenido a la wiki de Berry!</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">3. Expression</a><ul>
+<li><a class="reference internal" href="#basics">3.1 Basics</a><ul>
+<li><a class="reference internal" href="#operators-and-expressions">Operators and expressions</a><ul>
+<li><a class="reference internal" href="#operator-combination-expression">Operator combination expression</a></li>
+<li><a class="reference internal" href="#operand-type">operand type</a></li>
 </ul>
-
+</li>
+<li><a class="reference internal" href="#priority-and-associativity">3.1.1 Priority and associativity</a><ul>
+<li><a class="reference internal" href="#use-brackets-to-increase-priority">Use brackets to increase priority</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#operator">3.2 Operator</a><ul>
+<li><a class="reference internal" href="#arithmetic-operators">3.2.1 Arithmetic Operators</a></li>
+<li><a class="reference internal" href="#relational-operators">3.2.2 Relational operators</a></li>
+<li><a class="reference internal" href="#logical-operators">logical operators</a></li>
+<li><a class="reference internal" href="#bitwise-operator">Bitwise Operator</a></li>
+<li><a class="reference internal" href="#assignment-operator">Assignment operator</a><ul>
+<li><a class="reference internal" href="#simple-assignment-operator">Simple assignment operator</a></li>
+<li><a class="reference internal" href="#compound-assignment-operator">Compound Assignment Operator</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#domain-operator-and-subscript-operator">domain operator and subscript operator</a></li>
+<li><a class="reference internal" href="#conditional-operator">Conditional Operator</a><ul>
+<li><a class="reference internal" href="#nested-condition-operators">Nested Condition Operators</a></li>
+<li><a class="reference internal" href="#priority-of-conditional-operators">Priority of conditional operators</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#concatenation-operator">Concatenation Operator</a><ul>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">+</span></code> operator</a></li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">..</span></code> operator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
@@ -518,12 +554,12 @@ For example, <code class="docutils literal notranslate"><span class="pre">∼</s
 <p>The following are some examples of using bit operations. Usually we
 don’t use binary directly. The results in the examples have been
 converted into common bases.</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>1 &lt;&lt; 1 # 2
-168 &gt;&gt; 4 # 10
-456 &amp; 127 # 72
-456 | 127 # 511
-0xA5 ^ 0x5A # 255
-~2 # -3
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c1"># 2</span>
+<span class="mi">168</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="c1"># 10</span>
+<span class="mi">456</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">127</span><span class="w"> </span><span class="c1"># 72</span>
+<span class="mi">456</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">127</span><span class="w"> </span><span class="c1"># 511</span>
+<span class="mh">0xA5</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="mh">0x5A</span><span class="w"> </span><span class="c1"># 255</span>
+<span class="o">~</span><span class="mi">2</span><span class="w"> </span><span class="c1"># -3</span>
 </pre></div>
 </div>
 </section>
@@ -542,12 +578,12 @@ operand with the left operand. This process is also called “assignment”.
 Therefore, the left operand cannot be a constant, nor can it be any
 object that cannot be written. These are some legal assignment
 expressions:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>a = 45 b =&#39;string&#39; c = 0
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">45</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
 </pre></div>
 </div>
 <p>And the following assignment expression is wrong:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>1 = 5 # Trying to assign a constant 1
-a = b = 0 # Continuous assignment
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="c1"># Trying to assign a constant 1</span>
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c1"># Continuous assignment</span>
 </pre></div>
 </div>
 <p>When assigning <code class="docutils literal notranslate"><span class="pre">nil</span></code>, integer, real and Boolean types to variables, the
@@ -631,15 +667,15 @@ operations.</p>
 <p>Domain operator <code class="docutils literal notranslate"><span class="pre">.</span></code> is used to access an attribute or member of an
 object. You can use domain operators for both types of modules and
 instances:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>l = list[]
-l.push(&#39;item 0&#39;)
-s = l.item(0) #&#39;item 0&#39;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">list</span><span class="p">[]</span><span class="w"></span>
+<span class="n">l</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="s1">&#39;item 0&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">.</span><span class="nf">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">#&#39;item 0&#39;</span>
 </pre></div>
 </div>
 <p>The subscript operator <code class="docutils literal notranslate"><span class="pre">[]</span></code> is used to access the elements of an object,
 for example</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>l[2] = 10 # Read by index
-n = l[2] # Write by index
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="c1"># Read by index</span>
+<span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="c1"># Write by index</span>
 </pre></div>
 </div>
 <p>Classes that support subscript reading must implement the <code class="docutils literal notranslate"><span class="pre">item</span></code> method,
@@ -648,8 +684,8 @@ method. The map and list in the standard container implement these two
 methods, so they support reading and writing using the subscript
 operator. The string supports subscript reading, but does not support
 subscript writing (strings are read-only values):</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&#39;string&#39;[2] #&#39;r&#39;
-&#39;string&#39;[2] =&#39;a&#39; # error: value&#39;string&#39; does not support index assignment
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;string&#39;</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="c1">#&#39;r&#39;</span>
+<span class="s1">&#39;string&#39;</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="w"> </span><span class="c1"># error: value&#39;string&#39; does not support index assignment</span>
 </pre></div>
 </div>
 <p>Currently, strings support integer subscripts, and the range of
@@ -669,7 +705,7 @@ of <em><strong>cond</strong></em>, if the condition is true, evaluate
 <em><strong>expr2</strong></em> ] Evaluate and return the value.
 <em><strong>expr1</strong></em> and <em><strong>expr2</strong></em> can have
 different types, so the following is correct:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>result = scope &lt;6?&#39;bad&#39;: scope
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scope</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">6</span><span class="o">?</span><span class="s1">&#39;bad&#39;</span><span class="o">:</span><span class="w"> </span><span class="n">scope</span><span class="w"></span>
 </pre></div>
 </div>
 <p>This expression first determines whether <code class="docutils literal notranslate"><span class="pre">scope</span></code> is less than <code class="docutils literal notranslate"><span class="pre">6</span></code>, if it
@@ -685,7 +721,7 @@ that is, the conditional expression can be used as <em><strong>cond</strong></em
 or <em><strong>expr</strong></em> of another conditional expression. For example,
 use conditional expressions to divide scores into three levels:
 excellent, good, and bad:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>result = scope &gt;= 9?&#39;excellent&#39;: scope &gt;= 6?&#39;good&#39;:&#39;bad&#39;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scope</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">9</span><span class="o">?</span><span class="s1">&#39;excellent&#39;</span><span class="o">:</span><span class="w"> </span><span class="n">scope</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">6</span><span class="o">?</span><span class="s1">&#39;good&#39;</span><span class="o">:</span><span class="s1">&#39;bad&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The first condition checks whether the score is not lower than <code class="docutils literal notranslate"><span class="pre">9</span></code>
@@ -706,8 +742,8 @@ to assignment operators), it is often necessary to add parentheses
 outside the conditional expressions. For example, when a conditional
 expression is used as an operand of an arithmetic expression,
 parentheses will have different effects on the result:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>result = 10 * (sign &lt;0? -1: 1) # the result is -10 or 10
-result = 10 * sign &lt;0? -1: 1 # the result is -1 or 1
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">sign</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">0</span><span class="o">?</span><span class="w"> </span><span class="mi">-1</span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1"># the result is -10 or 10</span>
+<span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sign</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">0</span><span class="o">?</span><span class="w"> </span><span class="mi">-1</span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c1"># the result is -1 or 1</span>
 </pre></div>
 </div>
 <p>The result of the first expression is correct, and the second expression
@@ -724,11 +760,11 @@ multiplication.</p>
 used to connect the two strings, and the new string obtained is the
 value of the expression. Therefore, this operator is often used for
 string concatenation:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>result =&#39;abc&#39; + &#39;123&#39; # the result is&#39;abc123&#39;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;abc&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;123&#39;</span><span class="w"> </span><span class="c1"># the result is&#39;abc123&#39;</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">+</span></code> Operators can also be used to connect two list instances:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>result = [1, 2] + [3, 4] # the result is [1, 2, 3, 4]
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="c1"># the result is [1, 2, 3, 4]</span>
 </pre></div>
 </div>
 <p>Unlike the <code class="docutils literal notranslate"><span class="pre">list.push</span></code> method, the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator merges two lists into a
@@ -742,26 +778,26 @@ result list.</p>
 behavior of the expression is to concatenate the left and right operands
 into a new string (automatic conversion if the right operand is not a
 string):</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>result =&#39;abc&#39; + 123 # the result is&#39;abc123&#39;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;abc&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">123</span><span class="w"> </span><span class="c1"># the result is&#39;abc123&#39;</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">..</span></code> operator is often used when concatenating a string and a
 non-string value.If the left operand is a list instance, the <code class="docutils literal notranslate"><span class="pre">..</span></code>
 operator will append the right operand to the end of the list, and then
 use this list as the value of the expression:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>result = [1, 2] .. 3 # the result is [1, 2, 3]
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="c1"># the result is [1, 2, 3]</span>
 </pre></div>
 </div>
 <p>This process will directly modify the left operand, which is very
 similar to the <code class="docutils literal notranslate"><span class="pre">push</span></code> method of <code class="docutils literal notranslate"><span class="pre">list</span></code> (except for strings which are immutable objects).
 The join operation of list can be executed in chain:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>result = [1, 2] .. 3 .. 4 # the result is [1, 2, 3, 4]
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="c1"># the result is [1, 2, 3, 4]</span>
 </pre></div>
 </div>
 <p>All values in this process will be appended to the leftmost list object.</p>
 <p>If the left and right operands are both integers, use the <code class="docutils literal notranslate"><span class="pre">..</span></code> operator
 to get an integer range object:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>result = 1 .. 10 # the result is (1..10)
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="c1"># the result is (1..10)</span>
 </pre></div>
 </div>
 <p>This object is used to represent a closed interval of integers, where

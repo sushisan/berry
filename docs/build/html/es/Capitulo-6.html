@@ -32,12 +32,40 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../en/Home.html">Welcome to the berry wiki!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Home.html">Bienvenido a la wiki de Berry!</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">6. Función orientada a objetos</a><ul>
+<li><a class="reference internal" href="#clase-e-instancia">6.1 Clase e instancia</a><ul>
+<li><a class="reference internal" href="#declaracion-de-clase">6.1.1 Declaración de clase</a></li>
+<li><a class="reference internal" href="#instanciar">Instanciar</a></li>
+<li><a class="reference internal" href="#metodo-y-parametros-self">Método y parámetros <code class="docutils literal notranslate"><span class="pre">self</span></code></a></li>
+<li><a class="reference internal" href="#metodos-sinteticos">Métodos sintéticos</a></li>
+<li><a class="reference internal" href="#variables-de-clase-static">Variables de clase <code class="docutils literal notranslate"><span class="pre">static</span></code></a></li>
+<li><a class="reference internal" href="#metodos-de-clase-static">Métodos de clase <code class="docutils literal notranslate"><span class="pre">static</span></code></a></li>
+<li><a class="reference internal" href="#constructor-y-destructor">Constructor y Destructor</a><ul>
+<li><a class="reference internal" href="#constructor">Constructor</a></li>
+<li><a class="reference internal" href="#destructor">Destructor</a></li>
 </ul>
-
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#herencia-de-clases">Herencia de clases</a></li>
+<li><a class="reference internal" href="#sobrecarga-de-metodo">Sobrecarga de método</a><ul>
+<li><a class="reference internal" href="#sobrecarga-de-metodo-comun">Sobrecarga de método común</a></li>
+<li><a class="reference internal" href="#sobrecarga-del-operador">Sobrecarga del operador</a><ul>
+<li><a class="reference internal" href="#sobrecarga-del-operador-de-asignacion-compuesto">Sobrecarga del operador de asignación compuesto</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#instancia">Instancia</a><ul>
+<li><a class="reference internal" href="#objeto-de-clase-base-de-acceso">Objeto de clase base de acceso</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
@@ -71,20 +99,20 @@
 <section id="declaracion-de-clase">
 <h3>6.1.1 Declaración de clase<a class="headerlink" href="#declaracion-de-clase" title="Permalink to this headline">¶</a></h3>
 <p>Para usar una clase, primero debe declararla. La declaración de una clase comienza con la palabra clave <code class="docutils literal notranslate"><span class="pre">class</span></code>. Las variables miembro y los métodos de la clase deben especificarse en la declaración. Este es un ejemplo de declaración de una clase:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class persona
-    static var mayor = 18
-    var nombre, edad
-    def init(nombre, edad)
-        self.nombre = name
-        self.edad = edad
-    end
-    def tostring()
-        return &#39;nombre: &#39;+ str(self.nombre) + &#39;, edad:&#39; + str(self.edad)
-    end
-    def es_adulto()
-        return self.edad &gt;= self.mayor
-    end
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">persona</span><span class="w"></span>
+<span class="w">    </span><span class="kr">static</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">mayor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">18</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">nombre</span><span class="p">,</span><span class="w"> </span><span class="n">edad</span><span class="w"></span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span><span class="w"> </span><span class="n">edad</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="kr">self</span><span class="p">.</span><span class="na">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="w"></span>
+<span class="w">        </span><span class="kr">self</span><span class="p">.</span><span class="na">edad</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">edad</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="nf">tostring</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="ow">return</span><span class="w"> </span><span class="s1">&#39;nombre: &#39;</span><span class="o">+</span><span class="w"> </span><span class="nb">str</span><span class="p">(</span><span class="kr">self</span><span class="p">.</span><span class="na">nombre</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;, edad:&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">str</span><span class="p">(</span><span class="kr">self</span><span class="p">.</span><span class="na">edad</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="nf">es_adulto</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="ow">return</span><span class="w"> </span><span class="kr">self</span><span class="p">.</span><span class="na">edad</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="kr">self</span><span class="p">.</span><span class="na">mayor</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Las variables miembro de clase se declaran con la palabra clave <code class="docutils literal notranslate"><span class="pre">var</span></code>, mientras que los métodos miembro se declaran con la palabra clave <code class="docutils literal notranslate"><span class="pre">def</span></code>. Actualmente, Berry no admite la inicialización de variables miembro en el momento de la definición, por lo que el constructor debe realizar la inicialización de las variables miembro.
@@ -99,14 +127,14 @@ Las propiedades de la clase no se pueden modificar después de completar la decl
 <section id="metodo-y-parametros-self">
 <h3>Método y parámetros <code class="docutils literal notranslate"><span class="pre">self</span></code><a class="headerlink" href="#metodo-y-parametros-self" title="Permalink to this headline">¶</a></h3>
 <p>Los métodos de clase son esencialmente funciones. A diferencia de las funciones ordinarias, los métodos pasan implícitamente un parámetro <code class="docutils literal notranslate"><span class="pre">self</span></code>, y siempre es el primer parámetro, que almacena una referencia a la instancia actual. Debido a la existencia de parámetros <code class="docutils literal notranslate"><span class="pre">self</span></code>, el número de parámetros del método será uno más que el número de parámetros definidos en la declaración. Aquí usamos un ejemplo simple para demostrar:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class Test
-    def metodo()
-        return self
-    end
-end
-objecto = Test()
-print(objecto)
-print(objecto.metodo())
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Test</span><span class="w"></span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="nf">metodo</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="ow">return</span><span class="w"> </span><span class="kr">self</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
+<span class="n">objecto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">Test</span><span class="p">()</span><span class="w"></span>
+<span class="nb">print</span><span class="p">(</span><span class="n">objecto</span><span class="p">)</span><span class="w"></span>
+<span class="nb">print</span><span class="p">(</span><span class="n">objecto</span><span class="p">.</span><span class="nf">metodo</span><span class="p">())</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Este ejemplo define una clase <code class="docutils literal notranslate"><span class="pre">Test</span></code>, que tiene un método <code class="docutils literal notranslate"><span class="pre">metodo</span></code>, que devuelve su parámetro <code class="docutils literal notranslate"><span class="pre">self</span></code>. Las dos últimas líneas de la rutina imprimen el valor de la instancia ‘objeto’ de la clase <code class="docutils literal notranslate"><span class="pre">Test</span></code> y el valor de retorno del método ‘metodo’ respectivamente. El resultado de ejecución de este ejemplo es:</p>
@@ -160,21 +188,21 @@ stack traceback:
 <section id="constructor">
 <h4>Constructor<a class="headerlink" href="#constructor" title="Permalink to this headline">¶</a></h4>
 <p>El constructor de la clase es el método <code class="docutils literal notranslate"><span class="pre">init</span></code>. Se llama al constructor cuando se crea una instancia de la clase. Por lo tanto, el constructor generalmente se usa para la inicialización de miembros, por ejemplo:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class Test
-    var a
-    def init()
-        self.a =&#39;esto es una prueba&#39;
-    end
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Test</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="kr">self</span><span class="p">.</span><span class="na">a</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;esto es una prueba&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>El constructor de este ejemplo inicializa el miembro <code class="docutils literal notranslate"><span class="pre">a</span></code> de la clase <code class="docutils literal notranslate"><span class="pre">Test</span></code> con la cadena <code class="docutils literal notranslate"><span class="pre">'esto</span> <span class="pre">es</span> <span class="pre">una</span> <span class="pre">prueba'</span></code>. Si instanciamos la clase, podemos obtener el valor del miembro <code class="docutils literal notranslate"><span class="pre">a</span></code>:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class Test
-    var a
-    def init()
-        self.a =&#39;esta es una prueba&#39;
-    end
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Test</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="kr">self</span><span class="p">.</span><span class="na">a</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;esta es una prueba&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -187,9 +215,9 @@ end
 <section id="herencia-de-clases">
 <h2>Herencia de clases<a class="headerlink" href="#herencia-de-clases" title="Permalink to this headline">¶</a></h2>
 <p>Berry solo admite herencia simple, es decir, una clase solo puede tener una clase base, y la clase base usa el operador <code class="docutils literal notranslate"><span class="pre">:</span></code> para declarar:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class Test: Base
-    ...
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Test</span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"></span>
+<span class="w">    </span><span class="o">..</span><span class="p">.</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Aquí la clase <code class="docutils literal notranslate"><span class="pre">Test</span></code> hereda de la clase <code class="docutils literal notranslate"><span class="pre">Base</span></code>. La subclase heredará todos los métodos y propiedades de la clase base y puede anularlos en la subclase. Este mecanismo se llama <strong>Sobrecarga</strong>.
@@ -222,28 +250,28 @@ Las subclases contendrán referencias a la clase base y los objetos de instancia
 </div>
 </div>
 <p><strong>operador</strong> es un operador unario sobrecargado. Para distinguirlo del operador de resta, el signo menos unario se escribe como <code class="docutils literal notranslate"><span class="pre">-*</span></code> cuando está sobrecargado. Las funciones sobrecargadas del operador deben tener un valor de retorno, porque el valor de retorno <code class="docutils literal notranslate"><span class="pre">nil</span></code> predeterminado no suele ser el resultado esperado. Tomemos una clase entera como ejemplo para ilustrar el uso de la sobrecarga de operadores. Primero defina la clase <code class="docutils literal notranslate"><span class="pre">integer</span></code>:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class integer
-    var value
-    def init(v)
-        self.value = v
-    end
-    def +(other)
-        return integer(self.value + other.value)
-    end
-    def *(other)
-        return integer(self.value * other.value)
-    end
-    def -*()
-        return integer(-self.value)
-    end
-    def tostring(other)
-        return str(self.value)
-    end
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">integer</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">value</span><span class="w"></span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="kr">self</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="o">+</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="ow">return</span><span class="w"> </span><span class="nf">integer</span><span class="p">(</span><span class="kr">self</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="na">value</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="ow">return</span><span class="w"> </span><span class="nf">integer</span><span class="p">(</span><span class="kr">self</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="na">value</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="o">-*</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="ow">return</span><span class="w"> </span><span class="nf">integer</span><span class="p">(</span><span class="o">-</span><span class="kr">self</span><span class="p">.</span><span class="na">value</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="nf">tostring</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="ow">return</span><span class="w"> </span><span class="nb">str</span><span class="p">(</span><span class="kr">self</span><span class="p">.</span><span class="na">value</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>La clase <code class="docutils literal notranslate"><span class="pre">integer</span></code> sobrecarga los operadores suma, multiplicación y simbólicos, y el método <code class="docutils literal notranslate"><span class="pre">tostring</span></code> hace que la instancia use la función <code class="docutils literal notranslate"><span class="pre">print</span></code> para generar el resultado. Podemos usar una simple línea de código para probar la función de sobrecarga de operadores de la clase:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>integer(1) + integer(2) * -integer(3) # -5
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="nf">integer</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">integer</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">-</span><span class="nf">integer</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1"># -5</span>
 </pre></div>
 </div>
 <p>El resultado de esta línea de código es una instancia de <code class="docutils literal notranslate"><span class="pre">integer</span></code>. El valor del miembro <code class="docutils literal notranslate"><span class="pre">value</span></code> de esta instancia es <code class="docutils literal notranslate"><span class="pre">-5</span></code>, que es el mismo resultado de las mismas cuatro operaciones aritméticas con números enteros.</p>
@@ -253,18 +281,18 @@ El método no tiene parámetros y el valor devuelto debe ser de tipo booleano. L
 <section id="sobrecarga-del-operador-de-asignacion-compuesto">
 <h4>Sobrecarga del operador de asignación compuesto<a class="headerlink" href="#sobrecarga-del-operador-de-asignacion-compuesto" title="Permalink to this headline">¶</a></h4>
 <p>El operador de asignación compuesto no se puede sobrecargar directamente, pero podemos lograr el propósito de “sobrecargar” el operador de asignación compuesto sobrecargando el operador binario correspondiente al operador de asignación compuesto. Por ejemplo, después de sobrecargar el operador “<code class="docutils literal notranslate"><span class="pre">+</span></code>”, puede usar el operador “<code class="docutils literal notranslate"><span class="pre">+=</span></code>” para instancias de clases relacionadas. Vale la pena señalar que el uso de operaciones de asignación compuestas en la instancia hará que las variables de la instancia vinculada pierdan su referencia a la instancia.</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class integer
-    var valor
-    def init(x)
-        self.valor = x
-    end
-    def +(other)
-        return integer(self.valor + other.valor)
-    end
-end
-a = integer(4) # a: &lt;instance: 0x55edff400a78&gt;
-a += integer(5) # a: &lt;instance: 0x55edff4011b8&gt;
-print(a.valor) # 9
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">integer</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">valor</span><span class="w"></span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="kr">self</span><span class="p">.</span><span class="na">valor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="o">+</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="ow">return</span><span class="w"> </span><span class="nf">integer</span><span class="p">(</span><span class="kr">self</span><span class="p">.</span><span class="na">valor</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="na">valor</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">integer</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="c1"># a: &lt;instance: 0x55edff400a78&gt;</span>
+<span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nf">integer</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="c1"># a: &lt;instance: 0x55edff4011b8&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">valor</span><span class="p">)</span><span class="w"> </span><span class="c1"># 9</span>
 </pre></div>
 </div>
 <p>Después de que se ejecuta la línea 11 de código, la instancia enlazada en la variable <code class="docutils literal notranslate"><span class="pre">a</span></code> realmente ha cambiado. Esta línea de código es equivalente a <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">integer(4)</span> <span class="pre">+</span> <span class="pre">integer(5)</span></code>. Si el operador binario de la sobrecarga de clase no modifica el estado de la instancia, entonces el operador de asignación compuesto correspondiente no modificará ninguna instancia (puede generar nuevas instancias).</p>
@@ -281,75 +309,75 @@ Las instancias de Berry están referenciadas por la clase a la que pertenecen y 
 Se puede utilizar en clases o instancias.</p>
 <p>La magia ocurre cuando llamas a un método de la superclase para que se comporte como intuitivamente crees que lo haría.
 Por ejemplo, el patrón común para <code class="docutils literal notranslate"><span class="pre">init()</span></code> es el siguiente:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>def init(&lt;args&gt;)
-    # hacer cosas antes de super init
-    super(self).init(&lt;args&gt;)
-    # hacer cosas después de super init
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="o">&lt;</span><span class="n">args</span><span class="o">&gt;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c1"># hacer cosas antes de super init</span>
+<span class="w">    </span><span class="kr">super</span><span class="p">(</span><span class="kr">self</span><span class="p">).</span><span class="nf">init</span><span class="p">(</span><span class="o">&lt;</span><span class="n">args</span><span class="o">&gt;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c1"># hacer cosas después de super init</span>
+<span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Tenga en cuenta que las clases siempre contienen métodos <code class="docutils literal notranslate"><span class="pre">init()</span></code> implícitos que no hacen nada, por lo que siempre puede llamar a init desde la superclase incluso si no se declaró ningún método <code class="docutils literal notranslate"><span class="pre">init()</span></code>.</p>
 <p>Ejemplo completo:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>class A
-    var val
-    def init(val)
-        # super(self).init(val)    # esto sería válido pero inútil
-        self.val = val
-    end
-    def tostring()
-        return &quot;val=&quot; + str(self.val)
-    end
-end
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">A</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">val</span><span class="w"></span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="n">val</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="c1"># super(self).init(val)    # esto sería válido pero inútil</span>
+<span class="w">        </span><span class="kr">self</span><span class="p">.</span><span class="na">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">val</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="nf">tostring</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="ow">return</span><span class="w"> </span><span class="s2">&quot;val=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">str</span><span class="p">(</span><span class="kr">self</span><span class="p">.</span><span class="na">val</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 
-class B: A
-    var magia    # verdadero si el valor es 42
-    def init(val)
-        super(self).init(val)     # llamar a superinit
-        self.magia = (val == 42)
-    end
-    def tostring()
-        if self.magia
-            return &quot;magia!&quot;
-        else
-            return super(self).tostring()
-        end
-    end
-end
+<span class="kd">class</span> <span class="nc">B</span><span class="o">:</span><span class="w"> </span><span class="n">A</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">magia</span><span class="w">    </span><span class="c1"># verdadero si el valor es 42</span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="n">val</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="kr">super</span><span class="p">(</span><span class="kr">self</span><span class="p">).</span><span class="nf">init</span><span class="p">(</span><span class="n">val</span><span class="p">)</span><span class="w">     </span><span class="c1"># llamar a superinit</span>
+<span class="w">        </span><span class="kr">self</span><span class="p">.</span><span class="na">magia</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">42</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="nf">tostring</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="ow">if</span><span class="w"> </span><span class="kr">self</span><span class="p">.</span><span class="na">magia</span><span class="w"></span>
+<span class="w">            </span><span class="ow">return</span><span class="w"> </span><span class="s2">&quot;magia!&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="ow">else</span><span class="w"></span>
+<span class="w">            </span><span class="ow">return</span><span class="w"> </span><span class="kr">super</span><span class="p">(</span><span class="kr">self</span><span class="p">).</span><span class="nf">tostring</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="ow">end</span><span class="w"></span>
+<span class="w">    </span><span class="ow">end</span><span class="w"></span>
+<span class="ow">end</span><span class="w"></span>
 
-####### Ejemplo de uso
+<span class="c1">####### Ejemplo de uso</span>
 
-&gt; b1 = B(1)
-&gt; b1
-val=1
-&gt; b42 = B(42)
-&gt; b42
-magia!
+<span class="o">&gt;</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">B</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">b1</span><span class="w"></span>
+<span class="n">val</span><span class="o">=</span><span class="mi">1</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">b42</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">B</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">b42</span><span class="w"></span>
+<span class="n">magia</span><span class="o">!</span><span class="w"></span>
 </pre></div>
 </div>
 <p><strong>Características avanzadas</strong>: Al llamar a <code class="docutils literal notranslate"><span class="pre">super(self).&lt;method&gt;</span> <span class="pre">(&lt;args&gt;</span> <span class="pre">)</span></code> ocurre algo de magia. Cuando se llama al supermétodo, los argumentos <code class="docutils literal notranslate"><span class="pre">self</span></code> se refieren a la clase específica más baja. Sin embargo, el <code class="docutils literal notranslate"><span class="pre">&lt;method&gt;</span> </code> no se busca desde la clase de <code class="docutils literal notranslate"><span class="pre">self</span></code> (que siempre es la más baja), sino desde la superclase de la clase que contiene el método que se está ejecutando actualmente.</p>
 <p>Ejemplo:</p>
-<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; class A
-      def init()
-          print(&quot;In A::init, self es de tipo&quot;, classname(self))
-      end
-  end
-&gt; class B:A
-      def init()
-          print(&quot;In B::init, self es de tipo&quot;, classname(self))
-          super(self).init()
-      end
-  end
-&gt; class C:B
-      def init()
-          print(&quot;En C::init, self es de tipo&quot;, classname(self))
-          super(self).init()
-      end
-  end
-&gt; c = C()
-En C::init, self es de tipo C
-In B::init, self es de tipo C
-In A::init, self es de tipo C
-&gt;
+<div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="kd">class</span> <span class="nc">A</span><span class="w"></span>
+<span class="w">      </span><span class="kd">def</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"></span>
+<span class="w">          </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In A::init, self es de tipo&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">classname</span><span class="p">(</span><span class="kr">self</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="ow">end</span><span class="w"></span>
+<span class="w">  </span><span class="ow">end</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="kd">class</span> <span class="nc">B</span><span class="o">:</span><span class="n">A</span><span class="w"></span>
+<span class="w">      </span><span class="kd">def</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"></span>
+<span class="w">          </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In B::init, self es de tipo&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">classname</span><span class="p">(</span><span class="kr">self</span><span class="p">))</span><span class="w"></span>
+<span class="w">          </span><span class="kr">super</span><span class="p">(</span><span class="kr">self</span><span class="p">).</span><span class="nf">init</span><span class="p">()</span><span class="w"></span>
+<span class="w">      </span><span class="ow">end</span><span class="w"></span>
+<span class="w">  </span><span class="ow">end</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="kd">class</span> <span class="nc">C</span><span class="o">:</span><span class="n">B</span><span class="w"></span>
+<span class="w">      </span><span class="kd">def</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"></span>
+<span class="w">          </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;En C::init, self es de tipo&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">classname</span><span class="p">(</span><span class="kr">self</span><span class="p">))</span><span class="w"></span>
+<span class="w">          </span><span class="kr">super</span><span class="p">(</span><span class="kr">self</span><span class="p">).</span><span class="nf">init</span><span class="p">()</span><span class="w"></span>
+<span class="w">      </span><span class="ow">end</span><span class="w"></span>
+<span class="w">  </span><span class="ow">end</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">C</span><span class="p">()</span><span class="w"></span>
+<span class="n">En</span><span class="w"> </span><span class="n">C</span><span class="o">::</span><span class="n">init</span><span class="p">,</span><span class="w"> </span><span class="kr">self</span><span class="w"> </span><span class="n">es</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">tipo</span><span class="w"> </span><span class="n">C</span><span class="w"></span>
+<span class="n">In</span><span class="w"> </span><span class="n">B</span><span class="o">::</span><span class="n">init</span><span class="p">,</span><span class="w"> </span><span class="kr">self</span><span class="w"> </span><span class="n">es</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">tipo</span><span class="w"> </span><span class="n">C</span><span class="w"></span>
+<span class="n">In</span><span class="w"> </span><span class="n">A</span><span class="o">::</span><span class="n">init</span><span class="p">,</span><span class="w"> </span><span class="kr">self</span><span class="w"> </span><span class="n">es</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">tipo</span><span class="w"> </span><span class="n">C</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Explicación:</p>
