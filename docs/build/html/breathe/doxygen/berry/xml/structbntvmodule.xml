@@ -19,7 +19,7 @@
         <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="225" column="16" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="225" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structbntvmodule_1a46f56c1395387a01cbf780b8f8958a5d" prot="public" static="no" mutable="no">
-        <type>const <ref refid="structbntvmodobj" kindref="compound">bntvmodobj_t</ref> *</type>
+        <type>const <ref refid="berry_8h_1a884c8d91d95f3814d3734df49d713290" kindref="member">bntvmodobj_t</ref> *</type>
         <definition>const bntvmodobj_t* bntvmodule::attrs</definition>
         <argsstring></argsstring>
         <name>attrs</name>
