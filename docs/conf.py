@@ -109,12 +109,14 @@ breathe_projects_source = {
     )
 }
 
+# exclude prefix
 c_id_attributes = ["BERRY_API"]
 c_paren_attributes = ["BERRY_API"]
 
 cpp_id_attributes = ["BERRY_API"]
 cpp_paren_attributes = ["BERRY_API"]
 
+# add Berry lexer for highlighting
 import sys
 def setup(sphinx):
     sys.path.insert(0, os.path.abspath('../tools/highlighters/Pygments'))
