@@ -433,7 +433,7 @@
       <memberdef kind="define" id="berry_8h_1ad1bb75fa2986b83af90cfcfb7c2d9cf8" prot="public" static="no">
         <name>be_extern_native_module</name>
         <param><defname>name</defname></param>
-        <initializer>    extern const <ref refid="structbntvmodule" kindref="compound">bntvmodule</ref> <ref refid="berry_8h_1a3b6dd9529a78d4b17e1ba1214d8db8ec" kindref="member">be_native_module</ref>(name)</initializer>
+        <initializer>    extern const <ref refid="structbntvmodule" kindref="compound">bntvmodule_t</ref> <ref refid="berry_8h_1a3b6dd9529a78d4b17e1ba1214d8db8ec" kindref="member">be_native_module</ref>(name)</initializer>
         <briefdescription>
 <para>native module declaration macro </para>
         </briefdescription>
@@ -1165,31 +1165,31 @@
         </inbodydescription>
         <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="158" column="9" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="158" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="berry_8h_1abdde63b90d848abf823f42444df79f4a" prot="public" static="no">
+      <memberdef kind="typedef" id="berry_8h_1a884c8d91d95f3814d3734df49d713290" prot="public" static="no">
         <type>struct <ref refid="structbntvmodobj" kindref="compound">bntvmodobj</ref></type>
-        <definition>typedef struct bntvmodobj bntvmodobj</definition>
+        <definition>typedef struct bntvmodobj bntvmodobj_t</definition>
         <argsstring></argsstring>
-        <name>bntvmodobj</name>
+        <name>bntvmodobj_t</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="217" column="12"/>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="217" column="14"/>
       </memberdef>
-      <memberdef kind="typedef" id="berry_8h_1a4ef1e830d6d1dd69cb5568275d0be3c9" prot="public" static="no">
+      <memberdef kind="typedef" id="berry_8h_1ad9d85f4830a06fd75e8d23917ffb248a" prot="public" static="no">
         <type>struct <ref refid="structbntvmodule" kindref="compound">bntvmodule</ref></type>
-        <definition>typedef struct bntvmodule bntvmodule</definition>
+        <definition>typedef struct bntvmodule bntvmodule_t</definition>
         <argsstring></argsstring>
-        <name>bntvmodule</name>
+        <name>bntvmodule_t</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="229" column="12"/>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="229" column="14"/>
       </memberdef>
       <memberdef kind="typedef" id="berry_8h_1a7452d322aeb4e2ff71d24211f42461c3" prot="public" static="no">
         <type>const struct <ref refid="structbclass" kindref="compound">bclass</ref> *</type>
@@ -1219,11 +1219,11 @@
         </inbodydescription>
         <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="245" column="20" bodyfile="/home/var/tmp/BERRY/berry/src/berry.h" bodystart="245" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="berry_8h_1ac41472ceebd2d02d44a0230069cb368c" prot="public" static="no">
+      <memberdef kind="typedef" id="berry_8h_1afaa3ffafd6e6c8938f0e05af8b5a684e" prot="public" static="no">
         <type>struct <ref refid="structbhookinfo" kindref="compound">bhookinfo</ref></type>
-        <definition>typedef struct bhookinfo bhookinfo</definition>
+        <definition>typedef struct bhookinfo bhookinfo_t</definition>
         <argsstring></argsstring>
-        <name>bhookinfo</name>
+        <name>bhookinfo_t</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -1231,12 +1231,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="620" column="17"/>
+        <location file="/home/var/tmp/BERRY/berry/src/berry.h" line="620" column="19"/>
       </memberdef>
-      <memberdef kind="typedef" id="berry_8h_1aca917e1c5ea7d4ac447ecab9220496f7" prot="public" static="no">
+      <memberdef kind="typedef" id="berry_8h_1a91f252ef5406e614ccba8e6515800552" prot="public" static="no">
         <type>void(*</type>
         <definition>void(* bntvhook)(bvm *vm, bhookinfo *info)</definition>
-        <argsstring>)(bvm *vm, bhookinfo *info)</argsstring>
+        <argsstring>)(bvm *vm, bhookinfo_t *info)</argsstring>
         <name>bntvhook</name>
         <briefdescription>
 <para>void (*bntvhook)(bvm *vm, bhookinfo *info) </para>
@@ -6560,7 +6560,7 @@ Get the value of the index position of index from the virtual stack and return i
           <declname>vm</declname>
         </param>
         <param>
-          <type><ref refid="berry_8h_1aca917e1c5ea7d4ac447ecab9220496f7" kindref="member">bntvhook</ref></type>
+          <type><ref refid="berry_8h_1a91f252ef5406e614ccba8e6515800552" kindref="member">bntvhook</ref></type>
           <declname>hook</declname>
         </param>
         <param>
@@ -6853,29 +6853,29 @@ Input a piece of data from the standard input device, and read at most one row o
 <codeline lineno="199"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="200" refid="structbntvmodobj_1a6927d7b430bcb8af1d2b11d874bda003" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><ref refid="structbntvmodobj_1a6927d7b430bcb8af1d2b11d874bda003" kindref="member">u</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="201"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>BE_CONSTEXPR<sp/><ref refid="structbntvmodobj" kindref="compound">bntvmodobj</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>)<sp/>:</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>BE_CONSTEXPR<sp/><ref refid="structbntvmodobj" kindref="compound">bntvmodobj_t</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>)<sp/>:</highlight></codeline>
 <codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>(<ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>),<sp/><ref refid="structbntvmodobj_1a047832327add822e27e964c2cf73d363" kindref="member">type</ref>(<ref refid="berry_8h_1a2c2a2b1c23ed45cd016ba7dfcad7fe05" kindref="member">BE_CNIL</ref>),<sp/><ref refid="structbntvmodobj_1a6927d7b430bcb8af1d2b11d874bda003" kindref="member">u</ref>(<ref refid="berry_8h_1a36e9c33dcb738f5c0146ea39292c3a6f" kindref="member">bint</ref>(0))<sp/>{}<sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>BE_CONSTEXPR<sp/><ref refid="structbntvmodobj" kindref="compound">bntvmodobj</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>,<sp/><ref refid="berry_8h_1a36e9c33dcb738f5c0146ea39292c3a6f" kindref="member">bint</ref><sp/>v)<sp/>:</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>BE_CONSTEXPR<sp/><ref refid="structbntvmodobj" kindref="compound">bntvmodobj_t</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>,<sp/><ref refid="berry_8h_1a36e9c33dcb738f5c0146ea39292c3a6f" kindref="member">bint</ref><sp/>v)<sp/>:</highlight></codeline>
 <codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>(<ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>),<sp/><ref refid="structbntvmodobj_1a047832327add822e27e964c2cf73d363" kindref="member">type</ref>(<ref refid="berry_8h_1a36a50ac6471f1bb78ba405d359236a62" kindref="member">BE_CINT</ref>),<sp/><ref refid="structbntvmodobj_1a6927d7b430bcb8af1d2b11d874bda003" kindref="member">u</ref>(v)<sp/>{}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>BE_CONSTEXPR<sp/><ref refid="structbntvmodobj" kindref="compound">bntvmodobj</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>,<sp/><ref refid="berry_8h_1a7b3477629e24605207e7dda97135210a" kindref="member">breal</ref><sp/>v)<sp/>:</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>BE_CONSTEXPR<sp/><ref refid="structbntvmodobj" kindref="compound">bntvmodobj_t</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>,<sp/><ref refid="berry_8h_1a7b3477629e24605207e7dda97135210a" kindref="member">breal</ref><sp/>v)<sp/>:</highlight></codeline>
 <codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>(<ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>),<sp/><ref refid="structbntvmodobj_1a047832327add822e27e964c2cf73d363" kindref="member">type</ref>(<ref refid="berry_8h_1a7bac88e1cb274455f59d06f549fe4456" kindref="member">BE_CREAL</ref>),<sp/><ref refid="structbntvmodobj_1a6927d7b430bcb8af1d2b11d874bda003" kindref="member">u</ref>(v)<sp/>{}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>BE_CONSTEXPR<sp/><ref refid="structbntvmodobj" kindref="compound">bntvmodobj</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>,<sp/><ref refid="berry_8h_1a483536941d791ea930e4ec204c87a4f6" kindref="member">bbool</ref><sp/>v)<sp/>:</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>BE_CONSTEXPR<sp/><ref refid="structbntvmodobj" kindref="compound">bntvmodobj_t</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>,<sp/><ref refid="berry_8h_1a483536941d791ea930e4ec204c87a4f6" kindref="member">bbool</ref><sp/>v)<sp/>:</highlight></codeline>
 <codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>(<ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>),<sp/><ref refid="structbntvmodobj_1a047832327add822e27e964c2cf73d363" kindref="member">type</ref>(<ref refid="berry_8h_1a35603a603e1f31e4ba577aa75d728653" kindref="member">BE_CBOOL</ref>),<sp/><ref refid="structbntvmodobj_1a6927d7b430bcb8af1d2b11d874bda003" kindref="member">u</ref>(v)<sp/>{}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>BE_CONSTEXPR<sp/><ref refid="structbntvmodobj" kindref="compound">bntvmodobj</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>,<sp/><ref refid="berry_8h_1a45be489427325076870d53581c7f5e42" kindref="member">bntvfunc</ref><sp/>v)<sp/>:</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>BE_CONSTEXPR<sp/><ref refid="structbntvmodobj" kindref="compound">bntvmodobj_t</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>,<sp/><ref refid="berry_8h_1a45be489427325076870d53581c7f5e42" kindref="member">bntvfunc</ref><sp/>v)<sp/>:</highlight></codeline>
 <codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>(<ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>),<sp/><ref refid="structbntvmodobj_1a047832327add822e27e964c2cf73d363" kindref="member">type</ref>(<ref refid="berry_8h_1a72b935432884ab4f8efa0e5f8a0b21c4" kindref="member">BE_CFUNCTION</ref>),<sp/><ref refid="structbntvmodobj_1a6927d7b430bcb8af1d2b11d874bda003" kindref="member">u</ref>(v)<sp/>{}<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/>BE_CONSTEXPR<sp/><ref refid="structbntvmodobj" kindref="compound">bntvmodobj</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*v)<sp/>:</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/>BE_CONSTEXPR<sp/><ref refid="structbntvmodobj" kindref="compound">bntvmodobj_t</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*v)<sp/>:</highlight></codeline>
 <codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>(<ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>),<sp/><ref refid="structbntvmodobj_1a047832327add822e27e964c2cf73d363" kindref="member">type</ref>(<ref refid="berry_8h_1ae7bf703630edcadbaef8f7a24f49d3c5" kindref="member">BE_CSTRING</ref>),<sp/><ref refid="structbntvmodobj_1a6927d7b430bcb8af1d2b11d874bda003" kindref="member">u</ref>(v)<sp/>{}<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>BE_CONSTEXPR<sp/><ref refid="structbntvmodobj" kindref="compound">bntvmodobj</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_tpye,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*v)<sp/>:</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>BE_CONSTEXPR<sp/><ref refid="structbntvmodobj" kindref="compound">bntvmodobj_t</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_tpye,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*v)<sp/>:</highlight></codeline>
 <codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>(<ref refid="structbntvmodobj_1ad793bbf5dd1a49e3f4d9f018ee297c2b" kindref="member">name</ref>),<sp/><ref refid="structbntvmodobj_1a047832327add822e27e964c2cf73d363" kindref="member">type</ref>(_tpye),<sp/><ref refid="structbntvmodobj_1a6927d7b430bcb8af1d2b11d874bda003" kindref="member">u</ref>(v)<sp/>{}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="216"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="217"><highlight class="normal">}<sp/><ref refid="structbntvmodobj" kindref="compound">bntvmodobj</ref>;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal">}<sp/><ref refid="structbntvmodobj" kindref="compound">bntvmodobj_t</ref>;</highlight></codeline>
 <codeline lineno="218"><highlight class="normal"></highlight></codeline>
 <codeline lineno="224" refid="structbntvmodule" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structbntvmodule" kindref="compound">bntvmodule</ref><sp/>{</highlight></codeline>
 <codeline lineno="225" refid="structbntvmodule_1a3dde37be8ea45a6b88982b1efac3d210" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structbntvmodule_1a3dde37be8ea45a6b88982b1efac3d210" kindref="member">name</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="226" refid="structbntvmodule_1a687658078a7d84f2661bd5b5cd024a32" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structbntvmodobj" kindref="compound">bntvmodobj</ref><sp/>*<ref refid="structbntvmodule_1a687658078a7d84f2661bd5b5cd024a32" kindref="member">attrs</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="226" refid="structbntvmodule_1a46f56c1395387a01cbf780b8f8958a5d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structbntvmodobj" kindref="compound">bntvmodobj_t</ref><sp/>*<ref refid="structbntvmodule_1a46f56c1395387a01cbf780b8f8958a5d" kindref="member">attrs</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="227" refid="structbntvmodule_1ad988c06052a10c1f3fc0002862aee7c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="structbntvmodule_1ad988c06052a10c1f3fc0002862aee7c0" kindref="member">size</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="228" refid="structbntvmodule_1a307e7f6aecb900f345d8087da758e6dd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">bmodule<sp/>*<ref refid="structbntvmodule_1a307e7f6aecb900f345d8087da758e6dd" kindref="member">module</ref>;<sp/><sp/></highlight></codeline>
-<codeline lineno="229"><highlight class="normal">}<sp/><ref refid="structbntvmodule" kindref="compound">bntvmodule</ref>;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal">}<sp/><ref refid="structbntvmodule" kindref="compound">bntvmodule_t</ref>;</highlight></codeline>
 <codeline lineno="230"><highlight class="normal"></highlight></codeline>
 <codeline lineno="235"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structbclass" kindref="compound">bclass</ref>;</highlight></codeline>
 <codeline lineno="236"><highlight class="normal"></highlight></codeline>
@@ -6936,7 +6936,7 @@ Input a piece of data from the standard input device, and read at most one row o
 <codeline lineno="382" refid="berry_8h_1a58b5263e1f5821e54ce933c977667eef" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>be_native_class(name)<sp/><sp/>be_class_##name</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="383"><highlight class="normal"></highlight></codeline>
 <codeline lineno="389" refid="berry_8h_1ad1bb75fa2986b83af90cfcfb7c2d9cf8" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>be_extern_native_module(name)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="390"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>extern<sp/>const<sp/>bntvmodule<sp/>be_native_module(name)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="390"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>extern<sp/>const<sp/>bntvmodule_t<sp/>be_native_module(name)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="391"><highlight class="normal"></highlight></codeline>
 <codeline lineno="397" refid="berry_8h_1a6566dc7069e29dd0f05ce4714cd56011" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>be_extern_native_class(name)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
 <codeline lineno="398"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>extern<sp/>const<sp/>struct<sp/>bclass<sp/>be_native_class(name)</highlight><highlight class="normal"></highlight></codeline>
@@ -7088,8 +7088,8 @@ Input a piece of data from the standard input device, and read at most one row o
 <codeline lineno="617" refid="structbhookinfo_1a5bc48d7aebc938b0e7a9683aea25163f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structbhookinfo_1a5bc48d7aebc938b0e7a9683aea25163f" kindref="member">source</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="618" refid="structbhookinfo_1a309aaae4a5f815b4c97aab8660c89303" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structbhookinfo_1a309aaae4a5f815b4c97aab8660c89303" kindref="member">func_name</ref>;<sp/><sp/></highlight></codeline>
 <codeline lineno="619" refid="structbhookinfo_1aeed0b12c0fdf48127b1028a5363806f6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="structbhookinfo_1aeed0b12c0fdf48127b1028a5363806f6" kindref="member">data</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="620" refid="berry_8h_1ac41472ceebd2d02d44a0230069cb368c" refkind="member"><highlight class="normal">}<sp/><ref refid="berry_8h_1ac41472ceebd2d02d44a0230069cb368c" kindref="member">bhookinfo</ref>;<sp/></highlight></codeline>
-<codeline lineno="629" refid="berry_8h_1aca917e1c5ea7d4ac447ecab9220496f7" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="berry_8h_1aca917e1c5ea7d4ac447ecab9220496f7" kindref="member">bntvhook</ref>)(<ref refid="berry_8h_1ad935f181a735187f016dca36d942edb2" kindref="member">bvm</ref><sp/>*vm,<sp/><ref refid="structbhookinfo" kindref="compound">bhookinfo</ref><sp/>*info);</highlight></codeline>
+<codeline lineno="620" refid="berry_8h_1afaa3ffafd6e6c8938f0e05af8b5a684e" refkind="member"><highlight class="normal">}<sp/><ref refid="berry_8h_1afaa3ffafd6e6c8938f0e05af8b5a684e" kindref="member">bhookinfo_t</ref>;<sp/></highlight></codeline>
+<codeline lineno="629" refid="berry_8h_1a91f252ef5406e614ccba8e6515800552" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="berry_8h_1a91f252ef5406e614ccba8e6515800552" kindref="member">bntvhook</ref>)(<ref refid="berry_8h_1ad935f181a735187f016dca36d942edb2" kindref="member">bvm</ref><sp/>*vm,<sp/><ref refid="structbhookinfo" kindref="compound">bhookinfo_t</ref><sp/>*info);</highlight></codeline>
 <codeline lineno="630"><highlight class="normal"></highlight></codeline>
 <codeline lineno="636"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>!BE_DEBUG</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="637"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(be_assert)</highlight><highlight class="normal"></highlight></codeline>
@@ -7367,7 +7367,7 @@ Input a piece of data from the standard input device, and read at most one row o
 <codeline lineno="2236"><highlight class="normal"></highlight></codeline>
 <codeline lineno="2245" refid="berry_8h_1a5151876ed2f05c21b353eaff0b3b11bd" refkind="member"><highlight class="normal"><ref refid="berry_8h_1a6c2ec17e9c6c45f4e8345bc314656a19" kindref="member">BERRY_API</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="berry_8h_1a5151876ed2f05c21b353eaff0b3b11bd" kindref="member">be_sethook</ref>(<ref refid="berry_8h_1ad935f181a735187f016dca36d942edb2" kindref="member">bvm</ref><sp/>*vm,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*mask);</highlight></codeline>
 <codeline lineno="2246"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2257" refid="berry_8h_1ad63293b5a49c644118ccac701c7ac67e" refkind="member"><highlight class="normal"><ref refid="berry_8h_1a6c2ec17e9c6c45f4e8345bc314656a19" kindref="member">BERRY_API</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="berry_8h_1ad63293b5a49c644118ccac701c7ac67e" kindref="member">be_setntvhook</ref>(<ref refid="berry_8h_1ad935f181a735187f016dca36d942edb2" kindref="member">bvm</ref><sp/>*vm,<sp/><ref refid="berry_8h_1aca917e1c5ea7d4ac447ecab9220496f7" kindref="member">bntvhook</ref><sp/>hook,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*data,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mask);</highlight></codeline>
+<codeline lineno="2257" refid="berry_8h_1ad63293b5a49c644118ccac701c7ac67e" refkind="member"><highlight class="normal"><ref refid="berry_8h_1a6c2ec17e9c6c45f4e8345bc314656a19" kindref="member">BERRY_API</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="berry_8h_1ad63293b5a49c644118ccac701c7ac67e" kindref="member">be_setntvhook</ref>(<ref refid="berry_8h_1ad935f181a735187f016dca36d942edb2" kindref="member">bvm</ref><sp/>*vm,<sp/><ref refid="berry_8h_1a91f252ef5406e614ccba8e6515800552" kindref="member">bntvhook</ref><sp/>hook,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*data,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mask);</highlight></codeline>
 <codeline lineno="2258"><highlight class="normal"></highlight></codeline>
 <codeline lineno="2273" refid="berry_8h_1ae0e72ac28fef5610f98fa67fbb03b645" refkind="member"><highlight class="normal"><ref refid="berry_8h_1a6c2ec17e9c6c45f4e8345bc314656a19" kindref="member">BERRY_API</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="berry_8h_1ae0e72ac28fef5610f98fa67fbb03b645" kindref="member">be_writebuffer</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>length);</highlight></codeline>
 <codeline lineno="2274"><highlight class="normal"></highlight></codeline>

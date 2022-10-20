@@ -64,7 +64,7 @@
           <li><a href="Home.html">Bienvenido a la wiki de Berry!</a> &raquo;</li>
       <li>Hacer una función nativa</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/es/FFI-Ejemplo.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/es/FFI-Ejemplo.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -72,15 +72,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <!-- Spanish Translation: Emiliano Gonzalez (egonzalez . hiperion @ gmail . com) -->
-<section id="hacer-una-funcion-nativa">
+  <!-- Spanish Translation: Emiliano Gonzalez (egonzalez . hiperion @ gmail . com) --><section id="hacer-una-funcion-nativa">
 <h1>Hacer una función nativa<a class="headerlink" href="#hacer-una-funcion-nativa" title="Permalink to this headline">¶</a></h1>
-<p>La FFI en C (interfaz de función externa) de Berry opera en una pila virtual para interactuar con la máquina virtual. Si necesitamos hacer una función <code class="docutils literal notranslate"><span class="pre">add</span></code> para sumar dos números y usarla en Berry de esta manera:</p>
+<p>La FFI en C (interfaz de función externa) de Berry opera en una pila
+virtual para interactuar con la máquina virtual. Si necesitamos hacer
+una función <code class="docutils literal notranslate"><span class="pre">add</span></code> para sumar dos números y usarla en Berry de esta
+manera:</p>
 <div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Necesitamos saber cómo el código C obtiene los argumentos de la llamada a la función Berry y cómo devolver el valor.</p>
-<p>Los argumentos de la función se almacenan en una pila, y desde el primer argumento hasta el último argumento de la función se almacenan desde la parte inferior de la pila hasta la parte superior de la pila. Si desea utilizar C para obtener elementos de la pila, utilice el siguiente conjunto de FFI:</p>
+<p>Necesitamos saber cómo el código C obtiene los argumentos de la llamada
+a la función Berry y cómo devolver el valor.</p>
+<p>Los argumentos de la función se almacenan en una pila, y desde el primer
+argumento hasta el último argumento de la función se almacenan desde la
+parte inferior de la pila hasta la parte superior de la pila. Si desea
+utilizar C para obtener elementos de la pila, utilice el siguiente
+conjunto de FFI:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">be_toint</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">);</span><span class="w"></span>
 <span class="n">breal</span><span class="w"> </span><span class="nf">be_toreal</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">);</span><span class="w"></span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">be_tobool</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">);</span><span class="w"></span>
@@ -88,7 +95,8 @@
 <span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="nf">be_tocomptr</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Si desea probar si un valor en la pila es de un tipo específico, use el siguiente conjunto de FFI:</p>
+<p>Si desea probar si un valor en la pila es de un tipo específico, use el
+siguiente conjunto de FFI:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">be_isnil</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">);</span><span class="w"></span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">be_isbool</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">);</span><span class="w"></span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">be_isint</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">);</span><span class="w"></span>
@@ -121,13 +129,17 @@
 <span class="kt">void</span><span class="w"> </span><span class="nf">be_pushcomptr</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">index</span></code> es la posición del elemento en la pila, un valor positivo es el desplazamiento desde la parte inferior de la pila hasta la parte superior de la pila, y un valor negativo es el desplazamiento desde la parte superior de la pila hasta la parte inferior de la pila.</p>
+<p><code class="docutils literal notranslate"><span class="pre">index</span></code> es la posición del elemento en la pila, un valor positivo es
+el desplazamiento desde la parte inferior de la pila hasta la parte
+superior de la pila, y un valor negativo es el desplazamiento desde la
+parte superior de la pila hasta la parte inferior de la pila.</p>
 <p>El valor de retorno utiliza dos FFI:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">be_return</span><span class="p">(</span><span class="n">vm</span><span class="p">)</span><span class="w"></span>
 <span class="n">be_return_nil</span><span class="p">(</span><span class="n">vm</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Estos FFI son en realidad macros. <code class="docutils literal notranslate"><span class="pre">be_return</span></code> devuelve el objeto en la parte superior de la pila, y <code class="docutils literal notranslate"><span class="pre">be_return_nil</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<p>Estos FFI son en realidad macros. <code class="docutils literal notranslate"><span class="pre">be_return</span></code> devuelve el objeto en la
+parte superior de la pila, y <code class="docutils literal notranslate"><span class="pre">be_return_nil</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
 <p>Estas FFI se definen en berry.h.</p>
 <p>Ahora implementemos la función <code class="docutils literal notranslate"><span class="pre">add</span></code>:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">my_add_func</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">)</span><span class="w"></span>
@@ -155,25 +167,35 @@
 </section>
 <section id="crear-una-instancia-de-un-objeto-list-en-una-funcion-nativa">
 <h1>Crear una instancia de un objeto <code class="docutils literal notranslate"><span class="pre">list</span></code> en una función nativa<a class="headerlink" href="#crear-una-instancia-de-un-objeto-list-en-una-funcion-nativa" title="Permalink to this headline">¶</a></h1>
-<p>La generación de clases nativas instanciadas en C puede ser engorrosa en comparación con los tipos simples. Esta sección guiará al lector a instanciar la clase <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
-<p>La clase <code class="docutils literal notranslate"><span class="pre">list</span></code> es un contenedor alrededor de la estructura de la lista, que tiene una propiedad <code class="docutils literal notranslate"><span class="pre">.data</span></code> para la estructura de la lista. Por lo tanto, primero necesitamos construir una estructura de lista:</p>
+<p>La generación de clases nativas instanciadas en C puede ser engorrosa en
+comparación con los tipos simples. Esta sección guiará al lector a
+instanciar la clase <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
+<p>La clase <code class="docutils literal notranslate"><span class="pre">list</span></code> es un contenedor alrededor de la estructura de la
+lista, que tiene una propiedad <code class="docutils literal notranslate"><span class="pre">.data</span></code> para la estructura de la lista.
+Por lo tanto, primero necesitamos construir una estructura de lista:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">be_newlist</span><span class="p">(</span><span class="n">vm</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-<p>La función <code class="docutils literal notranslate"><span class="pre">be_newlist</span></code> construye un valor de tipo <code class="docutils literal notranslate"><span class="pre">BE_LIST</span></code>. Entonces podemos operar sobre los datos:</p>
+<p>La función <code class="docutils literal notranslate"><span class="pre">be_newlist</span></code> construye un valor de tipo <code class="docutils literal notranslate"><span class="pre">BE_LIST</span></code>.
+Entonces podemos operar sobre los datos:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">be_pushint</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span><span class="w"></span>
 <span class="n">be_data_append</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="mi">-2</span><span class="p">);</span><span class="w"></span>
 <span class="n">be_pop</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="cm">/* extraer el entero 100 */</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Las dos primeras líneas de código se utilizan para añadir el entero <code class="docutils literal notranslate"><span class="pre">100</span></code> a la lista, y la tercera línea del entero <code class="docutils literal notranslate"><span class="pre">100</span></code> se extrae para facilitar las operaciones posteriores.</p>
-<p>Dado que el tipo <code class="docutils literal notranslate"><span class="pre">BE_LIST</span></code> no se puede usar directamente en Berry, pero lo usa la clase <code class="docutils literal notranslate"><span class="pre">list</span></code>, tenemos que construir la clase <code class="docutils literal notranslate"><span class="pre">list</span></code> para él:</p>
+<p>Las dos primeras líneas de código se utilizan para añadir el entero
+<code class="docutils literal notranslate"><span class="pre">100</span></code> a la lista, y la tercera línea del entero <code class="docutils literal notranslate"><span class="pre">100</span></code> se extrae para
+facilitar las operaciones posteriores.</p>
+<p>Dado que el tipo <code class="docutils literal notranslate"><span class="pre">BE_LIST</span></code> no se puede usar directamente en Berry,
+pero lo usa la clase <code class="docutils literal notranslate"><span class="pre">list</span></code>, tenemos que construir la clase <code class="docutils literal notranslate"><span class="pre">list</span></code>
+para él:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">be_getglobal</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;list&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="n">be_pushvalue</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="mi">-2</span><span class="p">);</span><span class="w"> </span><span class="cm">/* empuja los datos de la lista al principio */</span><span class="w"></span>
 <span class="n">be_call</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="cm">/* llama al constructor */</span><span class="w"></span>
 </pre></div>
 </div>
-<p>El constructor de la clase <code class="docutils literal notranslate"><span class="pre">list</span></code> permite el uso del parámetro de tipo <code class="docutils literal notranslate"><span class="pre">BE_LIST</span></code>, que toma el argumento como datos de lista.</p>
+<p>El constructor de la clase <code class="docutils literal notranslate"><span class="pre">list</span></code> permite el uso del parámetro de tipo
+<code class="docutils literal notranslate"><span class="pre">BE_LIST</span></code>, que toma el argumento como datos de lista.</p>
 <p>El código completo es el siguiente:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">m_listtest</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>

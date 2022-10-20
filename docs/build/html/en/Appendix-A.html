@@ -82,7 +82,7 @@
           <li><a href="Reference.html">The Berry Script Language Reference Manual</a> &raquo;</li>
       <li>Grammar Definition</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/en/Appendix-A.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/en/Appendix-A.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -152,10 +152,11 @@ grammar. The symbols that have appeared to the left of the equal sign
 are non-terminal symbols, and the others are terminal symbols. The
 terminator enclosed in quotation marks <code class="docutils literal notranslate"><span class="pre">’</span></code> is a fixed string, which is
 usually a language keyword or operator. There are several terminators
-that are inconvenient to describe directly in EBNF: <code class="docutils literal notranslate"><span class="pre">INTEGER</span></code> represents
-the integer face value; <code class="docutils literal notranslate"><span class="pre">REAL</span></code> represents the real number face value;
-<code class="docutils literal notranslate"><span class="pre">STRING</span></code> represents the string literal value; <code class="docutils literal notranslate"><span class="pre">ID</span></code> represents the
-identifier. These terminators can be defined using regular expressions:</p>
+that are inconvenient to describe directly in EBNF: <code class="docutils literal notranslate"><span class="pre">INTEGER</span></code>
+represents the integer face value; <code class="docutils literal notranslate"><span class="pre">REAL</span></code> represents the real number
+face value; <code class="docutils literal notranslate"><span class="pre">STRING</span></code> represents the string literal value; <code class="docutils literal notranslate"><span class="pre">ID</span></code>
+represents the identifier. These terminators can be defined using
+regular expressions:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">INTEGER</span></code>: <code class="docutils literal notranslate"><span class="pre">0x[a-fA-F0-9]+|\d+</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">REAL</span></code>: <code class="docutils literal notranslate"><span class="pre">(\d+\.?|\.\d)\d*([eE][+-]?\d+)?</span></code>.</p></li>
@@ -166,14 +167,12 @@ identifier. These terminators can be defined using regular expressions:</p>
 by commas. For intuitiveness, I use spaces to implement the comma
 function. The vertical bar symbol “|” is pronounced as “or”, it means
 that the left and right patterns can only match one of them, or has the
-lowest priority. For example, the grammar
-<em>a</em><sub>0</sub><em>a</em><sub>1</sub>|<em>a</em><sub>2</sub> means either the
-matching formula <em>a</em><sub>0</sub><em>a</em><sub>1</sub> or the matching
-<em>a</em><sub>2</sub>. The square brackets indicate that the sub-expression
-inside the parentheses are matched 0 or 1 times, the curly braces
-indicate that the internal sub-expression is matched 0 or more times,
-and the parentheses only have the function of taking the internal
-sub-expression as a whole.</p>
+lowest priority. For example, the grammar <em>a</em>0<em>a</em>1|<em>a</em>2 means
+either the matching formula <em>a</em>0<em>a</em>1 or the matching <em>a</em>2. The
+square brackets indicate that the sub-expression inside the parentheses
+are matched 0 or 1 times, the curly braces indicate that the internal
+sub-expression is matched 0 or more times, and the parentheses only have
+the function of taking the internal sub-expression as a whole.</p>
 <p>The following is the JSON grammar definition supported by the JSON
 module in the Berry standard library. The usage of EBNF still complies
 with the above conventions:</p>
@@ -186,11 +185,11 @@ with the above conventions:</p>
 </div>
 <p>Non-terminal symbols <code class="docutils literal notranslate"><span class="pre">string</span></code> and <code class="docutils literal notranslate"><span class="pre">number</span></code> can also be defined using
 regular expressions. <a class="reference external" href="http://www.json.org">http://www.json.org</a> gives the standard grammar of
-JSON, which also includes the definitions of <code class="docutils literal notranslate"><span class="pre">string</span></code> and <code class="docutils literal notranslate"><span class="pre">number</span></code>. The
-Berry JSON library’s support for numbers is different from the standard.
-The standard JSON numbers must start with “-” or the number “0-9”, while
-the Berry JSON library also accepts numbers starting with a decimal
-point.</p>
+JSON, which also includes the definitions of <code class="docutils literal notranslate"><span class="pre">string</span></code> and <code class="docutils literal notranslate"><span class="pre">number</span></code>.
+The Berry JSON library’s support for numbers is different from the
+standard. The standard JSON numbers must start with “-” or the number
+“0-9”, while the Berry JSON library also accepts numbers starting with a
+decimal point.</p>
 </section>
 
 

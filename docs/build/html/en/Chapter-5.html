@@ -82,7 +82,7 @@
           <li><a href="Reference.html">The Berry Script Language Reference Manual</a> &raquo;</li>
       <li>5. Function</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/en/Chapter-5.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/en/Chapter-5.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -124,23 +124,22 @@ list are separated by commas, and all parameters are written in a pair
 of parentheses. We call the parameter when the function is defined as
 <strong>Formal parameters</strong>, and the parameter when calling the function as
 <strong>Arguments</strong>. The general form of the function definition is:</p>
-<div class="algorithm">
+<div class="algorithm docutils container">
 <div class="highlight-ebnf notranslate"><div class="highlight"><pre><span></span>’def’ name ´(´ arguments ´)´
   block
 ´end’
 </pre></div>
 </div>
 </div>
-<p>The function name <strong>name</strong> is an identifier;
-<strong>arguments</strong> is the formal parameter
-list; <strong>block</strong> is the function body. If the function
-body is an empty statement, the function is called an “empty function”.
-The function return value statement is contained in the function body.
-If there is no return statement in <strong>block</strong>, the
-function will return <code class="docutils literal notranslate"><span class="pre">nil</span></code> by default. The function name is actually the
-variable name of the bound function object. If the name already exists
-in the current scope, defining the function is equivalent to binding the
-function object to this variable.</p>
+<p>The function name <strong>name</strong> is an identifier; <strong>arguments</strong> is the formal
+parameter list; <strong>block</strong> is the function body. If the function body is
+an empty statement, the function is called an “empty function”. The
+function return value statement is contained in the function body. If
+there is no return statement in <strong>block</strong>, the function will return
+<code class="docutils literal notranslate"><span class="pre">nil</span></code> by default. The function name is actually the variable name of
+the bound function object. If the name already exists in the current
+scope, defining the function is equivalent to binding the function
+object to this variable.</p>
 <p>The following example defines a function named <code class="docutils literal notranslate"><span class="pre">add</span></code>. The function of
 this function is to sum two numbers and return.</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
@@ -148,9 +147,10 @@ this function is to sum two numbers and return.</p>
 <span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">add</span></code> The function has two parameters <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, and the two addends
-are passed into the function through these parameters for calculation.
-<code class="docutils literal notranslate"><span class="pre">return</span></code> The statement returns the result of the calculation.</p>
+<p><code class="docutils literal notranslate"><span class="pre">add</span></code> The function has two parameters <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, and the two
+addends are passed into the function through these parameters for
+calculation. <code class="docutils literal notranslate"><span class="pre">return</span></code> The statement returns the result of the
+calculation.</p>
 <p>A function as a class attribute is called a method. This part of the
 content will be explained in the object-oriented chapter.</p>
 </section>
@@ -158,7 +158,7 @@ content will be explained in the object-oriented chapter.</p>
 <h4>Anonymous Function<a class="headerlink" href="#anonymous-function" title="Permalink to this headline">¶</a></h4>
 <p>Unlike named functions, <strong>anonymous function</strong> has no name, and its
 definition expression has the form:</p>
-<div class="algorithm">
+<div class="algorithm docutils container">
 <div class="highlight-ebnf notranslate"><div class="highlight"><pre><span></span>´def’ ´(´ arguments ´)´
   block
 ´end’
@@ -166,10 +166,10 @@ definition expression has the form:</p>
 </div>
 </div>
 <p>It can be seen that compared with named functions, there is no function
-name in the definition of anonymous functions <strong>name</strong>. The
-definition of an anonymous function is essentially an expression, which
-is called <strong>Function literal</strong>. In order to use anonymous functions, we
-can bind the function literal value to a variable:</p>
+name in the definition of anonymous functions <strong>name</strong>. The definition
+of an anonymous function is essentially an expression, which is called
+<strong>Function literal</strong>. In order to use anonymous functions, we can bind
+the function literal value to a variable:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">def</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
 <span class="ow">end</span><span class="w"></span>
@@ -206,9 +206,10 @@ interpreter will destroy the environment of the called function after
 the called function returns, then restore the environment of the calling
 function and continue to execute the calling function. The return value
 of the function is also the result of the function call expression. The
-following example defines a function <code class="docutils literal notranslate"><span class="pre">square</span></code> and binds this function to
-a variable <code class="docutils literal notranslate"><span class="pre">f</span></code>, and then calls the function <code class="docutils literal notranslate"><span class="pre">square</span></code> through the
-variable <code class="docutils literal notranslate"><span class="pre">f</span></code>. This usage is similar to function pointers in C language.</p>
+following example defines a function <code class="docutils literal notranslate"><span class="pre">square</span></code> and binds this function
+to a variable <code class="docutils literal notranslate"><span class="pre">f</span></code>, and then calls the function <code class="docutils literal notranslate"><span class="pre">square</span></code> through the
+variable <code class="docutils literal notranslate"><span class="pre">f</span></code>. This usage is similar to function pointers in C
+language.</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="w"></span>
 <span class="ow">end</span><span class="w"></span>
@@ -217,19 +218,18 @@ variable <code class="docutils literal notranslate"><span class="pre">f</span></
 </pre></div>
 </div>
 <p>It should be noted that the function object is only bound to these
-variables (refer to section
-<a href="#section::assign_operator" data-reference-type="ref" data-reference="section::assign_operator">[section::assign_operator]</a>)
-and cannot be modified, so reassigning the variable corresponding to the
-function name will not make the function lose:</p>
+variables (refer to section [section::assign_operator]) and cannot be
+modified, so reassigning the variable corresponding to the function name
+will not make the function lose:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">square</span><span class="w"></span>
 <span class="n">square</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span><span class="w"></span>
 <span class="nb">print</span><span class="p">(</span><span class="nf">f</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="c1"># 25</span>
 </pre></div>
 </div>
 <p>It can be seen that the function can still be called normally after
-reassigning <code class="docutils literal notranslate"><span class="pre">square</span></code>. Only after the function object is no longer bound
-to any variable will it be lost, and the resources occupied by this type
-of function object will be recycled by the system.</p>
+reassigning <code class="docutils literal notranslate"><span class="pre">square</span></code>. Only after the function object is no longer
+bound to any variable will it be lost, and the resources occupied by
+this type of function object will be recycled by the system.</p>
 <section id="forward-call">
 <h4>Forward call<a class="headerlink" href="#forward-call" title="Permalink to this headline">¶</a></h4>
 <p>The call of the function must be in the scope of the function variable,
@@ -245,16 +245,17 @@ to solve this problem, you can use this method to compromise:</p>
 <span class="nb">print</span><span class="p">(</span><span class="nf">func2</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span><span class="w"> </span><span class="c1"># 16</span>
 </pre></div>
 </div>
-<p>In this example, <code class="docutils literal notranslate"><span class="pre">func2</span></code> calls <code class="docutils literal notranslate"><span class="pre">func1</span></code>, but the function <code class="docutils literal notranslate"><span class="pre">func1</span></code> is
-defined after <code class="docutils literal notranslate"><span class="pre">func2</span></code>. After executing this code, the program will
-output the correct result <code class="docutils literal notranslate"><span class="pre">16</span></code>. This routine uses the mechanism that the
-function will not be called when the function is defined. Define the
+<p>In this example, <code class="docutils literal notranslate"><span class="pre">func2</span></code> calls <code class="docutils literal notranslate"><span class="pre">func1</span></code>, but the function <code class="docutils literal notranslate"><span class="pre">func1</span></code>
+is defined after <code class="docutils literal notranslate"><span class="pre">func2</span></code>. After executing this code, the program will
+output the correct result <code class="docutils literal notranslate"><span class="pre">16</span></code>. This routine uses the mechanism that
+the function will not be called when the function is defined. Define the
 variable <code class="docutils literal notranslate"><span class="pre">func1</span></code> before defining <code class="docutils literal notranslate"><span class="pre">func2</span></code> to ensure that the symbol
 <code class="docutils literal notranslate"><span class="pre">func1</span></code> will not be found during compilation. Then we define the
 function <code class="docutils literal notranslate"><span class="pre">func1</span></code> after <code class="docutils literal notranslate"><span class="pre">func2</span></code> so that the function will be used to
-overwrite the value of the variable <code class="docutils literal notranslate"><span class="pre">func1</span></code>. When the function <code class="docutils literal notranslate"><span class="pre">func2</span></code>
-is called in the last line <code class="docutils literal notranslate"><span class="pre">print(func2(4))</span></code>, the variable <code class="docutils literal notranslate"><span class="pre">func1</span></code> is
-already the function we need, so the correct result will be output.</p>
+overwrite the value of the variable <code class="docutils literal notranslate"><span class="pre">func1</span></code>. When the function
+<code class="docutils literal notranslate"><span class="pre">func2</span></code> is called in the last line <code class="docutils literal notranslate"><span class="pre">print(func2(4))</span></code>, the variable
+<code class="docutils literal notranslate"><span class="pre">func1</span></code> is already the function we need, so the correct result will be
+output.</p>
 </section>
 <section id="recursive-call">
 <h4>Recursive call<a class="headerlink" href="#recursive-call" title="Permalink to this headline">¶</a></h4>
@@ -273,25 +274,24 @@ calculating factorial according to the definition:</p>
 </pre></div>
 </div>
 <p>Take the factorial of 5 as an example, the process of manually
-calculating the factorial of 5 is:
-5! = 5 × 4 × 3 × 2 × 1 = 120
-The result of calling the <code class="docutils literal notranslate"><span class="pre">fact</span></code> function is also 120:</p>
+calculating the factorial of 5 is: 5! = 5 × 4 × 3 × 2 × 1 = 120 The
+result of calling the <code class="docutils literal notranslate"><span class="pre">fact</span></code> function is also 120:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nf">fact</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="c1"># 120</span>
 </pre></div>
 </div>
 <p>In order to ensure that the depth of the recursive call is limited (too
 deep recursion level will exhaust the stack space), the recursive
-function must have an end condition. <code class="docutils literal notranslate"><span class="pre">fact</span></code> The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement in the
-second line of the function definition is used to detect the end
-condition, and the recursive process ends when <code class="docutils literal notranslate"><span class="pre">n</span></code> is calculated as <code class="docutils literal notranslate"><span class="pre">0</span></code>.
-The above factorial formula does not apply to non-integer parameters.
-Executing an expression like <code class="docutils literal notranslate"><span class="pre">fact(5.1)</span></code> will cause a stack overflow
-error due to the inability to end the recursion.</p>
+function must have an end condition. <code class="docutils literal notranslate"><span class="pre">fact</span></code> The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement in
+the second line of the function definition is used to detect the end
+condition, and the recursive process ends when <code class="docutils literal notranslate"><span class="pre">n</span></code> is calculated as
+<code class="docutils literal notranslate"><span class="pre">0</span></code>. The above factorial formula does not apply to non-integer
+parameters. Executing an expression like <code class="docutils literal notranslate"><span class="pre">fact(5.1)</span></code> will cause a
+stack overflow error due to the inability to end the recursion.</p>
 <p>There is another situation <code class="docutils literal notranslate"><span class="pre">Indirect</span> <span class="pre">recursion</span></code>, that is, the function
 is not called by itself but by another function (directly or indirectly)
 called by it. Indirect recursion usually requires the use of forward
-function call techniques. Take the functions <code class="docutils literal notranslate"><span class="pre">is_odd</span></code> and <code class="docutils literal notranslate"><span class="pre">is_even</span></code> for
-calculating odd and even numbers as examples:</p>
+function call techniques. Take the functions <code class="docutils literal notranslate"><span class="pre">is_odd</span></code> and <code class="docutils literal notranslate"><span class="pre">is_even</span></code>
+for calculating odd and even numbers as examples:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">is_odd</span><span class="w"></span>
 <span class="kd">def</span><span class="w"> </span><span class="nf">is_even</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="ow">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
@@ -343,11 +343,11 @@ parameter, the extra actual parameter will be discarded. Less than the
 formal parameters will initialize the remaining formal parameters to
 <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
 <p>The process of parameter passing is similar to assignment operation. For
-<code class="docutils literal notranslate"><span class="pre">nil</span></code>, <code class="docutils literal notranslate"><span class="pre">boolean</span></code> and numeric types, parameter passing is by value, while
-other types are by reference. For the writable pass-by-reference type
-such as instance, modifying them in the called function will also modify
-the object in the calling function. The following example demonstrates
-this feature:</p>
+<code class="docutils literal notranslate"><span class="pre">nil</span></code>, <code class="docutils literal notranslate"><span class="pre">boolean</span></code> and numeric types, parameter passing is by value,
+while other types are by reference. For the writable pass-by-reference
+type such as instance, modifying them in the called function will also
+modify the object in the calling function. The following example
+demonstrates this feature:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
 <span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
@@ -357,17 +357,18 @@ this feature:</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c1"># [1] 0</span>
 </pre></div>
 </div>
-<p>It can be seen that the value of variable <code class="docutils literal notranslate"><span class="pre">l</span></code> has changed after calling
-function <code class="docutils literal notranslate"><span class="pre">func</span></code>, but the value of variable <code class="docutils literal notranslate"><span class="pre">i</span></code> has not changed.</p>
+<p>It can be seen that the value of variable <code class="docutils literal notranslate"><span class="pre">l</span></code> has changed after
+calling function <code class="docutils literal notranslate"><span class="pre">func</span></code>, but the value of variable <code class="docutils literal notranslate"><span class="pre">i</span></code> has not
+changed.</p>
 </section>
 <section id="function-with-variable-number-of-arguments-vararg">
 <h3>Function with variable number of arguments (vararg)<a class="headerlink" href="#function-with-variable-number-of-arguments-vararg" title="Permalink to this headline">¶</a></h3>
-<p>You can define a function to take any arbitrary number of arguments and iterate on them.
-For example <code class="docutils literal notranslate"><span class="pre">print()</span></code> takes any number of arguments and prints each of them separated
-by spaces. You need to define the last argument as a capture-all-arguments using <code class="docutils literal notranslate"><span class="pre">*</span></code>
-before its name.</p>
-<p>All arguments following the formal arguments are grouped at runtime in a <code class="docutils literal notranslate"><span class="pre">list</span></code> instance.
-If no arguments are captured, the list is empty.</p>
+<p>You can define a function to take any arbitrary number of arguments and
+iterate on them. For example <code class="docutils literal notranslate"><span class="pre">print()</span></code> takes any number of arguments
+and prints each of them separated by spaces. You need to define the last
+argument as a capture-all-arguments using <code class="docutils literal notranslate"><span class="pre">*</span></code> before its name.</p>
+<p>All arguments following the formal arguments are grouped at runtime in a
+<code class="docutils literal notranslate"><span class="pre">list</span></code> instance. If no arguments are captured, the list is empty.</p>
 <p>Example:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="ow">return</span><span class="w"> </span><span class="nb">size</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="ow">end</span><span class="w"></span>
 <span class="nf">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c1"># returns 0, c is []</span>
@@ -378,10 +379,12 @@ If no arguments are captured, the list is empty.</p>
 </section>
 <section id="calling-a-function-with-dynamic-number-of-arguments">
 <h3>Calling a function with dynamic number of arguments<a class="headerlink" href="#calling-a-function-with-dynamic-number-of-arguments" title="Permalink to this headline">¶</a></h3>
-<p>Berry syntax allows only to call with a fixed number of arguments.
-Use the <code class="docutils literal notranslate"><span class="pre">call(f,</span> <span class="pre">[args])</span></code> function to pass any arbitrary number or arguments.</p>
-<p>You can statically add any number of arguments to <code class="docutils literal notranslate"><span class="pre">call()</span></code>. If the last argument
-is a <code class="docutils literal notranslate"><span class="pre">list</span></code>, it is automatically expanded to discrete arguments.</p>
+<p>Berry syntax allows only to call with a fixed number of arguments. Use
+the <code class="docutils literal notranslate"><span class="pre">call(f,</span> <span class="pre">[args])</span></code> function to pass any arbitrary number or
+arguments.</p>
+<p>You can statically add any number of arguments to <code class="docutils literal notranslate"><span class="pre">call()</span></code>. If the
+last argument is a <code class="docutils literal notranslate"><span class="pre">list</span></code>, it is automatically expanded to discrete
+arguments.</p>
 <p>Example:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="ow">return</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="ow">end</span><span class="w"></span>
 
@@ -393,8 +396,8 @@ is a <code class="docutils literal notranslate"><span class="pre">list</span></c
 <span class="nb">call</span><span class="p">(</span><span class="n">f</span><span class="p">,[])</span><span class="w">       </span><span class="c1"># calls f()</span>
 </pre></div>
 </div>
-<p>You can combine <code class="docutils literal notranslate"><span class="pre">call</span></code> and vararg. For example let’s create a function that
-acts like <code class="docutils literal notranslate"><span class="pre">print()</span></code> but converts all arguments to uppercase.</p>
+<p>You can combine <code class="docutils literal notranslate"><span class="pre">call</span></code> and vararg. For example let’s create a function
+that acts like <code class="docutils literal notranslate"><span class="pre">print()</span></code> but converts all arguments to uppercase.</p>
 <p>Full example:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">print_upper</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">)</span><span class="w">  </span><span class="c1"># take arbitrary number of arguments, args is a list</span>
 <span class="w">    </span><span class="kr">import</span><span class="w"> </span><span class="n">string</span><span class="w"></span>
@@ -413,37 +416,37 @@ acts like <code class="docutils literal notranslate"><span class="pre">print()</
 <section id="functions-and-local-variables">
 <h3>Functions and local variables<a class="headerlink" href="#functions-and-local-variables" title="Permalink to this headline">¶</a></h3>
 <p>The function body itself is a scope, so the variables defined in the
-function are all local variables.
-Unlike directly nested blocks, every time a function is called, space is
-allocated for local variables. The space for local variables is
-allocated on the stack, and the allocation information is determined at
-compile time, so this process is very fast. When multiple levels of
-scope are nested in a function, the interpreter allocates stack space
-for the scope nesting chain with the most local variables, rather than
-the total number of local variables in the function.</p>
+function are all local variables. Unlike directly nested blocks, every
+time a function is called, space is allocated for local variables. The
+space for local variables is allocated on the stack, and the allocation
+information is determined at compile time, so this process is very fast.
+When multiple levels of scope are nested in a function, the interpreter
+allocates stack space for the scope nesting chain with the most local
+variables, rather than the total number of local variables in the
+function.</p>
 </section>
 <section id="return-statement">
 <h3><code class="docutils literal notranslate"><span class="pre">return</span></code> Statement<a class="headerlink" href="#return-statement" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">return</span></code> The statement is used to return the result of a function, that
-is, the return value of the function. All functions in Berry have a
-return value, but you can not use any <code class="docutils literal notranslate"><span class="pre">return</span></code> statement in the function
-body. At this time, the interpreter will generate a default <code class="docutils literal notranslate"><span class="pre">return</span></code>
-statement to ensure that the function returns. <code class="docutils literal notranslate"><span class="pre">return</span></code> There are two
-ways to write sentences:</p>
-<div class="algorithm">
+<p><code class="docutils literal notranslate"><span class="pre">return</span></code> The statement is used to return the result of a function,
+that is, the return value of the function. All functions in Berry have a
+return value, but you can not use any <code class="docutils literal notranslate"><span class="pre">return</span></code> statement in the
+function body. At this time, the interpreter will generate a default
+<code class="docutils literal notranslate"><span class="pre">return</span></code> statement to ensure that the function returns. <code class="docutils literal notranslate"><span class="pre">return</span></code>
+There are two ways to write sentences:</p>
+<div class="algorithm docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>´return’
 ´return’ expression
 </pre></div>
 </div>
 </div>
 <p>The first way of writing is to write only the <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword and not
-the expression to be returned. In this case, the default <code class="docutils literal notranslate"><span class="pre">nil</span></code> value is
-returned. The second way of writing is to follow the expression
-<strong>expression</strong> after the <code class="docutils literal notranslate"><span class="pre">return</span></code>
-keyword, and the value of the expression will be used as the return
-value of the function. When the program executes to the <code class="docutils literal notranslate"><span class="pre">return</span></code>
-statement, the currently running function will end execution and return
-to the code that called the function to continue running.</p>
+the expression to be returned. In this case, the default <code class="docutils literal notranslate"><span class="pre">nil</span></code> value
+is returned. The second way of writing is to follow the expression
+<strong>expression</strong> after the <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword, and the value of the
+expression will be used as the return value of the function. When the
+program executes to the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement, the currently running
+function will end execution and return to the code that called the
+function to continue running.</p>
 <p>When using a separate keyword <code class="docutils literal notranslate"><span class="pre">return</span></code> as the return statement of a
 function, it is easy to cause ambiguity. At this time, it is recommended
 to add a semicolon after <code class="docutils literal notranslate"><span class="pre">return</span></code> to prevent errors:</p>
@@ -453,11 +456,11 @@ to add a semicolon after <code class="docutils literal notranslate"><span class=
 <span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
-<p>In this example, the <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1</span></code> statement after the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement will
-not be executed, so it is redundant. If this kind of redundant code is
-avoided, the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement is usually followed by keywords such as
-<code class="docutils literal notranslate"><span class="pre">end</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code> or <code class="docutils literal notranslate"><span class="pre">elif</span></code>. In this case, even if a separate <code class="docutils literal notranslate"><span class="pre">return</span></code>
-statement is used, there is no need to worry about ambiguity.</p>
+<p>In this example, the <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1</span></code> statement after the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement
+will not be executed, so it is redundant. If this kind of redundant code
+is avoided, the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement is usually followed by keywords
+such as <code class="docutils literal notranslate"><span class="pre">end</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code> or <code class="docutils literal notranslate"><span class="pre">elif</span></code>. In this case, even if a separate
+<code class="docutils literal notranslate"><span class="pre">return</span></code> statement is used, there is no need to worry about ambiguity.</p>
 </section>
 </section>
 <section id="closure">
@@ -487,12 +490,13 @@ generated, for example, in the following example:</p>
 <span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
-<p>The inner function <code class="docutils literal notranslate"><span class="pre">foo</span></code> is a closure, which has a free variable <code class="docutils literal notranslate"><span class="pre">i</span></code>,
-which is a parameter of the outer function <code class="docutils literal notranslate"><span class="pre">func</span></code>. When the closure
-<code class="docutils literal notranslate"><span class="pre">foo</span></code> is generated, its function prototype is bound to the environment
-containing the free variable <code class="docutils literal notranslate"><span class="pre">i</span></code>. When the variable <code class="docutils literal notranslate"><span class="pre">foo</span></code> leaves the
-scope, the closure will be destroyed. Usually, the inner function will
-be the return value of the outer function, for example:</p>
+<p>The inner function <code class="docutils literal notranslate"><span class="pre">foo</span></code> is a closure, which has a free variable
+<code class="docutils literal notranslate"><span class="pre">i</span></code>, which is a parameter of the outer function <code class="docutils literal notranslate"><span class="pre">func</span></code>. When the
+closure <code class="docutils literal notranslate"><span class="pre">foo</span></code> is generated, its function prototype is bound to the
+environment containing the free variable <code class="docutils literal notranslate"><span class="pre">i</span></code>. When the variable
+<code class="docutils literal notranslate"><span class="pre">foo</span></code> leaves the scope, the closure will be destroyed. Usually, the
+inner function will be the return value of the outer function, for
+example:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c1"># The outer function</span>
 <span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="kd">def</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="c1"># Return a closure (anonymous function)</span>
 <span class="w">        </span><span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
@@ -514,12 +518,12 @@ need to call the closure returned by the function <code class="docutils literal 
 <span class="nf">f</span><span class="p">()</span><span class="w"></span>
 </pre></div>
 </div>
-<p>This code will output <code class="docutils literal notranslate"><span class="pre">0</span></code>. If we continue to call the closure <code class="docutils literal notranslate"><span class="pre">f</span></code>, we
-will get the output <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">3</span></code>… This may not be well understood:
-variable [2.198 ] Is destroyed after the function <code class="docutils literal notranslate"><span class="pre">func</span></code> returns, and
-as a free variable of the closure <code class="docutils literal notranslate"><span class="pre">f</span></code>, <code class="docutils literal notranslate"><span class="pre">i</span></code> will be stored in the closure
-environment, so every time <code class="docutils literal notranslate"><span class="pre">f</span></code> is called, the value of <code class="docutils literal notranslate"><span class="pre">i</span></code> will be added
-to 1 (<code class="docutils literal notranslate"><span class="pre">func</span></code> function definition line 4).</p>
+<p>This code will output <code class="docutils literal notranslate"><span class="pre">0</span></code>. If we continue to call the closure <code class="docutils literal notranslate"><span class="pre">f</span></code>,
+we will get the output <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">3</span></code>… This may not be well
+understood: variable [2.198 ] Is destroyed after the function <code class="docutils literal notranslate"><span class="pre">func</span></code>
+returns, and as a free variable of the closure <code class="docutils literal notranslate"><span class="pre">f</span></code>, <code class="docutils literal notranslate"><span class="pre">i</span></code> will be
+stored in the closure environment, so every time <code class="docutils literal notranslate"><span class="pre">f</span></code> is called, the
+value of <code class="docutils literal notranslate"><span class="pre">i</span></code> will be added to 1 (<code class="docutils literal notranslate"><span class="pre">func</span></code> function definition line 4).</p>
 <section id="use-of-closures">
 <h4>Use of closures<a class="headerlink" href="#use-of-closures" title="Permalink to this headline">¶</a></h4>
 <p>Closures have many uses. Here are a few common uses:</p>
@@ -582,9 +586,9 @@ always share this free variable. E.g:</p>
 <span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
-<p>The function <code class="docutils literal notranslate"><span class="pre">func</span></code> in this example returns two closures through a list,
-and these two closures share free variables <code class="docutils literal notranslate"><span class="pre">i</span></code>. If we call these
-closures:</p>
+<p>The function <code class="docutils literal notranslate"><span class="pre">func</span></code> in this example returns two closures through a
+list, and these two closures share free variables <code class="docutils literal notranslate"><span class="pre">i</span></code>. If we call
+these closures:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
 <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]()</span><span class="w"> </span><span class="c1"># closure 1 log: 0</span>
 <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]()</span><span class="w"> </span><span class="c1"># closure 2 log: 1</span>
@@ -611,9 +615,9 @@ closure:</p>
 </pre></div>
 </div>
 <p>In this example, we change the value of the variable <code class="docutils literal notranslate"><span class="pre">i</span></code> (which is the
-free variable of the closure <code class="docutils literal notranslate"><span class="pre">foo</span></code>) from <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">1</span></code> before the outer
-function <code class="docutils literal notranslate"><span class="pre">func</span></code> returns, then we call the closure afterwards The value
-of the free variable <code class="docutils literal notranslate"><span class="pre">i</span></code> when the package <code class="docutils literal notranslate"><span class="pre">foo</span></code> is also <code class="docutils literal notranslate"><span class="pre">1</span></code>:</p>
+free variable of the closure <code class="docutils literal notranslate"><span class="pre">foo</span></code>) from <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">1</span></code> before the
+outer function <code class="docutils literal notranslate"><span class="pre">func</span></code> returns, then we call the closure afterwards The
+value of the free variable <code class="docutils literal notranslate"><span class="pre">i</span></code> when the package <code class="docutils literal notranslate"><span class="pre">foo</span></code> is also <code class="docutils literal notranslate"><span class="pre">1</span></code>:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="nf">func</span><span class="p">()()</span><span class="w"> </span><span class="c1"># 1</span>
 </pre></div>
 </div>
@@ -670,10 +674,10 @@ code from lines 4 to 6:</p>
 </div>
 <p>Here actually defines an anonymous function and calls it immediately.
 The function of this temporary anonymous function is to bind the value
-of the loop variable <code class="docutils literal notranslate"><span class="pre">i</span></code> to its parameter <code class="docutils literal notranslate"><span class="pre">n</span></code>, and the variable <code class="docutils literal notranslate"><span class="pre">n</span></code> is
-also what we need to close The free variables of the package, so that
-the free variables bound to the closure constructed during each loop are
-different. Now we will get the desired output:</p>
+of the loop variable <code class="docutils literal notranslate"><span class="pre">i</span></code> to its parameter <code class="docutils literal notranslate"><span class="pre">n</span></code>, and the variable
+<code class="docutils literal notranslate"><span class="pre">n</span></code> is also what we need to close The free variables of the package,
+so that the free variables bound to the closure constructed during each
+loop are different. Now we will get the desired output:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"></span>
 <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]()</span><span class="w"> </span><span class="c1"># 0</span>
 <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]()</span><span class="w"> </span><span class="c1"># 1</span>
@@ -719,13 +723,12 @@ different from general function:</p>
 <div class="highlight-ebnf notranslate"><div class="highlight"><pre><span></span>´/´ args ´-&gt;´ expr ´end’
 </pre></div>
 </div>
-<p><strong>args</strong> is the parameter list, the number of parameters can
-be zero or more, and multiple parameters are separated by commas or
-spaces (cannot be mixed at the same time); <strong>expr</strong> is the
-return expression, the lambda expression will return the expression
-value. Lambda expressions are suitable for implementing functions with
-very simple functions. For example, the lambda expression for judging
-the size of two numbers is:</p>
+<p><strong>args</strong> is the parameter list, the number of parameters can be zero or
+more, and multiple parameters are separated by commas or spaces (cannot
+be mixed at the same time); <strong>expr</strong> is the return expression, the
+lambda expression will return the expression value. Lambda expressions
+are suitable for implementing functions with very simple functions. For
+example, the lambda expression for judging the size of two numbers is:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
 </pre></div>
 </div>

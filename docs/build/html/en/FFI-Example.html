@@ -64,7 +64,7 @@
           <li><a href="Home.html">Welcome to the berry wiki!</a> &raquo;</li>
       <li>Making a Native Function</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/en/FFI-Example.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/en/FFI-Example.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -74,12 +74,18 @@
              
   <section id="making-a-native-function">
 <h1>Making a Native Function<a class="headerlink" href="#making-a-native-function" title="Permalink to this headline">¶</a></h1>
-<p>Berry’s C FFI (Foreign Function Interface) operates on a virtual stack to interact with the VM. If we need to make an <code class="docutils literal notranslate"><span class="pre">add</span></code> function to add two numbers and use it in Berry in this way:</p>
+<p>Berry’s C FFI (Foreign Function Interface) operates on a virtual stack
+to interact with the VM. If we need to make an <code class="docutils literal notranslate"><span class="pre">add</span></code> function to add
+two numbers and use it in Berry in this way:</p>
 <div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>We need to know how the C code gets the arguments from the Berry function call and how to return the value.</p>
-<p>The function arguments are stored in a stack, and the first argument to the last argument of the function is stored from the bottom of the stack to the top of the stack. If you want to use C to fetch elements from the stack, use the following set of FFIs:</p>
+<p>We need to know how the C code gets the arguments from the Berry
+function call and how to return the value.</p>
+<p>The function arguments are stored in a stack, and the first argument to
+the last argument of the function is stored from the bottom of the stack
+to the top of the stack. If you want to use C to fetch elements from the
+stack, use the following set of FFIs:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">be_toint</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">);</span><span class="w"></span>
 <span class="n">breal</span><span class="w"> </span><span class="nf">be_toreal</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">);</span><span class="w"></span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">be_tobool</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">);</span><span class="w"></span>
@@ -87,7 +93,8 @@
 <span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="nf">be_tocomptr</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-<p>If you want to test if a value in the stack is a specified type, use the following set of FFIs:</p>
+<p>If you want to test if a value in the stack is a specified type, use the
+following set of FFIs:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">be_isnil</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">);</span><span class="w"></span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">be_isbool</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">);</span><span class="w"></span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">be_isint</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">);</span><span class="w"></span>
@@ -120,13 +127,17 @@
 <span class="kt">void</span><span class="w"> </span><span class="nf">be_pushcomptr</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">index</span></code> is the position of the element on the stack, the positive value is the offset from the bottom of the stack to the top of the stack, and the negative value is the offset from the top of the stack to the bottom of the stack.</p>
+<p><code class="docutils literal notranslate"><span class="pre">index</span></code> is the position of the element on the stack, the positive
+value is the offset from the bottom of the stack to the top of the
+stack, and the negative value is the offset from the top of the stack to
+the bottom of the stack.</p>
 <p>The return value uses two FFIs:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">be_return</span><span class="p">(</span><span class="n">vm</span><span class="p">)</span><span class="w"></span>
 <span class="n">be_return_nil</span><span class="p">(</span><span class="n">vm</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
-<p>These FFIs are actually macros. <code class="docutils literal notranslate"><span class="pre">be_return</span></code> returns the object at the top of the stack, and be_return_nil returns <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<p>These FFIs are actually macros. <code class="docutils literal notranslate"><span class="pre">be_return</span></code> returns the object at the
+top of the stack, and be_return_nil returns <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
 <p>These FFIs are defined in berry.h.</p>
 <p>Now let’s implement the <code class="docutils literal notranslate"><span class="pre">add</span></code> function:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">my_add_func</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">)</span><span class="w"></span>
@@ -154,25 +165,34 @@
 </section>
 <section id="instantiate-a-list-object-in-a-native-function">
 <h1>Instantiate a <code class="docutils literal notranslate"><span class="pre">list</span></code> object in a native function<a class="headerlink" href="#instantiate-a-list-object-in-a-native-function" title="Permalink to this headline">¶</a></h1>
-<p>Generating instantiated native classes in C can be cumbersome compared to simple types. This section will guide the reader to instantiate the <code class="docutils literal notranslate"><span class="pre">list</span></code> class.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">list</span></code> class is a wrapper around the list structure, which has a <code class="docutils literal notranslate"><span class="pre">.data</span></code> property for the list structure. Therefore, we first need to construct a list structure:</p>
+<p>Generating instantiated native classes in C can be cumbersome compared
+to simple types. This section will guide the reader to instantiate the
+<code class="docutils literal notranslate"><span class="pre">list</span></code> class.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">list</span></code> class is a wrapper around the list structure, which has a
+<code class="docutils literal notranslate"><span class="pre">.data</span></code> property for the list structure. Therefore, we first need to
+construct a list structure:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">be_newlist</span><span class="p">(</span><span class="n">vm</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">be_newlist</span></code> function constructs a value of type <code class="docutils literal notranslate"><span class="pre">BE_LIST</span></code>. Then we can operate on the data:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">be_newlist</span></code> function constructs a value of type <code class="docutils literal notranslate"><span class="pre">BE_LIST</span></code>. Then
+we can operate on the data:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">be_pushint</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span><span class="w"></span>
 <span class="n">be_data_append</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="mi">-2</span><span class="p">);</span><span class="w"></span>
 <span class="n">be_pop</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="cm">/* popping the integer 100 */</span><span class="w"></span>
 </pre></div>
 </div>
-<p>The first two lines of code are used to append the integer <code class="docutils literal notranslate"><span class="pre">100</span></code> to the list, and the third line to the integer <code class="docutils literal notranslate"><span class="pre">100</span></code> is popped to facilitate subsequent operations.</p>
-<p>Since the <code class="docutils literal notranslate"><span class="pre">BE_LIST</span></code> type cannot be used directly in Berry, but is used by the <code class="docutils literal notranslate"><span class="pre">list</span></code> class, we have to build the <code class="docutils literal notranslate"><span class="pre">list</span></code> class for it:</p>
+<p>The first two lines of code are used to append the integer <code class="docutils literal notranslate"><span class="pre">100</span></code> to
+the list, and the third line to the integer <code class="docutils literal notranslate"><span class="pre">100</span></code> is popped to
+facilitate subsequent operations.</p>
+<p>Since the <code class="docutils literal notranslate"><span class="pre">BE_LIST</span></code> type cannot be used directly in Berry, but is used
+by the <code class="docutils literal notranslate"><span class="pre">list</span></code> class, we have to build the <code class="docutils literal notranslate"><span class="pre">list</span></code> class for it:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">be_getglobal</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;list&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="n">be_pushvalue</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="mi">-2</span><span class="p">);</span><span class="w"> </span><span class="cm">/* push the list data to top */</span><span class="w"></span>
 <span class="n">be_call</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="cm">/* call constructor */</span><span class="w"></span>
 </pre></div>
 </div>
-<p>The constructor of the <code class="docutils literal notranslate"><span class="pre">list</span></code> class allows the use of the <code class="docutils literal notranslate"><span class="pre">BE_LIST</span></code> type parameter, which takes the argument as list data.</p>
+<p>The constructor of the <code class="docutils literal notranslate"><span class="pre">list</span></code> class allows the use of the <code class="docutils literal notranslate"><span class="pre">BE_LIST</span></code>
+type parameter, which takes the argument as list data.</p>
 <p>The complete code is as follows:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">m_listtest</span><span class="p">(</span><span class="n">bvm</span><span class="w"> </span><span class="o">*</span><span class="n">vm</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>

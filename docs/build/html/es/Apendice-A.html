@@ -82,7 +82,7 @@
           <li><a href="Referencia.html">Manual de referencia del lenguaje Berry Script</a> &raquo;</li>
       <li>Definición de gramática</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/es/Apendice-A.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/es/Apendice-A.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -90,10 +90,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <!-- Spanish Translation: Emiliano Gonzalez (egonzalez . hiperion @ gmail . com) -->
-<section id="definicion-de-gramatica">
+  <!-- Spanish Translation: Emiliano Gonzalez (egonzalez . hiperion @ gmail . com) --><section id="definicion-de-gramatica">
 <h1>Definición de gramática<a class="headerlink" href="#definicion-de-gramatica" title="Permalink to this headline">¶</a></h1>
-<p>Este capítulo dará algunas definiciones gramaticales relacionadas con Berry. Usamos <strong>Extended Backus Normal Form</strong> (EBNF) para definir o expresar la gramática. No usamos la gramática EBNF estricta para definir, pero hicimos muchas simplificaciones, pero estas simplificaciones no afectarán la comprensión de la gramática por parte de los lectores.</p>
+<p>Este capítulo dará algunas definiciones gramaticales relacionadas con
+Berry. Usamos <strong>Extended Backus Normal Form</strong> (EBNF) para definir o
+expresar la gramática. No usamos la gramática EBNF estricta para
+definir, pero hicimos muchas simplificaciones, pero estas
+simplificaciones no afectarán la comprensión de la gramática por parte
+de los lectores.</p>
 <p>La definición EBNF de la gramática del lenguaje Berry es la siguiente:</p>
 <div class="highlight-ebnf notranslate"><div class="highlight"><pre><span></span>(* program define *)
 program = block;
@@ -143,15 +147,37 @@ anon_func = &#39;def&#39; func_body; (* anonymous function *)
 lambda_expr = &#39;/&#39; [arg_field {&#39;,&#39; arg_field}] | {arg_field}] &#39;-&gt;&#39; expr;
 </pre></div>
 </div>
-<p>El formato EBNF estándar se puede encontrar en materiales relacionados. Aquí hay una explicación de los detalles que necesitan atención al leer la gramática anterior. Los símbolos que han aparecido a la izquierda del signo igual son símbolos no terminales, y los demás son símbolos terminales. El terminador encerrado entre comillas <code class="docutils literal notranslate"><span class="pre">'</span></code> es una cadena fija, que suele ser una palabra clave u operador de idioma. Hay varios terminadores que son inconvenientes para describir directamente en EBNF: <code class="docutils literal notranslate"><span class="pre">INTEGER</span></code> representa el valor nominal del entero; <code class="docutils literal notranslate"><span class="pre">REAL</span></code> representa el valor nominal del número real; <code class="docutils literal notranslate"><span class="pre">STRING</span></code> representa el valor literal de cadena; <code class="docutils literal notranslate"><span class="pre">ID</span></code> representa el identificador. Estos terminadores se pueden definir mediante expresiones regulares:</p>
+<p>El formato EBNF estándar se puede encontrar en materiales relacionados.
+Aquí hay una explicación de los detalles que necesitan atención al leer
+la gramática anterior. Los símbolos que han aparecido a la izquierda del
+signo igual son símbolos no terminales, y los demás son símbolos
+terminales. El terminador encerrado entre comillas <code class="docutils literal notranslate"><span class="pre">'</span></code> es una cadena
+fija, que suele ser una palabra clave u operador de idioma. Hay varios
+terminadores que son inconvenientes para describir directamente en EBNF:
+<code class="docutils literal notranslate"><span class="pre">INTEGER</span></code> representa el valor nominal del entero; <code class="docutils literal notranslate"><span class="pre">REAL</span></code> representa
+el valor nominal del número real; <code class="docutils literal notranslate"><span class="pre">STRING</span></code> representa el valor literal
+de cadena; <code class="docutils literal notranslate"><span class="pre">ID</span></code> representa el identificador. Estos terminadores se
+pueden definir mediante expresiones regulares:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ENTERO</span></code>: <code class="docutils literal notranslate"><span class="pre">0x[a-fA-F0-9]+|\d+</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">REAL</span></code>: <code class="docutils literal notranslate"><span class="pre">(\d+\.?|\.\d)\d*([eE][+-]?\d+)?</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CADENA</span></code>: <code class="docutils literal notranslate"><span class="pre">&quot;(\\.|[^&quot;])*&quot;|'(\\.|[^'])*'</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ID</span></code>: <code class="docutils literal notranslate"><span class="pre">[_a-zA-Z]\w*</span></code></p></li>
 </ul>
-<p>Los símbolos que aparecen secuencialmente en el EBNF estándar están separados por comas. Por intuición, uso espacios para implementar la función de coma. El símbolo de barra vertical “|” se pronuncia como “o”, significa que los patrones izquierdo y derecho solo pueden coincidir con uno de ellos, o tiene la prioridad más baja. Por ejemplo, la gramática <em>a</em> <sub>0</sub> <em>a</em> <sub>1</sub> |<em>a</em> <sub>2</sub> significa la fórmula correspondiente <em>a</em> <sub>0</sub> <em>a</em> <sub>1</sub> o la combinación <em>a</em> <sub>2</sub> . Los corchetes indican que la subexpresión dentro de los paréntesis coincide 0 o 1 veces, las llaves indican que la subexpresión interna coincide 0 o más veces, y los paréntesis solo tienen la función de tomar la subexpresión interna como un todo.</p>
-<p>La siguiente es la definición de gramática JSON admitida por el módulo JSON en la biblioteca estándar de Berry. El uso de EBNF aún cumple con las convenciones anteriores:</p>
+<p>Los símbolos que aparecen secuencialmente en el EBNF estándar están
+separados por comas. Por intuición, uso espacios para implementar la
+función de coma. El símbolo de barra vertical “|” se pronuncia como
+“o”, significa que los patrones izquierdo y derecho solo pueden
+coincidir con uno de ellos, o tiene la prioridad más baja. Por ejemplo,
+la gramática <em>a</em> 0 <em>a</em> 1 |<em>a</em> 2 significa la fórmula correspondiente
+<em>a</em> 0 <em>a</em> 1 o la combinación <em>a</em> 2 . Los corchetes indican que la
+subexpresión dentro de los paréntesis coincide 0 o 1 veces, las llaves
+indican que la subexpresión interna coincide 0 o más veces, y los
+paréntesis solo tienen la función de tomar la subexpresión interna como
+un todo.</p>
+<p>La siguiente es la definición de gramática JSON admitida por el módulo
+JSON en la biblioteca estándar de Berry. El uso de EBNF aún cumple con
+las convenciones anteriores:</p>
 <div class="highlight-ebnf notranslate"><div class="highlight"><pre><span></span><span class="k">json </span><span class="o">=</span> <span class="k">value</span><span class="p">;</span>
 <span class="k">value </span><span class="o">=</span> <span class="k">object </span><span class="p">|</span> <span class="k">array </span><span class="p">|</span>
         <span class="k">string </span><span class="p">|</span> <span class="k">number </span><span class="p">|</span> <span class="s1">&#39;true&#39;</span> <span class="p">|</span> <span class="s1">&#39;false&#39;</span> <span class="p">|</span> <span class="s1">&#39;null&#39;</span><span class="p">;</span>
@@ -159,8 +185,13 @@ lambda_expr = &#39;/&#39; [arg_field {&#39;,&#39; arg_field}] | {arg_field}] &#3
 <span class="k">array </span><span class="o">=</span> <span class="s1">&#39;[&#39;</span> <span class="p">[</span><span class="k">json</span><span class="p">]</span> <span class="p">{</span> <span class="s1">&#39;,&#39;</span> <span class="k">json </span><span class="p">}</span> <span class="s1">&#39;]&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Los símbolos no terminales <code class="docutils literal notranslate"><span class="pre">cadena</span></code> y <code class="docutils literal notranslate"><span class="pre">número</span></code> también se pueden definir mediante expresiones regulares. <a class="reference external" href="http://www.json.org">http://www.json.org</a>proporciona la gramática estándar de JSON, que también incluye las definiciones de <code class="docutils literal notranslate"><span class="pre">cadena</span></code> y <code class="docutils literal notranslate"><span class="pre">número</span></code>. El soporte para números de la biblioteca Berry JSON es diferente del estándar.
-Los números JSON estándar deben comenzar con “-” o el número “0-9”, mientras que la biblioteca Berry JSON también acepta números que comienzan con un punto decimal.</p>
+<p>Los símbolos no terminales <code class="docutils literal notranslate"><span class="pre">cadena</span></code> y <code class="docutils literal notranslate"><span class="pre">número</span></code> también se pueden
+definir mediante expresiones regulares. <a class="reference external" href="http://www.json.org">http://www.json.org</a>proporciona
+la gramática estándar de JSON, que también incluye las definiciones de
+<code class="docutils literal notranslate"><span class="pre">cadena</span></code> y <code class="docutils literal notranslate"><span class="pre">número</span></code>. El soporte para números de la biblioteca Berry
+JSON es diferente del estándar. Los números JSON estándar deben comenzar
+con “-” o el número “0-9”, mientras que la biblioteca Berry JSON también
+acepta números que comienzan con un punto decimal.</p>
 </section>
 
 

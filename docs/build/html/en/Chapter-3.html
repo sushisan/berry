@@ -82,7 +82,7 @@
           <li><a href="Reference.html">The Berry Script Language Reference Manual</a> &raquo;</li>
       <li>3. Expression</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/en/Chapter-3.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/en/Chapter-3.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -105,12 +105,12 @@ precedence of the operator, the earlier the expression is evaluated.</p>
 <section id="operators-and-expressions">
 <h3>Operators and expressions<a class="headerlink" href="#operators-and-expressions" title="Permalink to this headline">¶</a></h3>
 <p>Berry provides some unary operators (Unary Operator) and binary
-operators (Binary Operator). For example, the logical AND operator <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>
-is a binary operator, and the logical negation operator <code class="docutils literal notranslate"><span class="pre">!</span></code> is a unary
-operator. Some operators can be either unary operators or binary
+operators (Binary Operator). For example, the logical AND operator
+<code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> is a binary operator, and the logical negation operator <code class="docutils literal notranslate"><span class="pre">!</span></code> is
+a unary operator. Some operators can be either unary operators or binary
 operators. The specific meaning of such operators depends on the
-context. For example, operator <code class="docutils literal notranslate"><span class="pre">-</span></code> is a unary symbol in expression <code class="docutils literal notranslate"><span class="pre">-1</span></code>,
-but it is a binary minus sign in expression <code class="docutils literal notranslate"><span class="pre">1-2</span></code>.</p>
+context. For example, operator <code class="docutils literal notranslate"><span class="pre">-</span></code> is a unary symbol in expression
+<code class="docutils literal notranslate"><span class="pre">-1</span></code>, but it is a binary minus sign in expression <code class="docutils literal notranslate"><span class="pre">1-2</span></code>.</p>
 <section id="operator-combination-expression">
 <h4>Operator combination expression<a class="headerlink" href="#operator-combination-expression" title="Permalink to this headline">¶</a></h4>
 <p>Both the left and right sides of a binary operator can be
@@ -132,16 +132,16 @@ division have higher priority than addition.</p>
 <h4>operand type<a class="headerlink" href="#operand-type" title="Permalink to this headline">¶</a></h4>
 <p>In the operation of expressions, the operands may have types that do not
 match the operators. In addition, binary operators usually require the
-left and right operands to be of the same type. The expression <code class="docutils literal notranslate"><span class="pre">’10’+10</span></code>
-is wrong. You cannot add a string to an integer. The problem with the
-expression <code class="docutils literal notranslate"><span class="pre">-’b’</span></code> is that you cannot take a negative value on a string.
-Sometimes a binary operator has different operand types but can perform
-operations. For example, when adding an integer to a real number, the
-integer object will be converted to a real number and added to another
-real number object. The logical AND and logical OR operators allow the
-operands on both sides of the operator to be of any type. In logical
-expressions, they will always be converted to the <code class="docutils literal notranslate"><span class="pre">boolean</span></code> type
-according to certain rules.</p>
+left and right operands to be of the same type. The expression
+<code class="docutils literal notranslate"><span class="pre">’10’+10</span></code> is wrong. You cannot add a string to an integer. The problem
+with the expression <code class="docutils literal notranslate"><span class="pre">-’b’</span></code> is that you cannot take a negative value on
+a string. Sometimes a binary operator has different operand types but
+can perform operations. For example, when adding an integer to a real
+number, the integer object will be converted to a real number and added
+to another real number object. The logical AND and logical OR operators
+allow the operands on both sides of the operator to be of any type. In
+logical expressions, they will always be converted to the <code class="docutils literal notranslate"><span class="pre">boolean</span></code>
+type according to certain rules.</p>
 <p>Another situation is that operators can be overloaded when using custom
 classes. In essence, you can interpret this operator arbitrarily, and it
 is up to you to decide what type of its operand should be.</p>
@@ -152,111 +152,135 @@ is up to you to decide what type of its operand should be.</p>
 <p>In a compound expression composed of multiple operators, the precedence
 and associativity of the operators determine the order of evaluation of
 the expressions. The precedence and associativity of each operator are
-given in Table
-<a href="#tab::operator_list" data-reference-type="ref" data-reference="tab::operator_list">1.1</a>.</p>
+given in Table 1.1.</p>
 <p>The precedence specifies the order of evaluation between different
 operators, and expressions with higher precedence operators will be
 evaluated first. For example, the process of evaluating the expression
-<code class="docutils literal notranslate"><span class="pre">1+2*3</span></code> will first calculate the result of <code class="docutils literal notranslate"><span class="pre">2*3</span></code>, and then the result of
-the addition expression. Using parentheses can improve the evaluation
-order of low-priority expressions. For example, in the evaluation of
-expression <code class="docutils literal notranslate"><span class="pre">(1+2)*3</span></code>, the result of expression <code class="docutils literal notranslate"><span class="pre">1+2</span></code> in the parentheses
-is calculated first, and then the multiplication expression outside the
-parentheses is calculated.</p>
+<code class="docutils literal notranslate"><span class="pre">1+2*3</span></code> will first calculate the result of <code class="docutils literal notranslate"><span class="pre">2*3</span></code>, and then the
+result of the addition expression. Using parentheses can improve the
+evaluation order of low-priority expressions. For example, in the
+evaluation of expression <code class="docutils literal notranslate"><span class="pre">(1+2)*3</span></code>, the result of expression <code class="docutils literal notranslate"><span class="pre">1+2</span></code>
+in the parentheses is calculated first, and then the multiplication
+expression outside the parentheses is calculated.</p>
 <p>Associativity refers to the evaluation order of the operands on both
 sides of the operator, where the operands may be subexpressions. For
 example, in the addition expression <code class="docutils literal notranslate"><span class="pre">expr1</span> <span class="pre">+</span> <span class="pre">expr2</span></code>, the value of
-<code class="docutils literal notranslate"><span class="pre">expr1</span></code> is calculated first and then the value of <code class="docutils literal notranslate"><span class="pre">expr2</span></code>, because the
-addition operator is left-associative.</p>
-<div id="tab::operator_list">
-<table class="colwidths-auto docutils align-default">
+<code class="docutils literal notranslate"><span class="pre">expr1</span></code> is calculated first and then the value of <code class="docutils literal notranslate"><span class="pre">expr2</span></code>, because
+the addition operator is left-associative.</p>
+<div class="docutils container" id="tab-operator-list">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 27%" />
+</colgroup>
 <thead>
-<tr class="row-odd"><th class="text-center head"><p><strong>priority</strong></p></th>
-<th class="text-center head"><p><strong>Operator</strong></p></th>
-<th class="text-left head"><p><strong>Description</strong></p></th>
-<th class="text-center head"><p><strong>Associativity</strong></p></th>
+<tr class="row-odd"><th class="head"><p><strong>priority</strong></p></th>
+<th class="head"><p><strong>Operator</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+<th class="head"><p><strong>Associativity</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-center"><p>1</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">()</span></code></p></td>
-<td class="text-left"><p>Grouping symbol</p></td>
-<td class="text-center"><p>-</p></td>
+<tr class="row-even"><td><p>1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">()</span></code></p></td>
+<td><p>Grouping
+symbol</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p>2</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">()</span> <span class="pre">[]</span> <span class="pre">.</span></code></p></td>
-<td class="text-left"><p>Field operation</p></td>
-<td class="text-center"><p>left</p></td>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">()</span> <span class="pre">[]</span> <span class="pre">.</span></code></p></td>
+<td><p>Field
+operation</p></td>
+<td><p>left</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p>3</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">!</span> <span class="pre">~</span></code></p></td>
-<td class="text-left"><p>Negative sign, logical negation, bit flip</p></td>
-<td class="text-center"><p>left</p></td>
+<tr class="row-even"><td><p>3</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">!</span> <span class="pre">~</span></code></p></td>
+<td><p>Negative sign,
+logical
+negation, bit
+flip</p></td>
+<td><p>left</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p>4</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">/</span> <span class="pre">%</span></code></p></td>
-<td class="text-left"><p>Multiplication, division, and remainder</p></td>
-<td class="text-center"><p>left</p></td>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">/</span> <span class="pre">%</span></code></p></td>
+<td><p>M
+ultiplication,
+division, and
+remainder</p></td>
+<td><p>left</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p>5</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">-</span></code></p></td>
-<td class="text-left"><p>Addition, subtraction</p></td>
-<td class="text-center"><p>left</p></td>
+<tr class="row-even"><td><p>5</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">-</span></code></p></td>
+<td><p>Addition,
+subtraction</p></td>
+<td><p>left</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p>6</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span> <span class="pre">&gt;&gt;</span></code></p></td>
-<td class="text-left"><p>Move left, move right</p></td>
-<td class="text-center"><p>left</p></td>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span> <span class="pre">&gt;&gt;</span></code></p></td>
+<td><p>Move left,
+move right</p></td>
+<td><p>left</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p>7</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code></p></td>
-<td class="text-left"><p>Bitwise AND</p></td>
-<td class="text-center"><p>left</p></td>
+<tr class="row-even"><td><p>7</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code></p></td>
+<td><p>Bitwise AND</p></td>
+<td><p>left</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p>8</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
-<td class="text-left"><p>Bitwise XOR</p></td>
-<td class="text-center"><p>left</p></td>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+<td><p>Bitwise XOR</p></td>
+<td><p>left</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p>9</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">|</span></code></p></td>
-<td class="text-left"><p>Bitwise OR</p></td>
-<td class="text-center"><p>left</p></td>
+<tr class="row-even"><td><p>9</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\|</span></code></p></td>
+<td><p>Bitwise OR</p></td>
+<td><p>left</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p>10</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">..</span></code></p></td>
-<td class="text-left"><p>Concatenation operator</p></td>
-<td class="text-center"><p>left</p></td>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">..</span></code></p></td>
+<td><p>Concatenation
+operator</p></td>
+<td><p>left</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p>11</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&lt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;</span> <span class="pre">&gt;=</span></code></p></td>
-<td class="text-left"><p>Greater than, greater than or equal to</p></td>
-<td class="text-center"><p>left</p></td>
+<tr class="row-even"><td><p>11</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;</span> <span class="pre">&gt;=</span></code></p></td>
+<td><p>Greater than,
+greater than
+or equal to</p></td>
+<td><p>left</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p>12</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">==</span> <span class="pre">!=</span></code></p></td>
-<td class="text-left"><p>Equal to, not equal to</p></td>
-<td class="text-center"><p>left</p></td>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">==</span> <span class="pre">!=</span></code></p></td>
+<td><p>Equal to, not
+equal to</p></td>
+<td><p>left</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p>13</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code></p></td>
-<td class="text-left"><p>Logical AND</p></td>
-<td class="text-center"><p>left</p></td>
+<tr class="row-even"><td><p>13</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code></p></td>
+<td><p>Logical AND</p></td>
+<td><p>left</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p>14</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">||</span></code></p></td>
-<td class="text-left"><p>Logical OR</p></td>
-<td class="text-center"><p>left</p></td>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\|\|</span></code></p></td>
+<td><p>Logical OR</p></td>
+<td><p>left</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p>15</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">?</span> <span class="pre">:</span></code></p></td>
-<td class="text-left"><p>Conditional operator</p></td>
-<td class="text-center"><p>right</p></td>
+<tr class="row-even"><td><p>15</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">?</span> <span class="pre">:</span></code></p></td>
+<td><p>Conditional
+operator</p></td>
+<td><p>right</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p>16</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&amp;=</span> <span class="pre">|=</span> <span class="pre">^=</span> <span class="pre">&lt;&lt;=</span> <span class="pre">&gt;&gt;=</span></code></p></td>
-<td class="text-left"><p>Assignment</p></td>
-<td class="text-center"><p>right</p></td>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&amp;=</span> <span class="pre">\|</span>
+<span class="pre">=</span> <span class="pre">^=</span> <span class="pre">&lt;&lt;=</span> <span class="pre">&gt;&gt;=</span></code></p></td>
+<td><p>Assignment</p></td>
+<td><p>right</p></td>
 </tr>
 </tbody>
 </table>
@@ -278,40 +302,44 @@ operand, regardless of the composition of the expression in parentheses.</p>
 <h3>3.2.1 Arithmetic Operators<a class="headerlink" href="#arithmetic-operators" title="Permalink to this headline">¶</a></h3>
 <p>Arithmetic operators are used to implement arithmetic operations. These
 operators are similar to the mathematical symbols we usually use. The
-arithmetic operators provided by Berry are shown in Table
-<a href="#tab::arthmetic_operator" data-reference-type="ref" data-reference="tab::arthmetic_operator">1.2</a>.</p>
-<div id="tab::arthmetic_operator">
-<table class="colwidths-auto docutils align-default">
+arithmetic operators provided by Berry are shown in Table 1.2.</p>
+<div class="docutils container" id="tab-arthmetic-operator">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 48%" />
+<col style="width: 29%" />
+</colgroup>
 <thead>
-<tr class="row-odd"><th class="text-center head"><p><strong>Operator</strong></p></th>
-<th class="text-left head"><p><strong>Description</strong></p></th>
-<th class="text-center head"><p><strong>Example</strong></p></th>
+<tr class="row-odd"><th class="head"><p><strong>Operator</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+<th class="head"><p><strong>Example</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
-<td class="text-left"><p>Unary minus</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">expr</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td><p>Unary minus</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">expr</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
-<td class="text-left"><p>Plus/string concatenation</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">+</span> <span class="pre">expr</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td><p>Plus/string concatenation</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">+</span> <span class="pre">expr</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
-<td class="text-left"><p>Minus sign</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">-</span> <span class="pre">expr</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td><p>Minus sign</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">-</span> <span class="pre">expr</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
-<td class="text-left"><p>Multiplication sign</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">*</span> <span class="pre">expr</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p>Multiplication sign</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">*</span> <span class="pre">expr</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
-<td class="text-left"><p>Division sign</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">/</span> <span class="pre">expr</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td><p>Division sign</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">/</span> <span class="pre">expr</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
-<td class="text-left"><p>Take the remainder</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">%</span> <span class="pre">expr</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+<td><p>Take the remainder</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">%</span> <span class="pre">expr</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -320,15 +348,16 @@ arithmetic operators provided by Berry are shown in Table
 <p>Binary operator <code class="docutils literal notranslate"><span class="pre">+</span></code> In addition to being a plus sign, it is also a
 string concatenation. When the operand of this operator is a string,
 string concatenation will be performed to concatenate two strings into a
-longer string. To be precise, <code class="docutils literal notranslate"><span class="pre">+</span></code> as a string concatenation is no longer
-in the category of arithmetic operators.</p>
+longer string. To be precise, <code class="docutils literal notranslate"><span class="pre">+</span></code> as a string concatenation is no
+longer in the category of arithmetic operators.</p>
 <p>The binary operator <code class="docutils literal notranslate"><span class="pre">%</span></code> is the remainder symbol. Its operands must be
 integers. The result of the remainder operation is the remainder after
 dividing the left operand by the right operand. For example, the result
 of <code class="docutils literal notranslate"><span class="pre">11%4</span></code> is <code class="docutils literal notranslate"><span class="pre">3</span></code>. The real number type cannot do divisible, so the
 remainder is not supported.</p>
 <p>In general, arithmetic operators do not satisfy the commutative law. For
-example, the values of the expressions <code class="docutils literal notranslate"><span class="pre">2/4</span></code> and <code class="docutils literal notranslate"><span class="pre">4/2</span></code> are not the same.</p>
+example, the values of the expressions <code class="docutils literal notranslate"><span class="pre">2/4</span></code> and <code class="docutils literal notranslate"><span class="pre">4/2</span></code> are not the
+same.</p>
 <p>All arithmetic operators can be overloaded in the class. The overloaded
 operators are not necessarily limited to their original functional
 design, but are determined by the programmer.</p>
@@ -336,40 +365,44 @@ design, but are determined by the programmer.</p>
 <section id="relational-operators">
 <h3>3.2.2 Relational operators<a class="headerlink" href="#relational-operators" title="Permalink to this headline">¶</a></h3>
 <p>Relational operators are used to compare the magnitude of the operands.
-The six relational operators supported by Berry are given in Table
-<a href="#tab::relop_operator" data-reference-type="ref" data-reference="tab::relop_operator">1.3</a>.</p>
-<div id="tab::relop_operator">
-<table class="colwidths-auto docutils align-default">
+The six relational operators supported by Berry are given in Table 1.3.</p>
+<div class="docutils container" id="tab-relop-operator">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 43%" />
+<col style="width: 33%" />
+</colgroup>
 <thead>
-<tr class="row-odd"><th class="text-center head"><p><strong>Operator</strong></p></th>
-<th class="text-left head"><p><strong>Description</strong></p></th>
-<th class="text-center head"><p><strong>Example</strong></p></th>
+<tr class="row-odd"><th class="head"><p><strong>Operator</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+<th class="head"><p><strong>Example</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
-<td class="text-left"><p>Less than</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">&lt;</span> <span class="pre">expr</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
+<td><p>Less than</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">&lt;</span> <span class="pre">expr</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></td>
-<td class="text-left"><p>Less than or equal to</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">&lt;=</span> <span class="pre">expr</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></td>
+<td><p>Less than or equal to</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">&lt;=</span> <span class="pre">expr</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">==</span></code></p></td>
-<td class="text-left"><p>equal</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">==</span> <span class="pre">expr</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">==</span></code></p></td>
+<td><p>equal</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">==</span> <span class="pre">expr</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">!=</span></code></p></td>
-<td class="text-left"><p>not equal to</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">!=</span> <span class="pre">expr</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">!=</span></code></p></td>
+<td><p>not equal to</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">!=</span> <span class="pre">expr</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></td>
-<td class="text-left"><p>greater or equal to</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">&gt;=</span> <span class="pre">expr</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></td>
+<td><p>greater or equal to</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">&gt;=</span> <span class="pre">expr</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
-<td class="text-left"><p>more than the</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">-expr</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
+<td><p>more than the</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-expr</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -378,82 +411,83 @@ The six relational operators supported by Berry are given in Table
 <p>By comparing the magnitude relationship of the operands or judging
 whether the operands are equal, evaluating the relational expression
 will produce a Boolean result. When the relationship is satisfied, the
-value of the relationship expression is <code class="docutils literal notranslate"><span class="pre">true</span></code>, otherwise it is <code class="docutils literal notranslate"><span class="pre">false</span></code>.
-Relational operators <code class="docutils literal notranslate"><span class="pre">==</span></code> and <code class="docutils literal notranslate"><span class="pre">!=</span></code> can use any type of operand, and
-allow the left and right operands to have different types. Other
-relational operators allow the use of the following combinations of
-operands:</p>
+value of the relationship expression is <code class="docutils literal notranslate"><span class="pre">true</span></code>, otherwise it is
+<code class="docutils literal notranslate"><span class="pre">false</span></code>. Relational operators <code class="docutils literal notranslate"><span class="pre">==</span></code> and <code class="docutils literal notranslate"><span class="pre">!=</span></code> can use any type of
+operand, and allow the left and right operands to have different types.
+Other relational operators allow the use of the following combinations
+of operands:</p>
 <blockquote>
-<div><p><strong>integer</strong> relop <strong>integer</strong><br>
-<strong>real</strong> relop <strong>real</strong><br>
-<strong>integer</strong> relop <strong>real</strong><br>
-<strong>real</strong> relop <strong>integer</strong><br>
-<strong>string</strong> relop <strong>string</strong></p>
+<div><p><strong>integer</strong> relop <strong>integer</strong> <strong>real</strong> relop <strong>real</strong> <strong>integer</strong>
+relop <strong>real</strong> <strong>real</strong> relop <strong>integer</strong> <strong>string</strong> relop
+<strong>string</strong></p>
 </div></blockquote>
-<p>In relational operations, the equal sign <code class="docutils literal notranslate"><span class="pre">==</span></code> and inequality sign <code class="docutils literal notranslate"><span class="pre">!=</span></code>
-satisfy the commutative law. If the left and right operands are of the
-same type or are both numeric types (integer and real number), the
-operands are judged to be equal according to the value of the operands,
-otherwise the operands are considered unequal. Equality and inequality
-are reciprocal operations: if <code class="docutils literal notranslate"><span class="pre">a==b</span></code> is true, then <code class="docutils literal notranslate"><span class="pre">a!=b</span></code> is false, and
-vice versa. Other relational operators do not satisfy the commutative
-law, but have the following properties: <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> are reciprocal
-operations, and <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> are reciprocal operations. Relational
-operations require that the operands must be of the same type, otherwise
-it is an incorrect expression.</p>
+<p>In relational operations, the equal sign <code class="docutils literal notranslate"><span class="pre">==</span></code> and inequality sign
+<code class="docutils literal notranslate"><span class="pre">!=</span></code> satisfy the commutative law. If the left and right operands are
+of the same type or are both numeric types (integer and real number),
+the operands are judged to be equal according to the value of the
+operands, otherwise the operands are considered unequal. Equality and
+inequality are reciprocal operations: if <code class="docutils literal notranslate"><span class="pre">a==b</span></code> is true, then <code class="docutils literal notranslate"><span class="pre">a!=b</span></code>
+is false, and vice versa. Other relational operators do not satisfy the
+commutative law, but have the following properties: <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> are
+reciprocal operations, and <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> are reciprocal operations.
+Relational operations require that the operands must be of the same
+type, otherwise it is an incorrect expression.</p>
 <p>Instances can overload operators as methods. If the relational operator
 is overloaded, the program needs to ensure the above properties.</p>
 <p>Among the relational operators, <code class="docutils literal notranslate"><span class="pre">==</span></code> and <code class="docutils literal notranslate"><span class="pre">!=</span></code> operators have more
-relaxed requirements than <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, which only allow
-comparisons between the same types. In actual program development, the
-judgment of equality or inequality is usually simpler than the judgment
-of size. Some operation objects may not be able to judge the size but
-can only judge the equality or inequality. This is the case with the
-Boolean type.</p>
+relaxed requirements than <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, which only
+allow comparisons between the same types. In actual program development,
+the judgment of equality or inequality is usually simpler than the
+judgment of size. Some operation objects may not be able to judge the
+size but can only judge the equality or inequality. This is the case
+with the Boolean type.</p>
 </section>
 <section id="logical-operators">
 <h3>logical operators<a class="headerlink" href="#logical-operators" title="Permalink to this headline">¶</a></h3>
 <p>Logical operators are divided into three types: logical AND, logical OR
-and logical NOT. As shown in Table
-<a href="#tab::logic_operator" data-reference-type="ref" data-reference="tab::logic_operator">1.4</a>.</p>
-<div id="tab::logic_operator">
-<table class="colwidths-auto docutils align-default">
+and logical NOT. As shown in Table 1.4.</p>
+<div class="docutils container" id="tab-logic-operator">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 35%" />
+<col style="width: 39%" />
+</colgroup>
 <thead>
-<tr class="row-odd"><th class="text-center head"><p><strong>Operator</strong></p></th>
-<th class="text-center head"><p><strong>Description</strong></p></th>
-<th class="text-center head"><p><strong>Example</strong></p></th>
+<tr class="row-odd"><th class="head"><p><strong>Operator</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+<th class="head"><p><strong>Example</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code></p></td>
-<td class="text-center"><p>Logical AND</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">&amp;&amp;</span> <span class="pre">expr</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code></p></td>
+<td><p>Logical AND</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">&amp;&amp;</span> <span class="pre">expr</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">||</span></code></p></td>
-<td class="text-center"><p>Logical OR</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">||</span> <span class="pre">expr</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\|\|</span></code></p></td>
+<td><p>Logical OR</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">\|\|</span> <span class="pre">expr</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">!</span></code></p></td>
-<td class="text-center"><p>Logical negation</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">!expr</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">!</span></code></p></td>
+<td><p>Logical negation</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">!expr</span></code></p></td>
 </tr>
 </tbody>
 </table>
 <p>Logical Operators</p>
 </div>
 <p>For the logical AND operator, when the values of both operands are
-<code class="docutils literal notranslate"><span class="pre">true</span></code>, the value of the logical expression is <code class="docutils literal notranslate"><span class="pre">true</span></code>, otherwise it is
-<code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">true</span></code>, the value of the logical expression is <code class="docutils literal notranslate"><span class="pre">true</span></code>, otherwise it
+is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 <p>For the logical OR operator, when the values of both operands are
-<code class="docutils literal notranslate"><span class="pre">false</span></code>, the value of the logical expression is <code class="docutils literal notranslate"><span class="pre">false</span></code>, otherwise it is
-<code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">false</span></code>, the value of the logical expression is <code class="docutils literal notranslate"><span class="pre">false</span></code>, otherwise
+it is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 <p>The role of the logical negation operator is to flip the logical state
-of the operand. When the operand value is <code class="docutils literal notranslate"><span class="pre">true</span></code>, the logical expression
-value is <code class="docutils literal notranslate"><span class="pre">false</span></code>, otherwise the value is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+of the operand. When the operand value is <code class="docutils literal notranslate"><span class="pre">true</span></code>, the logical
+expression value is <code class="docutils literal notranslate"><span class="pre">false</span></code>, otherwise the value is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 <p>Logical operators require that the operand is of Boolean type, and if
 the operand is not of Boolean type, it will be converted. See section
-<a href="#section::type_bool" data-reference-type="ref" data-reference="section::type_bool">[section::type_bool]</a>
-for conversion rules.</p>
+[section::type_bool] for conversion rules.</p>
 <p>Logic operations use an evaluation strategy called <strong>Short-circuit
 evaluation</strong> (short-circuit evaluation). This evaluation strategy is:
 for the logical AND operator, the second operand will be evaluated if
@@ -466,46 +500,49 @@ expression to not all run.</p>
 <h3>Bitwise Operator<a class="headerlink" href="#bitwise-operator" title="Permalink to this headline">¶</a></h3>
 <p>Bit operators can implement some binary bit operations, and bit
 operations can only be used on integer types. The detailed information
-of bit operators is shown in Table
-<a href="#tab::bitwise_operator" data-reference-type="ref" data-reference="tab::bitwise_operator">1.5</a>.
-Bit operation refers to the operation of binary bits directly on
-integers. Logical operations can be extended to bit operations. Taking
-logical AND as an example, we can perform this operation on each binary
-bit to achieve bitwise AND, such as
-$110_b\ {\rm AND}\ 011_b = 010_b$. Bit operations also support shift
-operations, which move numbers on a binary basis.</p>
-<div id="tab::bitwise_operator">
-<table class="colwidths-auto docutils align-default">
+of bit operators is shown in Table 1.5. Bit operation refers to the
+operation of binary bits directly on integers. Logical operations can be
+extended to bit operations. Taking logical AND as an example, we can
+perform this operation on each binary bit to achieve bitwise AND, such
+as <img class="math" src="../_images/math/e9a4f76718f9e3d3bf548b6789723e283370ab69.png" alt="110_b\\ {\\rm AND}\\ 011_b = 010_b"/>. Bit operations also
+support shift operations, which move numbers on a binary basis.</p>
+<div class="docutils container" id="tab-bitwise-operator">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 42%" />
+<col style="width: 33%" />
+</colgroup>
 <thead>
-<tr class="row-odd"><th class="text-center head"><p><strong>Operator</strong></p></th>
-<th class="text-left head"><p></p></th>
-<th class="text-center head"><p><strong>Example</strong></p></th>
+<tr class="row-odd"><th class="head"><p><strong>Operator</strong></p></th>
+<th class="head"></th>
+<th class="head"><p><strong>Example</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">~</span></code></p></td>
-<td class="text-left"><p>Bit flip</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">~expr</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">~</span></code></p></td>
+<td><p>Bit flip</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">~expr</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code></p></td>
-<td class="text-left"><p>Bitwise and</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">&amp;</span> <span class="pre">expr</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code></p></td>
+<td><p>Bitwise and</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">&amp;</span> <span class="pre">expr</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">|</span></code></p></td>
-<td class="text-left"><p>Bitwise or</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">|</span> <span class="pre">expr</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\|</span></code></p></td>
+<td><p>Bitwise or</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">\|</span> <span class="pre">expr</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
-<td class="text-left"><p>Bitwise exclusive or</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">^ expr</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+<td><p>Bitwise exclusive or</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">^ expr</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code></p></td>
-<td class="text-left"><p>Shift left</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">&lt;&lt;</span> <span class="pre">expr</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code></p></td>
+<td><p>Shift left</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">&lt;&lt;</span> <span class="pre">expr</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code></p></td>
-<td class="text-left"><p>Shift right</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">&gt;&gt;</span> <span class="pre">expr</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code></p></td>
+<td><p>Shift right</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">&gt;&gt;</span> <span class="pre">expr</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -514,35 +551,34 @@ operations, which move numbers on a binary basis.</p>
 <p>Although it can only be used for integers, bit operations are still
 versatile. Bit operations can implement many optimization techniques. In
 many algorithms, using bit operations can save a lot of code. For
-example, to determine whether a number <code class="docutils literal notranslate"><span class="pre">n</span></code> is a power of 2, we can judge
-whether the result of <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">&amp;</span> <span class="pre">(n</span> <span class="pre">-</span> <span class="pre">1)</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code>. In some languages with high
-execution efficiency, shift operations can also be used to optimize
-multiplication and division (usually there is no obvious effect in
-scripting languages).</p>
-<p>The bitwise AND operator “<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>” is a binary operator, which performs the
-binary AND operation of two integer operands: only when the binary bits
-corresponding to the operands are all <code class="docutils literal notranslate"><span class="pre">1</span></code>, the result It was <code class="docutils literal notranslate"><span class="pre">1</span></code>. For
-example, 1110<sub><em>b</em></sub> &amp; 0111<sub><em>b</em></sub> = 0110<sub><em>b</em></sub>.</p>
+example, to determine whether a number <code class="docutils literal notranslate"><span class="pre">n</span></code> is a power of 2, we can
+judge whether the result of <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">&amp;</span> <span class="pre">(n</span> <span class="pre">-</span> <span class="pre">1)</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code>. In some languages
+with high execution efficiency, shift operations can also be used to
+optimize multiplication and division (usually there is no obvious effect
+in scripting languages).</p>
+<p>The bitwise AND operator “<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>” is a binary operator, which performs
+the binary AND operation of two integer operands: only when the binary
+bits corresponding to the operands are all <code class="docutils literal notranslate"><span class="pre">1</span></code>, the result It was
+<code class="docutils literal notranslate"><span class="pre">1</span></code>. For example, 1110<em>b</em> &amp; 0111<em>b</em> = 0110<em>b</em>.</p>
 <p>The bitwise OR operator “<code class="docutils literal notranslate"><span class="pre">|</span></code>” is a binary operator, which performs a
 binary-bit OR operation on two integer operands: only when the binary
 bits corresponding to the operands are both <code class="docutils literal notranslate"><span class="pre">0</span></code>, the bit of the result
-It was <code class="docutils literal notranslate"><span class="pre">0</span></code>. For example,
-1000<sub><em>b</em></sub> | 0001<sub><em>b</em></sub> = 1001<sub><em>b</em></sub>.</p>
+It was <code class="docutils literal notranslate"><span class="pre">0</span></code>. For example, 1000<em>b</em> | 0001<em>b</em> = 1001<em>b</em>.</p>
 <p>The bitwise exclusive OR operator “<code class="docutils literal notranslate"><span class="pre">^</span></code>” is a binary operator, which
 performs binary exclusive OR operation on two integer operands: when the
 binary bits corresponding to the operands are different, the bit value
-of the result is <code class="docutils literal notranslate"><span class="pre">1</span></code>. For example, $1100_b\ \hat{}\ 0101_b = 1001_b$.</p>
+of the result is <code class="docutils literal notranslate"><span class="pre">1</span></code>. For example,
+<img class="math" src="../_images/math/97d0b619f8c03d7df2bde0272c24e34e973ea443.png" alt="1100_b\\ \\hat{}\\ 0101_b = 1001_b"/>.</p>
 <p>The left shift operator “<code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>” is a binary operator, which moves the
 left operand to the left by the number of bits specified by the right
 operand on a binary basis. For example
-00001010<sub><em>b</em></sub> ≪ 3 = 01010000<sub><em>b</em></sub>.The right shift
-operator “<code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>” is a binary operator, which shifts the left operand to
-the right by the number of bits specified by the right operand on a
-binary basis. For example,
-10100000<sub><em>b</em></sub> ≫ 3 = 00010100<sub><em>b</em></sub>.</p>
-<p>The bitwise flip operator “~” is a unary operator, and the result of
-the expression is to flip the value of each binary bit of the operand.
-For example, <code class="docutils literal notranslate"><span class="pre">∼</span></code>10100011<sub><em>b</em></sub> = 01011100<sub><em>b</em></sub>.</p>
+00001010<em>b</em> ≪ 3 = 01010000<em>b</em>.The right shift operator “<code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>”
+is a binary operator, which shifts the left operand to the right by the
+number of bits specified by the right operand on a binary basis. For
+example, 10100000<em>b</em> ≫ 3 = 00010100<em>b</em>.</p>
+<p>The bitwise flip operator “~” is a unary operator, and the result of the
+expression is to flip the value of each binary bit of the operand. For
+example, <code class="docutils literal notranslate"><span class="pre">∼</span></code>10100011<em>b</em> = 01011100<em>b</em>.</p>
 <p>The following are some examples of using bit operations. Usually we
 don’t use binary directly. The results in the examples have been
 converted into common bases.</p>
@@ -563,12 +599,12 @@ expression has no result, so continuous assignment operations cannot be
 used.</p>
 <section id="simple-assignment-operator">
 <h4>Simple assignment operator<a class="headerlink" href="#simple-assignment-operator" title="Permalink to this headline">¶</a></h4>
-<p>The simple assignment operator <code class="docutils literal notranslate"><span class="pre">=</span></code> can be used for variable assignment.
-If the left operand variable is not defined, the variable will be
-defined. The assignment operator is used to bind the value of the right
-operand with the left operand. This process is also called “assignment”.
-Therefore, the left operand cannot be a constant, nor can it be any
-object that cannot be written. These are some legal assignment
+<p>The simple assignment operator <code class="docutils literal notranslate"><span class="pre">=</span></code> can be used for variable
+assignment. If the left operand variable is not defined, the variable
+will be defined. The assignment operator is used to bind the value of
+the right operand with the left operand. This process is also called
+“assignment”. Therefore, the left operand cannot be a constant, nor can
+it be any object that cannot be written. These are some legal assignment
 expressions:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">45</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
 </pre></div>
@@ -578,58 +614,61 @@ expressions:</p>
 <span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c1"># Continuous assignment</span>
 </pre></div>
 </div>
-<p>When assigning <code class="docutils literal notranslate"><span class="pre">nil</span></code>, integer, real and Boolean types to variables, the
-value of the object will be passed to the left operand, but for other
-types, the assignment operation just passes the reference of the object
-to the left operand. Since strings, functions, and class types are
-read-only, all passing references will not have side effects, but you
-must be extra careful with instance types.</p>
+<p>When assigning <code class="docutils literal notranslate"><span class="pre">nil</span></code>, integer, real and Boolean types to variables,
+the value of the object will be passed to the left operand, but for
+other types, the assignment operation just passes the reference of the
+object to the left operand. Since strings, functions, and class types
+are read-only, all passing references will not have side effects, but
+you must be extra careful with instance types.</p>
 </section>
 <section id="compound-assignment-operator">
 <h4>Compound Assignment Operator<a class="headerlink" href="#compound-assignment-operator" title="Permalink to this headline">¶</a></h4>
 <p>Compound assignment operators are operators that combine binary
 operators and assignment operators. They are practical extensions to
 simple assignment operators. Compound assignment operators can simplify
-the writing of some expressions. Table
-<a href="#tab::compound_assign" data-reference-type="ref" data-reference="tab::compound_assign">1.6</a>
-lists all the compound assignment operators</p>
-<div id="tab::compound_assign">
-<table class="colwidths-auto docutils align-default">
+the writing of some expressions. Table 1.6 lists all the compound
+assignment operators</p>
+<div class="docutils container" id="tab-compound-assign">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 68%" />
+</colgroup>
 <thead>
-<tr class="row-odd"><th class="text-center head"><p><strong>Operator</strong></p></th>
-<th class="text-left head"><p><strong>Description</strong></p></th>
+<tr class="row-odd"><th class="head"><p><strong>Operator</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">+=</span></code></p></td>
-<td class="text-left"><p>Addition assignment</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+=</span></code></p></td>
+<td><p>Addition assignment</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">-=</span></code></p></td>
-<td class="text-left"><p>Subtraction assignment</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-=</span></code></p></td>
+<td><p>Subtraction assignment</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">*=</span></code></p></td>
-<td class="text-left"><p>Multiplication assignment</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">*=</span></code></p></td>
+<td><p>Multiplication assignment</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">/=</span></code></p></td>
-<td class="text-left"><p>Preliminary assignment</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/=</span></code></p></td>
+<td><p>Preliminary assignment</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">%=</span></code></p></td>
-<td class="text-left"><p>Remainder assignment</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%=</span></code></p></td>
+<td><p>Remainder assignment</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&amp;=</span></code></p></td>
-<td class="text-left"><p>Bitwise AND assignment</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&amp;=</span></code></p></td>
+<td><p>Bitwise AND assignment</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">|=</span></code></p></td>
-<td class="text-left"><p>Bitwise OR assignment</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\|=</span></code></p></td>
+<td><p>Bitwise OR assignment</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">^=</span></code></p></td>
-<td class="text-left"><p>Bitwise XOR assignment</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">^=</span></code></p></td>
+<td><p>Bitwise XOR assignment</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;=</span></code></p></td>
-<td class="text-left"><p>Left shift assignment</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;=</span></code></p></td>
+<td><p>Left shift assignment</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code></p></td>
-<td class="text-left"><p>Right shift assignment</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code></p></td>
+<td><p>Right shift assignment</p></td>
 </tr>
 </tbody>
 </table>
@@ -664,18 +703,18 @@ instances:</p>
 <span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">.</span><span class="nf">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">#&#39;item 0&#39;</span>
 </pre></div>
 </div>
-<p>The subscript operator <code class="docutils literal notranslate"><span class="pre">[]</span></code> is used to access the elements of an object,
-for example</p>
+<p>The subscript operator <code class="docutils literal notranslate"><span class="pre">[]</span></code> is used to access the elements of an
+object, for example</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="c1"># Read by index</span>
 <span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="c1"># Write by index</span>
 </pre></div>
 </div>
-<p>Classes that support subscript reading must implement the <code class="docutils literal notranslate"><span class="pre">item</span></code> method,
-and classes that support subscript writing must implement the <code class="docutils literal notranslate"><span class="pre">setitem</span></code>
-method. The map and list in the standard container implement these two
-methods, so they support reading and writing using the subscript
-operator. The string supports subscript reading, but does not support
-subscript writing (strings are read-only values):</p>
+<p>Classes that support subscript reading must implement the <code class="docutils literal notranslate"><span class="pre">item</span></code>
+method, and classes that support subscript writing must implement the
+<code class="docutils literal notranslate"><span class="pre">setitem</span></code> method. The map and list in the standard container implement
+these two methods, so they support reading and writing using the
+subscript operator. The string supports subscript reading, but does not
+support subscript writing (strings are read-only values):</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;string&#39;</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="c1">#&#39;r&#39;</span>
 <span class="s1">&#39;string&#39;</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="w"> </span><span class="c1"># error: value&#39;string&#39; does not support index assignment</span>
 </pre></div>
@@ -687,40 +726,40 @@ subscripts cannot exceed the length of the string.</p>
 <h3>Conditional Operator<a class="headerlink" href="#conditional-operator" title="Permalink to this headline">¶</a></h3>
 <p>The conditional operator (<code class="docutils literal notranslate"><span class="pre">?</span> <span class="pre">:</span></code>) is similar to the <strong>if else</strong>
 statement, but the former can be used in expressions. The usage form of
-the conditional operator is:
-$$\begin{gathered}
-cond\ \bm{?}\ expr1\ \bm{:}\ expr2\end{gathered}$$</p>
-<p><em><strong>cond</strong></em> is the expression used to judge the condition. The
-evaluation process of the conditional operator is: first find the value
-of <em><strong>cond</strong></em>, if the condition is true, evaluate
-<em><strong>expr1</strong></em> and return the value, otherwise, the value of
-<em><strong>expr2</strong></em> ] Evaluate and return the value.
-<em><strong>expr1</strong></em> and <em><strong>expr2</strong></em> can have
-different types, so the following is correct:</p>
+the conditional operator is:</p>
+<div class="math">
+<p><img src="../_images/math/16b9d1661db01f2bcb5a54daafb41fbb67818b2e.png" alt="\\begin{gathered}
+    cond\\ \\bm{?}\\ expr1\\ \\bm{:}\\ expr2\\end{gathered}"/></p>
+</div><p><strong>cond</strong> is the expression used to judge the condition. The evaluation
+process of the conditional operator is: first find the value of
+<strong>cond</strong>, if the condition is true, evaluate <strong>expr1</strong> and return the
+value, otherwise, the value of <strong>expr2</strong> ] Evaluate and return the
+value. <strong>expr1</strong> and <strong>expr2</strong> can have different types, so the
+following is correct:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scope</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">6</span><span class="o">?</span><span class="s1">&#39;bad&#39;</span><span class="o">:</span><span class="w"> </span><span class="n">scope</span><span class="w"></span>
 </pre></div>
 </div>
-<p>This expression first determines whether <code class="docutils literal notranslate"><span class="pre">scope</span></code> is less than <code class="docutils literal notranslate"><span class="pre">6</span></code>, if it
-is, it returns <code class="docutils literal notranslate"><span class="pre">bad</span></code>, otherwise it returns the value of <code class="docutils literal notranslate"><span class="pre">scope</span></code>.
-Regardless of the condition of the conditional expression, only one of
-<em><strong>expr1</strong></em> or <em><strong>expr2</strong></em> will be executed,
-similar to the short-circuit characteristic of logical AND and logical
-OR operations.</p>
+<p>This expression first determines whether <code class="docutils literal notranslate"><span class="pre">scope</span></code> is less than <code class="docutils literal notranslate"><span class="pre">6</span></code>,
+if it is, it returns <code class="docutils literal notranslate"><span class="pre">bad</span></code>, otherwise it returns the value of
+<code class="docutils literal notranslate"><span class="pre">scope</span></code>. Regardless of the condition of the conditional expression,
+only one of <strong>expr1</strong> or <strong>expr2</strong> will be executed, similar to the
+short-circuit characteristic of logical AND and logical OR operations.</p>
 <section id="nested-condition-operators">
 <h4>Nested Condition Operators<a class="headerlink" href="#nested-condition-operators" title="Permalink to this headline">¶</a></h4>
 <p>One conditional operator can be nested in another conditional operator,
-that is, the conditional expression can be used as <em><strong>cond</strong></em>
-or <em><strong>expr</strong></em> of another conditional expression. For example,
-use conditional expressions to divide scores into three levels:
-excellent, good, and bad:</p>
+that is, the conditional expression can be used as <strong>cond</strong> or <strong>expr</strong>
+of another conditional expression. For example, use conditional
+expressions to divide scores into three levels: excellent, good, and
+bad:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scope</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">9</span><span class="o">?</span><span class="s1">&#39;excellent&#39;</span><span class="o">:</span><span class="w"> </span><span class="n">scope</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">6</span><span class="o">?</span><span class="s1">&#39;good&#39;</span><span class="o">:</span><span class="s1">&#39;bad&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The first condition checks whether the score is not lower than <code class="docutils literal notranslate"><span class="pre">9</span></code>
-points. If it is, execute the branch after <code class="docutils literal notranslate"><span class="pre">?</span></code> and return <code class="docutils literal notranslate"><span class="pre">’excellent’</span></code>;
-otherwise, execute the branch after <code class="docutils literal notranslate"><span class="pre">:</span></code>, which is also a conditional
-expression. The condition checks whether the score is not lower than
-<code class="docutils literal notranslate"><span class="pre">6</span></code>, if it is, it returns <code class="docutils literal notranslate"><span class="pre">’good’</span></code>, otherwise it returns <code class="docutils literal notranslate"><span class="pre">’bad’</span></code>.</p>
+points. If it is, execute the branch after <code class="docutils literal notranslate"><span class="pre">?</span></code> and return
+<code class="docutils literal notranslate"><span class="pre">’excellent’</span></code>; otherwise, execute the branch after <code class="docutils literal notranslate"><span class="pre">:</span></code>, which is
+also a conditional expression. The condition checks whether the score is
+not lower than <code class="docutils literal notranslate"><span class="pre">6</span></code>, if it is, it returns <code class="docutils literal notranslate"><span class="pre">’good’</span></code>, otherwise it
+returns <code class="docutils literal notranslate"><span class="pre">’bad’</span></code>.</p>
 <p>The conditional operator satisfies the right associativity, so the value
 of the branch expression must be evaluated first to get the value of the
 conditional expression. Therefore, in a nested conditional expression,
@@ -746,8 +785,8 @@ multiplication.</p>
 </section>
 <section id="concatenation-operator">
 <h3>Concatenation Operator<a class="headerlink" href="#concatenation-operator" title="Permalink to this headline">¶</a></h3>
-<section id="id1">
-<h4><code class="docutils literal notranslate"><span class="pre">+</span></code> operator<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<section id="operator-1">
+<span id="id1"></span><h4><code class="docutils literal notranslate"><span class="pre">+</span></code> operator<a class="headerlink" href="#operator-1" title="Permalink to this headline">¶</a></h4>
 <p>When the left and right operands are both strings, the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator is
 used to connect the two strings, and the new string obtained is the
 value of the expression. Therefore, this operator is often used for
@@ -759,13 +798,13 @@ string concatenation:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="c1"># the result is [1, 2, 3, 4]</span>
 </pre></div>
 </div>
-<p>Unlike the <code class="docutils literal notranslate"><span class="pre">list.push</span></code> method, the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator merges two lists into a
-larger list object, with the elements of the left operand at the head of
-the result list, and the elements of the right operand at the end of the
-result list.</p>
+<p>Unlike the <code class="docutils literal notranslate"><span class="pre">list.push</span></code> method, the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator merges two lists
+into a larger list object, with the elements of the left operand at the
+head of the result list, and the elements of the right operand at the
+end of the result list.</p>
 </section>
-<section id="id2">
-<h4><code class="docutils literal notranslate"><span class="pre">..</span></code> operator<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<section id="operator-2">
+<span id="id2"></span><h4><code class="docutils literal notranslate"><span class="pre">..</span></code> operator<a class="headerlink" href="#operator-2" title="Permalink to this headline">¶</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">..</span></code> is a special operator. If the left operand is a string, the
 behavior of the expression is to concatenate the left and right operands
 into a new string (automatic conversion if the right operand is not a
@@ -781,14 +820,14 @@ use this list as the value of the expression:</p>
 </pre></div>
 </div>
 <p>This process will directly modify the left operand, which is very
-similar to the <code class="docutils literal notranslate"><span class="pre">push</span></code> method of <code class="docutils literal notranslate"><span class="pre">list</span></code> (except for strings which are immutable objects).
-The join operation of list can be executed in chain:</p>
+similar to the <code class="docutils literal notranslate"><span class="pre">push</span></code> method of <code class="docutils literal notranslate"><span class="pre">list</span></code> (except for strings which are
+immutable objects). The join operation of list can be executed in chain:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="c1"># the result is [1, 2, 3, 4]</span>
 </pre></div>
 </div>
 <p>All values in this process will be appended to the leftmost list object.</p>
-<p>If the left and right operands are both integers, use the <code class="docutils literal notranslate"><span class="pre">..</span></code> operator
-to get an integer range object:</p>
+<p>If the left and right operands are both integers, use the <code class="docutils literal notranslate"><span class="pre">..</span></code>
+operator to get an integer range object:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="c1"># the result is (1..10)</span>
 </pre></div>
 </div>

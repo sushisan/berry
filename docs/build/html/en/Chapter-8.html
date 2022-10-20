@@ -82,7 +82,7 @@
           <li><a href="Reference.html">The Berry Script Language Reference Manual</a> &raquo;</li>
       <li>8. Advanced features</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/en/Chapter-8.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/en/Chapter-8.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -94,11 +94,18 @@
 <h1>8. Advanced features<a class="headerlink" href="#advanced-features" title="Permalink to this headline">¶</a></h1>
 <section id="strict-mode">
 <h2>8.1 <code class="docutils literal notranslate"><span class="pre">strict</span></code> mode<a class="headerlink" href="#strict-mode" title="Permalink to this headline">¶</a></h2>
-<p>Berry allows full freedom from the developer. But after some experience in coding with Berry, you will find that there are common mistakes that are hard to find and that the compiler could help you catch. The <code class="docutils literal notranslate"><span class="pre">strict</span></code> mode does additional checks <strong>at compile time</strong> about some common mistakes.</p>
-<p>This mode is enabled with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">strict</span></code> or when running Berry with <code class="docutils literal notranslate"><span class="pre">-s</span></code> option: <code class="docutils literal notranslate"><span class="pre">berry</span> <span class="pre">-s</span></code></p>
+<p>Berry allows full freedom from the developer. But after some experience
+in coding with Berry, you will find that there are common mistakes that
+are hard to find and that the compiler could help you catch. The
+<code class="docutils literal notranslate"><span class="pre">strict</span></code> mode does additional checks <strong>at compile time</strong> about some
+common mistakes.</p>
+<p>This mode is enabled with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">strict</span></code> or when running Berry with
+<code class="docutils literal notranslate"><span class="pre">-s</span></code> option: <code class="docutils literal notranslate"><span class="pre">berry</span> <span class="pre">-s</span></code></p>
 <section id="mandatory-var-for-local-variables">
 <h3>Mandatory <code class="docutils literal notranslate"><span class="pre">var</span></code> for local variables<a class="headerlink" href="#mandatory-var-for-local-variables" title="Permalink to this headline">¶</a></h3>
-<p>This is the most common mistake, a variable assigned without <code class="docutils literal notranslate"><span class="pre">var</span></code> is either global if a global already exists or local otherwise. Strict mode rejects the assignment if there is no global with the same name.</p>
+<p>This is the most common mistake, a variable assigned without <code class="docutils literal notranslate"><span class="pre">var</span></code> is
+either global if a global already exists or local otherwise. Strict mode
+rejects the assignment if there is no global with the same name.</p>
 <p>No more allowed:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>def f()
   i = 0    # this is a local variable
@@ -117,7 +124,8 @@ syntax_error: stdin:2: strict: no global &#39;i&#39;, did you mean &#39;var i&#3
 </section>
 <section id="no-overriding-of-builtins">
 <h3>No overriding of builtins<a class="headerlink" href="#no-overriding-of-builtins" title="Permalink to this headline">¶</a></h3>
-<p>Berry allows to override a builtin. This is however generally not desirable and a source of hard to find bugs.</p>
+<p>Berry allows to override a builtin. This is however generally not
+desirable and a source of hard to find bugs.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">map</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">syntax_error</span><span class="p">:</span> <span class="n">stdin</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span> <span class="n">strict</span><span class="p">:</span> <span class="n">redefinition</span> <span class="n">of</span> <span class="n">builtin</span> <span class="s1">&#39;map&#39;</span>
 </pre></div>
@@ -125,7 +133,8 @@ syntax_error: stdin:2: strict: no global &#39;i&#39;, did you mean &#39;var i&#3
 </section>
 <section id="multiple-var-with-same-name-not-allowed-in-same-scope">
 <h3>Multiple <code class="docutils literal notranslate"><span class="pre">var</span></code> with same name not allowed in same scope<a class="headerlink" href="#multiple-var-with-same-name-not-allowed-in-same-scope" title="Permalink to this headline">¶</a></h3>
-<p>Berry tolerated multiple declaration of a local variable with the same name. This is now considered as an error (even without strict mode).</p>
+<p>Berry tolerated multiple declaration of a local variable with the same
+name. This is now considered as an error (even without strict mode).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">()</span>
   <span class="n">var</span> <span class="n">a</span>
   <span class="n">var</span> <span class="n">a</span>   <span class="c1"># redefinition of a</span>
@@ -136,8 +145,12 @@ syntax_error: stdin:2: strict: no global &#39;i&#39;, did you mean &#39;var i&#3
 </section>
 <section id="no-hiding-of-local-variable-from-outer-scope">
 <h3>No hiding of local variable from outer scope<a class="headerlink" href="#no-hiding-of-local-variable-from-outer-scope" title="Permalink to this headline">¶</a></h3>
-<p>In Berry you can declare local variables with the same name in inner scope. The variable in the inner scope hides the variable from outer scope for the duration of the scope.</p>
-<p>The only exception is that variables starting with dot ‘.’ can mask from outer scope. This is the case with hidden local variable <code class="docutils literal notranslate"><span class="pre">.it</span></code> when multiple <code class="docutils literal notranslate"><span class="pre">for</span></code> are embedded.</p>
+<p>In Berry you can declare local variables with the same name in inner
+scope. The variable in the inner scope hides the variable from outer
+scope for the duration of the scope.</p>
+<p>The only exception is that variables starting with dot ‘.’ can mask from
+outer scope. This is the case with hidden local variable <code class="docutils literal notranslate"><span class="pre">.it</span></code> when
+multiple <code class="docutils literal notranslate"><span class="pre">for</span></code> are embedded.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">()</span>
   <span class="n">var</span> <span class="n">a</span>    <span class="c1"># variable in outer scope</span>
   <span class="k">if</span> <span class="n">a</span>
@@ -151,34 +164,55 @@ syntax_error: stdin:2: strict: no global &#39;i&#39;, did you mean &#39;var i&#3
 </section>
 <section id="virtual-members">
 <h2>8.2 Virtual members<a class="headerlink" href="#virtual-members" title="Permalink to this headline">¶</a></h2>
-<p>Virtual members allows you to dynamically and programmatically add members and methods to classes and modules. You are no more limited to the members declared at creation time.</p>
-<p>This feature is inspired from Python’s <code class="docutils literal notranslate"><span class="pre">__getattr__()</span></code> / <code class="docutils literal notranslate"><span class="pre">__setattr__()</span></code>.
-The motivation comes from LVGL integration to Berry in Tasmota. The integration needs hundreds of constants in a module and thousands of methods mapped to C functions. Statically creation of attributes and methods does work but consumes a significant amount of code space.</p>
+<p>Virtual members allows you to dynamically and programmatically add
+members and methods to classes and modules. You are no more limited to
+the members declared at creation time.</p>
+<p>This feature is inspired from Python’s <code class="docutils literal notranslate"><span class="pre">__getattr__()</span></code> /
+<code class="docutils literal notranslate"><span class="pre">__setattr__()</span></code>. The motivation comes from LVGL integration to Berry
+in Tasmota. The integration needs hundreds of constants in a module and
+thousands of methods mapped to C functions. Statically creation of
+attributes and methods does work but consumes a significant amount of
+code space.</p>
 <p>This features allows to create two methods:</p>
-<table class="colwidths-auto docutils align-default">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>Berry method</p></th>
-<th class="text-left head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>Berry method</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">member</span></code></p></td>
-<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">(name:string)</span> <span class="pre">-&gt;</span> <span class="pre">any</span></code><br>Should return the value of the specified <code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">member</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(name:string)</span> <span class="pre">-&gt;</span> <span class="pre">any</span></code>Should
+return the value of the specified
+<code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">setmember</span></code></p></td>
-<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">(name:string,</span> <span class="pre">value:any)</span> <span class="pre">-&gt;</span> <span class="pre">nil</span></code><br>Should store the <code class="docutils literal notranslate"><span class="pre">value</span></code> to the virtual member with the specified <code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setmember</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(name:st</span>
+<span class="pre">ring,</span> <span class="pre">value:any)</span> <span class="pre">-&gt;</span> <span class="pre">nil</span></code>Should
+store the <code class="docutils literal notranslate"><span class="pre">value</span></code> to the
+virtual member with the specified
+<code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
 </tr>
 </tbody>
 </table>
 <section id="module-undefined">
 <h3>module <code class="docutils literal notranslate"><span class="pre">undefined</span></code><a class="headerlink" href="#module-undefined" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">member()</span></code> function must be able to distinguish between a member with
-a <code class="docutils literal notranslate"><span class="pre">nil</span></code> value and the member not existing. To avoid any ambiguity, the <code class="docutils literal notranslate"><span class="pre">member()</span></code> function can indicate that the member does not exist in two ways:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">member()</span></code> function must be able to distinguish between a member
+with a <code class="docutils literal notranslate"><span class="pre">nil</span></code> value and the member not existing. To avoid any
+ambiguity, the <code class="docutils literal notranslate"><span class="pre">member()</span></code> function can indicate that the member does
+not exist in two ways:</p>
 <ul class="simple">
 <li><p>either raise an exception</p></li>
-<li><p>or <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">undefined</span></code> and return the <code class="docutils literal notranslate"><span class="pre">undefined</span></code> module. This is used as a marker for the VM to know that the attribute does not exist, while benefitting from consistent exceptions</p></li>
+<li><p>or <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">undefined</span></code> and return the <code class="docutils literal notranslate"><span class="pre">undefined</span></code> module. This is
+used as a marker for the VM to know that the attribute does not
+exist, while benefitting from consistent exceptions</p></li>
 </ul>
-<p>Example of a dynamic object to which you can add members, but would return an error if the member was not previously added.</p>
+<p>Example of a dynamic object to which you can add members, but would
+return an error if the member was not previously added.</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">dyn</span><span class="w"></span>
 <span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">_attr</span><span class="w"></span>
 <span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"></span>
@@ -203,7 +237,7 @@ a <code class="docutils literal notranslate"><span class="pre">nil</span></code>
 &gt; a.a
 attribute_error: the &#39;dyn&#39; object has no attribute &#39;a&#39;
 stack traceback:
-	stdin:1: in function `main`
+    stdin:1: in function `main`
 &gt; a.a = 1
 &gt; a.a
 1
@@ -215,51 +249,83 @@ stack traceback:
 </section>
 <section id="implicit-call-of-member">
 <h3>implicit call of <code class="docutils literal notranslate"><span class="pre">member()</span></code><a class="headerlink" href="#implicit-call-of-member" title="Permalink to this headline">¶</a></h3>
-<p>When the following code <code class="docutils literal notranslate"><span class="pre">a.b</span></code> is executed, the Berry VM does the following:</p>
+<p>When the following code <code class="docutils literal notranslate"><span class="pre">a.b</span></code> is executed, the Berry VM does the
+following:</p>
 <ul class="simple">
-<li><p>Get the object named <code class="docutils literal notranslate"><span class="pre">a</span></code> (local or global), raise an exception if it doesn’t exist</p></li>
-<li><p>Check if the object <code class="docutils literal notranslate"><span class="pre">a</span></code> is of type <code class="docutils literal notranslate"><span class="pre">module</span></code>, <code class="docutils literal notranslate"><span class="pre">instance</span></code> or <code class="docutils literal notranslate"><span class="pre">class</span></code>. Raise an exception otherwise</p></li>
-<li><p>Check if object <code class="docutils literal notranslate"><span class="pre">a</span></code> has a member called <code class="docutils literal notranslate"><span class="pre">b</span></code>. If yes, return its value, if no proceed below</p></li>
-<li><p>If object <code class="docutils literal notranslate"><span class="pre">a</span></code> is of type <code class="docutils literal notranslate"><span class="pre">class</span></code>, raise an exception because virtual members do not work for static (class) methods</p></li>
-<li><p>Check if object <code class="docutils literal notranslate"><span class="pre">a</span></code> has a member called <code class="docutils literal notranslate"><span class="pre">member</span></code> and it is a <code class="docutils literal notranslate"><span class="pre">function</span></code>. If yes call it with parameter <code class="docutils literal notranslate"><span class="pre">&quot;b&quot;</span></code> as string. If no, raise an exception</p></li>
-<li><p>Check the return value. If it is the module <code class="docutils literal notranslate"><span class="pre">undefined</span></code> raise an exception indicating that the member does not exist</p></li>
+<li><p>Get the object named <code class="docutils literal notranslate"><span class="pre">a</span></code> (local or global), raise an exception if
+it doesn’t exist</p></li>
+<li><p>Check if the object <code class="docutils literal notranslate"><span class="pre">a</span></code> is of type <code class="docutils literal notranslate"><span class="pre">module</span></code>, <code class="docutils literal notranslate"><span class="pre">instance</span></code> or
+<code class="docutils literal notranslate"><span class="pre">class</span></code>. Raise an exception otherwise</p></li>
+<li><p>Check if object <code class="docutils literal notranslate"><span class="pre">a</span></code> has a member called <code class="docutils literal notranslate"><span class="pre">b</span></code>. If yes, return its
+value, if no proceed below</p></li>
+<li><p>If object <code class="docutils literal notranslate"><span class="pre">a</span></code> is of type <code class="docutils literal notranslate"><span class="pre">class</span></code>, raise an exception because
+virtual members do not work for static (class) methods</p></li>
+<li><p>Check if object <code class="docutils literal notranslate"><span class="pre">a</span></code> has a member called <code class="docutils literal notranslate"><span class="pre">member</span></code> and it is a
+<code class="docutils literal notranslate"><span class="pre">function</span></code>. If yes call it with parameter <code class="docutils literal notranslate"><span class="pre">&quot;b&quot;</span></code> as string. If no,
+raise an exception</p></li>
+<li><p>Check the return value. If it is the module <code class="docutils literal notranslate"><span class="pre">undefined</span></code> raise an
+exception indicating that the member does not exist</p></li>
 </ul>
 </section>
 <section id="implicit-call-of-setmember">
 <h3>implicit call of <code class="docutils literal notranslate"><span class="pre">setmember()</span></code><a class="headerlink" href="#implicit-call-of-setmember" title="Permalink to this headline">¶</a></h3>
-<p>When the following code <code class="docutils literal notranslate"><span class="pre">a.b</span> <span class="pre">=</span> <span class="pre">0</span></code> (mutator) is executed, the Berry VM does the following:</p>
+<p>When the following code <code class="docutils literal notranslate"><span class="pre">a.b</span> <span class="pre">=</span> <span class="pre">0</span></code> (mutator) is executed, the Berry VM
+does the following:</p>
 <ul class="simple">
-<li><p>Get the object named <code class="docutils literal notranslate"><span class="pre">a</span></code> (local or global), raise an exception if it doesn’t exist</p></li>
-<li><p>Check if the object <code class="docutils literal notranslate"><span class="pre">a</span></code> is of type <code class="docutils literal notranslate"><span class="pre">module</span></code>, <code class="docutils literal notranslate"><span class="pre">instance</span></code> or <code class="docutils literal notranslate"><span class="pre">class</span></code>. Raise an exception otherwise</p>
+<li><p>Get the object named <code class="docutils literal notranslate"><span class="pre">a</span></code> (local or global), raise an exception if
+it doesn’t exist</p></li>
+<li><p>Check if the object <code class="docutils literal notranslate"><span class="pre">a</span></code> is of type <code class="docutils literal notranslate"><span class="pre">module</span></code>, <code class="docutils literal notranslate"><span class="pre">instance</span></code> or
+<code class="docutils literal notranslate"><span class="pre">class</span></code>. Raise an exception otherwise</p>
 <ul>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is of type <code class="docutils literal notranslate"><span class="pre">class</span></code>, check if member <code class="docutils literal notranslate"><span class="pre">b</span></code> exists. If yes, change its value. If no, raise an exception. (virtual members don’t work for classes or static methods)</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is of type <code class="docutils literal notranslate"><span class="pre">instance</span></code>, check if member <code class="docutils literal notranslate"><span class="pre">b</span></code> exists. If yes, change its value. If no, proceed below</p>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is of type <code class="docutils literal notranslate"><span class="pre">class</span></code>, check if member <code class="docutils literal notranslate"><span class="pre">b</span></code> exists. If
+yes, change its value. If no, raise an exception. (virtual members
+don’t work for classes or static methods)</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is of type <code class="docutils literal notranslate"><span class="pre">instance</span></code>, check if member <code class="docutils literal notranslate"><span class="pre">b</span></code> exists. If
+yes, change its value. If no, proceed below</p>
 <ul>
-<li><p>Check if <code class="docutils literal notranslate"><span class="pre">a</span></code> has a member called <code class="docutils literal notranslate"><span class="pre">setmember</span></code>. If yes call it, if no raise an exception</p></li>
+<li><p>Check if <code class="docutils literal notranslate"><span class="pre">a</span></code> has a member called <code class="docutils literal notranslate"><span class="pre">setmember</span></code>. If yes call
+it, if no raise an exception</p></li>
 </ul>
 </li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is of type <code class="docutils literal notranslate"><span class="pre">module</span></code>. If the module is not read-only, create of change the value (<code class="docutils literal notranslate"><span class="pre">setmember</span></code> is never called for a writable module). If the module is read-only, then <code class="docutils literal notranslate"><span class="pre">setmember</span></code> is called if it exists.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is of type <code class="docutils literal notranslate"><span class="pre">module</span></code>. If the module is not read-only,
+create of change the value (<code class="docutils literal notranslate"><span class="pre">setmember</span></code> is never called for a
+writable module). If the module is read-only, then <code class="docutils literal notranslate"><span class="pre">setmember</span></code>
+is called if it exists.</p></li>
 </ul>
 </li>
 </ul>
 </section>
 <section id="exception-handling">
 <h3>Exception handling<a class="headerlink" href="#exception-handling" title="Permalink to this headline">¶</a></h3>
-<p>To indicate that a member does not exist, <code class="docutils literal notranslate"><span class="pre">member()</span></code> shall return <code class="docutils literal notranslate"><span class="pre">undefined</span></code> after <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">undefined</span></code>.</p>
-<p>You can also raise an exception in <code class="docutils literal notranslate"><span class="pre">member()</span></code> but be aware that Berry might try to call methods like <code class="docutils literal notranslate"><span class="pre">tostring()</span></code> that will land on your <code class="docutils literal notranslate"><span class="pre">member()</span></code> method if they don’t exist as static methods.</p>
-<p>To indicate that a member is invalid, <code class="docutils literal notranslate"><span class="pre">setmember()</span></code> should raise an exception or return <code class="docutils literal notranslate"><span class="pre">undefined</span></code>. Returning anything else like <code class="docutils literal notranslate"><span class="pre">nil</span></code> inficates that the assignment was succesful.</p>
-<p>Be aware that you may receive member names that are not valid Berry identifiers. The syntax <code class="docutils literal notranslate"><span class="pre">a.(&quot;&lt;-&gt;&quot;)</span></code> will call <code class="docutils literal notranslate"><span class="pre">a.member(&quot;&lt;-&gt;&quot;)</span></code> with a virtual member name that is not lexically valid, i.e. cannot be called in regular code, except by using indirect ways like <code class="docutils literal notranslate"><span class="pre">introspect</span></code> or <code class="docutils literal notranslate"><span class="pre">member()</span></code>.</p>
+<p>To indicate that a member does not exist, <code class="docutils literal notranslate"><span class="pre">member()</span></code> shall return
+<code class="docutils literal notranslate"><span class="pre">undefined</span></code> after <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">undefined</span></code>.</p>
+<p>You can also raise an exception in <code class="docutils literal notranslate"><span class="pre">member()</span></code> but be aware that Berry
+might try to call methods like <code class="docutils literal notranslate"><span class="pre">tostring()</span></code> that will land on your
+<code class="docutils literal notranslate"><span class="pre">member()</span></code> method if they don’t exist as static methods.</p>
+<p>To indicate that a member is invalid, <code class="docutils literal notranslate"><span class="pre">setmember()</span></code> should raise an
+exception or return <code class="docutils literal notranslate"><span class="pre">undefined</span></code>. Returning anything else like <code class="docutils literal notranslate"><span class="pre">nil</span></code>
+inficates that the assignment was succesful.</p>
+<p>Be aware that you may receive member names that are not valid Berry
+identifiers. The syntax <code class="docutils literal notranslate"><span class="pre">a.(&quot;&lt;-&gt;&quot;)</span></code> will call <code class="docutils literal notranslate"><span class="pre">a.member(&quot;&lt;-&gt;&quot;)</span></code> with
+a virtual member name that is not lexically valid, i.e. cannot be called
+in regular code, except by using indirect ways like <code class="docutils literal notranslate"><span class="pre">introspect</span></code> or
+<code class="docutils literal notranslate"><span class="pre">member()</span></code>.</p>
 </section>
 <section id="specificities-for-classes">
 <h3>Specificities for classes<a class="headerlink" href="#specificities-for-classes" title="Permalink to this headline">¶</a></h3>
-<p>Access to members of class object do not trigger virtual members. Hence it is not possible to have virtual static methods.</p>
+<p>Access to members of class object do not trigger virtual members. Hence
+it is not possible to have virtual static methods.</p>
 </section>
 <section id="specificities-for-modules">
 <h3>Specificities for modules<a class="headerlink" href="#specificities-for-modules" title="Permalink to this headline">¶</a></h3>
 <p>Modules do support reading static members with <code class="docutils literal notranslate"><span class="pre">member()</span></code>.</p>
-<p>When writing to a member, the behavior depends whether the module is writable (in memory) or read-only (in firmware).</p>
-<p>If the module is writable, the new members are added directly to the module and <code class="docutils literal notranslate"><span class="pre">setmember()</span></code> is never called.</p>
-<p>If the module is read-only, then <code class="docutils literal notranslate"><span class="pre">setmember()</span></code> is called whenever you try to change or create a member. It is then your responsibility to store the values in a separate object like a global.</p>
+<p>When writing to a member, the behavior depends whether the module is
+writable (in memory) or read-only (in firmware).</p>
+<p>If the module is writable, the new members are added directly to the
+module and <code class="docutils literal notranslate"><span class="pre">setmember()</span></code> is never called.</p>
+<p>If the module is read-only, then <code class="docutils literal notranslate"><span class="pre">setmember()</span></code> is called whenever you
+try to change or create a member. It is then your responsibility to
+store the values in a separate object like a global.</p>
 </section>
 <section id="example">
 <h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
@@ -316,7 +382,7 @@ stack traceback:
 <p>More advanced example:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span>&gt; class A
     var i
-  
+
     def member(n)
       if n == &#39;ii&#39; return self.i end
       return nil     # we make it explicit here, but this line is optional
@@ -332,7 +398,7 @@ stack traceback:
 &gt; a.ii     # implicitly calls `a.member(&quot;ii&quot;)`
 attribute_error: the &#39;A&#39; object has no attribute &#39;ii&#39;
 stack traceback:
-	stdin:1: in function `main`
+    stdin:1: in function `main`
 # returns an exception since the member is nil (considered is non-existant)
 
 &gt; a.ii = 42    # implicitly calls `a.setmember(&quot;ii&quot;, 42)`
@@ -346,23 +412,42 @@ stack traceback:
 </section>
 <section id="how-to-package-a-module">
 <h2>8.3 How-to package a module<a class="headerlink" href="#how-to-package-a-module" title="Permalink to this headline">¶</a></h2>
-<p>This guide drives you through the different options of packaging code for reuse using Berry’s <code class="docutils literal notranslate"><span class="pre">import</span></code> directive.</p>
+<p>This guide drives you through the different options of packaging code
+for reuse using Berry’s <code class="docutils literal notranslate"><span class="pre">import</span></code> directive.</p>
 <section id="behavior-of-import">
 <h3>Behavior of <code class="docutils literal notranslate"><span class="pre">import</span></code><a class="headerlink" href="#behavior-of-import" title="Permalink to this headline">¶</a></h3>
-<p>When you use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">&lt;module&gt;</span> <span class="pre">[as</span> <span class="pre">&lt;name&gt;]</span></code>, the following steps happen:</p>
+<p>When you use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">&lt;module&gt;</span> <span class="pre">[as</span> <span class="pre">&lt;name&gt;]</span></code>, the following steps
+happen:</p>
 <ul class="simple">
-<li><p>There is a global cache of all modules already imported. If <code class="docutils literal notranslate"><span class="pre">&lt;module&gt;</span></code> was already imported, <code class="docutils literal notranslate"><span class="pre">import</span></code> returns the value in cache already returned by the first call to <code class="docutils literal notranslate"><span class="pre">import</span></code>. No other actions are taken.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">import</span></code> searches for a module of name <code class="docutils literal notranslate"><span class="pre">&lt;module&gt;</span></code> in the following order:</p></li>
+<li><p>There is a global cache of all modules already imported. If
+<code class="docutils literal notranslate"><span class="pre">&lt;module&gt;</span></code> was already imported, <code class="docutils literal notranslate"><span class="pre">import</span></code> returns the value in
+cache already returned by the first call to <code class="docutils literal notranslate"><span class="pre">import</span></code>. No other
+actions are taken.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">import</span></code> searches for a module of name <code class="docutils literal notranslate"><span class="pre">&lt;module&gt;</span></code> in the
+following order:</p></li>
 </ul>
 <ol class="arabic simple">
 <li><p>in native modules embedded in the firmware at compile time</p></li>
-<li><p>in file system, starting with current directory, then iterating in all directories from <code class="docutils literal notranslate"><span class="pre">sys.path</span></code>: look for file <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;</span></code>, then <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;.bec</span></code> (compiled bytecode), then <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;.be</span></code>. If <code class="docutils literal notranslate"><span class="pre">BE_USE_SHARED_LIB</span></code> is enabled, it also looks for shared libraries like <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;.so</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;.dll</span></code> although this optional is generally not available on MCUs.</p></li>
+<li><p>in file system, starting with current directory, then iterating in
+all directories from <code class="docutils literal notranslate"><span class="pre">sys.path</span></code>: look for file <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;</span></code>, then
+<code class="docutils literal notranslate"><span class="pre">&lt;name&gt;.bec</span></code> (compiled bytecode), then <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;.be</span></code>. If
+<code class="docutils literal notranslate"><span class="pre">BE_USE_SHARED_LIB</span></code> is enabled, it also looks for shared libraries
+like <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;.so</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;.dll</span></code> although this optional is
+generally not available on MCUs.</p></li>
 </ol>
 <ul class="simple">
-<li><p>The code loaded is executed. The code should finish with a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement. The object returned is stored in the global cache and made available to caller (in local or global scope).</p></li>
-<li><p>If the returned object is a <code class="docutils literal notranslate"><span class="pre">module</span></code> and if the module as a <code class="docutils literal notranslate"><span class="pre">init</span></code> member, then an extra step is taken. The function <code class="docutils literal notranslate"><span class="pre">&lt;module&gt;.init(m)</span></code> is called passing as argument the module object itself. The value returned by <code class="docutils literal notranslate"><span class="pre">init()</span></code> replaces the value in the global cache. Note that the <code class="docutils literal notranslate"><span class="pre">init()</span></code> is called at most once during the first <code class="docutils literal notranslate"><span class="pre">import</span></code>.</p></li>
+<li><p>The code loaded is executed. The code should finish with a <code class="docutils literal notranslate"><span class="pre">return</span></code>
+statement. The object returned is stored in the global cache and made
+available to caller (in local or global scope).</p></li>
+<li><p>If the returned object is a <code class="docutils literal notranslate"><span class="pre">module</span></code> and if the module as a
+<code class="docutils literal notranslate"><span class="pre">init</span></code> member, then an extra step is taken. The function
+<code class="docutils literal notranslate"><span class="pre">&lt;module&gt;.init(m)</span></code> is called passing as argument the module object
+itself. The value returned by <code class="docutils literal notranslate"><span class="pre">init()</span></code> replaces the value in the
+global cache. Note that the <code class="docutils literal notranslate"><span class="pre">init()</span></code> is called at most once during
+the first <code class="docutils literal notranslate"><span class="pre">import</span></code>.</p></li>
 </ul>
-<p>Note: an implicit <code class="docutils literal notranslate"><span class="pre">init(m)</span></code> function is always present in all modules, even if none was declared. This implicit function has no effect.</p>
+<p>Note: an implicit <code class="docutils literal notranslate"><span class="pre">init(m)</span></code> function is always present in all modules,
+even if none was declared. This implicit function has no effect.</p>
 </section>
 <section id="packaging-a-module">
 <h3>Packaging a module<a class="headerlink" href="#packaging-a-module" title="Permalink to this headline">¶</a></h3>
@@ -401,11 +486,19 @@ stack traceback:
 </section>
 <section id="package-a-singleton-monad">
 <h3>Package a singleton (monad)<a class="headerlink" href="#package-a-singleton-monad" title="Permalink to this headline">¶</a></h3>
-<p>The problem of using modules is that they don’t have instance variables to keep track of data. They are essentially designed for state-less libraries.</p>
-<p>Below you will find an elegant way of packaging a class singleton returned as an <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">statement</span></code>.</p>
-<p>To do this, we use different tricks. First we declare the class for the singleton as an inner class of a function, this prevents from polluting the global namespace with this class. I.e. the class will not be accessible by other code.</p>
-<p>Second we declare a module <code class="docutils literal notranslate"><span class="pre">init()</span></code> function that creates the class, creates the instance and returns it.</p>
-<p>By this scheme, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">&lt;module&gt;</span></code> actually returns an instance of a hidden class.</p>
+<p>The problem of using modules is that they don’t have instance variables
+to keep track of data. They are essentially designed for state-less
+libraries.</p>
+<p>Below you will find an elegant way of packaging a class singleton
+returned as an <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">statement</span></code>.</p>
+<p>To do this, we use different tricks. First we declare the class for the
+singleton as an inner class of a function, this prevents from polluting
+the global namespace with this class. I.e. the class will not be
+accessible by other code.</p>
+<p>Second we declare a module <code class="docutils literal notranslate"><span class="pre">init()</span></code> function that creates the class,
+creates the instance and returns it.</p>
+<p>By this scheme, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">&lt;module&gt;</span></code> actually returns an instance of a
+hidden class.</p>
 <p>Example of <code class="docutils literal notranslate"><span class="pre">demo_monad.be</span></code>:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="c1"># simple monad</span>
 <span class="c1"># use `import demo_monad`</span>
@@ -414,7 +507,7 @@ stack traceback:
 
 <span class="c1"># the module has a single member `init()` and delegates everything to the inner class</span>
 <span class="n">demo_monad</span><span class="p">.</span><span class="na">init</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">def</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span>
+
 <span class="w">    </span><span class="c1"># inncer class</span>
 <span class="w">    </span><span class="kd">class</span> <span class="nc">my_monad</span><span class="w"></span>
 <span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
@@ -450,20 +543,30 @@ Hello Berry!
 &gt; demo_monad.j = 0         # there is strong member checking compared to modules
 attribute_error: class &#39;my_monad&#39; cannot assign to attribute &#39;j&#39;
 stack traceback:
-	stdin:1: in function `main`
+    stdin:1: in function `main`
 </pre></div>
 </div>
 </section>
 </section>
 <section id="solidification">
 <h2>8.4 Solidification<a class="headerlink" href="#solidification" title="Permalink to this headline">¶</a></h2>
-<p>Solidification is the process of capturing compiled Berry structures and code (classes, modules, maps, lists…) and storing them into firmware. It reduces dramatically the use of memory, but has some limitations.</p>
+<p>Solidification is the process of capturing compiled Berry structures and
+code (classes, modules, maps, lists…) and storing them into firmware. It
+reduces dramatically the use of memory, but has some limitations.</p>
 <section id="solidify-module">
 <h3><code class="docutils literal notranslate"><span class="pre">solidify</span></code> module<a class="headerlink" href="#solidify-module" title="Permalink to this headline">¶</a></h3>
-<p>Solidification is handle by <code class="docutils literal notranslate"><span class="pre">solidify</span></code> module. This module is not compiled by default because of its size (~10kB). You need to compile with <code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">BE_USE_SOLIDIFY_MODULE</span> <span class="pre">1</span></code> directive.</p>
-<p>The module has a single member <code class="docutils literal notranslate"><span class="pre">dump(x)</span></code> that takes a single argument (the object to solidify) and output to <code class="docutils literal notranslate"><span class="pre">stdout</span></code> the solidified code.</p>
-<p>By default, solidify adds all string constants to the global pool. You can generate weak strings instead (eligible to pruning by the linker) by setting the second argument to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
-<p>By default <code class="docutils literal notranslate"><span class="pre">solidify.dump</span></code> outputs the solidified code to standard output. You can specify a file as third argument. The file needs to be open in writeable mode, and is not closed so that you can concatenate multiple objects.</p>
+<p>Solidification is handle by <code class="docutils literal notranslate"><span class="pre">solidify</span></code> module. This module is not
+compiled by default because of its size (~10kB). You need to compile
+with <code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">BE_USE_SOLIDIFY_MODULE</span> <span class="pre">1</span></code> directive.</p>
+<p>The module has a single member <code class="docutils literal notranslate"><span class="pre">dump(x)</span></code> that takes a single argument
+(the object to solidify) and output to <code class="docutils literal notranslate"><span class="pre">stdout</span></code> the solidified code.</p>
+<p>By default, solidify adds all string constants to the global pool. You
+can generate weak strings instead (eligible to pruning by the linker) by
+setting the second argument to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<p>By default <code class="docutils literal notranslate"><span class="pre">solidify.dump</span></code> outputs the solidified code to standard
+output. You can specify a file as third argument. The file needs to be
+open in writeable mode, and is not closed so that you can concatenate
+multiple objects.</p>
 <p><code class="docutils literal notranslate"><span class="pre">solidify.dump(object:any,</span> <span class="pre">[,</span> <span class="pre">strings_weak:bool,</span> <span class="pre">file_out:file])</span> <span class="pre">-&gt;</span> <span class="pre">nil</span></code></p>
 </section>
 <section id="solidification-of-functions">
@@ -494,16 +597,17 @@ stack traceback:
 <span class="w">    </span><span class="o">&amp;</span><span class="n">be_const_str_f</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="o">&amp;</span><span class="n">be_const_str_solidified</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="p">(</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">binstruction</span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="cm">/* code */</span><span class="w"></span>
-<span class="w">      </span><span class="mh">0x80060000</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0000  RET	1	K0</span>
+<span class="w">      </span><span class="mh">0x80060000</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0000  RET    1   K0</span>
 <span class="w">    </span><span class="p">})</span><span class="w"></span>
 <span class="w">  </span><span class="p">)</span><span class="w"></span>
 <span class="p">);</span><span class="w"></span>
 <span class="cm">/*******************************************************************/</span><span class="w"></span>
 </pre></div>
 </div>
-<p>To compile using weak strings (i.e. strings that can be eliminated by the linker if the object is not included in the target executable), use <code class="docutils literal notranslate"><span class="pre">solidify.dump(f,</span> <span class="pre">true)</span></code>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>
-<span class="cm">/********************************************************************</span>
+<p>To compile using weak strings (i.e. strings that can be eliminated by
+the linker if the object is not included in the target executable), use
+<code class="docutils literal notranslate"><span class="pre">solidify.dump(f,</span> <span class="pre">true)</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************************************************</span>
 <span class="cm">** Solidified function: f</span>
 <span class="cm">********************************************************************/</span><span class="w"></span>
 <span class="n">be_local_closure</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w">   </span><span class="cm">/* name */</span><span class="w"></span>
@@ -522,7 +626,7 @@ stack traceback:
 <span class="w">    </span><span class="n">be_str_weak</span><span class="p">(</span><span class="n">f</span><span class="p">),</span><span class="w"></span>
 <span class="w">    </span><span class="o">&amp;</span><span class="n">be_const_str_solidified</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="p">(</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">binstruction</span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="cm">/* code */</span><span class="w"></span>
-<span class="w">      </span><span class="mh">0x80060000</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0000  RET	1	K0</span>
+<span class="w">      </span><span class="mh">0x80060000</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0000  RET    1   K0</span>
 <span class="w">    </span><span class="p">})</span><span class="w"></span>
 <span class="w">  </span><span class="p">)</span><span class="w"></span>
 <span class="p">);</span><span class="w"></span>
@@ -532,7 +636,8 @@ stack traceback:
 </section>
 <section id="solidification-of-classes">
 <h3>Solidification of classes<a class="headerlink" href="#solidification-of-classes" title="Permalink to this headline">¶</a></h3>
-<p>When you solidify a class, it embeds all the sub-elements. An <code class="docutils literal notranslate"><span class="pre">C</span></code> stub is also added to create the class and add it to the global scope.</p>
+<p>When you solidify a class, it embeds all the sub-elements. An <code class="docutils literal notranslate"><span class="pre">C</span></code> stub
+is also added to create the class and add it to the global scope.</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w">  </span><span class="kd">class</span> <span class="nc">demo</span><span class="w"></span>
 <span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
 <span class="w">      </span><span class="kr">static</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bar&quot;</span><span class="w"></span>
@@ -549,7 +654,7 @@ stack traceback:
 <span class="o">&gt;</span><span class="w"> </span><span class="n">solidify</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">demo</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
-<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************************************************</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************************************************</span>
 <span class="cm">** Solidified function: init</span>
 <span class="cm">********************************************************************/</span><span class="w"></span>
 <span class="n">be_local_closure</span><span class="p">(</span><span class="n">demo_init</span><span class="p">,</span><span class="w">   </span><span class="cm">/* name */</span><span class="w"></span>
@@ -569,8 +674,8 @@ stack traceback:
 <span class="w">    </span><span class="o">&amp;</span><span class="n">be_const_str_init</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="o">&amp;</span><span class="n">be_const_str_solidified</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="p">(</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">binstruction</span><span class="p">[</span><span class="w"> </span><span class="mi">2</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="cm">/* code */</span><span class="w"></span>
-<span class="w">      </span><span class="mh">0x90020101</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0000  SETMBR	R0	K0	K1</span>
-<span class="w">      </span><span class="mh">0x80000000</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0001  RET	0</span>
+<span class="w">      </span><span class="mh">0x90020101</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0000  SETMBR R0  K0  K1</span>
+<span class="w">      </span><span class="mh">0x80000000</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0001  RET    0</span>
 <span class="w">    </span><span class="p">})</span><span class="w"></span>
 <span class="w">  </span><span class="p">)</span><span class="w"></span>
 <span class="p">);</span><span class="w"></span>
@@ -596,10 +701,10 @@ stack traceback:
 <span class="w">    </span><span class="o">&amp;</span><span class="n">be_const_str_say_hello</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="o">&amp;</span><span class="n">be_const_str_solidified</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="p">(</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">binstruction</span><span class="p">[</span><span class="w"> </span><span class="mi">4</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="cm">/* code */</span><span class="w"></span>
-<span class="w">      </span><span class="mh">0x60040001</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0000  GETGBL	R1	G1</span>
-<span class="w">      </span><span class="mh">0x58080000</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0001  LDCONST	R2	K0</span>
-<span class="w">      </span><span class="mh">0x7C040200</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0002  CALL	R1	1</span>
-<span class="w">      </span><span class="mh">0x80000000</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0003  RET	0</span>
+<span class="w">      </span><span class="mh">0x60040001</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0000  GETGBL R1  G1</span>
+<span class="w">      </span><span class="mh">0x58080000</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0001  LDCONST    R2  K0</span>
+<span class="w">      </span><span class="mh">0x7C040200</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0002  CALL   R1  1</span>
+<span class="w">      </span><span class="mh">0x80000000</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0003  RET    0</span>
 <span class="w">    </span><span class="p">})</span><span class="w"></span>
 <span class="w">  </span><span class="p">)</span><span class="w"></span>
 <span class="p">);</span><span class="w"></span>
@@ -642,7 +747,7 @@ stack traceback:
 <span class="o">&gt;</span><span class="w"> </span><span class="n">solidify</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">demo_sub</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
-<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************************************************</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************************************************</span>
 <span class="cm">** Solidified function: init</span>
 <span class="cm">********************************************************************/</span><span class="w"></span>
 <span class="n">be_local_closure</span><span class="p">(</span><span class="n">demo_sub_init</span><span class="p">,</span><span class="w">   </span><span class="cm">/* name */</span><span class="w"></span>
@@ -663,13 +768,13 @@ stack traceback:
 <span class="w">    </span><span class="o">&amp;</span><span class="n">be_const_str_init</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="o">&amp;</span><span class="n">be_const_str_solidified</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="p">(</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">binstruction</span><span class="p">[</span><span class="w"> </span><span class="mi">7</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="cm">/* code */</span><span class="w"></span>
-<span class="w">      </span><span class="mh">0x60040003</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0000  GETGBL	R1	G3</span>
-<span class="w">      </span><span class="mh">0x5C080000</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0001  MOVE	R2	R0</span>
-<span class="w">      </span><span class="mh">0x7C040200</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0002  CALL	R1	1</span>
-<span class="w">      </span><span class="mh">0x8C040300</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0003  GETMET	R1	R1	K0</span>
-<span class="w">      </span><span class="mh">0x7C040200</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0004  CALL	R1	1</span>
-<span class="w">      </span><span class="mh">0x90020302</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0005  SETMBR	R0	K1	K2</span>
-<span class="w">      </span><span class="mh">0x80000000</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0006  RET	0</span>
+<span class="w">      </span><span class="mh">0x60040003</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0000  GETGBL R1  G3</span>
+<span class="w">      </span><span class="mh">0x5C080000</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0001  MOVE   R2  R0</span>
+<span class="w">      </span><span class="mh">0x7C040200</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0002  CALL   R1  1</span>
+<span class="w">      </span><span class="mh">0x8C040300</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0003  GETMET R1  R1  K0</span>
+<span class="w">      </span><span class="mh">0x7C040200</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0004  CALL   R1  1</span>
+<span class="w">      </span><span class="mh">0x90020302</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0005  SETMBR R0  K1  K2</span>
+<span class="w">      </span><span class="mh">0x80000000</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0006  RET    0</span>
 <span class="w">    </span><span class="p">})</span><span class="w"></span>
 <span class="w">  </span><span class="p">)</span><span class="w"></span>
 <span class="p">);</span><span class="w"></span>
@@ -702,7 +807,8 @@ stack traceback:
 </section>
 <section id="solidification-of-modules">
 <h3>Solidification of modules<a class="headerlink" href="#solidification-of-modules" title="Permalink to this headline">¶</a></h3>
-<p>When you solidify a module, it embeds all the sub-elements. It also works with embedded lists or maps.</p>
+<p>When you solidify a module, it embeds all the sub-elements. It also
+works with embedded lists or maps.</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="kd">def</span><span class="w"> </span><span class="nf">say_hello</span><span class="p">()</span><span class="w"> </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello Berry!&quot;</span><span class="p">)</span><span class="w"> </span><span class="ow">end</span><span class="w"></span>
 <span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">module</span><span class="p">(</span><span class="s2">&quot;demo_module&quot;</span><span class="p">)</span><span class="w"></span>
 <span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
@@ -714,7 +820,7 @@ stack traceback:
 <span class="o">&gt;</span><span class="w"> </span><span class="n">solidify</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
-<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************************************************</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************************************************</span>
 <span class="cm">** Solidified function: say_hello</span>
 <span class="cm">********************************************************************/</span><span class="w"></span>
 <span class="n">be_local_closure</span><span class="p">(</span><span class="n">demo_module_say_hello</span><span class="p">,</span><span class="w">   </span><span class="cm">/* name */</span><span class="w"></span>
@@ -733,10 +839,10 @@ stack traceback:
 <span class="w">    </span><span class="o">&amp;</span><span class="n">be_const_str_say_hello</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="o">&amp;</span><span class="n">be_const_str_solidified</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="p">(</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">binstruction</span><span class="p">[</span><span class="w"> </span><span class="mi">4</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="cm">/* code */</span><span class="w"></span>
-<span class="w">      </span><span class="mh">0x60000001</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0000  GETGBL	R0	G1</span>
-<span class="w">      </span><span class="mh">0x58040000</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0001  LDCONST	R1	K0</span>
-<span class="w">      </span><span class="mh">0x7C000200</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0002  CALL	R0	1</span>
-<span class="w">      </span><span class="mh">0x80000000</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0003  RET	0</span>
+<span class="w">      </span><span class="mh">0x60000001</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0000  GETGBL R0  G1</span>
+<span class="w">      </span><span class="mh">0x58040000</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0001  LDCONST    R1  K0</span>
+<span class="w">      </span><span class="mh">0x7C000200</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0002  CALL   R0  1</span>
+<span class="w">      </span><span class="mh">0x80000000</span><span class="p">,</span><span class="w">  </span><span class="c1">//  0003  RET    0</span>
 <span class="w">    </span><span class="p">})</span><span class="w"></span>
 <span class="w">  </span><span class="p">)</span><span class="w"></span>
 <span class="p">);</span><span class="w"></span>
@@ -775,14 +881,27 @@ stack traceback:
 </section>
 <section id="limitations-of-solidification">
 <h3>Limitations of solidification<a class="headerlink" href="#limitations-of-solidification" title="Permalink to this headline">¶</a></h3>
-<p>Solidification works for many objects: <code class="docutils literal notranslate"><span class="pre">class</span></code>, <code class="docutils literal notranslate"><span class="pre">module</span></code>, <code class="docutils literal notranslate"><span class="pre">functions</span></code> and embedded constants or objects like <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">real</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code> and <code class="docutils literal notranslate"><span class="pre">map</span></code>.</p>
+<p>Solidification works for many objects: <code class="docutils literal notranslate"><span class="pre">class</span></code>, <code class="docutils literal notranslate"><span class="pre">module</span></code>,
+<code class="docutils literal notranslate"><span class="pre">functions</span></code> and embedded constants or objects like <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">real</span></code>,
+<code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code> and <code class="docutils literal notranslate"><span class="pre">map</span></code>.</p>
 <p>Limitations:</p>
 <ul class="simple">
-<li><p>Upvals are not supported. You cannot solidify a closure that captures upvals from outer scope</p></li>
-<li><p>Capturing global variables requires to compile with <code class="docutils literal notranslate"><span class="pre">-g</span></code> “named globals” option (enabled by default on Tasmota)</p></li>
-<li><p>String constants are limited to 255 bytes, long strings (above 255 characters are not supported - because nobody ever had a need for)</p></li>
-<li><p>Solidified objects are read-only, this has some consequences on classes. You can solidify a class with its static members when it is created, but you cannot solidify a function that creates a class deriving from another class or with static members. The core reason is that setting the superclass or assigning the static members is implemented using mutating code on the new class - which cannot work on a read-only non-mutating class.</p></li>
-<li><p>Solidified code may be dependent on the size of <code class="docutils literal notranslate"><span class="pre">int</span></code> and <code class="docutils literal notranslate"><span class="pre">real</span></code> and may not be ported across MCUs with different sizes of types. You may need to re-solidify for each target.</p></li>
+<li><p>Upvals are not supported. You cannot solidify a closure that captures
+upvals from outer scope</p></li>
+<li><p>Capturing global variables requires to compile with <code class="docutils literal notranslate"><span class="pre">-g</span></code> “named
+globals” option (enabled by default on Tasmota)</p></li>
+<li><p>String constants are limited to 255 bytes, long strings (above 255
+characters are not supported - because nobody ever had a need for)</p></li>
+<li><p>Solidified objects are read-only, this has some consequences on
+classes. You can solidify a class with its static members when it is
+created, but you cannot solidify a function that creates a class
+deriving from another class or with static members. The core reason
+is that setting the superclass or assigning the static members is
+implemented using mutating code on the new class - which cannot work
+on a read-only non-mutating class.</p></li>
+<li><p>Solidified code may be dependent on the size of <code class="docutils literal notranslate"><span class="pre">int</span></code> and <code class="docutils literal notranslate"><span class="pre">real</span></code>
+and may not be ported across MCUs with different sizes of types. You
+may need to re-solidify for each target.</p></li>
 </ul>
 </section>
 </section>

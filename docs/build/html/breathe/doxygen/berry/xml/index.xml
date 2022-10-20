@@ -20,7 +20,7 @@
   </compound>
   <compound refid="structbntvmodule" kind="struct"><name>bntvmodule</name>
     <member refid="structbntvmodule_1a3dde37be8ea45a6b88982b1efac3d210" kind="variable"><name>name</name></member>
-    <member refid="structbntvmodule_1a687658078a7d84f2661bd5b5cd024a32" kind="variable"><name>attrs</name></member>
+    <member refid="structbntvmodule_1a46f56c1395387a01cbf780b8f8958a5d" kind="variable"><name>attrs</name></member>
     <member refid="structbntvmodule_1ad988c06052a10c1f3fc0002862aee7c0" kind="variable"><name>size</name></member>
     <member refid="structbntvmodule_1a307e7f6aecb900f345d8087da758e6dd" kind="variable"><name>module</name></member>
   </compound>
@@ -108,12 +108,12 @@
     <member refid="berry_8h_1a7b3477629e24605207e7dda97135210a" kind="typedef"><name>breal</name></member>
     <member refid="berry_8h_1ad935f181a735187f016dca36d942edb2" kind="typedef"><name>bvm</name></member>
     <member refid="berry_8h_1a45be489427325076870d53581c7f5e42" kind="typedef"><name>bntvfunc</name></member>
-    <member refid="berry_8h_1abdde63b90d848abf823f42444df79f4a" kind="typedef"><name>bntvmodobj</name></member>
-    <member refid="berry_8h_1a4ef1e830d6d1dd69cb5568275d0be3c9" kind="typedef"><name>bntvmodule</name></member>
+    <member refid="berry_8h_1a884c8d91d95f3814d3734df49d713290" kind="typedef"><name>bntvmodobj_t</name></member>
+    <member refid="berry_8h_1ad9d85f4830a06fd75e8d23917ffb248a" kind="typedef"><name>bntvmodule_t</name></member>
     <member refid="berry_8h_1a7452d322aeb4e2ff71d24211f42461c3" kind="typedef"><name>bclass_ptr</name></member>
     <member refid="berry_8h_1afb0da897cba255419c7e94606f7ccadf" kind="typedef"><name>bclass_array</name></member>
-    <member refid="berry_8h_1ac41472ceebd2d02d44a0230069cb368c" kind="typedef"><name>bhookinfo</name></member>
-    <member refid="berry_8h_1aca917e1c5ea7d4ac447ecab9220496f7" kind="typedef"><name>bntvhook</name></member>
+    <member refid="berry_8h_1afaa3ffafd6e6c8938f0e05af8b5a684e" kind="typedef"><name>bhookinfo_t</name></member>
+    <member refid="berry_8h_1a91f252ef5406e614ccba8e6515800552" kind="typedef"><name>bntvhook</name></member>
     <member refid="berry_8h_1a83f3db1fab6842d48d92b83149ed1d23" kind="typedef"><name>bobshook</name></member>
     <member refid="berry_8h_1a87f23fd951421e8995350ddd5096590e" kind="typedef"><name>bctypefunc</name></member>
     <member refid="berry_8h_1a7fdb31b8c6c01e0f1b7fd40ce145aad6" kind="function"><name>be_str2int</name></member>

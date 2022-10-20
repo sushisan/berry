@@ -82,7 +82,7 @@
           <li><a href="Referencia.html">Manual de referencia del lenguaje Berry Script</a> &raquo;</li>
       <li>5. Función</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/es/Capitulo-5.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/es/Capitulo-5.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -90,68 +90,128 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <!-- Spanish Translation: Emiliano Gonzalez (egonzalez . hiperion @ gmail . com) -->
-<section id="funcion">
+  <!-- Spanish Translation: Emiliano Gonzalez (egonzalez . hiperion @ gmail . com) --><section id="funcion">
 <h1>5. Función<a class="headerlink" href="#funcion" title="Permalink to this headline">¶</a></h1>
-<p>Una <strong>función</strong> es una “subrutina” que puede ser llamada por un código externo. Como parte del programa, la función en sí también es una pieza de código. Una función puede tener 0 o más parámetros y devolverá un resultado, que se denomina <strong>valor de retorno</strong> de la función.</p>
-<p>En Berry, la función es un <strong>valor de primera clase</strong>. Por lo tanto, además de llamar a funciones, también puede pasar funciones como valores, por ejemplo, vincular funciones a variables, usar funciones como valores devueltos, etc.</p>
+<p>Una <strong>función</strong> es una “subrutina” que puede ser llamada por un código
+externo. Como parte del programa, la función en sí también es una pieza
+de código. Una función puede tener 0 o más parámetros y devolverá un
+resultado, que se denomina <strong>valor de retorno</strong> de la función.</p>
+<p>En Berry, la función es un <strong>valor de primera clase</strong>. Por lo tanto,
+además de llamar a funciones, también puede pasar funciones como
+valores, por ejemplo, vincular funciones a variables, usar funciones
+como valores devueltos, etc.</p>
 <section id="informacion-basica">
 <h2>5.1 Información básica<a class="headerlink" href="#informacion-basica" title="Permalink to this headline">¶</a></h2>
 <p>El uso de funciones incluye dos partes: definición de función y llamada.
-La declaración de definición de función usa la palabra clave <code class="docutils literal notranslate"><span class="pre">def</span></code> como el comienzo. La definición de la función es el proceso de empaquetar y nombrar el código del cuerpo de la función. Este proceso solo genera la estructura de la función y no ejecuta la función. La función de ejecución debe usar un <strong>operador de llamada</strong>, que es un par de paréntesis. El operador de llamada actúa sobre una expresión cuyo resultado es un tipo de función. Los parámetros que se pasan a la función se escriben entre paréntesis y los parámetros múltiples se separan con comas. El resultado de la expresión de llamada es el valor de retorno de la función.</p>
+La declaración de definición de función usa la palabra clave <code class="docutils literal notranslate"><span class="pre">def</span></code>
+como el comienzo. La definición de la función es el proceso de
+empaquetar y nombrar el código del cuerpo de la función. Este proceso
+solo genera la estructura de la función y no ejecuta la función. La
+función de ejecución debe usar un <strong>operador de llamada</strong>, que es un par
+de paréntesis. El operador de llamada actúa sobre una expresión cuyo
+resultado es un tipo de función. Los parámetros que se pasan a la
+función se escriben entre paréntesis y los parámetros múltiples se
+separan con comas. El resultado de la expresión de llamada es el valor
+de retorno de la función.</p>
 <section id="definicion-de-funciones">
 <h3>5.1.1 Definición de funciones<a class="headerlink" href="#definicion-de-funciones" title="Permalink to this headline">¶</a></h3>
 <section id="funcion-con-nombre">
 <h4>Función con nombre<a class="headerlink" href="#funcion-con-nombre" title="Permalink to this headline">¶</a></h4>
-<p>Una <strong>función con nombre</strong> es una función a la que se le da un nombre cuando se define. Su declaración de definición consta de las siguientes partes: palabra clave <code class="docutils literal notranslate"><span class="pre">def</span></code>, nombre de funcion, lista que constan de 0 a múltiples parámetros y cuerpo de función, múltiples parámetros en la lista de parámetros están separados por comas, y todos los parámetros están escritos en un par de paréntesis. Llamamos al parámetro cuando la función se define como <strong>Parámetros formales</strong>, y al parámetro cuando llamamos a la función como <strong>Argumentos</strong>. La forma general de la definición de la función es:</p>
-<div class="algorithm">
+<p>Una <strong>función con nombre</strong> es una función a la que se le da un nombre
+cuando se define. Su declaración de definición consta de las siguientes
+partes: palabra clave <code class="docutils literal notranslate"><span class="pre">def</span></code>, nombre de funcion, lista que constan de 0
+a múltiples parámetros y cuerpo de función, múltiples parámetros en la
+lista de parámetros están separados por comas, y todos los parámetros
+están escritos en un par de paréntesis. Llamamos al parámetro cuando la
+función se define como <strong>Parámetros formales</strong>, y al parámetro cuando
+llamamos a la función como <strong>Argumentos</strong>. La forma general de la
+definición de la función es:</p>
+<div class="algorithm docutils container">
 <div class="highlight-ebnf notranslate"><div class="highlight"><pre><span></span>’def’ name ´(´ argumentos ´)´
   bloque
 ´end’
 </pre></div>
 </div>
 </div>
-<p>El nombre de función <strong>nombre</strong> es un identificador; <strong>argumentos</strong> es la lista de parámetros formales; <strong>bloque</strong> es el cuerpo de la función. Si el cuerpo de la función es una declaración vacía, la función se denomina “función vacía”.
-La declaración del valor de retorno de la función está contenida en el cuerpo de la función.
-Si no hay declaración de devolución en <strong>bloque</strong>, la función devolverá <code class="docutils literal notranslate"><span class="pre">nil</span></code> por defecto. El nombre de la función es en realidad el nombre de la variable del objeto de la función vinculada. Si el nombre ya existe en el ámbito actual, definir la función equivale a vincular el objeto de función a esta variable.</p>
-<p>El siguiente ejemplo define una función llamada <code class="docutils literal notranslate"><span class="pre">add</span></code>. La función de este ejemplo es sumar dos números y devolver el resultado.</p>
+<p>El nombre de función <strong>nombre</strong> es un identificador; <strong>argumentos</strong> es
+la lista de parámetros formales; <strong>bloque</strong> es el cuerpo de la función.
+Si el cuerpo de la función es una declaración vacía, la función se
+denomina “función vacía”. La declaración del valor de retorno de la
+función está contenida en el cuerpo de la función. Si no hay declaración
+de devolución en <strong>bloque</strong>, la función devolverá <code class="docutils literal notranslate"><span class="pre">nil</span></code> por defecto.
+El nombre de la función es en realidad el nombre de la variable del
+objeto de la función vinculada. Si el nombre ya existe en el ámbito
+actual, definir la función equivale a vincular el objeto de función a
+esta variable.</p>
+<p>El siguiente ejemplo define una función llamada <code class="docutils literal notranslate"><span class="pre">add</span></code>. La función de
+este ejemplo es sumar dos números y devolver el resultado.</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
 <span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
-<p>La función <code class="docutils literal notranslate"><span class="pre">add</span></code> tiene dos parámetros <code class="docutils literal notranslate"><span class="pre">a</span></code> y <code class="docutils literal notranslate"><span class="pre">b</span></code>, y los dos sumandos se pasan a la función a través de estos parámetros para el cálculo.
-La instrucción <code class="docutils literal notranslate"><span class="pre">return</span></code> devuelve el resultado del cálculo.</p>
-<p>Una función como atributo de clase se llama método. Esta parte del contenido se explicará en el capítulo orientado a objetos.</p>
+<p>La función <code class="docutils literal notranslate"><span class="pre">add</span></code> tiene dos parámetros <code class="docutils literal notranslate"><span class="pre">a</span></code> y <code class="docutils literal notranslate"><span class="pre">b</span></code>, y los dos
+sumandos se pasan a la función a través de estos parámetros para el
+cálculo. La instrucción <code class="docutils literal notranslate"><span class="pre">return</span></code> devuelve el resultado del cálculo.</p>
+<p>Una función como atributo de clase se llama método. Esta parte del
+contenido se explicará en el capítulo orientado a objetos.</p>
 </section>
 <section id="funcion-anonima">
 <h4>Función anónima<a class="headerlink" href="#funcion-anonima" title="Permalink to this headline">¶</a></h4>
-<p>A diferencia de las funciones con nombre, la <strong>función anónima</strong> no tiene nombre y su expresión de definición tiene la forma:</p>
-<div class="algorithm">
+<p>A diferencia de las funciones con nombre, la <strong>función anónima</strong> no
+tiene nombre y su expresión de definición tiene la forma:</p>
+<div class="algorithm docutils container">
 <div class="highlight-ebnf notranslate"><div class="highlight"><pre><span></span>´def’ ´(´ argumentos ´)´
   bloque
 ´end’
 </pre></div>
 </div>
 </div>
-<p>Se puede ver que, en comparación con las funciones con nombre, no hay un <strong>nombre</strong> de función en su definición.. La definición de una función anónima es esencialmente una expresión, que se denomina <strong>Función literal</strong>. Para usar funciones anónimas podemos vincular el valor literal de la función a una variable:</p>
+<p>Se puede ver que, en comparación con las funciones con nombre, no hay un
+<strong>nombre</strong> de función en su definición.. La definición de una función
+anónima es esencialmente una expresión, que se denomina <strong>Función
+literal</strong>. Para usar funciones anónimas podemos vincular el valor
+literal de la función a una variable:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">def</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
 <span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
-<p>La función de este código es exactamente la misma que la función <code class="docutils literal notranslate"><span class="pre">add</span></code> en la sección anterior. Se puede usar una función anónima para pasar convenientemente el valor de la función como un valor literal. Al igual que otros tipos de literales, los literales de función también son la unidad de expresión más pequeña. Por lo tanto, lo que hay entre las palabras clave <code class="docutils literal notranslate"><span class="pre">def</span></code> y <code class="docutils literal notranslate"><span class="pre">end</span></code> es un todo indivisible.</p>
+<p>La función de este código es exactamente la misma que la función <code class="docutils literal notranslate"><span class="pre">add</span></code>
+en la sección anterior. Se puede usar una función anónima para pasar
+convenientemente el valor de la función como un valor literal. Al igual
+que otros tipos de literales, los literales de función también son la
+unidad de expresión más pequeña. Por lo tanto, lo que hay entre las
+palabras clave <code class="docutils literal notranslate"><span class="pre">def</span></code> y <code class="docutils literal notranslate"><span class="pre">end</span></code> es un todo indivisible.</p>
 </section>
 </section>
 <section id="funcion-de-llamada">
 <h3>Función de llamada<a class="headerlink" href="#funcion-de-llamada" title="Permalink to this headline">¶</a></h3>
-<p>Tome la función <code class="docutils literal notranslate"><span class="pre">add</span></code> como ejemplo. Para llamar a esta función, debe proporcionar dos valores y puede obtener la suma de los dos números llamando a la función:</p>
+<p>Tome la función <code class="docutils literal notranslate"><span class="pre">add</span></code> como ejemplo. Para llamar a esta función, debe
+proporcionar dos valores y puede obtener la suma de los dos números
+llamando a la función:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
 <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="w"> </span><span class="c1"># 8</span>
 </pre></div>
 </div>
-<p>Llamamos a la función llamada (la función <code class="docutils literal notranslate"><span class="pre">add</span></code> en el ejemplo) como <strong>Función llamada</strong>, y la función que llama a la función llamada (la función <code class="docutils literal notranslate"><span class="pre">principal</span></code> en el ejemplo) como <strong>Función clave</strong>. El proceso de llamada de función es el siguiente: Primero, el intérprete (implícitamente) inicializará la lista de parámetros formales de la función llamada con la lista de argumentos y, al mismo tiempo, suspenderá la función de llamada y guardará su estado, luego creará un entorno para la función llamada y ejecutará la función llamada.</p>
-<p>La función finalizará su ejecución cuando encuentre la instrucción <code class="docutils literal notranslate"><span class="pre">return</span></code> y pase el valor de retorno a la función que llama. El intérprete destruirá el entorno de la función llamada después de que regrese la función llamada, luego restaurará el entorno de la función que llama y continuará ejecutando la función que llama. El valor de retorno de la función también es el resultado de la expresión de la llamada a la función. El siguiente ejemplo define una función <code class="docutils literal notranslate"><span class="pre">cuadrado</span></code> y vincula esta función a una variable <code class="docutils literal notranslate"><span class="pre">f</span></code>, y luego llama a la función <code class="docutils literal notranslate"><span class="pre">cuadrado</span></code> a través de la variable <code class="docutils literal notranslate"><span class="pre">f</span></code>. Este uso es similar a los punteros de función en lenguaje C.</p>
+<p>Llamamos a la función llamada (la función <code class="docutils literal notranslate"><span class="pre">add</span></code> en el ejemplo) como
+<strong>Función llamada</strong>, y la función que llama a la función llamada (la
+función <code class="docutils literal notranslate"><span class="pre">principal</span></code> en el ejemplo) como <strong>Función clave</strong>. El proceso
+de llamada de función es el siguiente: Primero, el intérprete
+(implícitamente) inicializará la lista de parámetros formales de la
+función llamada con la lista de argumentos y, al mismo tiempo,
+suspenderá la función de llamada y guardará su estado, luego creará un
+entorno para la función llamada y ejecutará la función llamada.</p>
+<p>La función finalizará su ejecución cuando encuentre la instrucción
+<code class="docutils literal notranslate"><span class="pre">return</span></code> y pase el valor de retorno a la función que llama. El
+intérprete destruirá el entorno de la función llamada después de que
+regrese la función llamada, luego restaurará el entorno de la función
+que llama y continuará ejecutando la función que llama. El valor de
+retorno de la función también es el resultado de la expresión de la
+llamada a la función. El siguiente ejemplo define una función
+<code class="docutils literal notranslate"><span class="pre">cuadrado</span></code> y vincula esta función a una variable <code class="docutils literal notranslate"><span class="pre">f</span></code>, y luego llama
+a la función <code class="docutils literal notranslate"><span class="pre">cuadrado</span></code> a través de la variable <code class="docutils literal notranslate"><span class="pre">f</span></code>. Este uso es
+similar a los punteros de función en lenguaje C.</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">cuadrado</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="w"></span>
 <span class="ow">end</span><span class="w"></span>
@@ -159,16 +219,23 @@ La instrucción <code class="docutils literal notranslate"><span class="pre">ret
 <span class="nb">print</span><span class="p">(</span><span class="nf">f</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="c1"># 25</span>
 </pre></div>
 </div>
-<p>Cabe señalar que el objeto de la función solo está vinculado a estas variables (consulte la sección Capitulo-3: Operador de asignación</p>
+<p>Cabe señalar que el objeto de la función solo está vinculado a estas
+variables (consulte la sección Capitulo-3: Operador de asignación</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cuadrado</span><span class="w"></span>
 <span class="n">cuadrado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span><span class="w"></span>
 <span class="nb">print</span><span class="p">(</span><span class="nf">f</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="c1"># 25</span>
 </pre></div>
 </div>
-<p>Se puede ver que la función todavía se puede llamar normalmente después de reasignar <code class="docutils literal notranslate"><span class="pre">cuadrado</span></code>. Solo después de que el objeto de función ya no esté vinculado a ninguna variable, se perderá y el sistema reciclará los recursos ocupados por este tipo de objeto de función.</p>
+<p>Se puede ver que la función todavía se puede llamar normalmente después
+de reasignar <code class="docutils literal notranslate"><span class="pre">cuadrado</span></code>. Solo después de que el objeto de función ya
+no esté vinculado a ninguna variable, se perderá y el sistema reciclará
+los recursos ocupados por este tipo de objeto de función.</p>
 <section id="desviar-la-llamada">
 <h4>Desviar la llamada<a class="headerlink" href="#desviar-la-llamada" title="Permalink to this headline">¶</a></h4>
-<p>La llamada de la función debe estar en el ámbito de la variable de función, por lo que normalmente no se puede llamar antes de que se defina la función. Para resolver este problema, puede utilizar este método para comprometer:</p>
+<p>La llamada de la función debe estar en el ámbito de la variable de
+función, por lo que normalmente no se puede llamar antes de que se
+defina la función. Para resolver este problema, puede utilizar este
+método para comprometer:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">func1</span><span class="w"></span>
 <span class="kd">def</span><span class="w"> </span><span class="nf">func2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="nf">func1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
@@ -179,11 +246,26 @@ La instrucción <code class="docutils literal notranslate"><span class="pre">ret
 <span class="nb">print</span><span class="p">(</span><span class="nf">func2</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span><span class="w"> </span><span class="c1"># 16</span>
 </pre></div>
 </div>
-<p>En este ejemplo, <code class="docutils literal notranslate"><span class="pre">func2</span></code> llama a <code class="docutils literal notranslate"><span class="pre">func1</span></code>, pero la función <code class="docutils literal notranslate"><span class="pre">func1</span></code> se define después de <code class="docutils literal notranslate"><span class="pre">func2</span></code>. Después de ejecutar este código, el programa generará el resultado correcto <code class="docutils literal notranslate"><span class="pre">16</span></code>. Esta rutina utiliza el mecanismo de que no se llamará a la función cuando se defina. Defina la variable <code class="docutils literal notranslate"><span class="pre">func1</span></code> antes de definir <code class="docutils literal notranslate"><span class="pre">func2</span></code> para asegurarse de que el símbolo <code class="docutils literal notranslate"><span class="pre">func1</span></code> no se encontrará durante la compilación. Luego definimos la función <code class="docutils literal notranslate"><span class="pre">func1</span></code> después de <code class="docutils literal notranslate"><span class="pre">func2</span></code> para que la función se use para sobrescribir el valor de la variable <code class="docutils literal notranslate"><span class="pre">func1</span></code>. Cuando se llama a la función <code class="docutils literal notranslate"><span class="pre">func2</span></code> en la última línea <code class="docutils literal notranslate"><span class="pre">print(func2(4))</span></code>, la variable <code class="docutils literal notranslate"><span class="pre">func1</span></code> ya es la función que necesitamos, por lo que se mostrará el resultado correcto.</p>
+<p>En este ejemplo, <code class="docutils literal notranslate"><span class="pre">func2</span></code> llama a <code class="docutils literal notranslate"><span class="pre">func1</span></code>, pero la función <code class="docutils literal notranslate"><span class="pre">func1</span></code>
+se define después de <code class="docutils literal notranslate"><span class="pre">func2</span></code>. Después de ejecutar este código, el
+programa generará el resultado correcto <code class="docutils literal notranslate"><span class="pre">16</span></code>. Esta rutina utiliza el
+mecanismo de que no se llamará a la función cuando se defina. Defina la
+variable <code class="docutils literal notranslate"><span class="pre">func1</span></code> antes de definir <code class="docutils literal notranslate"><span class="pre">func2</span></code> para asegurarse de que el
+símbolo <code class="docutils literal notranslate"><span class="pre">func1</span></code> no se encontrará durante la compilación. Luego
+definimos la función <code class="docutils literal notranslate"><span class="pre">func1</span></code> después de <code class="docutils literal notranslate"><span class="pre">func2</span></code> para que la función
+se use para sobrescribir el valor de la variable <code class="docutils literal notranslate"><span class="pre">func1</span></code>. Cuando se
+llama a la función <code class="docutils literal notranslate"><span class="pre">func2</span></code> en la última línea <code class="docutils literal notranslate"><span class="pre">print(func2(4))</span></code>, la
+variable <code class="docutils literal notranslate"><span class="pre">func1</span></code> ya es la función que necesitamos, por lo que se
+mostrará el resultado correcto.</p>
 </section>
 <section id="llamada-recursiva">
 <h4>Llamada recursiva<a class="headerlink" href="#llamada-recursiva" title="Permalink to this headline">¶</a></h4>
-<p>Con <strong>función recursiva</strong> se refiere a funciones que se llaman a sí mismas directa o indirectamente. La recursividad se refiere a una estrategia que divide el problema en subproblemas similares y luego los resuelve. Tomando el factorial como ejemplo, la definición recursiva de factorial es 0! = 1, <em>n</em>! = <em>n</em> ⋅ (<em>n</em>−1)!. Entonces podemos escribir la función recursiva para calcular el factorial según la definición:</p>
+<p>Con <strong>función recursiva</strong> se refiere a funciones que se llaman a sí
+mismas directa o indirectamente. La recursividad se refiere a una
+estrategia que divide el problema en subproblemas similares y luego los
+resuelve. Tomando el factorial como ejemplo, la definición recursiva de
+factorial es 0! = 1, <em>n</em>! = <em>n</em> ⋅ (<em>n</em>−1)!. Entonces podemos escribir
+la función recursiva para calcular el factorial según la definición:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">fact</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="ow">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
 <span class="w">        </span><span class="ow">return</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
@@ -192,14 +274,27 @@ La instrucción <code class="docutils literal notranslate"><span class="pre">ret
 <span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Tome el factorial de 5 como ejemplo, el proceso de calcular manualmente el factorial de 5 es: ¡5! = 5 × 4 × 3 × 2 × 1 = 120. El resultado de llamar a la función <code class="docutils literal notranslate"><span class="pre">fact</span></code> también es 120:</p>
+<p>Tome el factorial de 5 como ejemplo, el proceso de calcular manualmente
+el factorial de 5 es: ¡5! = 5 × 4 × 3 × 2 × 1 = 120. El resultado de
+llamar a la función <code class="docutils literal notranslate"><span class="pre">fact</span></code> también es 120:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nf">fact</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="c1"># 120</span>
 </pre></div>
 </div>
-<p>Para garantizar que la profundidad de la llamada recursiva sea limitada (un nivel de recursividad demasiado profundo agotará el espacio de la pila), la función recursiva debe tener una condición de finalización. En <code class="docutils literal notranslate"><span class="pre">fact</span></code> la declaración <code class="docutils literal notranslate"><span class="pre">if</span></code> en la segunda línea de la definición de la función se usa para detectar la condición final, y el proceso recursivo finaliza cuando <code class="docutils literal notranslate"><span class="pre">n</span></code> se calcula como <code class="docutils literal notranslate"><span class="pre">0</span></code>.
-La fórmula factorial anterior no se aplica a parámetros no enteros.
-Ejecutar una expresión como <code class="docutils literal notranslate"><span class="pre">fact(5.1)</span></code> provocará un error de desbordamiento de pila debido a la imposibilidad de finalizar la recursividad.</p>
-<p>Existe otra situación, la <code class="docutils literal notranslate"><span class="pre">Recurrencia</span> <span class="pre">indirecta</span></code>, es decir, la función no es llamada por sí misma sino por otra función (directa o indirectamente) llamada por ella. La recursividad indirecta generalmente requiere el uso de técnicas de llamada de función hacia adelante. Tome las funciones <code class="docutils literal notranslate"><span class="pre">es_impar</span></code> y <code class="docutils literal notranslate"><span class="pre">es_par</span></code> para calcular números pares e impares como ejemplos:</p>
+<p>Para garantizar que la profundidad de la llamada recursiva sea limitada
+(un nivel de recursividad demasiado profundo agotará el espacio de la
+pila), la función recursiva debe tener una condición de finalización. En
+<code class="docutils literal notranslate"><span class="pre">fact</span></code> la declaración <code class="docutils literal notranslate"><span class="pre">if</span></code> en la segunda línea de la definición de
+la función se usa para detectar la condición final, y el proceso
+recursivo finaliza cuando <code class="docutils literal notranslate"><span class="pre">n</span></code> se calcula como <code class="docutils literal notranslate"><span class="pre">0</span></code>. La fórmula
+factorial anterior no se aplica a parámetros no enteros. Ejecutar una
+expresión como <code class="docutils literal notranslate"><span class="pre">fact(5.1)</span></code> provocará un error de desbordamiento de
+pila debido a la imposibilidad de finalizar la recursividad.</p>
+<p>Existe otra situación, la <code class="docutils literal notranslate"><span class="pre">Recurrencia</span> <span class="pre">indirecta</span></code>, es decir, la
+función no es llamada por sí misma sino por otra función (directa o
+indirectamente) llamada por ella. La recursividad indirecta generalmente
+requiere el uso de técnicas de llamada de función hacia adelante. Tome
+las funciones <code class="docutils literal notranslate"><span class="pre">es_impar</span></code> y <code class="docutils literal notranslate"><span class="pre">es_par</span></code> para calcular números pares e
+impares como ejemplos:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">es_impar</span><span class="w"></span>
 <span class="kd">def</span><span class="w"> </span><span class="nf">es_par</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="ow">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
@@ -215,27 +310,46 @@ Ejecutar una expresión como <code class="docutils literal notranslate"><span cl
 <span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Estas dos funciones se llaman entre sí. Para garantizar que este nombre esté en el alcance cuando se llama a la función <code class="docutils literal notranslate"><span class="pre">es_impar</span></code> en la línea 6, la variable <code class="docutils literal notranslate"><span class="pre">es_impar</span></code> se define en la línea 1.</p>
+<p>Estas dos funciones se llaman entre sí. Para garantizar que este nombre
+esté en el alcance cuando se llama a la función <code class="docutils literal notranslate"><span class="pre">es_impar</span></code> en la línea
+6, la variable <code class="docutils literal notranslate"><span class="pre">es_impar</span></code> se define en la línea 1.</p>
 </section>
 <section id="llamada-de-funcion-anonima">
 <h4>Llamada de función anónima<a class="headerlink" href="#llamada-de-funcion-anonima" title="Permalink to this headline">¶</a></h4>
-<p>Si una función anónima solo se llamará una vez, la forma más fácil es llamarla cuando esté definida, por ejemplo:</p>
+<p>Si una función anónima solo se llamará una vez, la forma más fácil es
+llamarla cuando esté definida, por ejemplo:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">def</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="ow">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">end</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c1"># 3</span>
 </pre></div>
 </div>
-<p>En esta rutina, usamos la expresión de llamada directamente después del literal de función para llamar a la función. Este uso es muy adecuado para funciones que solo se llamarán en un lugar.</p>
+<p>En esta rutina, usamos la expresión de llamada directamente después del
+literal de función para llamar a la función. Este uso es muy adecuado
+para funciones que solo se llamarán en un lugar.</p>
 <p>También puede vincular una función anónima a una variable y llamarla:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">def</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="ow">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">end</span><span class="w"></span>
 <span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c1"># 3</span>
 </pre></div>
 </div>
-<p>Este uso es similar a la llamada de una función con nombre, esencialmente llamando a la variable vinculada al valor de la función. Cabe señalar que es más difícil realizar llamadas recursivas a funciones anónimas, a menos que utilice técnicas de llamada de reenvío.</p>
+<p>Este uso es similar a la llamada de una función con nombre,
+esencialmente llamando a la variable vinculada al valor de la función.
+Cabe señalar que es más difícil realizar llamadas recursivas a funciones
+anónimas, a menos que utilice técnicas de llamada de reenvío.</p>
 </section>
 </section>
 <section id="parametros-formales-y-reales">
 <h3>Parámetros formales y reales<a class="headerlink" href="#parametros-formales-y-reales" title="Permalink to this headline">¶</a></h3>
-<p>La función utiliza parámetros reales para inicializar los parámetros formales cuando se llama. En circunstancias normales, el parámetro real y el parámetro de forma son iguales y las posiciones se corresponden entre sí, pero Berry también permite que el parámetro real sea diferente del parámetro formal: si el parámetro real es mayor que el parámetro formal, el parámetro real adicional al parámetro será descartado. De otra forma los parámetros formales restantes se inicializarán a <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
-<p>El proceso de paso de parámetros es similar a la operación de asignación. Para los tipos <code class="docutils literal notranslate"><span class="pre">nil</span></code>, <code class="docutils literal notranslate"><span class="pre">boolean</span></code> y numéricos, el paso de parámetros es por valor, mientras que otros tipos son por referencia. Para el tipo de referencia de paso de escritura, como una instancia, modificarlos en la función llamada también modificará el objeto en la función de llamada. El siguiente ejemplo demuestra esta función:</p>
+<p>La función utiliza parámetros reales para inicializar los parámetros
+formales cuando se llama. En circunstancias normales, el parámetro real
+y el parámetro de forma son iguales y las posiciones se corresponden
+entre sí, pero Berry también permite que el parámetro real sea diferente
+del parámetro formal: si el parámetro real es mayor que el parámetro
+formal, el parámetro real adicional al parámetro será descartado. De
+otra forma los parámetros formales restantes se inicializarán a <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<p>El proceso de paso de parámetros es similar a la operación de
+asignación. Para los tipos <code class="docutils literal notranslate"><span class="pre">nil</span></code>, <code class="docutils literal notranslate"><span class="pre">boolean</span></code> y numéricos, el paso de
+parámetros es por valor, mientras que otros tipos son por referencia.
+Para el tipo de referencia de paso de escritura, como una instancia,
+modificarlos en la función llamada también modificará el objeto en la
+función de llamada. El siguiente ejemplo demuestra esta función:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
 <span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
@@ -245,14 +359,20 @@ Ejecutar una expresión como <code class="docutils literal notranslate"><span cl
 <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c1"># [1] 0</span>
 </pre></div>
 </div>
-<p>Se puede ver que el valor de la variable <code class="docutils literal notranslate"><span class="pre">l</span></code> ha cambiado después de llamar a la función <code class="docutils literal notranslate"><span class="pre">func</span></code>, pero el valor de la variable <code class="docutils literal notranslate"><span class="pre">i</span></code> no ha cambiado.</p>
+<p>Se puede ver que el valor de la variable <code class="docutils literal notranslate"><span class="pre">l</span></code> ha cambiado después de
+llamar a la función <code class="docutils literal notranslate"><span class="pre">func</span></code>, pero el valor de la variable <code class="docutils literal notranslate"><span class="pre">i</span></code> no ha
+cambiado.</p>
 </section>
 <section id="funcion-con-numero-variable-de-argumentos-vararg">
 <h3>Función con número variable de argumentos (vararg)<a class="headerlink" href="#funcion-con-numero-variable-de-argumentos-vararg" title="Permalink to this headline">¶</a></h3>
-<p>Puede definir una función para tomar cualquier número arbitrario de argumentos e iterarlos.
-Por ejemplo, <code class="docutils literal notranslate"><span class="pre">print()</span></code> toma cualquier cantidad de argumentos e imprime cada uno de ellos separados por espacios. Debe definir el último argumento como una captura de todos los argumentos usando <code class="docutils literal notranslate"><span class="pre">*</span></code> antes de su nombre.</p>
-<p>Todos los argumentos que siguen a los argumentos formales se agrupan en tiempo de ejecución en una instancia de <code class="docutils literal notranslate"><span class="pre">list</span></code>.
-Si no se capturan argumentos, la lista está vacía.</p>
+<p>Puede definir una función para tomar cualquier número arbitrario de
+argumentos e iterarlos. Por ejemplo, <code class="docutils literal notranslate"><span class="pre">print()</span></code> toma cualquier cantidad
+de argumentos e imprime cada uno de ellos separados por espacios. Debe
+definir el último argumento como una captura de todos los argumentos
+usando <code class="docutils literal notranslate"><span class="pre">*</span></code> antes de su nombre.</p>
+<p>Todos los argumentos que siguen a los argumentos formales se agrupan en
+tiempo de ejecución en una instancia de <code class="docutils literal notranslate"><span class="pre">list</span></code>. Si no se capturan
+argumentos, la lista está vacía.</p>
 <p>Ejemplo:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="ow">return</span><span class="w"> </span><span class="nb">size</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="ow">end</span><span class="w"></span>
 <span class="nf">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c1"># devuelve 0, c is []</span>
@@ -263,9 +383,12 @@ Si no se capturan argumentos, la lista está vacía.</p>
 </section>
 <section id="llamar-a-una-funcion-con-un-numero-dinamico-de-argumentos">
 <h3>Llamar a una función con un número dinámico de argumentos<a class="headerlink" href="#llamar-a-una-funcion-con-un-numero-dinamico-de-argumentos" title="Permalink to this headline">¶</a></h3>
-<p>La sintaxis de Berry solo permite llamar con un número fijo de argumentos.
-Utilice la función <code class="docutils literal notranslate"><span class="pre">call(f,</span> <span class="pre">[args])</span></code> para pasar cualquier número de argumentos arbitrario.</p>
-<p>Puede agregar estáticamente cualquier número de argumentos a <code class="docutils literal notranslate"><span class="pre">call()</span></code>. Si el último argumento es una <code class="docutils literal notranslate"><span class="pre">lista</span></code>, se expande automáticamente a argumentos discretos.</p>
+<p>La sintaxis de Berry solo permite llamar con un número fijo de
+argumentos. Utilice la función <code class="docutils literal notranslate"><span class="pre">call(f,</span> <span class="pre">[args])</span></code> para pasar cualquier
+número de argumentos arbitrario.</p>
+<p>Puede agregar estáticamente cualquier número de argumentos a <code class="docutils literal notranslate"><span class="pre">call()</span></code>.
+Si el último argumento es una <code class="docutils literal notranslate"><span class="pre">lista</span></code>, se expande automáticamente a
+argumentos discretos.</p>
 <p>Ejemplo:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="ow">return</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="ow">end</span><span class="w"></span>
 
@@ -277,7 +400,8 @@ Utilice la función <code class="docutils literal notranslate"><span class="pre"
 <span class="nb">call</span><span class="p">(</span><span class="n">f</span><span class="p">,[])</span><span class="w">       </span><span class="c1"># llama a f()</span>
 </pre></div>
 </div>
-<p>Puede combinar <code class="docutils literal notranslate"><span class="pre">call</span></code> y vararg. Por ejemplo, creemos una función que actúe como <code class="docutils literal notranslate"><span class="pre">print()</span></code> pero convierta todos los argumentos a mayúsculas.</p>
+<p>Puede combinar <code class="docutils literal notranslate"><span class="pre">call</span></code> y vararg. Por ejemplo, creemos una función que
+actúe como <code class="docutils literal notranslate"><span class="pre">print()</span></code> pero convierta todos los argumentos a mayúsculas.</p>
 <p>Ejemplo completo:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">print_upper</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="c1"># toma un número arbitrario de argumentos, args es una lista</span>
 <span class="w">    </span><span class="kr">import</span><span class="w"> </span><span class="n">string</span><span class="w"></span>
@@ -295,37 +419,78 @@ Utilice la función <code class="docutils literal notranslate"><span class="pre"
 </section>
 <section id="funciones-y-variables-locales">
 <h3>Funciones y variables locales<a class="headerlink" href="#funciones-y-variables-locales" title="Permalink to this headline">¶</a></h3>
-<p>El cuerpo de la función en sí es un ámbito, por lo que las variables definidas en la función son todas variables locales.
-A diferencia de los bloques directamente anidados, cada vez que se llama a una función, se asigna espacio para las variables locales. El espacio para las variables locales se asigna en la pila y la información de asignación se determina en el momento de la compilación, por lo que este proceso es muy rápido. Cuando se anidan varios niveles de alcance en una función, el intérprete asigna espacio de pila para la cadena de anidamiento de alcance con la mayoría de las variables locales, en lugar del número total de variables locales en la función.</p>
+<p>El cuerpo de la función en sí es un ámbito, por lo que las variables
+definidas en la función son todas variables locales. A diferencia de los
+bloques directamente anidados, cada vez que se llama a una función, se
+asigna espacio para las variables locales. El espacio para las variables
+locales se asigna en la pila y la información de asignación se determina
+en el momento de la compilación, por lo que este proceso es muy rápido.
+Cuando se anidan varios niveles de alcance en una función, el intérprete
+asigna espacio de pila para la cadena de anidamiento de alcance con la
+mayoría de las variables locales, en lugar del número total de variables
+locales en la función.</p>
 </section>
 <section id="declaracion-return">
 <h3>Declaración <code class="docutils literal notranslate"><span class="pre">return</span></code><a class="headerlink" href="#declaracion-return" title="Permalink to this headline">¶</a></h3>
-<p>La declaración <code class="docutils literal notranslate"><span class="pre">return</span></code> se utiliza para devolver el resultado de una función, es decir, el valor de retorno de la función. Todas las funciones en Berry tienen un valor de retorno, pero no puede usar ninguna declaración <code class="docutils literal notranslate"><span class="pre">return</span></code> en el cuerpo de la función. En este momento, el intérprete generará una declaración <code class="docutils literal notranslate"><span class="pre">return</span></code> predeterminada para garantizar que la función regrese <code class="docutils literal notranslate"><span class="pre">return</span></code>. Hay dos formas de escribir oraciones:</p>
-<div class="algorithm">
+<p>La declaración <code class="docutils literal notranslate"><span class="pre">return</span></code> se utiliza para devolver el resultado de una
+función, es decir, el valor de retorno de la función. Todas las
+funciones en Berry tienen un valor de retorno, pero no puede usar
+ninguna declaración <code class="docutils literal notranslate"><span class="pre">return</span></code> en el cuerpo de la función. En este
+momento, el intérprete generará una declaración <code class="docutils literal notranslate"><span class="pre">return</span></code>
+predeterminada para garantizar que la función regrese <code class="docutils literal notranslate"><span class="pre">return</span></code>. Hay
+dos formas de escribir oraciones:</p>
+<div class="algorithm docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>´return’
 ´return’ expresión
 </pre></div>
 </div>
 </div>
-<p>La primera forma de escribir es escribir solo la palabra clave <code class="docutils literal notranslate"><span class="pre">return</span></code> y no la expresión que se devolverá. En este caso, se devuelve el valor <code class="docutils literal notranslate"><span class="pre">nil</span></code> predeterminado. La segunda forma de escribir es seguir la expresión <strong>expresión</strong> después de la palabra clave <code class="docutils literal notranslate"><span class="pre">return</span></code>, y el valor de la expresión se usará como valor de retorno de la función. Cuando el programa ejecuta la declaración <code class="docutils literal notranslate"><span class="pre">return</span></code>, la función que se está ejecutando actualmente finalizará la ejecución y volverá al código que llamó a la función para continuar ejecutándose.</p>
-<p>Cuando se usa una palabra clave separada <code class="docutils literal notranslate"><span class="pre">return</span></code> como declaración de retorno de una función, es fácil causar ambigüedad. En ese caso se recomienda agregar un punto y coma después de <code class="docutils literal notranslate"><span class="pre">return</span></code> para evitar errores:</p>
+<p>La primera forma de escribir es escribir solo la palabra clave
+<code class="docutils literal notranslate"><span class="pre">return</span></code> y no la expresión que se devolverá. En este caso, se devuelve
+el valor <code class="docutils literal notranslate"><span class="pre">nil</span></code> predeterminado. La segunda forma de escribir es seguir
+la expresión <strong>expresión</strong> después de la palabra clave <code class="docutils literal notranslate"><span class="pre">return</span></code>, y el
+valor de la expresión se usará como valor de retorno de la función.
+Cuando el programa ejecuta la declaración <code class="docutils literal notranslate"><span class="pre">return</span></code>, la función que se
+está ejecutando actualmente finalizará la ejecución y volverá al código
+que llamó a la función para continuar ejecutándose.</p>
+<p>Cuando se usa una palabra clave separada <code class="docutils literal notranslate"><span class="pre">return</span></code> como declaración de
+retorno de una función, es fácil causar ambigüedad. En ese caso se
+recomienda agregar un punto y coma después de <code class="docutils literal notranslate"><span class="pre">return</span></code> para evitar
+errores:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"></span>
 <span class="w">    </span><span class="ow">return</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 <span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
-<p>En este ejemplo, la declaración <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1</span></code> después de la declaración <code class="docutils literal notranslate"><span class="pre">return</span></code> no se ejecutará, por lo que es redundante. Si se evita este tipo de código redundante, la instrucción <code class="docutils literal notranslate"><span class="pre">return</span></code> suele ir seguida de palabras clave como <code class="docutils literal notranslate"><span class="pre">end</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code> o <code class="docutils literal notranslate"><span class="pre">elif</span></code>. En este caso, incluso si se usa una declaración <code class="docutils literal notranslate"><span class="pre">return</span></code> por separado, no hay necesidad de preocuparse por la ambigüedad.</p>
+<p>En este ejemplo, la declaración <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1</span></code> después de la declaración
+<code class="docutils literal notranslate"><span class="pre">return</span></code> no se ejecutará, por lo que es redundante. Si se evita este
+tipo de código redundante, la instrucción <code class="docutils literal notranslate"><span class="pre">return</span></code> suele ir seguida de
+palabras clave como <code class="docutils literal notranslate"><span class="pre">end</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code> o <code class="docutils literal notranslate"><span class="pre">elif</span></code>. En este caso, incluso
+si se usa una declaración <code class="docutils literal notranslate"><span class="pre">return</span></code> por separado, no hay necesidad de
+preocuparse por la ambigüedad.</p>
 </section>
 </section>
 <section id="cierre-closure">
 <h2>Cierre (closure)<a class="headerlink" href="#cierre-closure" title="Permalink to this headline">¶</a></h2>
 <section id="conceptos-basicos">
 <h3>Conceptos básicos<a class="headerlink" href="#conceptos-basicos" title="Permalink to this headline">¶</a></h3>
-<p>Como se mencionó anteriormente, las funciones son el primer tipo de valor en Berry.
-Puede definir funciones en cualquier lugar y también puede pasar funciones como parámetros o devolver valores. Cuando se define otra función en una función, la función anidada puede acceder a las variables locales de cualquier función externa. Llamamos a las “variables locales de la función externa” utilizadas en la función la función como <strong>Variables libres</strong>. Las variables libres generalizadas también incluyen variables globales, pero no existe tal regla en Berry. El <strong>Cierre</strong> es una técnica que vincula funciones a <strong>entornos</strong>. El entorno es un mapeo que asocia cada variable libre de una función con un valor. En términos de implementación, los cierres asocian el prototipo de función con sus propias variables.
-Los prototipos de funciones se generan en tiempo de compilación y el entorno es un concepto de tiempo de ejecución, por lo que los cierres también se generan dinámicamente en tiempo de ejecución.
-Cada cierre vincula el prototipo de función al entorno cuando se genera, como se ve en el siguiente ejemplo:</p>
+<p>Como se mencionó anteriormente, las funciones son el primer tipo de
+valor en Berry. Puede definir funciones en cualquier lugar y también
+puede pasar funciones como parámetros o devolver valores. Cuando se
+define otra función en una función, la función anidada puede acceder a
+las variables locales de cualquier función externa. Llamamos a las
+“variables locales de la función externa” utilizadas en la función la
+función como <strong>Variables libres</strong>. Las variables libres generalizadas
+también incluyen variables globales, pero no existe tal regla en Berry.
+El <strong>Cierre</strong> es una técnica que vincula funciones a <strong>entornos</strong>. El
+entorno es un mapeo que asocia cada variable libre de una función con un
+valor. En términos de implementación, los cierres asocian el prototipo
+de función con sus propias variables. Los prototipos de funciones se
+generan en tiempo de compilación y el entorno es un concepto de tiempo
+de ejecución, por lo que los cierres también se generan dinámicamente en
+tiempo de ejecución. Cada cierre vincula el prototipo de función al
+entorno cuando se genera, como se ve en el siguiente ejemplo:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c1"># La función externa</span>
 <span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="c1"># La función interna (closure)</span>
 <span class="w">        </span><span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
@@ -334,7 +499,12 @@ Cada cierre vincula el prototipo de función al entorno cuando se genera, como s
 <span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
-<p>La función interna <code class="docutils literal notranslate"><span class="pre">foo</span></code> es un cierre y tiene una variable libre <code class="docutils literal notranslate"><span class="pre">i</span></code>, que es un parámetro de la función externa <code class="docutils literal notranslate"><span class="pre">func</span></code>. Cuando se genera el cierre <code class="docutils literal notranslate"><span class="pre">foo</span></code>, su prototipo de función se vincula al entorno que contiene la variable libre <code class="docutils literal notranslate"><span class="pre">i</span></code>. Cuando la variable <code class="docutils literal notranslate"><span class="pre">foo</span></code> sale del alcance, el cierre se destruirá. Por lo general, la función interna será el valor de retorno de la función externa, por ejemplo:</p>
+<p>La función interna <code class="docutils literal notranslate"><span class="pre">foo</span></code> es un cierre y tiene una variable libre
+<code class="docutils literal notranslate"><span class="pre">i</span></code>, que es un parámetro de la función externa <code class="docutils literal notranslate"><span class="pre">func</span></code>. Cuando se
+genera el cierre <code class="docutils literal notranslate"><span class="pre">foo</span></code>, su prototipo de función se vincula al entorno
+que contiene la variable libre <code class="docutils literal notranslate"><span class="pre">i</span></code>. Cuando la variable <code class="docutils literal notranslate"><span class="pre">foo</span></code> sale
+del alcance, el cierre se destruirá. Por lo general, la función interna
+será el valor de retorno de la función externa, por ejemplo:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c1"># La función externa</span>
 <span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="kd">def</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="c1"># Devuelve un cierre (función anónima)</span>
 <span class="w">        </span><span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
@@ -343,12 +513,26 @@ Cada cierre vincula el prototipo de función al entorno cuando se genera, como s
 <span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
-<p>El cierre devuelto aquí es una función anónima. Cuando la función externa devuelve el cierre, las variables locales de la función externa se destruirán y el cierre no podrá acceder directamente a las variables en la función externa original. El sistema copiará el valor de la variable libre al entorno cuando se destruya la variable libre. El ciclo de vida de estas variables libres es el mismo que el del cierre, y solo el cierre puede acceder a ellas. La función o el cierre devuelto no se ejecutará automáticamente, por lo que debemos llamar al cierre devuelto por la función <code class="docutils literal notranslate"><span class="pre">func</span></code>:</p>
+<p>El cierre devuelto aquí es una función anónima. Cuando la función
+externa devuelve el cierre, las variables locales de la función externa
+se destruirán y el cierre no podrá acceder directamente a las variables
+en la función externa original. El sistema copiará el valor de la
+variable libre al entorno cuando se destruya la variable libre. El ciclo
+de vida de estas variables libres es el mismo que el del cierre, y solo
+el cierre puede acceder a ellas. La función o el cierre devuelto no se
+ejecutará automáticamente, por lo que debemos llamar al cierre devuelto
+por la función <code class="docutils literal notranslate"><span class="pre">func</span></code>:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
 <span class="nf">f</span><span class="p">()</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Este código generará <code class="docutils literal notranslate"><span class="pre">0</span></code>. Si continuamos llamando al cierre <code class="docutils literal notranslate"><span class="pre">f</span></code>, obtendremos la salida <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">3</span></code>… Esto puede no entenderse bien: la variable [2.198 ] se destruye después de que la función <code class="docutils literal notranslate"><span class="pre">func</span></code> regresa , y como la variable libre del cierre <code class="docutils literal notranslate"><span class="pre">f</span></code>, <code class="docutils literal notranslate"><span class="pre">i</span></code> se almacenará en el entorno de cierre, por lo que cada vez que se llame a <code class="docutils literal notranslate"><span class="pre">f</span></code>, el valor de <code class="docutils literal notranslate"><span class="pre">i</span></code> se sumará a 1 (definición de la función <code class="docutils literal notranslate"><span class="pre">func</span></code> línea 4).</p>
+<p>Este código generará <code class="docutils literal notranslate"><span class="pre">0</span></code>. Si continuamos llamando al cierre <code class="docutils literal notranslate"><span class="pre">f</span></code>,
+obtendremos la salida <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">3</span></code>… Esto puede no entenderse
+bien: la variable [2.198 ] se destruye después de que la función
+<code class="docutils literal notranslate"><span class="pre">func</span></code> regresa , y como la variable libre del cierre <code class="docutils literal notranslate"><span class="pre">f</span></code>, <code class="docutils literal notranslate"><span class="pre">i</span></code> se
+almacenará en el entorno de cierre, por lo que cada vez que se llame a
+<code class="docutils literal notranslate"><span class="pre">f</span></code>, el valor de <code class="docutils literal notranslate"><span class="pre">i</span></code> se sumará a 1 (definición de la función
+<code class="docutils literal notranslate"><span class="pre">func</span></code> línea 4).</p>
 <section id="uso-de-cierres">
 <h4>Uso de cierres<a class="headerlink" href="#uso-de-cierres" title="Permalink to this headline">¶</a></h4>
 <p>Los cierres tienen muchos usos. Aquí hay algunos usos comunes:</p>
@@ -358,26 +542,47 @@ Cada cierre vincula el prototipo de función al entorno cuando se genera, como s
 </section>
 <section id="funcion-de-comunicacion-privada">
 <h5>Función de comunicación privada<a class="headerlink" href="#funcion-de-comunicacion-privada" title="Permalink to this headline">¶</a></h5>
-<p>Puede permitir que algunos cierres compartan variables libres, que solo son visibles para estos cierres, y se comuniquen entre funciones cambiando los valores de estas variables libres. Esto puede evitar el uso de variables externas.</p>
+<p>Puede permitir que algunos cierres compartan variables libres, que solo
+son visibles para estos cierres, y se comuniquen entre funciones
+cambiando los valores de estas variables libres. Esto puede evitar el
+uso de variables externas.</p>
 </section>
 <section id="generar-multiples-funciones">
 <h5>Generar múltiples funciones<a class="headerlink" href="#generar-multiples-funciones" title="Permalink to this headline">¶</a></h5>
-<p>A veces es posible que necesitemos usar múltiples funciones, estas funciones pueden tener solo diferentes valores de algunas variables. Podemos implementar una función y luego usar estas diferentes variables como parámetros de función.
-Una mejor manera es devolver el cierre a través de una función de fábrica y usar estas variables posiblemente diferentes como variables libres del cierre, de modo que no siempre tenga que escribir esos parámetros al llamar a la función, y cualquier número de funciones similares puede ser generado.</p>
+<p>A veces es posible que necesitemos usar múltiples funciones, estas
+funciones pueden tener solo diferentes valores de algunas variables.
+Podemos implementar una función y luego usar estas diferentes variables
+como parámetros de función. Una mejor manera es devolver el cierre a
+través de una función de fábrica y usar estas variables posiblemente
+diferentes como variables libres del cierre, de modo que no siempre
+tenga que escribir esos parámetros al llamar a la función, y cualquier
+número de funciones similares puede ser generado.</p>
 </section>
 <section id="simular-miembros-privados">
 <h5>Simular miembros privados<a class="headerlink" href="#simular-miembros-privados" title="Permalink to this headline">¶</a></h5>
-<p>Algunos lenguajes admiten el uso de miembros privados en objetos, pero la clase de Berry no lo admite. Podemos usar las variables libres de los cierres para simular miembros privados. Este uso no es la intención original de diseñar cierres, pero hoy en día, este “mal uso” de los cierres es muy común.</p>
+<p>Algunos lenguajes admiten el uso de miembros privados en objetos, pero
+la clase de Berry no lo admite. Podemos usar las variables libres de los
+cierres para simular miembros privados. Este uso no es la intención
+original de diseñar cierres, pero hoy en día, este “mal uso” de los
+cierres es muy común.</p>
 </section>
 <section id="resultado-de-cache">
 <h5>Resultado de caché<a class="headerlink" href="#resultado-de-cache" title="Permalink to this headline">¶</a></h5>
-<p>Si hay una función que requiere mucho tiempo para ejecutarse, llevará mucho tiempo llamarla cada vez. Podemos almacenar en caché el resultado de esta función, buscarlo en el caché antes de llamar a la función y devolver el valor almacenado en caché si lo encuentra; de lo contrario, se llama a la función y se actualiza el valor almacenado en caché. Podemos usar los cierres para guardar el valor almacenado en caché para que no quede expuesto al alcance externo, y el resultado almacenado en caché se conservará (hasta que se destruya el cierre).</p>
+<p>Si hay una función que requiere mucho tiempo para ejecutarse, llevará
+mucho tiempo llamarla cada vez. Podemos almacenar en caché el resultado
+de esta función, buscarlo en el caché antes de llamar a la función y
+devolver el valor almacenado en caché si lo encuentra; de lo contrario,
+se llama a la función y se actualiza el valor almacenado en caché.
+Podemos usar los cierres para guardar el valor almacenado en caché para
+que no quede expuesto al alcance externo, y el resultado almacenado en
+caché se conservará (hasta que se destruya el cierre).</p>
 </section>
 </section>
 </section>
 <section id="vinculacion-de-variables-libres">
 <h3>Vinculación de variables libres<a class="headerlink" href="#vinculacion-de-variables-libres" title="Permalink to this headline">¶</a></h3>
-<p>Si varios cierres vinculan la misma variable libre, todos los cierres siempre compartirán esta variable libre. Por ejemplo:</p>
+<p>Si varios cierres vinculan la misma variable libre, todos los cierres
+siempre compartirán esta variable libre. Por ejemplo:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c1"># La función externa</span>
 <span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="p">[</span><span class="c1"># Devuelve la lista de cierre</span>
 <span class="w">        </span><span class="kd">def</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="c1"># El cierre #1</span>
@@ -392,14 +597,24 @@ Una mejor manera es devolver el cierre a través de una función de fábrica y u
 <span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
-<p>La función <code class="docutils literal notranslate"><span class="pre">func</span></code>, en este ejemplo, devuelve dos cierres a través de una lista, y estos dos cierres comparten la variable libres <code class="docutils literal notranslate"><span class="pre">i</span></code>. Si llamamos a estos cierres:</p>
+<p>La función <code class="docutils literal notranslate"><span class="pre">func</span></code>, en este ejemplo, devuelve dos cierres a través de
+una lista, y estos dos cierres comparten la variable libres <code class="docutils literal notranslate"><span class="pre">i</span></code>. Si
+llamamos a estos cierres:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
 <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]()</span><span class="w"> </span><span class="c1"># cierre 1 log: 0</span>
 <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]()</span><span class="w"> </span><span class="c1"># cierre 2 log: 1</span>
 </pre></div>
 </div>
-<p>Como puede ver, actualizamos la variable libre <code class="docutils literal notranslate"><span class="pre">i</span></code> cuando llamamos al cierre <code class="docutils literal notranslate"><span class="pre">f[0]</span></code>, y este cambio afectó el resultado de llamar al cierre <code class="docutils literal notranslate"><span class="pre">f[1]</span></code>. Esto se debe a que si varios cierres utilizan una variable libre, solo hay una copia de la variable libre y todos los cierres tienen una referencia a la entidad de variable libre. Por lo tanto, cualquier modificación a la variable libre es visible para todos los cierres que usan dicha variable.</p>
-<p>De manera similar, antes de que se destruyan las variables locales de la función externa, modificar el valor de la variable libre también afectará el cierre:</p>
+<p>Como puede ver, actualizamos la variable libre <code class="docutils literal notranslate"><span class="pre">i</span></code> cuando llamamos al
+cierre <code class="docutils literal notranslate"><span class="pre">f[0]</span></code>, y este cambio afectó el resultado de llamar al cierre
+<code class="docutils literal notranslate"><span class="pre">f[1]</span></code>. Esto se debe a que si varios cierres utilizan una variable
+libre, solo hay una copia de la variable libre y todos los cierres
+tienen una referencia a la entidad de variable libre. Por lo tanto,
+cualquier modificación a la variable libre es visible para todos los
+cierres que usan dicha variable.</p>
+<p>De manera similar, antes de que se destruyan las variables locales de la
+función externa, modificar el valor de la variable libre también
+afectará el cierre:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"></span>
 <span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
 <span class="w">    </span><span class="kd">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"></span>
@@ -410,14 +625,20 @@ Una mejor manera es devolver el cierre a través de una función de fábrica y u
 <span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
-<p>En este ejemplo cambiamos el valor de la variable <code class="docutils literal notranslate"><span class="pre">i</span></code> (que es la variable libre del cierre <code class="docutils literal notranslate"><span class="pre">foo</span></code>) de <code class="docutils literal notranslate"><span class="pre">0</span></code> a <code class="docutils literal notranslate"><span class="pre">1</span></code> antes de que regrese la función externa <code class="docutils literal notranslate"><span class="pre">func</span></code>, luego llamamos al cierre, y después el valor de la variable libre <code class="docutils literal notranslate"><span class="pre">i</span></code> cuando el paquete <code class="docutils literal notranslate"><span class="pre">foo</span></code> también es <code class="docutils literal notranslate"><span class="pre">1</span></code>:</p>
+<p>En este ejemplo cambiamos el valor de la variable <code class="docutils literal notranslate"><span class="pre">i</span></code> (que es la
+variable libre del cierre <code class="docutils literal notranslate"><span class="pre">foo</span></code>) de <code class="docutils literal notranslate"><span class="pre">0</span></code> a <code class="docutils literal notranslate"><span class="pre">1</span></code> antes de que regrese
+la función externa <code class="docutils literal notranslate"><span class="pre">func</span></code>, luego llamamos al cierre, y después el
+valor de la variable libre <code class="docutils literal notranslate"><span class="pre">i</span></code> cuando el paquete <code class="docutils literal notranslate"><span class="pre">foo</span></code> también es
+<code class="docutils literal notranslate"><span class="pre">1</span></code>:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="nf">func</span><span class="p">()()</span><span class="w"> </span><span class="c1"># 1</span>
 </pre></div>
 </div>
 </section>
 <section id="crear-cierre-en-bucle">
 <h3>Crear cierre en bucle<a class="headerlink" href="#crear-cierre-en-bucle" title="Permalink to this headline">¶</a></h3>
-<p>Al construir un cierre en el cuerpo del ciclo, es posible que no desee que las variables libres del cierre cambien con las variables del ciclo. Primero veamos un ejemplo de cómo crear un cierre en un bucle <code class="docutils literal notranslate"><span class="pre">while</span></code>:</p>
+<p>Al construir un cierre en el cuerpo del ciclo, es posible que no desee
+que las variables libres del cierre cambien con las variables del ciclo.
+Primero veamos un ejemplo de cómo crear un cierre en un bucle <code class="docutils literal notranslate"><span class="pre">while</span></code>:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"></span>
 <span class="w">    </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
 <span class="w">    </span><span class="ow">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
@@ -428,14 +649,20 @@ Una mejor manera es devolver el cierre a través de una función de fábrica y u
 <span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
-<p>En este ejemplo, construimos un cierre en un ciclo y colocamos este cierre en una <code class="docutils literal notranslate"><span class="pre">lista</span></code>. Obviamente, cuando finalice el ciclo, el valor de la variable <code class="docutils literal notranslate"><span class="pre">i</span></code> será <code class="docutils literal notranslate"><span class="pre">3</span></code>, y todos los cierres de la lista <code class="docutils literal notranslate"><span class="pre">l</span></code> también son referencias usando esta variable. Si ejecutamos el cierre devuelto por <code class="docutils literal notranslate"><span class="pre">func</span></code> obtendremos el mismo resultado:</p>
+<p>En este ejemplo, construimos un cierre en un ciclo y colocamos este
+cierre en una <code class="docutils literal notranslate"><span class="pre">lista</span></code>. Obviamente, cuando finalice el ciclo, el valor
+de la variable <code class="docutils literal notranslate"><span class="pre">i</span></code> será <code class="docutils literal notranslate"><span class="pre">3</span></code>, y todos los cierres de la lista <code class="docutils literal notranslate"><span class="pre">l</span></code>
+también son referencias usando esta variable. Si ejecutamos el cierre
+devuelto por <code class="docutils literal notranslate"><span class="pre">func</span></code> obtendremos el mismo resultado:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"></span>
 <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]()</span><span class="w"> </span><span class="c1"># 3</span>
 <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]()</span><span class="w"> </span><span class="c1"># 3</span>
 <span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">]()</span><span class="w"> </span><span class="c1"># 3</span>
 </pre></div>
 </div>
-<p>Si queremos que cada cierre se refiera a diferentes variables libres, podemos definir otra capa de funciones y luego vincular las variables del ciclo actual con los parámetros de la función:</p>
+<p>Si queremos que cada cierre se refiera a diferentes variables libres,
+podemos definir otra capa de funciones y luego vincular las variables
+del ciclo actual con los parámetros de la función:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"></span>
 <span class="w">    </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
 <span class="w">    </span><span class="ow">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
@@ -448,7 +675,8 @@ Una mejor manera es devolver el cierre a través de una función de fábrica y u
 <span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Para ayudar a entender este código aparentemente incomprensible, nos enfocaremos en el código de las líneas 4 a 6:</p>
+<p>Para ayudar a entender este código aparentemente incomprensible, nos
+enfocaremos en el código de las líneas 4 a 6:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="ow">return</span><span class="w"> </span><span class="kd">def</span><span class="w"> </span><span class="p">()</span><span class="w"></span>
 <span class="w">        </span><span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
@@ -457,14 +685,20 @@ Una mejor manera es devolver el cierre a través de una función de fábrica y u
 </pre></div>
 </div>
 <p>Aquí realmente se define una función anónima y se llama inmediatamente.
-La función de esta función anónima temporal es vincular el valor de la variable de bucle <code class="docutils literal notranslate"><span class="pre">i</span></code> a su parámetro <code class="docutils literal notranslate"><span class="pre">n</span></code>, y la variable <code class="docutils literal notranslate"><span class="pre">n</span></code> también es lo que necesitamos para cerrar las variables libres del paquete, de modo que las las variables vinculadas al cierre construido durante cada ciclo son diferentes. Ahora obtendremos la salida deseada:</p>
+La función de esta función anónima temporal es vincular el valor de la
+variable de bucle <code class="docutils literal notranslate"><span class="pre">i</span></code> a su parámetro <code class="docutils literal notranslate"><span class="pre">n</span></code>, y la variable <code class="docutils literal notranslate"><span class="pre">n</span></code>
+también es lo que necesitamos para cerrar las variables libres del
+paquete, de modo que las las variables vinculadas al cierre construido
+durante cada ciclo son diferentes. Ahora obtendremos la salida deseada:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"></span>
 <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]()</span><span class="w"> </span><span class="c1"># 0</span>
 <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]()</span><span class="w"> </span><span class="c1"># 1</span>
 <span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">]()</span><span class="w"> </span><span class="c1"># 2</span>
 </pre></div>
 </div>
-<p>Hay algunas formas de resolver el problema de las variables de bucle como variables libres. Una forma un poco más simple es definir una variable temporal en el cuerpo del bucle:</p>
+<p>Hay algunas formas de resolver el problema de las variables de bucle
+como variables libres. Una forma un poco más simple es definir una
+variable temporal en el cuerpo del bucle:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"></span>
 <span class="w">    </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
 <span class="w">    </span><span class="ow">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
@@ -476,7 +710,10 @@ La función de esta función anónima temporal es vincular el valor de la variab
 <span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Aquí <code class="docutils literal notranslate"><span class="pre">temp</span></code> es una variable temporal. El alcance de esta variable está en el cuerpo del ciclo, por lo que se redefinirá cada vez que se realice un ciclo. También podemos usar la instrucción <code class="docutils literal notranslate"><span class="pre">for</span></code> para resolver el problema:</p>
+<p>Aquí <code class="docutils literal notranslate"><span class="pre">temp</span></code> es una variable temporal. El alcance de esta variable está
+en el cuerpo del ciclo, por lo que se redefinirá cada vez que se realice
+un ciclo. También podemos usar la instrucción <code class="docutils literal notranslate"><span class="pre">for</span></code> para resolver el
+problema:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"></span>
 <span class="w">    </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
 <span class="w">    </span><span class="ow">for</span><span class="w"> </span><span class="n">i</span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
@@ -486,27 +723,45 @@ La función de esta función anónima temporal es vincular el valor de la variab
 <span class="ow">end</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Esta puede ser la forma más sencilla de<code class="docutils literal notranslate"><span class="pre">for</span></code>. La variable de iteración de la instrucción se creará en cada ciclo. El principio es similar al método anterior.</p>
+<p>Esta puede ser la forma más sencilla de<code class="docutils literal notranslate"><span class="pre">for</span></code>. La variable de
+iteración de la instrucción se creará en cada ciclo. El principio es
+similar al método anterior.</p>
 </section>
 </section>
 <section id="expresion-lambda">
 <h2>Expresión lambda<a class="headerlink" href="#expresion-lambda" title="Permalink to this headline">¶</a></h2>
-<p>La <strong>Expresión lambda</strong> es una función anónima especial. La expresión lambda se compone de una lista de parámetros y un cuerpo de función, pero la forma es diferente de la función general:</p>
+<p>La <strong>Expresión lambda</strong> es una función anónima especial. La expresión
+lambda se compone de una lista de parámetros y un cuerpo de función,
+pero la forma es diferente de la función general:</p>
 <div class="highlight-ebnf notranslate"><div class="highlight"><pre><span></span>´/´ args ´-&gt;´ expr ´end’
 </pre></div>
 </div>
-<p><strong>args</strong> es la lista de parámetros, la cantidad de parámetros puede ser cero o más, y los parámetros múltiples están separados por comas o espacios (no se pueden mezclar al mismo tiempo); <strong>expr</strong> es la expresión de retorno, la expresión lambda devolverá el valor de la expresión. Las expresiones lambda son adecuadas para implementar funciones muy simples. Por ejemplo, la expresión lambda para juzgar el tamaño de dos números es:</p>
+<p><strong>args</strong> es la lista de parámetros, la cantidad de parámetros puede ser
+cero o más, y los parámetros múltiples están separados por comas o
+espacios (no se pueden mezclar al mismo tiempo); <strong>expr</strong> es la
+expresión de retorno, la expresión lambda devolverá el valor de la
+expresión. Las expresiones lambda son adecuadas para implementar
+funciones muy simples. Por ejemplo, la expresión lambda para juzgar el
+tamaño de dos números es:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Esto es más fácil que escribir una función con la misma funcionalidad. En algunos algoritmos generales de clasificación, este tipo de función de comparación de tamaño puede necesitar un uso extensivo. El uso de expresiones lambda puede simplificar el código y mejorar la legibilidad.</p>
-<p>Al igual que las funciones generales, las expresiones lambda pueden formar cierres. Las expresiones lambda se llaman de la misma manera que las funciones ordinarias. Si usa el método de llamada inmediata similar a las funciones anónimas:</p>
+<p>Esto es más fácil que escribir una función con la misma funcionalidad.
+En algunos algoritmos generales de clasificación, este tipo de función
+de comparación de tamaño puede necesitar un uso extensivo. El uso de
+expresiones lambda puede simplificar el código y mejorar la legibilidad.</p>
+<p>Al igual que las funciones generales, las expresiones lambda pueden
+formar cierres. Las expresiones lambda se llaman de la misma manera que
+las funciones ordinarias. Si usa el método de llamada inmediata similar
+a las funciones anónimas:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">lambda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
 <span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">lambda</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c1">#  llamada normal</span>
 <span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">)(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c1">#  llamada directa</span>
 </pre></div>
 </div>
-<p>Dado que el operador de llamada de función tiene una prioridad más alta, se debe agregar un par de paréntesis a la expresión lambda cuando se realiza una llamada directa, para que se llame como un todo.</p>
+<p>Dado que el operador de llamada de función tiene una prioridad más alta,
+se debe agregar un par de paréntesis a la expresión lambda cuando se
+realiza una llamada directa, para que se llame como un todo.</p>
 </section>
 </section>
 

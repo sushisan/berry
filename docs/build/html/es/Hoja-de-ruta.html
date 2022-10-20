@@ -72,7 +72,7 @@
           <li><a href="Home.html">Bienvenido a la wiki de Berry!</a> &raquo;</li>
       <li>Hoja de ruta</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/es/Hoja-de-ruta.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/es/Hoja-de-ruta.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -80,59 +80,61 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <!-- Spanish Translation: Emiliano Gonzalez (egonzalez . hiperion @ gmail . com) -->
-<section id="hoja-de-ruta">
+  <!-- Spanish Translation: Emiliano Gonzalez (egonzalez . hiperion @ gmail . com) --><section id="hoja-de-ruta">
 <h1>Hoja de ruta<a class="headerlink" href="#hoja-de-ruta" title="Permalink to this headline">¶</a></h1>
 <section id="por-hacer">
 <h2>POR HACER<a class="headerlink" href="#por-hacer" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>[x] Soporte multilínea REPL.</p></li>
-<li><p>[x] Información de depuración en tiempo de ejecución.</p></li>
-<li><p>[x] Protección de pila API.</p></li>
-<li><p>[x] Soporte de operación de archivos.</p></li>
-<li><p>[x] Tabla hash fija (basada en ROM).</p></li>
-<li><p>[x] Soporte de destructor.</p></li>
-<li><p>[x] Compatibilidad con módulos nativos (use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">xxx</span></code> para importar un módulo).</p></li>
-<li><p>[x] Soporte de expresiones condicionales.</p></li>
-<li><p>[x] Función anónima.</p></li>
-<li><p>[x] Operación bit a bit.</p></li>
-<li><p>[x] Sentencia de asignación compuesta.</p></li>
-<li><p>[x] Alcance incorporado.</p></li>
-<li><p>[x] Función de argumentos variables.</p></li>
-<li><p>[x] Función nativa: <code class="docutils literal notranslate"><span class="pre">classof(obj)</span></code>.</p></li>
-<li><p>[ ] ~~Función nativa: <code class="docutils literal notranslate"><span class="pre">copy(obj)</span></code>~~.</p></li>
-<li><p>[ ] Pila de llamadas de liberación automática.</p></li>
-<li><p>[ ] Expresión regular.</p></li>
-<li><p>[x] GC optimizado para el uso de la pila (sin recursividad).</p></li>
-<li><p>[x] Simplifica los mensajes de error de desbordamiento de pila.</p></li>
-<li><p>[x] Expresión lambda.</p></li>
-<li><p>[x] Manejo excepcional.</p></li>
-<li><p>[x] Compatibilidad con archivos de bytecode.</p></li>
-<li><p>[x] Iterador optimizado y sentencia <code class="docutils literal notranslate"><span class="pre">for</span></code>.</p></li>
-<li><p>[x] Operador de conexión (redefine el operador de rango <code class="docutils literal notranslate"><span class="pre">..</span></code>).</p>
+<li><p>☒ Soporte multilínea REPL.</p></li>
+<li><p>☒ Información de depuración en tiempo de ejecución.</p></li>
+<li><p>☒ Protección de pila API.</p></li>
+<li><p>☒ Soporte de operación de archivos.</p></li>
+<li><p>☒ Tabla hash fija (basada en ROM).</p></li>
+<li><p>☒ Soporte de destructor.</p></li>
+<li><p>☒ Compatibilidad con módulos nativos (use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">xxx</span></code> para
+importar un módulo).</p></li>
+<li><p>☒ Soporte de expresiones condicionales.</p></li>
+<li><p>☒ Función anónima.</p></li>
+<li><p>☒ Operación bit a bit.</p></li>
+<li><p>☒ Sentencia de asignación compuesta.</p></li>
+<li><p>☒ Alcance incorporado.</p></li>
+<li><p>☒ Función de argumentos variables.</p></li>
+<li><p>☒ Función nativa: <code class="docutils literal notranslate"><span class="pre">classof(obj)</span></code>.</p></li>
+<li><p>☐ [STRIKEOUT:Función nativa: <code class="docutils literal notranslate"><span class="pre">copy(obj)</span></code>].</p></li>
+<li><p>☐ Pila de llamadas de liberación automática.</p></li>
+<li><p>☐ Expresión regular.</p></li>
+<li><p>☒ GC optimizado para el uso de la pila (sin recursividad).</p></li>
+<li><p>☒ Simplifica los mensajes de error de desbordamiento de pila.</p></li>
+<li><p>☒ Expresión lambda.</p></li>
+<li><p>☒ Manejo excepcional.</p></li>
+<li><p>☒ Compatibilidad con archivos de bytecode.</p></li>
+<li><p>☒ Iterador optimizado y sentencia <code class="docutils literal notranslate"><span class="pre">for</span></code>.</p></li>
+<li><p>☒ Operador de conexión (redefine el operador de rango <code class="docutils literal notranslate"><span class="pre">..</span></code>).</p>
 <ul>
-<li><p>[x] Conexión de cadena, por ejemplo, <code class="docutils literal notranslate"><span class="pre">'cadena'</span> <span class="pre">..</span> <span class="pre">expr</span></code>.</p></li>
-<li><p>[x] Lista de conexiones, por ejemplo, <code class="docutils literal notranslate"><span class="pre">[]</span> <span class="pre">..</span> <span class="pre">expr</span></code>.</p></li>
-<li><p>[x] Método de serialización de lista (para conexión de cadena de alto rendimiento).</p></li>
+<li><p>☒ Conexión de cadena, por ejemplo, <code class="docutils literal notranslate"><span class="pre">'cadena'</span> <span class="pre">..</span> <span class="pre">expr</span></code>.</p></li>
+<li><p>☒ Lista de conexiones, por ejemplo, <code class="docutils literal notranslate"><span class="pre">[]</span> <span class="pre">..</span> <span class="pre">expr</span></code>.</p></li>
+<li><p>☒ Método de serialización de lista (para conexión de cadena de
+alto rendimiento).</p></li>
 </ul>
 </li>
-<li><p>[x] Soporte de módulo completo.</p>
+<li><p>☒ Soporte de módulo completo.</p>
 <ul>
-<li><p>[x] Exportación/importación del módulo de archivo de script.</p></li>
-<li><p>[x] Compilación/importación del módulo de archivo de bytecode.</p></li>
-<li><p>[x] Carga del módulo nativo compartido (como *.so, *.dll).</p></li>
+<li><p>☒ Exportación/importación del módulo de archivo de script.</p></li>
+<li><p>☒ Compilación/importación del módulo de archivo de bytecode.</p></li>
+<li><p>☒ Carga del módulo nativo compartido (como <em>.so,</em>.dll).</p></li>
 </ul>
 </li>
-<li><p>[x] API de verificación de igualdad universal (como el operador <code class="docutils literal notranslate"><span class="pre">==</span></code> pero se usa en C).</p>
+<li><p>☒ API de verificación de igualdad universal (como el operador <code class="docutils literal notranslate"><span class="pre">==</span></code>
+pero se usa en C).</p>
 <ul>
-<li><p>[x] Coincidencia de clave de mapa completa.</p></li>
-<li><p>[x] Coincidencia de valor de excepción completa.</p></li>
+<li><p>☒ Coincidencia de clave de mapa completa.</p></li>
+<li><p>☒ Coincidencia de valor de excepción completa.</p></li>
 </ul>
 </li>
-<li><p>[ ] Compatibilidad con el depurador.</p></li>
-<li><p>[ ] Mecanismo completo de clases y objetos.</p></li>
-<li><p>[ ] Mensaje de error de soporte para la herramienta <em>map_build</em>.</p></li>
-<li><p>[x] Llamada sobrecargada al operador <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p></li>
+<li><p>☐ Compatibilidad con el depurador.</p></li>
+<li><p>☐ Mecanismo completo de clases y objetos.</p></li>
+<li><p>☐ Mensaje de error de soporte para la herramienta <em>map_build</em>.</p></li>
+<li><p>☒ Llamada sobrecargada al operador <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p></li>
 </ul>
 </section>
 <section id="version-de-lanzamiento">
@@ -140,19 +142,19 @@
 <section id="v0-2-0">
 <h3>V0.2.0<a class="headerlink" href="#v0-2-0" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>[ ] Documentación china completa.</p></li>
-<li><p>[x] Manejo excepcional.</p></li>
-<li><p>[x] Soporte de módulo completo.</p></li>
+<li><p>☐ Documentación china completa.</p></li>
+<li><p>☒ Manejo excepcional.</p></li>
+<li><p>☒ Soporte de módulo completo.</p></li>
 </ul>
 </section>
 <section id="v0-1-0">
 <h3>V0.1.0<a class="headerlink" href="#v0-1-0" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>[x] Interfaz de sistema de archivos portátil.</p></li>
-<li><p>[x] Compatibilidad con objetos constantes precompilados.</p></li>
-<li><p>[x] Módulo constante completo precompilado.</p></li>
-<li><p>[ ] ~~Documentación más completa (chino)~~.</p></li>
-<li><p>[ ] ~~Guía de portabilidad~~.</p></li>
+<li><p>☒ Interfaz de sistema de archivos portátil.</p></li>
+<li><p>☒ Compatibilidad con objetos constantes precompilados.</p></li>
+<li><p>☒ Módulo constante completo precompilado.</p></li>
+<li><p>☐ [STRIKEOUT:Documentación más completa (chino)].</p></li>
+<li><p>☐ [STRIKEOUT:Guía de portabilidad].</p></li>
 </ul>
 </section>
 </section>

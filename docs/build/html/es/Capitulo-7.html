@@ -82,7 +82,7 @@
           <li><a href="Referencia.html">Manual de referencia del lenguaje Berry Script</a> &raquo;</li>
       <li>7. Bibliotecas y Módulos</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/es/Capitulo-7.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/es/Capitulo-7.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -90,12 +90,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <!-- Spanish Translation: Emiliano Gonzalez (egonzalez . hiperion @ gmail . com) -->
-<section id="bibliotecas-y-modulos">
+  <!-- Spanish Translation: Emiliano Gonzalez (egonzalez . hiperion @ gmail . com) --><section id="bibliotecas-y-modulos">
 <h1>7. Bibliotecas y Módulos<a class="headerlink" href="#bibliotecas-y-modulos" title="Permalink to this headline">¶</a></h1>
 <section id="biblioteca-basica">
 <h2>7.1 Biblioteca básica<a class="headerlink" href="#biblioteca-basica" title="Permalink to this headline">¶</a></h2>
-<p>Hay algunas funciones y clases que se pueden usar directamente en la biblioteca estándar. Proporcionan servicios básicos para los programas de Berry, por lo que también se denominan bibliotecas básicas. Las funciones y clases de la biblioteca básica están visibles en el ámbito global (perteneciente al ámbito integrado), por lo que se pueden utilizar en cualquier lugar. No defina variables con el mismo nombre que las funciones o clases en la biblioteca base. Si lo hace, será imposible hacer referencia a las funciones y clases en la biblioteca base.</p>
+<p>Hay algunas funciones y clases que se pueden usar directamente en la
+biblioteca estándar. Proporcionan servicios básicos para los programas
+de Berry, por lo que también se denominan bibliotecas básicas. Las
+funciones y clases de la biblioteca básica están visibles en el ámbito
+global (perteneciente al ámbito integrado), por lo que se pueden
+utilizar en cualquier lugar. No defina variables con el mismo nombre que
+las funciones o clases en la biblioteca base. Si lo hace, será imposible
+hacer referencia a las funciones y clases en la biblioteca base.</p>
 <section id="funcion-integrada">
 <h3>7.1.1 Función integrada<a class="headerlink" href="#funcion-integrada" title="Permalink to this headline">¶</a></h3>
 <section id="funcion-print">
@@ -105,8 +111,13 @@
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función imprime los parámetros de entrada en el dispositivo de salida estándar.
-La función puede aceptar cualquier tipo y cualquier número de parámetros. Todos los tipos imprimirán su valor directamente, y para una instancia, esta función verificará si la instancia tiene un método <code class="docutils literal notranslate"><span class="pre">tostring()</span></code>, y si lo hay, imprimirá el valor de retorno de la instancia llamando al método <code class="docutils literal notranslate"><span class="pre">tostring()</span></code>, de lo contrario, imprimirá la dirección de la instancia.</p>
+<p>Esta función imprime los parámetros de entrada en el dispositivo de
+salida estándar. La función puede aceptar cualquier tipo y cualquier
+número de parámetros. Todos los tipos imprimirán su valor directamente,
+y para una instancia, esta función verificará si la instancia tiene un
+método <code class="docutils literal notranslate"><span class="pre">tostring()</span></code>, y si lo hay, imprimirá el valor de retorno de la
+instancia llamando al método <code class="docutils literal notranslate"><span class="pre">tostring()</span></code>, de lo contrario, imprimirá
+la dirección de la instancia.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hola mundo!&#39;</span><span class="p">)</span> <span class="c1"># Hola mundo!</span>
 <span class="nb">print</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">])</span> <span class="c1"># [1, 2, &#39;3&#39;]</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span> <span class="c1"># &lt;function: 0x561092293780&gt;</span>
@@ -121,12 +132,17 @@ La función puede aceptar cualquier tipo y cualquier número de parámetros. Tod
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>La función <code class="docutils literal notranslate"><span class="pre">input</span></code> se usa para ingresar una línea de cadena de caracteres desde el dispositivo de entrada estándar. Esta función puede usar el parámetro <code class="docutils literal notranslate"><span class="pre">prompt</span></code> como un indicador de entrada, y el parámetro <code class="docutils literal notranslate"><span class="pre">prompt</span></code> debe ser de tipo cadena.
-Después de llamar a la función <code class="docutils literal notranslate"><span class="pre">input</span></code>, los caracteres se leerán desde el búfer del teclado hasta que se encuentre un carácter de nueva línea.</p>
+<p>La función <code class="docutils literal notranslate"><span class="pre">input</span></code> se usa para ingresar una línea de cadena de
+caracteres desde el dispositivo de entrada estándar. Esta función puede
+usar el parámetro <code class="docutils literal notranslate"><span class="pre">prompt</span></code> como un indicador de entrada, y el
+parámetro <code class="docutils literal notranslate"><span class="pre">prompt</span></code> debe ser de tipo cadena. Después de llamar a la
+función <code class="docutils literal notranslate"><span class="pre">input</span></code>, los caracteres se leerán desde el búfer del teclado
+hasta que se encuentre un carácter de nueva línea.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;por favor ingrese una cadena:&#39;</span><span class="p">)</span> <span class="c1"># por favor ingrese una cadena:</span>
 </pre></div>
 </div>
-<p>La función <code class="docutils literal notranslate"><span class="pre">input</span></code> no regresa hasta que se presiona la tecla “Enter”, por lo que el programa queda “atascado” y no es un error.</p>
+<p>La función <code class="docutils literal notranslate"><span class="pre">input</span></code> no regresa hasta que se presiona la tecla “Enter”,
+por lo que el programa queda “atascado” y no es un error.</p>
 </section>
 <section id="funcion-type">
 <h4>Función <code class="docutils literal notranslate"><span class="pre">type</span></code><a class="headerlink" href="#funcion-type" title="Permalink to this headline">¶</a></h4>
@@ -139,40 +155,49 @@ Después de llamar a la función <code class="docutils literal notranslate"><spa
 <li><p><em>valor devuelto</em>: una cadena que describe el tipo de parámetro.</p></li>
 </ul>
 <p><strong>Descripción</strong></p>
-<p>Esta función recibe un parámetro de cualquier tipo y devuelve el tipo del parámetro. El valor devuelto es una cadena que describe el tipo del parámetro. La siguiente tabla muestra los valores de retorno correspondientes a los principales tipos de parámetros:</p>
-<table class="colwidths-auto docutils align-default">
+<p>Esta función recibe un parámetro de cualquier tipo y devuelve el tipo
+del parámetro. El valor devuelto es una cadena que describe el tipo del
+parámetro. La siguiente tabla muestra los valores de retorno
+correspondientes a los principales tipos de parámetros:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 23%" />
+<col style="width: 27%" />
+<col style="width: 23%" />
+</colgroup>
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>Tipo de parámetro</p></th>
-<th class="text-left head"><p>Valor devuelto</p></th>
-<th class="text-left head"><p>Tipo de parámetro</p></th>
-<th class="text-left head"><p>Valor devuelto</p></th>
+<tr class="row-odd"><th class="head"><p>Tipo de parámetro</p></th>
+<th class="head"><p>Valor devuelto</p></th>
+<th class="head"><p>Tipo de parámetro</p></th>
+<th class="head"><p>Valor devuelto</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-left"><p>Nil</p></td>
-<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">’nil’</span></code></p></td>
-<td class="text-left"><p>Integer</p></td>
-<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">’int’</span></code></p></td>
+<tr class="row-even"><td><p>Nil</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">’nil’</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">’int’</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p>Real</p></td>
-<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">’real’</span></code></p></td>
-<td class="text-left"><p>Boolean</p></td>
-<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">’bool’</span></code></p></td>
+<tr class="row-odd"><td><p>Real</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">’real’</span></code></p></td>
+<td><p>Boolean</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">’bool’</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p>Function</p></td>
-<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">’function’</span></code></p></td>
-<td class="text-left"><p>Class</p></td>
-<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">’class’</span></code></p></td>
+<tr class="row-even"><td><p>Function</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">’function’</span></code></p></td>
+<td><p>Class</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">’class’</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p>String</p></td>
-<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">’string’</span></code></p></td>
-<td class="text-left"><p>Instance</p></td>
-<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">’instance’</span></code></p></td>
+<tr class="row-odd"><td><p>String</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">’string’</span></code></p></td>
+<td><p>Instance</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">’instance’</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p>puntero nativo</p></td>
-<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">’ptr’</span></code></p></td>
-<td class="text-left"><p></p></td>
-<td class="text-left"><p></p></td>
+<tr class="row-even"><td><p>puntero nativo</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">’ptr’</span></code></p></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -190,8 +215,9 @@ Después de llamar a la función <code class="docutils literal notranslate"><spa
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función devuelve el nombre de clase (cadena) del parámetro.
-Por lo tanto, el parámetro debe ser una clase o instancia, y otros tipos de parámetros devolverán <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<p>Esta función devuelve el nombre de clase (cadena) del parámetro. Por lo
+tanto, el parámetro debe ser una clase o instancia, y otros tipos de
+parámetros devolverán <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">classname</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span> <span class="c1"># &#39;list&#39;</span>
 <span class="n">classname</span><span class="p">(</span><span class="nb">list</span><span class="p">())</span> <span class="c1"># &#39;list&#39;</span>
 <span class="n">classname</span><span class="p">({})</span> <span class="c1"># &#39;map&#39;</span>
@@ -206,7 +232,10 @@ Por lo tanto, el parámetro debe ser una clase o instancia, y otros tipos de par
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Devuelve la clase de un objeto de instancia. El parámetro <code class="docutils literal notranslate"><span class="pre">objeto</span></code> debe ser una instancia. Si la función se llama con éxito, devolverá la clase a la que pertenece la instancia; de lo contrario, devolverá <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<p>Devuelve la clase de un objeto de instancia. El parámetro <code class="docutils literal notranslate"><span class="pre">objeto</span></code>
+debe ser una instancia. Si la función se llama con éxito, devolverá la
+clase a la que pertenece la instancia; de lo contrario, devolverá
+<code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">classof</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span> <span class="c1"># nil</span>
 <span class="n">classof</span><span class="p">(</span><span class="nb">list</span><span class="p">())</span> <span class="c1"># &lt;class: list&gt;</span>
 <span class="n">classof</span><span class="p">({})</span> <span class="c1"># &lt;class: map&gt;</span>
@@ -221,7 +250,12 @@ Por lo tanto, el parámetro debe ser una clase o instancia, y otros tipos de par
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función convierte los parámetros en cadenas y los devuelve. Las funciones <code class="docutils literal notranslate"><span class="pre">str</span></code> pueden aceptar cualquier tipo de parámetros y convertirlos. Cuando el tipo de parámetro es una instancia, verificará si la instancia tiene un método <code class="docutils literal notranslate"><span class="pre">tostring()</span></code>, si lo hay, se usará el valor de retorno del método; de lo contrario, la dirección de la instancia se convertirá en una cadena.</p>
+<p>Esta función convierte los parámetros en cadenas y los devuelve. Las
+funciones <code class="docutils literal notranslate"><span class="pre">str</span></code> pueden aceptar cualquier tipo de parámetros y
+convertirlos. Cuando el tipo de parámetro es una instancia, verificará
+si la instancia tiene un método <code class="docutils literal notranslate"><span class="pre">tostring()</span></code>, si lo hay, se usará el
+valor de retorno del método; de lo contrario, la dirección de la
+instancia se convertirá en una cadena.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># &#39;0&#39;</span>
 <span class="nb">str</span><span class="p">(</span><span class="n">nil</span><span class="p">)</span> <span class="c1"># &#39;nil&#39;</span>
 <span class="nb">str</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span> <span class="c1"># &#39;list&#39;</span>
@@ -234,7 +268,12 @@ Por lo tanto, el parámetro debe ser una clase o instancia, y otros tipos de par
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función convierte la cadena o el número de entrada en un tipo numérico y lo devuelve. Si el parámetro de entrada es un número entero o real, devuelve directamente. Si es una cadena de caracteres, intenta convertir la cadena de caracteres en un valor numérico en formato decimal. El número entero o real se juzgará automáticamente durante la conversión. Otros tipos devuelven <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<p>Esta función convierte la cadena o el número de entrada en un tipo
+numérico y lo devuelve. Si el parámetro de entrada es un número entero o
+real, devuelve directamente. Si es una cadena de caracteres, intenta
+convertir la cadena de caracteres en un valor numérico en formato
+decimal. El número entero o real se juzgará automáticamente durante la
+conversión. Otros tipos devuelven <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">number</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># 5</span>
 <span class="n">number</span><span class="p">(</span><span class="s1">&#39;45.6&#39;</span><span class="p">)</span> <span class="c1"># 45.6</span>
@@ -249,8 +288,13 @@ Por lo tanto, el parámetro debe ser una clase o instancia, y otros tipos de par
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función convierte la cadena o el número de entrada en un número entero y lo devuelve. Si el parámetro de entrada es un número entero, regresa directamente, si es un número real, descarta la parte decimal. Si es una cadena, intenta convertir la cadena en un número entero en decimal. Otros tipos devuelven <code class="docutils literal notranslate"><span class="pre">nil</span></code>.
-Cuando el tipo de parámetro es una instancia, verificará si la instancia tiene un método <code class="docutils literal notranslate"><span class="pre">toint()</span></code>, si lo hay, se utilizará el valor de retorno del método.</p>
+<p>Esta función convierte la cadena o el número de entrada en un número
+entero y lo devuelve. Si el parámetro de entrada es un número entero,
+regresa directamente, si es un número real, descarta la parte decimal.
+Si es una cadena, intenta convertir la cadena en un número entero en
+decimal. Otros tipos devuelven <code class="docutils literal notranslate"><span class="pre">nil</span></code>. Cuando el tipo de parámetro es
+una instancia, verificará si la instancia tiene un método <code class="docutils literal notranslate"><span class="pre">toint()</span></code>,
+si lo hay, se utilizará el valor de retorno del método.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># 5</span>
 <span class="nb">int</span><span class="p">(</span><span class="mf">45.6</span><span class="p">)</span> <span class="c1"># 45</span>
@@ -266,8 +310,11 @@ Cuando el tipo de parámetro es una instancia, verificará si la instancia tiene
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función convierte la cadena o el número de entrada en un número real y lo devuelve. Si el parámetro de entrada es un número real, devolverá directamente, si es un número entero, se convertirá en un número real. Si es una cadena, intenta convertir la cadena en un número real en decimal.
-Otros tipos devuelven <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<p>Esta función convierte la cadena o el número de entrada en un número
+real y lo devuelve. Si el parámetro de entrada es un número real,
+devolverá directamente, si es un número entero, se convertirá en un
+número real. Si es una cadena, intenta convertir la cadena en un número
+real en decimal. Otros tipos devuelven <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">real</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># 5, type(real(5)) →&#39;real&#39;</span>
 <span class="n">real</span><span class="p">(</span><span class="mf">45.6</span><span class="p">)</span> <span class="c1"># 45.6</span>
@@ -282,21 +329,22 @@ Otros tipos devuelven <code class="docutils literal notranslate"><span class="pr
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función convierte la cadena o el número de entrada en un valor booleano y lo devuelve.</p>
+<p>Esta función convierte la cadena o el número de entrada en un valor
+booleano y lo devuelve.</p>
 <p>La conversión sigue las siguientes reglas:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">nil</span></code>: convertido a <code class="docutils literal notranslate"><span class="pre">falso</span></code>.</p></li>
-<li><p><strong>Entero</strong>: cuando el valor es <code class="docutils literal notranslate"><span class="pre">0</span></code>, se convierte en <code class="docutils literal notranslate"><span class="pre">falso</span></code>,
-de lo contrario, se convierte en <code class="docutils literal notranslate"><span class="pre">verdadero</span></code>.</p></li>
-<li><p><strong>Número real</strong>: cuando el valor es <code class="docutils literal notranslate"><span class="pre">0.0</span></code>, se convierte en <code class="docutils literal notranslate"><span class="pre">falso</span></code>,
-de lo contrario, se convierte en <code class="docutils literal notranslate"><span class="pre">verdadero</span></code>.</p></li>
-<li><p><strong>Cadena</strong>: cuando el valor es “” (cadena vacía) se convierte en <code class="docutils literal notranslate"><span class="pre">falso</span></code>
-de lo contrario, se convierte en <code class="docutils literal notranslate"><span class="pre">verdadero</span></code>.</p></li>
+<li><p><strong>Entero</strong>: cuando el valor es <code class="docutils literal notranslate"><span class="pre">0</span></code>, se convierte en <code class="docutils literal notranslate"><span class="pre">falso</span></code>, de
+lo contrario, se convierte en <code class="docutils literal notranslate"><span class="pre">verdadero</span></code>.</p></li>
+<li><p><strong>Número real</strong>: cuando el valor es <code class="docutils literal notranslate"><span class="pre">0.0</span></code>, se convierte en
+<code class="docutils literal notranslate"><span class="pre">falso</span></code>, de lo contrario, se convierte en <code class="docutils literal notranslate"><span class="pre">verdadero</span></code>.</p></li>
+<li><p><strong>Cadena</strong>: cuando el valor es “” (cadena vacía) se convierte en
+<code class="docutils literal notranslate"><span class="pre">falso</span></code> de lo contrario, se convierte en <code class="docutils literal notranslate"><span class="pre">verdadero</span></code>.</p></li>
 <li><p><strong>Comobj</strong> y <strong>Comptr</strong>: cuando el puntero interno es <code class="docutils literal notranslate"><span class="pre">NULL</span></code> es
 convertido a <code class="docutils literal notranslate"><span class="pre">falso</span></code>, de lo contrario se convierte a <code class="docutils literal notranslate"><span class="pre">verdadero</span></code>.</p></li>
-<li><p><strong>Instancia</strong>: si la instancia contiene un método <code class="docutils literal notranslate"><span class="pre">tobool()</span></code>,
-se utilizará el valor de retorno del método,
-de lo contrario, se convertirá en <code class="docutils literal notranslate"><span class="pre">verdadero</span></code>.</p></li>
+<li><p><strong>Instancia</strong>: si la instancia contiene un método <code class="docutils literal notranslate"><span class="pre">tobool()</span></code>, se
+utilizará el valor de retorno del método, de lo contrario, se
+convertirá en <code class="docutils literal notranslate"><span class="pre">verdadero</span></code>.</p></li>
 <li><p>Todos los demás tipos: convierte a <code class="docutils literal notranslate"><span class="pre">verdadero</span></code>.</p></li>
 </ul>
 <p><strong>Ejemplo</strong></p>
@@ -325,8 +373,10 @@ de lo contrario, se convertirá en <code class="docutils literal notranslate"><s
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función devuelve el tamaño de la cadena de entrada. Si el parámetro de entrada no es una cadena, se devuelve 0. La longitud de la cadena se calcula en bytes.
-Esta función también funciona para instancias de <code class="docutils literal notranslate"><span class="pre">list</span></code> y <code class="docutils literal notranslate"><span class="pre">map</span></code> y devuelve el número de elementos.</p>
+<p>Esta función devuelve el tamaño de la cadena de entrada. Si el parámetro
+de entrada no es una cadena, se devuelve 0. La longitud de la cadena se
+calcula en bytes. Esta función también funciona para instancias de
+<code class="docutils literal notranslate"><span class="pre">list</span></code> y <code class="docutils literal notranslate"><span class="pre">map</span></code> y devuelve el número de elementos.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">size</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># 0</span>
 <span class="n">size</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span> <span class="c1"># 1</span>
@@ -342,9 +392,12 @@ Esta función también funciona para instancias de <code class="docutils literal
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función devuelve el objeto principal de la instancia. Cuando crea una instancia de una clase derivada, también creará una instancia de su clase base.
-Se requiere la función <code class="docutils literal notranslate"><span class="pre">super</span></code> para acceder a la instancia de la clase base (es decir, el objeto principal).</p>
-<p>Consulte el capítulo 6 sobre el comportamiento mágico de <code class="docutils literal notranslate"><span class="pre">super(objeto)</span></code> al llamar a un supermétodo.</p>
+<p>Esta función devuelve el objeto principal de la instancia. Cuando crea
+una instancia de una clase derivada, también creará una instancia de su
+clase base. Se requiere la función <code class="docutils literal notranslate"><span class="pre">super</span></code> para acceder a la instancia
+de la clase base (es decir, el objeto principal).</p>
+<p>Consulte el capítulo 6 sobre el comportamiento mágico de
+<code class="docutils literal notranslate"><span class="pre">super(objeto)</span></code> al llamar a un supermétodo.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">mi_lista</span><span class="p">:</span> <span class="n">lista</span> <span class="n">end</span>
 <span class="n">l</span> <span class="o">=</span> <span class="n">mi_lista</span><span class="p">()</span> <span class="c1"># classname(l) --&gt;&#39;mi_lista&#39;</span>
@@ -359,7 +412,16 @@ Se requiere la función <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función se utiliza para implementar la función de aserción. La función <code class="docutils literal notranslate"><span class="pre">assert</span></code> acepta un parámetro. Cuando el valor del parámetro es <code class="docutils literal notranslate"><span class="pre">false</span></code> o <code class="docutils literal notranslate"><span class="pre">nil</span></code>, la función activará un error de aserción; de lo contrario, la función no tendrá ningún efecto. Cabe señalar que incluso si el parámetro es un valor equivalente a <code class="docutils literal notranslate"><span class="pre">false</span></code> en operaciones lógicas (por ejemplo, <code class="docutils literal notranslate"><span class="pre">0</span></code>), no generará un error de aserción. El parámetro <code class="docutils literal notranslate"><span class="pre">mensaje</span></code> es opcional y debe ser una cadena. Si se utiliza este parámetro, la información de texto proporcionada en <code class="docutils literal notranslate"><span class="pre">message</span></code> se mostrará cuando se produzca un error de aserción; de lo contrario, se mostrará el mensaje predeterminado “<code class="docutils literal notranslate"><span class="pre">Assert</span> <span class="pre">Fail</span></code>”.</p>
+<p>Esta función se utiliza para implementar la función de aserción. La
+función <code class="docutils literal notranslate"><span class="pre">assert</span></code> acepta un parámetro. Cuando el valor del parámetro es
+<code class="docutils literal notranslate"><span class="pre">false</span></code> o <code class="docutils literal notranslate"><span class="pre">nil</span></code>, la función activará un error de aserción; de lo
+contrario, la función no tendrá ningún efecto. Cabe señalar que incluso
+si el parámetro es un valor equivalente a <code class="docutils literal notranslate"><span class="pre">false</span></code> en operaciones
+lógicas (por ejemplo, <code class="docutils literal notranslate"><span class="pre">0</span></code>), no generará un error de aserción. El
+parámetro <code class="docutils literal notranslate"><span class="pre">mensaje</span></code> es opcional y debe ser una cadena. Si se utiliza
+este parámetro, la información de texto proporcionada en <code class="docutils literal notranslate"><span class="pre">message</span></code> se
+mostrará cuando se produzca un error de aserción; de lo contrario, se
+mostrará el mensaje predeterminado “<code class="docutils literal notranslate"><span class="pre">Assert</span> <span class="pre">Fail</span></code>”.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span><span class="p">(</span><span class="n">false</span><span class="p">)</span> <span class="c1"># aserción fallida!</span>
 <span class="k">assert</span><span class="p">(</span><span class="n">nil</span><span class="p">)</span> <span class="c1"># aserción fallida!</span>
@@ -378,7 +440,16 @@ Se requiere la función <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función compila el código fuente de Berry en una función. El código fuente puede ser una cadena o un archivo de texto. El primer parámetro de la función <code class="docutils literal notranslate"><span class="pre">compile</span></code> es una cadena, y el segundo parámetro es una <code class="docutils literal notranslate"><span class="pre">'cadena'</span></code> o <code class="docutils literal notranslate"><span class="pre">'archivo'</span></code>. Cuando el segundo parámetro es <code class="docutils literal notranslate"><span class="pre">'cadena'</span></code> o no hay un segundo parámetro, la función <code class="docutils literal notranslate"><span class="pre">compile</span></code> compilará el primer parámetro como código fuente. Cuando el segundo parámetro es <code class="docutils literal notranslate"><span class="pre">'file'</span></code>, la función <code class="docutils literal notranslate"><span class="pre">compile</span></code> compilará el archivo correspondiente al primer parámetro. Si la compilación es exitosa, <code class="docutils literal notranslate"><span class="pre">compile</span></code> devolverá la función compilada; de lo contrario, devolverá <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<p>Esta función compila el código fuente de Berry en una función. El código
+fuente puede ser una cadena o un archivo de texto. El primer parámetro
+de la función <code class="docutils literal notranslate"><span class="pre">compile</span></code> es una cadena, y el segundo parámetro es una
+<code class="docutils literal notranslate"><span class="pre">'cadena'</span></code> o <code class="docutils literal notranslate"><span class="pre">'archivo'</span></code>. Cuando el segundo parámetro es
+<code class="docutils literal notranslate"><span class="pre">'cadena'</span></code> o no hay un segundo parámetro, la función <code class="docutils literal notranslate"><span class="pre">compile</span></code>
+compilará el primer parámetro como código fuente. Cuando el segundo
+parámetro es <code class="docutils literal notranslate"><span class="pre">'file'</span></code>, la función <code class="docutils literal notranslate"><span class="pre">compile</span></code> compilará el archivo
+correspondiente al primer parámetro. Si la compilación es exitosa,
+<code class="docutils literal notranslate"><span class="pre">compile</span></code> devolverá la función compilada; de lo contrario, devolverá
+<code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">compile</span><span class="p">(</span><span class="s1">&#39;print(</span><span class="se">\&#39;</span><span class="s1">Hola mundo!</span><span class="se">\&#39;</span><span class="s1">)&#39;</span><span class="p">)()</span> <span class="c1"># Hola mundo!</span>
 <span class="nb">compile</span><span class="p">(</span><span class="s1">&#39;test.be&#39;</span><span class="p">,</span><span class="s1">&#39;file&#39;</span><span class="p">)</span>
@@ -389,14 +460,31 @@ Se requiere la función <code class="docutils literal notranslate"><span class="
 </section>
 <section id="clase-list">
 <h3>Clase <code class="docutils literal notranslate"><span class="pre">list</span></code><a class="headerlink" href="#clase-list" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">list</span></code> es un tipo incorporado, y define un contenedor de almacenamiento secuencial que admite la lectura y escritura de subíndices. Es similar a las matrices en otros lenguajes de programación. La obtención de una instancia de la clase <code class="docutils literal notranslate"><span class="pre">list</span></code> se puede construir usando un par de corchetes: <code class="docutils literal notranslate"><span class="pre">[]</span></code> generará una instancia vacía de <code class="docutils literal notranslate"><span class="pre">list</span></code>, y <code class="docutils literal notranslate"><span class="pre">[expr,</span> <span class="pre">expr,</span> <span class="pre">...]</span></code> generará una <code class="docutils literal notranslate"><span class="pre">list</span></code> ejemplo con varios elementos. También se puede instanciar llamando a la clase <code class="docutils literal notranslate"><span class="pre">list</span></code>: ejecutar <code class="docutils literal notranslate"><span class="pre">list()</span></code> obtendrá una instancia vacía de <code class="docutils literal notranslate"><span class="pre">list</span></code>, y <code class="docutils literal notranslate"><span class="pre">list(expr,</span> <span class="pre">expr,</span> <span class="pre">...)</span></code> devolverá una instancia con varios elementos.</p>
+<p><code class="docutils literal notranslate"><span class="pre">list</span></code> es un tipo incorporado, y define un contenedor de
+almacenamiento secuencial que admite la lectura y escritura de
+subíndices. Es similar a las matrices en otros lenguajes de
+programación. La obtención de una instancia de la clase <code class="docutils literal notranslate"><span class="pre">list</span></code> se
+puede construir usando un par de corchetes: <code class="docutils literal notranslate"><span class="pre">[]</span></code> generará una
+instancia vacía de <code class="docutils literal notranslate"><span class="pre">list</span></code>, y <code class="docutils literal notranslate"><span class="pre">[expr,</span> <span class="pre">expr,</span> <span class="pre">...]</span></code> generará una
+<code class="docutils literal notranslate"><span class="pre">list</span></code> ejemplo con varios elementos. También se puede instanciar
+llamando a la clase <code class="docutils literal notranslate"><span class="pre">list</span></code>: ejecutar <code class="docutils literal notranslate"><span class="pre">list()</span></code> obtendrá una instancia
+vacía de <code class="docutils literal notranslate"><span class="pre">list</span></code>, y <code class="docutils literal notranslate"><span class="pre">list(expr,</span> <span class="pre">expr,</span> <span class="pre">...)</span></code> devolverá una instancia
+con varios elementos.</p>
 <section id="metodo-list-constructor">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">list</span></code> (Constructor)<a class="headerlink" href="#metodo-list-constructor" title="Permalink to this headline">¶</a></h4>
-<p>Inicializa el contenedor <code class="docutils literal notranslate"><span class="pre">list</span></code>. Este método puede aceptar de 0 a múltiples parámetros. La instancia <code class="docutils literal notranslate"><span class="pre">list</span></code> generada cuando se pasan múltiples parámetros tendrá estos parámetros como elementos, y el orden de disposición de los elementos es coherente con el orden de disposición de los parámetros.</p>
+<p>Inicializa el contenedor <code class="docutils literal notranslate"><span class="pre">list</span></code>. Este método puede aceptar de 0 a
+múltiples parámetros. La instancia <code class="docutils literal notranslate"><span class="pre">list</span></code> generada cuando se pasan
+múltiples parámetros tendrá estos parámetros como elementos, y el orden
+de disposición de los elementos es coherente con el orden de disposición
+de los parámetros.</p>
 </section>
 <section id="metodo-tostring">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">tostring</span></code><a class="headerlink" href="#metodo-tostring" title="Permalink to this headline">¶</a></h4>
-<p>Serializa la instancia de <code class="docutils literal notranslate"><span class="pre">list</span></code> en una cadena y la devuelve. Por ejemplo, el resultado de ejecutar <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">[],</span> <span class="pre">1.5].tostring()</span></code> es <code class="docutils literal notranslate"><span class="pre">'[1,</span> <span class="pre">[],</span> <span class="pre">1.5]''.</span> <span class="pre">Si</span> <span class="pre">el</span> <span class="pre">contenedor</span> </code>list` se refiere a sí mismo, la posición correspondiente utilizará puntos suspensivos en lugar del valor específico:</p>
+<p>Serializa la instancia de <code class="docutils literal notranslate"><span class="pre">list</span></code> en una cadena y la devuelve. Por
+ejemplo, el resultado de ejecutar <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">[],</span> <span class="pre">1.5].tostring()</span></code> es
+<code class="docutils literal notranslate"><span class="pre">'[1,</span> <span class="pre">[],</span> <span class="pre">1.5]''.</span> <span class="pre">Si</span> <span class="pre">el</span> <span class="pre">contenedor</span></code>list` se refiere a sí mismo, la
+posición correspondiente utilizará puntos suspensivos en lugar del valor
+específico:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">l</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="c1"># [[...], 2]</span>
@@ -405,7 +493,8 @@ Se requiere la función <code class="docutils literal notranslate"><span class="
 </section>
 <section id="metodo-concat">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">concat</span></code><a class="headerlink" href="#metodo-concat" title="Permalink to this headline">¶</a></h4>
-<p>Convierte cada elemento de la lista en cadenas y la concatena usando la cadena proporcionada.</p>
+<p>Convierte cada elemento de la lista en cadenas y la concatena usando la
+cadena proporcionada.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">l</span><span class="o">.</span><span class="n">concat</span><span class="p">()</span>  <span class="c1"># &#39;123&#39;</span>
 <span class="n">l</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">)</span>  <span class="c1"># &#39;1, 2, 3&#39;</span>
@@ -414,54 +503,94 @@ Se requiere la función <code class="docutils literal notranslate"><span class="
 </section>
 <section id="metodo-push">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">push</span></code><a class="headerlink" href="#metodo-push" title="Permalink to this headline">¶</a></h4>
-<p>Agrega un elemento al final del contenedor <code class="docutils literal notranslate"><span class="pre">list</span></code>. El prototipo de este método es <code class="docutils literal notranslate"><span class="pre">push(valor)</span></code>, el parámetro <code class="docutils literal notranslate"><span class="pre">valor</span></code> es el valor que se agregará, y el valor agregado se almacena al final del contenedor <code class="docutils literal notranslate"><span class="pre">list</span></code>. La operación de agregar aumenta el número de elementos en el contenedor <code class="docutils literal notranslate"><span class="pre">list</span></code> en 1. Puede agregar cualquier tipo de valor a la instancia de <code class="docutils literal notranslate"><span class="pre">lista</span></code>.</p>
+<p>Agrega un elemento al final del contenedor <code class="docutils literal notranslate"><span class="pre">list</span></code>. El prototipo de
+este método es <code class="docutils literal notranslate"><span class="pre">push(valor)</span></code>, el parámetro <code class="docutils literal notranslate"><span class="pre">valor</span></code> es el valor que
+se agregará, y el valor agregado se almacena al final del contenedor
+<code class="docutils literal notranslate"><span class="pre">list</span></code>. La operación de agregar aumenta el número de elementos en el
+contenedor <code class="docutils literal notranslate"><span class="pre">list</span></code> en 1. Puede agregar cualquier tipo de valor a la
+instancia de <code class="docutils literal notranslate"><span class="pre">lista</span></code>.</p>
 </section>
 <section id="metodo-insert">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">insert</span></code><a class="headerlink" href="#metodo-insert" title="Permalink to this headline">¶</a></h4>
-<p>Inserta un elemento en la posición especificada del contenedor <code class="docutils literal notranslate"><span class="pre">list</span></code>. El prototipo de este método es <code class="docutils literal notranslate"><span class="pre">insert(indice,</span> <span class="pre">valor)</span></code>, el parámetro <code class="docutils literal notranslate"><span class="pre">indice</span></code> es la posición a insertar, y <code class="docutils literal notranslate"><span class="pre">valor</span></code> es el valor a insertar. Después de insertar un elemento en la posición <code class="docutils literal notranslate"><span class="pre">indice</span></code>, todos los elementos que originalmente comenzaron desde esta posición se moverán hacia atrás un elemento. La operación de inserción aumenta el número de elementos en el contenedor <code class="docutils literal notranslate"><span class="pre">list</span></code> en 1. Puede insertar cualquier tipo de valor en el contenedor <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
-<p>Supongamos que el valor de una instancia de <code class="docutils literal notranslate"><span class="pre">lista</span></code> <code class="docutils literal notranslate"><span class="pre">l</span></code> es <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2]</span></code>, e insertamos una cadena <code class="docutils literal notranslate"><span class="pre">'cadena'</span></code> en la posición 1, y necesitamos llamar a <code class="docutils literal notranslate"><span class="pre">l.insert(1,</span> <span class="pre">'cadena')</span></code>. Finalmente, el nuevo valor de <code class="docutils literal notranslate"><span class="pre">lista</span></code> es <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">'cadena',</span> <span class="pre">1,</span> <span class="pre">2]</span></code>.</p>
-<p>Si el número de elementos en un contenedor <code class="docutils literal notranslate"><span class="pre">list</span></code> es <em>S</em>, el rango de valores de la posición de inserción es {<em>i</em> ∈ ℤ : − <em>S</em> ≤ <em>i</em> &lt; <em>S</em>}. Cuando la posición de inserción es positiva, indexa hacia atrás desde el principio del contenedor <code class="docutils literal notranslate"><span class="pre">list</span></code>; de lo contrario, indexa hacia adelante desde el final del contenedor <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
+<p>Inserta un elemento en la posición especificada del contenedor <code class="docutils literal notranslate"><span class="pre">list</span></code>.
+El prototipo de este método es <code class="docutils literal notranslate"><span class="pre">insert(indice,</span> <span class="pre">valor)</span></code>, el parámetro
+<code class="docutils literal notranslate"><span class="pre">indice</span></code> es la posición a insertar, y <code class="docutils literal notranslate"><span class="pre">valor</span></code> es el valor a
+insertar. Después de insertar un elemento en la posición <code class="docutils literal notranslate"><span class="pre">indice</span></code>,
+todos los elementos que originalmente comenzaron desde esta posición se
+moverán hacia atrás un elemento. La operación de inserción aumenta el
+número de elementos en el contenedor <code class="docutils literal notranslate"><span class="pre">list</span></code> en 1. Puede insertar
+cualquier tipo de valor en el contenedor <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
+<p>Supongamos que el valor de una instancia de <code class="docutils literal notranslate"><span class="pre">lista</span></code> <code class="docutils literal notranslate"><span class="pre">l</span></code> es
+<code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2]</span></code>, e insertamos una cadena <code class="docutils literal notranslate"><span class="pre">'cadena'</span></code> en la posición 1, y
+necesitamos llamar a <code class="docutils literal notranslate"><span class="pre">l.insert(1,</span> <span class="pre">'cadena')</span></code>. Finalmente, el nuevo
+valor de <code class="docutils literal notranslate"><span class="pre">lista</span></code> es <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">'cadena',</span> <span class="pre">1,</span> <span class="pre">2]</span></code>.</p>
+<p>Si el número de elementos en un contenedor <code class="docutils literal notranslate"><span class="pre">list</span></code> es <em>S</em>, el rango de
+valores de la posición de inserción es {<em>i</em> ∈ ℤ : − <em>S</em> ≤ <em>i</em> &lt; <em>S</em>}.
+Cuando la posición de inserción es positiva, indexa hacia atrás desde el
+principio del contenedor <code class="docutils literal notranslate"><span class="pre">list</span></code>; de lo contrario, indexa hacia
+adelante desde el final del contenedor <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
 </section>
 <section id="metodo-remove">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">remove</span></code><a class="headerlink" href="#metodo-remove" title="Permalink to this headline">¶</a></h4>
-<p>Quita un elemento del contenedor. El prototipo de este método es <code class="docutils literal notranslate"><span class="pre">remove(indice)</span></code>, y el parámetro <code class="docutils literal notranslate"><span class="pre">indice</span></code> es la posición del elemento a eliminar. Después de eliminar el elemento, el elemento detrás del elemento eliminado avanzará un elemento y la cantidad de elementos en el contenedor se reducirá en 1. Al igual que el método <code class="docutils literal notranslate"><span class="pre">insert</span></code>, el método <code class="docutils literal notranslate"><span class="pre">remove</span></code> también puede usar índices positivos o negativos.</p>
+<p>Quita un elemento del contenedor. El prototipo de este método es
+<code class="docutils literal notranslate"><span class="pre">remove(indice)</span></code>, y el parámetro <code class="docutils literal notranslate"><span class="pre">indice</span></code> es la posición del
+elemento a eliminar. Después de eliminar el elemento, el elemento detrás
+del elemento eliminado avanzará un elemento y la cantidad de elementos
+en el contenedor se reducirá en 1. Al igual que el método <code class="docutils literal notranslate"><span class="pre">insert</span></code>, el
+método <code class="docutils literal notranslate"><span class="pre">remove</span></code> también puede usar índices positivos o negativos.</p>
 </section>
 <section id="metodo-item">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">item</span></code><a class="headerlink" href="#metodo-item" title="Permalink to this headline">¶</a></h4>
-<p>Obtiene un elemento en el contenedor <code class="docutils literal notranslate"><span class="pre">list</span></code>. El prototipo de este método es <code class="docutils literal notranslate"><span class="pre">item(indice)</span></code>, el parámetro <code class="docutils literal notranslate"><span class="pre">indice</span></code> es el índice del elemento a obtener, y el valor de retorno del método es el elemento en la posición del índice. <code class="docutils literal notranslate"><span class="pre">list</span></code> El contenedor admite múltiples métodos de indexación:</p>
+<p>Obtiene un elemento en el contenedor <code class="docutils literal notranslate"><span class="pre">list</span></code>. El prototipo de este
+método es <code class="docutils literal notranslate"><span class="pre">item(indice)</span></code>, el parámetro <code class="docutils literal notranslate"><span class="pre">indice</span></code> es el índice del
+elemento a obtener, y el valor de retorno del método es el elemento en
+la posición del índice. <code class="docutils literal notranslate"><span class="pre">list</span></code> El contenedor admite múltiples métodos
+de indexación:</p>
 <ul class="simple">
-<li><p>Índice entero: El valor del índice puede ser un número entero positivo o un
-entero negativo. Si el índice es negativo, es relativo al
-final de la lista; es decir, <code class="docutils literal notranslate"><span class="pre">-1</span></code> indica el último elemento de la lista.
-El valor de retorno de <code class="docutils literal notranslate"><span class="pre">item</span></code> es el elemento en la posición del índice.
-Si la posición del índice excede el número de elementos en
-el contenedor o está antes del elemento 0, el método <code class="docutils literal notranslate"><span class="pre">item</span></code>
-devuelve <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p></li>
-<li><p>Índice <code class="docutils literal notranslate"><span class="pre">list</span></code>: Utilizando una lista de enteros como índice, <code class="docutils literal notranslate"><span class="pre">item</span></code> devuelve una
-<code class="docutils literal notranslate"><span class="pre">lista</span></code>, y cada elemento en el valor devuelto <code class="docutils literal notranslate"><span class="pre">lista</span></code> es un elemento
-correspondiente a cada índice entero en el parámetro <code class="docutils literal notranslate"><span class="pre">lista</span></code>. los
-el valor de la expresión <code class="docutils literal notranslate"><span class="pre">[3,</span> <span class="pre">2,</span> <span class="pre">1].item([0,</span> <span class="pre">2])</span></code> es <code class="docutils literal notranslate"><span class="pre">[3,</span> <span class="pre">1]</span></code>. Si una
-tipo de elemento en el parámetro <code class="docutils literal notranslate"><span class="pre">lista</span></code> no es un número entero, entonces el
-el valor en esa posición en el valor de retorno <code class="docutils literal notranslate"><span class="pre">lista</span></code> es <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p></li>
-<li><p>Índice <code class="docutils literal notranslate"><span class="pre">range</span></code>: Usando un rango de enteros como índice, <code class="docutils literal notranslate"><span class="pre">item</span></code> devuelve una
-<code class="docutils literal notranslate"><span class="pre">lista</span></code>. El valor devuelto almacena los elementos indexados de la <code class="docutils literal notranslate"><span class="pre">lista</span></code>
-desde el límite inferior hasta el límite superior del parámetro <code class="docutils literal notranslate"><span class="pre">range</span></code>. Si
-el índice excede el rango de índice de la ‘lista’ indexada, el retorno
-value <code class="docutils literal notranslate"><span class="pre">list</span></code> usará <code class="docutils literal notranslate"><span class="pre">nil</span></code> para llenar la posición más allá del índice.</p></li>
+<li><p>Índice entero: El valor del índice puede ser un número entero
+positivo o un entero negativo. Si el índice es negativo, es relativo
+al final de la lista; es decir, <code class="docutils literal notranslate"><span class="pre">-1</span></code> indica el último elemento de
+la lista. El valor de retorno de <code class="docutils literal notranslate"><span class="pre">item</span></code> es el elemento en la
+posición del índice. Si la posición del índice excede el número de
+elementos en el contenedor o está antes del elemento 0, el método
+<code class="docutils literal notranslate"><span class="pre">item</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p></li>
+<li><p>Índice <code class="docutils literal notranslate"><span class="pre">list</span></code>: Utilizando una lista de enteros como índice,
+<code class="docutils literal notranslate"><span class="pre">item</span></code> devuelve una <code class="docutils literal notranslate"><span class="pre">lista</span></code>, y cada elemento en el valor devuelto
+<code class="docutils literal notranslate"><span class="pre">lista</span></code> es un elemento correspondiente a cada índice entero en el
+parámetro <code class="docutils literal notranslate"><span class="pre">lista</span></code>. los el valor de la expresión
+<code class="docutils literal notranslate"><span class="pre">[3,</span> <span class="pre">2,</span> <span class="pre">1].item([0,</span> <span class="pre">2])</span></code> es <code class="docutils literal notranslate"><span class="pre">[3,</span> <span class="pre">1]</span></code>. Si una tipo de elemento en
+el parámetro <code class="docutils literal notranslate"><span class="pre">lista</span></code> no es un número entero, entonces el el valor
+en esa posición en el valor de retorno <code class="docutils literal notranslate"><span class="pre">lista</span></code> es <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p></li>
+<li><p>Índice <code class="docutils literal notranslate"><span class="pre">range</span></code>: Usando un rango de enteros como índice, <code class="docutils literal notranslate"><span class="pre">item</span></code>
+devuelve una <code class="docutils literal notranslate"><span class="pre">lista</span></code>. El valor devuelto almacena los elementos
+indexados de la <code class="docutils literal notranslate"><span class="pre">lista</span></code> desde el límite inferior hasta el límite
+superior del parámetro <code class="docutils literal notranslate"><span class="pre">range</span></code>. Si el índice excede el rango de
+índice de la ‘lista’ indexada, el retorno value <code class="docutils literal notranslate"><span class="pre">list</span></code> usará
+<code class="docutils literal notranslate"><span class="pre">nil</span></code> para llenar la posición más allá del índice.</p></li>
 </ul>
 </section>
 <section id="metodo-setitem">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">setitem</span></code><a class="headerlink" href="#metodo-setitem" title="Permalink to this headline">¶</a></h4>
-<p>Establece el valor de la posición especificada en el contenedor. El prototipo de este método es <code class="docutils literal notranslate"><span class="pre">setitem(indice,</span> <span class="pre">valor)</span></code>, <code class="docutils literal notranslate"><span class="pre">indice</span></code> es la posición del elemento a escribir y <code class="docutils literal notranslate"><span class="pre">valor</span></code> es el valor a escribir.
-<code class="docutils literal notranslate"><span class="pre">indice</span></code> es el valor de índice entero de la posición de escritura. Las posiciones de índice fuera del rango de índice del contenedor harán que <code class="docutils literal notranslate"><span class="pre">setitem</span></code> no se ejecute.</p>
+<p>Establece el valor de la posición especificada en el contenedor. El
+prototipo de este método es <code class="docutils literal notranslate"><span class="pre">setitem(indice,</span> <span class="pre">valor)</span></code>, <code class="docutils literal notranslate"><span class="pre">indice</span></code> es la
+posición del elemento a escribir y <code class="docutils literal notranslate"><span class="pre">valor</span></code> es el valor a escribir.
+<code class="docutils literal notranslate"><span class="pre">indice</span></code> es el valor de índice entero de la posición de escritura. Las
+posiciones de índice fuera del rango de índice del contenedor harán que
+<code class="docutils literal notranslate"><span class="pre">setitem</span></code> no se ejecute.</p>
 </section>
 <section id="metodo-size">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">size</span></code><a class="headerlink" href="#metodo-size" title="Permalink to this headline">¶</a></h4>
-<p>Devuelve el número de elementos en el contenedor, que es la longitud del contenedor. El prototipo de este método es <code class="docutils literal notranslate"><span class="pre">size()</span></code>.</p>
+<p>Devuelve el número de elementos en el contenedor, que es la longitud del
+contenedor. El prototipo de este método es <code class="docutils literal notranslate"><span class="pre">size()</span></code>.</p>
 </section>
 <section id="metodo-resize">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">resize</span></code><a class="headerlink" href="#metodo-resize" title="Permalink to this headline">¶</a></h4>
-<p>Restablece la <code class="docutils literal notranslate"><span class="pre">lista</span></code> a la longitud del contenedor. El prototipo de este método es <code class="docutils literal notranslate"><span class="pre">resize(count)</span></code>, y el parámetro <code class="docutils literal notranslate"><span class="pre">count</span></code> es la nueva longitud del contenedor. Al usar <code class="docutils literal notranslate"><span class="pre">resize</span></code> para aumentar la longitud del contenedor, el nuevo elemento se inicializará en <code class="docutils literal notranslate"><span class="pre">nil</span></code>. El uso de <code class="docutils literal notranslate"><span class="pre">resize</span></code> para reducir la longitud del contenedor descartará algunos elementos al final del contenedor. P.ej:</p>
+<p>Restablece la <code class="docutils literal notranslate"><span class="pre">lista</span></code> a la longitud del contenedor. El prototipo de
+este método es <code class="docutils literal notranslate"><span class="pre">resize(count)</span></code>, y el parámetro <code class="docutils literal notranslate"><span class="pre">count</span></code> es la nueva
+longitud del contenedor. Al usar <code class="docutils literal notranslate"><span class="pre">resize</span></code> para aumentar la longitud
+del contenedor, el nuevo elemento se inicializará en <code class="docutils literal notranslate"><span class="pre">nil</span></code>. El uso de
+<code class="docutils literal notranslate"><span class="pre">resize</span></code> para reducir la longitud del contenedor descartará algunos
+elementos al final del contenedor. P.ej:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">l</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># Expansion, l == [1, 2, 3, nil, nil]</span>
 <span class="n">l</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Reduce, l == [1, 2]</span>
@@ -474,63 +603,104 @@ value <code class="docutils literal notranslate"><span class="pre">list</span></
 </section>
 <section id="metodo-find">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#metodo-find" title="Permalink to this headline">¶</a></h4>
-<p>Similar a <code class="docutils literal notranslate"><span class="pre">item</span></code> o <code class="docutils literal notranslate"><span class="pre">list[idx]</span></code>. La única diferencia es que si el índice está fuera de rango, <code class="docutils literal notranslate"><span class="pre">find</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">nil</span></code> en su lugar o genera una excepción.</p>
+<p>Similar a <code class="docutils literal notranslate"><span class="pre">item</span></code> o <code class="docutils literal notranslate"><span class="pre">list[idx]</span></code>. La única diferencia es que si el
+índice está fuera de rango, <code class="docutils literal notranslate"><span class="pre">find</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">nil</span></code> en su lugar o
+genera una excepción.</p>
 </section>
 <section id="metodo-reverse">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">reverse</span></code><a class="headerlink" href="#metodo-reverse" title="Permalink to this headline">¶</a></h4>
-<p>Cambia la lista en el lugar e invierte el orden de los elementos. También devuelve la lista resultante.</p>
+<p>Cambia la lista en el lugar e invierte el orden de los elementos.
+También devuelve la lista resultante.</p>
 </section>
 </section>
 <section id="clase-map">
 <h3>Clase <code class="docutils literal notranslate"><span class="pre">map</span></code><a class="headerlink" href="#clase-map" title="Permalink to this headline">¶</a></h3>
-<p>La clase <code class="docutils literal notranslate"><span class="pre">map</span></code> es un tipo de clase incorporado que se utiliza para proporcionar un contenedor desordenado de pares clave-valor. Dentro del intérprete de Berry, <code class="docutils literal notranslate"><span class="pre">map</span></code> usa la tabla Hash para su implementación. Puede utilizar pares de llaves para construir un contenedor <code class="docutils literal notranslate"><span class="pre">map</span></code>. El uso de un par de llaves vacías <code class="docutils literal notranslate"><span class="pre">{}</span></code> generará una instancia de <code class="docutils literal notranslate"><span class="pre">map</span></code> vacía. Si necesita construir una instancia de <code class="docutils literal notranslate"><span class="pre">map</span></code> que no esté vacía, use dos puntos para separar la clave y el valor, y use un punto y coma para separar varios pares clave-valor. Por ejemplo, <code class="docutils literal notranslate"><span class="pre">{0:</span> <span class="pre">1,</span> <span class="pre">2:</span> <span class="pre">3}</span></code> tiene dos pares clave-valor (0,1) y (2,3). También puede obtener una instancia de <code class="docutils literal notranslate"><span class="pre">map</span></code> vacía llamando a la clase <code class="docutils literal notranslate"><span class="pre">map</span></code>.</p>
+<p>La clase <code class="docutils literal notranslate"><span class="pre">map</span></code> es un tipo de clase incorporado que se utiliza para
+proporcionar un contenedor desordenado de pares clave-valor. Dentro del
+intérprete de Berry, <code class="docutils literal notranslate"><span class="pre">map</span></code> usa la tabla Hash para su implementación.
+Puede utilizar pares de llaves para construir un contenedor <code class="docutils literal notranslate"><span class="pre">map</span></code>. El
+uso de un par de llaves vacías <code class="docutils literal notranslate"><span class="pre">{}</span></code> generará una instancia de <code class="docutils literal notranslate"><span class="pre">map</span></code>
+vacía. Si necesita construir una instancia de <code class="docutils literal notranslate"><span class="pre">map</span></code> que no esté vacía,
+use dos puntos para separar la clave y el valor, y use un punto y coma
+para separar varios pares clave-valor. Por ejemplo, <code class="docutils literal notranslate"><span class="pre">{0:</span> <span class="pre">1,</span> <span class="pre">2:</span> <span class="pre">3}</span></code>
+tiene dos pares clave-valor (0,1) y (2,3). También puede obtener una
+instancia de <code class="docutils literal notranslate"><span class="pre">map</span></code> vacía llamando a la clase <code class="docutils literal notranslate"><span class="pre">map</span></code>.</p>
 <section id="metodo-map-constructor">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">map</span></code> (Constructor)<a class="headerlink" href="#metodo-map-constructor" title="Permalink to this headline">¶</a></h4>
 <p>Inicializa el contenedor <code class="docutils literal notranslate"><span class="pre">map</span></code>, este método no acepta parámetros.
 Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</span></code> obtendrá una instancia de <code class="docutils literal notranslate"><span class="pre">map</span></code> vacía.</p>
 </section>
-<section id="id1">
-<h4>Método <code class="docutils literal notranslate"><span class="pre">tostring</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
-<p>Serializa <code class="docutils literal notranslate"><span class="pre">map</span></code> como una cadena y regresa. La cadena serializada es similar a la escritura literal. Por ejemplo, el resultado de ejecutar <code class="docutils literal notranslate"><span class="pre">'str':</span> <span class="pre">1,</span> <span class="pre">0:</span> <span class="pre">2</span></code> es <code class="docutils literal notranslate"><span class="pre">&quot;'str':</span> <span class="pre">1,</span> <span class="pre">0:</span> <span class="pre">2&quot;</span></code>. Si el contenedor <code class="docutils literal notranslate"><span class="pre">map</span></code> se refiere a sí mismo, la posición correspondiente utilizará puntos suspensivos en lugar del valor específico:</p>
+<section id="metodo-tostring-1">
+<span id="id1"></span><h4>Método <code class="docutils literal notranslate"><span class="pre">tostring</span></code><a class="headerlink" href="#metodo-tostring-1" title="Permalink to this headline">¶</a></h4>
+<p>Serializa <code class="docutils literal notranslate"><span class="pre">map</span></code> como una cadena y regresa. La cadena serializada es
+similar a la escritura literal. Por ejemplo, el resultado de ejecutar
+<code class="docutils literal notranslate"><span class="pre">'str':</span> <span class="pre">1,</span> <span class="pre">0:</span> <span class="pre">2</span></code> es <code class="docutils literal notranslate"><span class="pre">&quot;'str':</span> <span class="pre">1,</span> <span class="pre">0:</span> <span class="pre">2&quot;</span></code>. Si el contenedor <code class="docutils literal notranslate"><span class="pre">map</span></code> se
+refiere a sí mismo, la posición correspondiente utilizará puntos
+suspensivos en lugar del valor específico:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;map&#39;</span><span class="p">:</span> <span class="n">nil</span><span class="p">,</span><span class="s1">&#39;texto&#39;</span><span class="p">:</span><span class="s1">&#39;hola&#39;</span><span class="p">}</span>
 <span class="n">m</span><span class="p">[</span><span class="s1">&#39;map&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="c1"># {&#39;texto&#39;:&#39;hola&#39;,&#39;map&#39;: {...}}</span>
 </pre></div>
 </div>
 </section>
-<section id="id2">
-<h4>Método <code class="docutils literal notranslate"><span class="pre">insert</span></code><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
-<p>Inserta un par clave-valor en el contenedor <code class="docutils literal notranslate"><span class="pre">map</span></code>. El prototipo de este método es <code class="docutils literal notranslate"><span class="pre">insert(llave,</span> <span class="pre">valor)</span></code>, el parámetro <code class="docutils literal notranslate"><span class="pre">llave</span></code> es la clave a insertar, y <code class="docutils literal notranslate"><span class="pre">valor</span></code> es el valor a insertar. Si el <code class="docutils literal notranslate"><span class="pre">map</span></code> clave que se va a insertar existe en el contenedor, se actualizará el par clave-valor original.</p>
+<section id="metodo-insert-1">
+<span id="id2"></span><h4>Método <code class="docutils literal notranslate"><span class="pre">insert</span></code><a class="headerlink" href="#metodo-insert-1" title="Permalink to this headline">¶</a></h4>
+<p>Inserta un par clave-valor en el contenedor <code class="docutils literal notranslate"><span class="pre">map</span></code>. El prototipo de
+este método es <code class="docutils literal notranslate"><span class="pre">insert(llave,</span> <span class="pre">valor)</span></code>, el parámetro <code class="docutils literal notranslate"><span class="pre">llave</span></code> es la
+clave a insertar, y <code class="docutils literal notranslate"><span class="pre">valor</span></code> es el valor a insertar. Si el <code class="docutils literal notranslate"><span class="pre">map</span></code>
+clave que se va a insertar existe en el contenedor, se actualizará el
+par clave-valor original.</p>
 </section>
-<section id="id3">
-<h4>Método <code class="docutils literal notranslate"><span class="pre">remove</span></code><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
-<p>Elimina un par clave-valor del contenedor <code class="docutils literal notranslate"><span class="pre">map</span></code>. El prototipo de este método es <code class="docutils literal notranslate"><span class="pre">remove(llave)</span></code>, y el parámetro <code class="docutils literal notranslate"><span class="pre">llave</span></code> es la clave del par clave-valor que se eliminará.</p>
+<section id="metodo-remove-1">
+<span id="id3"></span><h4>Método <code class="docutils literal notranslate"><span class="pre">remove</span></code><a class="headerlink" href="#metodo-remove-1" title="Permalink to this headline">¶</a></h4>
+<p>Elimina un par clave-valor del contenedor <code class="docutils literal notranslate"><span class="pre">map</span></code>. El prototipo de este
+método es <code class="docutils literal notranslate"><span class="pre">remove(llave)</span></code>, y el parámetro <code class="docutils literal notranslate"><span class="pre">llave</span></code> es la clave del
+par clave-valor que se eliminará.</p>
 </section>
-<section id="id4">
-<h4>Método <code class="docutils literal notranslate"><span class="pre">item</span></code><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
-<p>Obtiene un valor en el contenedor <code class="docutils literal notranslate"><span class="pre">map</span></code>. El prototipo de este método es <code class="docutils literal notranslate"><span class="pre">item(llave)</span></code>, el parámetro <code class="docutils literal notranslate"><span class="pre">llave</span></code> es la clave del valor a obtener, y el valor de retorno del método es el valor correspondiente a la clave.</p>
+<section id="metodo-item-1">
+<span id="id4"></span><h4>Método <code class="docutils literal notranslate"><span class="pre">item</span></code><a class="headerlink" href="#metodo-item-1" title="Permalink to this headline">¶</a></h4>
+<p>Obtiene un valor en el contenedor <code class="docutils literal notranslate"><span class="pre">map</span></code>. El prototipo de este método
+es <code class="docutils literal notranslate"><span class="pre">item(llave)</span></code>, el parámetro <code class="docutils literal notranslate"><span class="pre">llave</span></code> es la clave del valor a
+obtener, y el valor de retorno del método es el valor correspondiente a
+la clave.</p>
 </section>
-<section id="id5">
-<h4>Método <code class="docutils literal notranslate"><span class="pre">setitem</span></code><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
-<p>Establece el valor correspondiente a la clave especificada en el contenedor. El prototipo de este método es <code class="docutils literal notranslate"><span class="pre">setitem(clave,</span> <span class="pre">valor)</span></code>, <code class="docutils literal notranslate"><span class="pre">clave</span></code> es la clave del par clave-valor a escribir, y <code class="docutils literal notranslate"><span class="pre">valor</span></code> es el valor a escribir. Si no hay un par clave-valor con la clave <code class="docutils literal notranslate"><span class="pre">clave</span></code> en el contenedor, el método <code class="docutils literal notranslate"><span class="pre">setitem</span></code> fallará.</p>
+<section id="metodo-setitem-1">
+<span id="id5"></span><h4>Método <code class="docutils literal notranslate"><span class="pre">setitem</span></code><a class="headerlink" href="#metodo-setitem-1" title="Permalink to this headline">¶</a></h4>
+<p>Establece el valor correspondiente a la clave especificada en el
+contenedor. El prototipo de este método es <code class="docutils literal notranslate"><span class="pre">setitem(clave,</span> <span class="pre">valor)</span></code>,
+<code class="docutils literal notranslate"><span class="pre">clave</span></code> es la clave del par clave-valor a escribir, y <code class="docutils literal notranslate"><span class="pre">valor</span></code> es el
+valor a escribir. Si no hay un par clave-valor con la clave <code class="docutils literal notranslate"><span class="pre">clave</span></code> en
+el contenedor, el método <code class="docutils literal notranslate"><span class="pre">setitem</span></code> fallará.</p>
 </section>
-<section id="id6">
-<h4>Método <code class="docutils literal notranslate"><span class="pre">size</span></code><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
-<p>Devuelve el número de pares clave-valor del contenedor <code class="docutils literal notranslate"><span class="pre">map</span></code>, que es la longitud del contenedor. El prototipo de este método es <code class="docutils literal notranslate"><span class="pre">size()</span></code>.</p>
+<section id="metodo-size-1">
+<span id="id6"></span><h4>Método <code class="docutils literal notranslate"><span class="pre">size</span></code><a class="headerlink" href="#metodo-size-1" title="Permalink to this headline">¶</a></h4>
+<p>Devuelve el número de pares clave-valor del contenedor <code class="docutils literal notranslate"><span class="pre">map</span></code>, que es
+la longitud del contenedor. El prototipo de este método es <code class="docutils literal notranslate"><span class="pre">size()</span></code>.</p>
 </section>
 <section id="metodo-contains">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">contains</span></code><a class="headerlink" href="#metodo-contains" title="Permalink to this headline">¶</a></h4>
-<p>Devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> booleano si se encuentra un par clave-valor coincidente en el contenedor <code class="docutils literal notranslate"><span class="pre">map</span></code>; de lo contrario, <code class="docutils literal notranslate"><span class="pre">false</span></code>. El prototipo de este método es <code class="docutils literal notranslate"><span class="pre">contains(llave)</span></code>.</p>
+<p>Devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> booleano si se encuentra un par clave-valor
+coincidente en el contenedor <code class="docutils literal notranslate"><span class="pre">map</span></code>; de lo contrario, <code class="docutils literal notranslate"><span class="pre">false</span></code>. El
+prototipo de este método es <code class="docutils literal notranslate"><span class="pre">contains(llave)</span></code>.</p>
 </section>
-<section id="id7">
-<h4>Método <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
-<p>Devuelve el valor correspondiente a la clave especificada en el contenedor. El prototipo de este método es <code class="docutils literal notranslate"><span class="pre">find(llave)</span></code> o <code class="docutils literal notranslate"><span class="pre">find(llave,</span> <span class="pre">valor_defecto)</span></code>, <code class="docutils literal notranslate"><span class="pre">llave</span></code> es la clave del par clave-valor al que se accederá, y <code class="docutils literal notranslate"><span class="pre">valor_defecto</span></code> es el valor predeterminado devuelto si la clave no se encuentra. Si no se especifica ningún valor predeterminado, se devuelve <code class="docutils literal notranslate"><span class="pre">nil</span></code> en su lugar.</p>
+<section id="metodo-find-1">
+<span id="id7"></span><h4>Método <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#metodo-find-1" title="Permalink to this headline">¶</a></h4>
+<p>Devuelve el valor correspondiente a la clave especificada en el
+contenedor. El prototipo de este método es <code class="docutils literal notranslate"><span class="pre">find(llave)</span></code> o
+<code class="docutils literal notranslate"><span class="pre">find(llave,</span> <span class="pre">valor_defecto)</span></code>, <code class="docutils literal notranslate"><span class="pre">llave</span></code> es la clave del par
+clave-valor al que se accederá, y <code class="docutils literal notranslate"><span class="pre">valor_defecto</span></code> es el valor
+predeterminado devuelto si la clave no se encuentra. Si no se especifica
+ningún valor predeterminado, se devuelve <code class="docutils literal notranslate"><span class="pre">nil</span></code> en su lugar.</p>
 </section>
 </section>
 <section id="clase-range">
 <h3>Clase <code class="docutils literal notranslate"><span class="pre">range</span></code><a class="headerlink" href="#clase-range" title="Permalink to this headline">¶</a></h3>
-<p>La clase se usa para representar un intervalo cerrado entero. Utilice el operador binario <code class="docutils literal notranslate"><span class="pre">..</span></code> para construir una instancia de <code class="docutils literal notranslate"><span class="pre">range</span></code>. Los operandos izquierdo y derecho del operador deben ser números enteros. Por ejemplo, <code class="docutils literal notranslate"><span class="pre">0..10</span></code> significa el intervalo entero [0,10] ∩ ℤ.</p>
-<p>Si no especifica el rango alto, se establece en <code class="docutils literal notranslate"><span class="pre">MAXINT</span></code>. Ejemplo: <code class="docutils literal notranslate"><span class="pre">imprimir(0..)</span> <span class="pre">#</span> <span class="pre">(0..9223372036854775807)</span></code></p>
+<p>La clase se usa para representar un intervalo cerrado entero. Utilice el
+operador binario <code class="docutils literal notranslate"><span class="pre">..</span></code> para construir una instancia de <code class="docutils literal notranslate"><span class="pre">range</span></code>. Los
+operandos izquierdo y derecho del operador deben ser números enteros.
+Por ejemplo, <code class="docutils literal notranslate"><span class="pre">0..10</span></code> significa el intervalo entero [0,10] ∩ ℤ.</p>
+<p>Si no especifica el rango alto, se establece en <code class="docutils literal notranslate"><span class="pre">MAXINT</span></code>. Ejemplo:
+<code class="docutils literal notranslate"><span class="pre">imprimir(0..)</span> <span class="pre">#</span> <span class="pre">(0..9223372036854775807)</span></code></p>
 <p>Por lo general, hay dos formas de recorrer una lista:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">e</span><span class="p">:</span><span class="n">l</span> <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="n">end</span> <span class="c1"># 1/2/3/4</span>
@@ -540,7 +710,9 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 </section>
 <section id="clase-bytes">
 <h3>Clase <code class="docutils literal notranslate"><span class="pre">bytes</span></code><a class="headerlink" href="#clase-bytes" title="Permalink to this headline">¶</a></h3>
-<p>Los objetos <code class="docutils literal notranslate"><span class="pre">bytes</span></code> se representan como matrices de bytes hexadecimales. El constructor <code class="docutils literal notranslate"><span class="pre">bytes</span></code> toma una cadena de Hex y construye el búfer en memoria.</p>
+<p>Los objetos <code class="docutils literal notranslate"><span class="pre">bytes</span></code> se representan como matrices de bytes
+hexadecimales. El constructor <code class="docutils literal notranslate"><span class="pre">bytes</span></code> toma una cadena de Hex y
+construye el búfer en memoria.</p>
 <p>Ejemplo:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># bytes(&#39;&#39;)</span>
@@ -555,14 +727,22 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 <h4>Método <code class="docutils literal notranslate"><span class="pre">bytes</span></code> (Constructor)<a class="headerlink" href="#metodo-bytes-constructor" title="Permalink to this headline">¶</a></h4>
 <p>Inicializar una matriz de bytes. Hay varias opciones.</p>
 <p><strong>Opción 1: valor vacío</strong></p>
-<p><code class="docutils literal notranslate"><span class="pre">bytes()</span></code> crea una nueva matriz de bytes vacía. <code class="docutils literal notranslate"><span class="pre">tamaño(bytes())</span> <span class="pre">==</span> <span class="pre">0</span></code>.</p>
-<p>No hay límite en el tamaño de una matriz de bytes, excepto la memoria disponible. Se asigna un búfer interno y se reasigna en caso de que el anterior fuera demasiado pequeño. El búfer inicial es de 36 bytes, pero puede preasignar un búfer más grande (o más pequeño) si sabe de antemano el tamaño necesario.</p>
-<p>De manera similar, el búfer se reduce automáticamente si se usa menos del tamaño necesario.</p>
+<p><code class="docutils literal notranslate"><span class="pre">bytes()</span></code> crea una nueva matriz de bytes vacía.
+<code class="docutils literal notranslate"><span class="pre">tamaño(bytes())</span> <span class="pre">==</span> <span class="pre">0</span></code>.</p>
+<p>No hay límite en el tamaño de una matriz de bytes, excepto la memoria
+disponible. Se asigna un búfer interno y se reasigna en caso de que el
+anterior fuera demasiado pequeño. El búfer inicial es de 36 bytes, pero
+puede preasignar un búfer más grande (o más pequeño) si sabe de antemano
+el tamaño necesario.</p>
+<p>De manera similar, el búfer se reduce automáticamente si se usa menos
+del tamaño necesario.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span>   <span class="c1"># 4096 bytes preasignados</span>
 </pre></div>
 </div>
 <p><strong>Opción 2: valor inicial</strong></p>
-<p>Si el primer argumento es una “cadena”, se analiza como una lista de valores hexadecimales. Puede agregar un segundo argumento opcional para preasignar un búfer más grande.</p>
+<p>Si el primer argumento es una “cadena”, se analiza como una lista de
+valores hexadecimales. Puede agregar un segundo argumento opcional para
+preasignar un búfer más grande.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;BEEF0000&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># bytes(&#39;beef0000&#39;)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;112233&quot;</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>   <span class="c1">#  preasignar 128 bytes internamente</span>
@@ -570,7 +750,8 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 </pre></div>
 </div>
 <p><strong>Opción 3: tamaño fijo</strong></p>
-<p>Si el tamaño proporcionado es negativo, el tamaño de la matriz es fijo y no se puede reducir ni aumentar.</p>
+<p>Si el tamaño proporcionado es negativo, el tamaño de la matriz es fijo y
+no se puede reducir ni aumentar.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># bytes(&#39;0000000000000000&#39;)</span>
 
@@ -583,8 +764,16 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 </div>
 <p><strong>Opción 4: asignación de memoria</strong></p>
 <p><strong>Precaución, use con mucho cuidado</strong></p>
-<p>En este modo, la matriz de bytes se asigna a una región específica de la memoria. Debe proporcionar la dirección base como <code class="docutils literal notranslate"><span class="pre">comptr</span></code> y el tamaño. El tamaño siempre se fija, ya sea positivo o negativo. Esta función es <strong>peligrosa</strong> ya que puede acceder a cualquier ubicación de la memoria, lo que provoca un bloqueo si la ubicación está protegida o no es válida. Usar con cuidado.</p>
-<p>En este caso, <code class="docutils literal notranslate"><span class="pre">b.ismapped()</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> indicando un búfer de memoria mapeado. En todos los demás casos, <code class="docutils literal notranslate"><span class="pre">b.ismapped()</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">falso</span></code>. Esto se usa típicamente para saber si Berry asignó el búfer o no, y si los subelementos deben desasignarse explícitamente.</p>
+<p>En este modo, la matriz de bytes se asigna a una región específica de la
+memoria. Debe proporcionar la dirección base como <code class="docutils literal notranslate"><span class="pre">comptr</span></code> y el
+tamaño. El tamaño siempre se fija, ya sea positivo o negativo. Esta
+función es <strong>peligrosa</strong> ya que puede acceder a cualquier ubicación de
+la memoria, lo que provoca un bloqueo si la ubicación está protegida o
+no es válida. Usar con cuidado.</p>
+<p>En este caso, <code class="docutils literal notranslate"><span class="pre">b.ismapped()</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> indicando un búfer de
+memoria mapeado. En todos los demás casos, <code class="docutils literal notranslate"><span class="pre">b.ismapped()</span></code> devuelve
+<code class="docutils literal notranslate"><span class="pre">falso</span></code>. Esto se usa típicamente para saber si Berry asignó el búfer o
+no, y si los subelementos deben desasignarse explícitamente.</p>
 <p>Ejemplo:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">introspect</span>
 <span class="k">def</span> <span class="nf">f</span><span class="p">()</span> <span class="k">return</span> <span class="mi">0</span> <span class="n">end</span>
@@ -598,8 +787,8 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 </pre></div>
 </div>
 </section>
-<section id="id8">
-<h4>Método <code class="docutils literal notranslate"><span class="pre">size</span></code><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<section id="metodo-size-2">
+<span id="id8"></span><h4>Método <code class="docutils literal notranslate"><span class="pre">size</span></code><a class="headerlink" href="#metodo-size-2" title="Permalink to this headline">¶</a></h4>
 <p>Devuelve el número de bytes en la matriz de bytes</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;1122334455&quot;</span><span class="p">)</span>
 <span class="n">b</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>   <span class="c1"># 5</span>
@@ -607,9 +796,16 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 </pre></div>
 </div>
 </section>
-<section id="id9">
-<h4>Método <code class="docutils literal notranslate"><span class="pre">tostring</span></code><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
-<p>Muestra una forma legible por humanos la matriz de bytes en hexadecimal. Por defecto, muestra solo los primeros 32 caracteres. Puede solicitar más caracteres agregando un argumento int con la cantidad máxima de bytes que desea convertir. <code class="docutils literal notranslate"><span class="pre">tostring</span></code> se usa internamente cuando se imprime un objeto. <code class="docutils literal notranslate"><span class="pre">print(b)</span></code> es equivalente a <code class="docutils literal notranslate"><span class="pre">print(b.tostring())</span></code>. Es diferente de <code class="docutils literal notranslate"><span class="pre">asstring</span></code>, que convierte una matriz de bytes en el objeto de cadena de bajo nivel equivalente sin ninguna codificación.</p>
+<section id="metodo-tostring-2">
+<span id="id9"></span><h4>Método <code class="docutils literal notranslate"><span class="pre">tostring</span></code><a class="headerlink" href="#metodo-tostring-2" title="Permalink to this headline">¶</a></h4>
+<p>Muestra una forma legible por humanos la matriz de bytes en hexadecimal.
+Por defecto, muestra solo los primeros 32 caracteres. Puede solicitar
+más caracteres agregando un argumento int con la cantidad máxima de
+bytes que desea convertir. <code class="docutils literal notranslate"><span class="pre">tostring</span></code> se usa internamente cuando se
+imprime un objeto. <code class="docutils literal notranslate"><span class="pre">print(b)</span></code> es equivalente a
+<code class="docutils literal notranslate"><span class="pre">print(b.tostring())</span></code>. Es diferente de <code class="docutils literal notranslate"><span class="pre">asstring</span></code>, que convierte una
+matriz de bytes en el objeto de cadena de bajo nivel equivalente sin
+ninguna codificación.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;1122334455&quot;</span><span class="p">)</span>
 <span class="n">b</span><span class="o">.</span><span class="n">tostring</span><span class="p">()</span>   <span class="c1"># &#39;bytes(\&#39;1122334455\&#39;)&#39;</span>
 
@@ -622,7 +818,8 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 </section>
 <section id="metodo-tohex">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">tohex</span></code><a class="headerlink" href="#metodo-tohex" title="Permalink to this headline">¶</a></h4>
-<p>Convierte la matriz de bytes en una cadena hexadecimal, similar a la devuelta por <code class="docutils literal notranslate"><span class="pre">tostring()</span></code> pero sin decoradores.</p>
+<p>Convierte la matriz de bytes en una cadena hexadecimal, similar a la
+devuelta por <code class="docutils literal notranslate"><span class="pre">tostring()</span></code> pero sin decoradores.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;1122334455&quot;</span><span class="p">)</span>
 <span class="n">b</span><span class="o">.</span><span class="n">tohex</span><span class="p">()</span>   <span class="c1"># &#39;1122334455&#39;</span>
 </pre></div>
@@ -630,7 +827,9 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 </section>
 <section id="metodo-fromhex">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">fromhex</span></code><a class="headerlink" href="#metodo-fromhex" title="Permalink to this headline">¶</a></h4>
-<p>Actualiza el contenido de la matriz de bytes a partir de una nueva cadena hexadecimal. Esto permite cargar una nueva cadena hexadecimal sin asignar un nuevo objeto de bytes.</p>
+<p>Actualiza el contenido de la matriz de bytes a partir de una nueva
+cadena hexadecimal. Esto permite cargar una nueva cadena hexadecimal sin
+asignar un nuevo objeto de bytes.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;1122334455&quot;</span><span class="p">)</span>
 <span class="n">b</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s2">&quot;AABBCC&quot;</span><span class="p">)</span>  <span class="c1"># bytes(&#39;AABBCC&#39;)</span>
 </pre></div>
@@ -645,9 +844,11 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 </pre></div>
 </div>
 </section>
-<section id="id10">
-<h4>Método <code class="docutils literal notranslate"><span class="pre">resize</span></code><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
-<p>Reduce o expande la matriz de bytes para que coincida con el tamaño especificado. Si se expande, se agregan bytes NULL (0x00) al final del búfer.</p>
+<section id="metodo-resize-1">
+<span id="id10"></span><h4>Método <code class="docutils literal notranslate"><span class="pre">resize</span></code><a class="headerlink" href="#metodo-resize-1" title="Permalink to this headline">¶</a></h4>
+<p>Reduce o expande la matriz de bytes para que coincida con el tamaño
+especificado. Si se expande, se agregan bytes NULL (0x00) al final del
+búfer.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;11223344&quot;</span><span class="p">)</span>
 <span class="n">b</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># bytes(&#39;112233440000&#39;)</span>
@@ -658,8 +859,9 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 </section>
 <section id="metodos-de-concatenacion-y">
 <h4>Métodos de concatenación <code class="docutils literal notranslate"><span class="pre">+</span></code> y <code class="docutils literal notranslate"><span class="pre">..</span></code><a class="headerlink" href="#metodos-de-concatenacion-y" title="Permalink to this headline">¶</a></h4>
-<p>Puede usar <code class="docutils literal notranslate"><span class="pre">+</span></code> para concatenar dos listas de <code class="docutils literal notranslate"><span class="pre">bytes</span></code>, creando un nuevo objeto <code class="docutils literal notranslate"><span class="pre">bytes</span></code>.
-<code class="docutils literal notranslate"><span class="pre">..</span></code> cambia la lista en su lugar y se puede usar para agregar un objeto <code class="docutils literal notranslate"><span class="pre">int</span></code> (1 byte) o <code class="docutils literal notranslate"><span class="pre">bytes</span></code></p>
+<p>Puede usar <code class="docutils literal notranslate"><span class="pre">+</span></code> para concatenar dos listas de <code class="docutils literal notranslate"><span class="pre">bytes</span></code>, creando un
+nuevo objeto <code class="docutils literal notranslate"><span class="pre">bytes</span></code>. <code class="docutils literal notranslate"><span class="pre">..</span></code> cambia la lista en su lugar y se puede
+usar para agregar un objeto <code class="docutils literal notranslate"><span class="pre">int</span></code> (1 byte) o <code class="docutils literal notranslate"><span class="pre">bytes</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;1122&quot;</span><span class="p">)</span>
 <span class="n">c</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;3344&quot;</span><span class="p">)</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>           <span class="c1"># b y c no cambian</span>
@@ -676,7 +878,9 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 </section>
 <section id="metodo-de-acceso-a-bytes">
 <h4>Método de acceso a bytes <code class="docutils literal notranslate"><span class="pre">[]</span></code><a class="headerlink" href="#metodo-de-acceso-a-bytes" title="Permalink to this headline">¶</a></h4>
-<p>Puede acceder a bytes individuales como enteros, para leer y escribir. Los valores que no están en el rango de 0 a 255 se cortan silenciosamente.</p>
+<p>Puede acceder a bytes individuales como enteros, para leer y escribir.
+Los valores que no están en el rango de 0 a 255 se cortan
+silenciosamente.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;010203&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>         <span class="c1"># 1</span>
 
@@ -696,8 +900,11 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 </section>
 <section id="metodo-de-acceso-de-rango">
 <h4>Método de acceso de rango <code class="docutils literal notranslate"><span class="pre">[]</span></code><a class="headerlink" href="#metodo-de-acceso-de-rango" title="Permalink to this headline">¶</a></h4>
-<p>Puede usar el descriptor de acceso <code class="docutils literal notranslate"><span class="pre">[]</span></code> con un rango para obtener una sublista de <code class="docutils literal notranslate"><span class="pre">bytes</span></code>. Si un índice es negativo, se toma del final de la matriz.</p>
-<p>Esta construcción no se puede usar como un <em>lvalue</em>, es decir, no se puede empalmar como <code class="docutils literal notranslate"><span class="pre">b[1..2]</span> <span class="pre">=</span> <span class="pre">bytes(&quot;0011&quot;)</span> <span class="pre">#</span> <span class="pre">no</span> <span class="pre">permitido</span></code>.</p>
+<p>Puede usar el descriptor de acceso <code class="docutils literal notranslate"><span class="pre">[]</span></code> con un rango para obtener una
+sublista de <code class="docutils literal notranslate"><span class="pre">bytes</span></code>. Si un índice es negativo, se toma del final de la
+matriz.</p>
+<p>Esta construcción no se puede usar como un <em>lvalue</em>, es decir, no se
+puede empalmar como <code class="docutils literal notranslate"><span class="pre">b[1..2]</span> <span class="pre">=</span> <span class="pre">bytes(&quot;0011&quot;)</span> <span class="pre">#</span> <span class="pre">no</span> <span class="pre">permitido</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;001122334455&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mf">1..2</span><span class="p">])</span>      <span class="c1"># bytes(&#39;1122&#39;)</span>
 
@@ -714,11 +921,13 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mf">5..4</span><span class="p">])</span>      <span class="c1"># bytes(&#39;&#39;)</span>
 </pre></div>
 </div>
-<p>Los métodos estándar <code class="docutils literal notranslate"><span class="pre">item</span></code> y <code class="docutils literal notranslate"><span class="pre">setitem</span></code> se implementan y se asignan de forma transparente al operador <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p>
+<p>Los métodos estándar <code class="docutils literal notranslate"><span class="pre">item</span></code> y <code class="docutils literal notranslate"><span class="pre">setitem</span></code> se implementan y se asignan
+de forma transparente al operador <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p>
 </section>
 <section id="metodo-copy">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">copy</span></code><a class="headerlink" href="#metodo-copy" title="Permalink to this headline">¶</a></h4>
-<p>Crea una nueva copia nueva del objeto <code class="docutils literal notranslate"><span class="pre">bytes</span></code>. Se asigna un nuevo búfer de memoria y se duplican los datos.</p>
+<p>Crea una nueva copia nueva del objeto <code class="docutils literal notranslate"><span class="pre">bytes</span></code>. Se asigna un nuevo
+búfer de memoria y se duplican los datos.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;1122&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>          <span class="c1"># bytes(&#39;1122&#39;)</span>
 
@@ -733,11 +942,15 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 </section>
 <section id="metodos-get-geti">
 <h4>Métodos <code class="docutils literal notranslate"><span class="pre">get,</span> <span class="pre">geti</span></code><a class="headerlink" href="#metodos-get-geti" title="Permalink to this headline">¶</a></h4>
-<p>Lea un valor de 1/2/4 bytes de cualquier desplazamiento en la matriz de bytes. El modo estándar es little endian, si se especifica un tamaño negativo habilita big endian. <code class="docutils literal notranslate"><span class="pre">get</span></code> devuelve valores sin signo, mientras que <code class="docutils literal notranslate"><span class="pre">geti</span></code> devuelve valores con signo.</p>
+<p>Lea un valor de 1/2/4 bytes de cualquier desplazamiento en la matriz de
+bytes. El modo estándar es little endian, si se especifica un tamaño
+negativo habilita big endian. <code class="docutils literal notranslate"><span class="pre">get</span></code> devuelve valores sin signo,
+mientras que <code class="docutils literal notranslate"><span class="pre">geti</span></code> devuelve valores con signo.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="o">&lt;</span><span class="n">offset</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">size</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span>  <span class="n">objeto</span> <span class="n">de</span> <span class="nb">bytes</span>
 </pre></div>
 </div>
-<p>Si el desplazamiento está fuera de rango, se devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code> (no se genera ninguna excepción).</p>
+<p>Si el desplazamiento está fuera de rango, se devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code> (no se
+genera ninguna excepción).</p>
 <p>Ejemplo:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;010203040506&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>         <span class="c1"># 1027 - 0x0403 read 2 bytes little endian</span>
@@ -754,15 +967,20 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 </section>
 <section id="metodos-set-seti">
 <h4>Métodos <code class="docutils literal notranslate"><span class="pre">set,</span> <span class="pre">seti</span></code><a class="headerlink" href="#metodos-set-seti" title="Permalink to this headline">¶</a></h4>
-<p>Similar a <code class="docutils literal notranslate"><span class="pre">get</span></code> y <code class="docutils literal notranslate"><span class="pre">geti</span></code>, permite establecer un valor de 1/2/4 bytes en cualquier desplazamiento. <code class="docutils literal notranslate"><span class="pre">seti</span></code> usa números enteros con signo, <code class="docutils literal notranslate"><span class="pre">set</span></code> no tiene signo (en realidad, no hace la diferencia).</p>
-<p>Si el desplazamiento está fuera de rango, no se realiza ningún cambio (no se genera ninguna excepción).</p>
+<p>Similar a <code class="docutils literal notranslate"><span class="pre">get</span></code> y <code class="docutils literal notranslate"><span class="pre">geti</span></code>, permite establecer un valor de 1/2/4 bytes
+en cualquier desplazamiento. <code class="docutils literal notranslate"><span class="pre">seti</span></code> usa números enteros con signo,
+<code class="docutils literal notranslate"><span class="pre">set</span></code> no tiene signo (en realidad, no hace la diferencia).</p>
+<p>Si el desplazamiento está fuera de rango, no se realiza ningún cambio
+(no se genera ninguna excepción).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bytes</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">&lt;</span><span class="n">offset</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">valor</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">tamaño</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="metodo-add">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">add</span></code><a class="headerlink" href="#metodo-add" title="Permalink to this headline">¶</a></h4>
-<p>Este método agrega valor de 1/2/4 bytes (little endian o big endian) al final del búfer. Si el tamaño es negativo, el valor se trata como big endian.</p>
+<p>Este método agrega valor de 1/2/4 bytes (little endian o big endian) al
+final del búfer. Si el tamaño es negativo, el valor se trata como big
+endian.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="o">&lt;</span><span class="n">valor</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">tamaño</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -786,7 +1004,9 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 </section>
 <section id="metodo-asstring">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">asstring</span></code><a class="headerlink" href="#metodo-asstring" title="Permalink to this headline">¶</a></h4>
-<p>Convierte un búfer de bytes en una cadena. El búfer se convierte tal cual sin ninguna consideración de codificación. Si el búfer contiene caracteres NULL, la cadena se truncará.</p>
+<p>Convierte un búfer de bytes en una cadena. El búfer se convierte tal
+cual sin ninguna consideración de codificación. Si el búfer contiene
+caracteres NULL, la cadena se truncará.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">=</span><span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;3344&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">asstring</span><span class="p">())</span>   <span class="c1"># &#39;3D&#39;</span>
 </pre></div>
@@ -794,7 +1014,9 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 </section>
 <section id="metodo-fromstring">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">fromstring</span></code><a class="headerlink" href="#metodo-fromstring" title="Permalink to this headline">¶</a></h4>
-<p>Convierte un búfer de bytes en una cadena. El búfer se convierte tal cual sin ninguna consideración de codificación. Si el búfer contiene caracteres NULL, la cadena se truncará.</p>
+<p>Convierte un búfer de bytes en una cadena. El búfer se convierte tal
+cual sin ninguna consideración de codificación. Si el búfer contiene
+caracteres NULL, la cadena se truncará.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">=</span><span class="nb">bytes</span><span class="p">()</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>              <span class="c1"># bytes(&#39;48656C6C6F&#39;)</span>
 </pre></div>
@@ -802,7 +1024,9 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 </section>
 <section id="metodos-de-manipulacion-de-bits-setbits-getbits">
 <h4>Métodos de manipulación de bits <code class="docutils literal notranslate"><span class="pre">setbits,</span> <span class="pre">getbits</span></code><a class="headerlink" href="#metodos-de-manipulacion-de-bits-setbits-getbits" title="Permalink to this headline">¶</a></h4>
-<p>Puede leer y escribir a nivel de subbytes, especificando de qué bit a qué bit. El desplazamiento está en bits, no en bytes. Agregue el número de bytes * 8.</p>
+<p>Puede leer y escribir a nivel de subbytes, especificando de qué bit a
+qué bit. El desplazamiento está en bits, no en bytes. Agregue el número
+de bytes * 8.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">setbits</span><span class="p">(</span><span class="o">&lt;</span><span class="n">offset_bits</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">len_bits</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">b</span><span class="o">.</span><span class="n">getbits</span><span class="p">(</span><span class="o">&lt;</span><span class="n">offset_bits</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">len_bits</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
@@ -828,13 +1052,14 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 </section>
 <section id="metodos-getfloat-y-setfloat">
 <h4>Métodos <code class="docutils literal notranslate"><span class="pre">getfloat</span></code> y <code class="docutils literal notranslate"><span class="pre">setfloat</span></code><a class="headerlink" href="#metodos-getfloat-y-setfloat" title="Permalink to this headline">¶</a></h4>
-<p>Similar a <code class="docutils literal notranslate"><span class="pre">get/set</span></code>, permite leer o escribir un valor en coma flotante de 32 bits.</p>
+<p>Similar a <code class="docutils literal notranslate"><span class="pre">get/set</span></code>, permite leer o escribir un valor en coma flotante
+de 32 bits.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">getfloat</span><span class="p">(</span><span class="o">&lt;</span><span class="n">offset</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">b</span><span class="o">.</span><span class="n">getfloat</span><span class="p">(</span><span class="o">&lt;</span><span class="n">offset</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">number</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;00000000&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="n">b</span><span class="p">.</span><span class="nf">getfloat</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w">	  </span><span class="c1"># 0</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">getfloat</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w">     </span><span class="c1"># 0</span>
 <span class="n">b</span><span class="p">.</span><span class="nf">setfloat</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="mf">.5</span><span class="p">)</span><span class="w"></span>
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w">  </span><span class="c1"># bytes(&#39;0000C0BF&#39;)</span>
 <span class="n">b</span><span class="p">.</span><span class="nf">getfloat</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w">  </span><span class="c1"># -1.5</span>
@@ -843,7 +1068,8 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 </section>
 <section id="metodo-buffer">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">_buffer</span></code><a class="headerlink" href="#metodo-buffer" title="Permalink to this headline">¶</a></h4>
-<p><strong>Característica avanzada</strong>: devuelve la dirección del búfer en la memoria, para usar con código C.</p>
+<p><strong>Característica avanzada</strong>: devuelve la dirección del búfer en la
+memoria, para usar con código C.</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">bytes</span><span class="p">(</span><span class="s1">&#39;1122&#39;</span><span class="p">)</span><span class="w"></span>
 <span class="n">b</span><span class="p">.</span><span class="nf">_buffer</span><span class="p">()</span><span class="w">  </span><span class="c1"># &lt;ptr: 0x600000c283c0&gt;</span>
 </pre></div>
@@ -851,7 +1077,10 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 </section>
 <section id="metodo-change-buffer">
 <h4>Método <code class="docutils literal notranslate"><span class="pre">_change_buffer</span></code><a class="headerlink" href="#metodo-change-buffer" title="Permalink to this headline">¶</a></h4>
-<p><strong>Característica avanzada</strong>: funciona solo para búferes mapeados (es decir, <code class="docutils literal notranslate"><span class="pre">b.ismapped()</span> <span class="pre">==</span> <span class="pre">true</span></code>), permite reasignar el búfer a una nueva dirección de memoria. Esto permite reutilizar el objeto bytes() sin reasignar una nueva instancia.</p>
+<p><strong>Característica avanzada</strong>: funciona solo para búferes mapeados (es
+decir, <code class="docutils literal notranslate"><span class="pre">b.ismapped()</span> <span class="pre">==</span> <span class="pre">true</span></code>), permite reasignar el búfer a una nueva
+dirección de memoria. Esto permite reutilizar el objeto bytes() sin
+reasignar una nueva instancia.</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="c1">#  este ejemplo usa la asignación de punteros, use con mucho cuidado</span>
 <span class="n">b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;11223344&quot;</span><span class="p">)</span><span class="w"></span>
 <span class="n">b2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;AABBCCDD&quot;</span><span class="p">)</span><span class="w"></span>
@@ -881,36 +1110,48 @@ Ejecutar <code class="docutils literal notranslate"><span class="pre">map()</spa
 <h2>Módulos de expansión<a class="headerlink" href="#modulos-de-expansion" title="Permalink to this headline">¶</a></h2>
 <section id="modulo-json">
 <h3>Módulo JSON<a class="headerlink" href="#modulo-json" title="Permalink to this headline">¶</a></h3>
-<p>JSON es un formato ligero de intercambio de datos. Es un subconjunto de JavaScript. Utiliza un formato de texto que es completamente independiente del lenguaje de programación para representar datos. Berry proporciona un módulo JSON para proporcionar soporte para datos JSON. El módulo JSON solo contiene dos funciones, “cargar” y “volcar”, que se utilizan para analizar cadenas JSON y multiplicar objetos Berry y serializar un objeto Berry en texto JSON.</p>
+<p>JSON es un formato ligero de intercambio de datos. Es un subconjunto de
+JavaScript. Utiliza un formato de texto que es completamente
+independiente del lenguaje de programación para representar datos. Berry
+proporciona un módulo JSON para proporcionar soporte para datos JSON. El
+módulo JSON solo contiene dos funciones, “cargar” y “volcar”, que se
+utilizan para analizar cadenas JSON y multiplicar objetos Berry y
+serializar un objeto Berry en texto JSON.</p>
 <section id="funcion-load">
 <h4>Función <code class="docutils literal notranslate"><span class="pre">load</span></code><a class="headerlink" href="#funcion-load" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">load</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función se usa para convertir el texto JSON de entrada en un objeto Berry y devolverlo. Las reglas de conversión se muestran en la Tabla <a href="#tab::json2berry_rule" data-reference-type="ref" data-reference="tab::json2berry_rule">1.1</a> .
-Si hay un error de sintaxis en el texto JSON, la función devolverá <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
-<table class="colwidths-auto docutils align-default">
+<p>Esta función se usa para convertir el texto JSON de entrada en un objeto
+Berry y devolverlo. Las reglas de conversión se muestran en la Tabla 1.1
+. Si hay un error de sintaxis en el texto JSON, la función devolverá
+<code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 62%" />
+</colgroup>
 <thead>
-<tr class="row-odd"><th class="text-center head"><p><strong>Tipo JSON</strong></p></th>
-<th class="text-center head"><p><strong>Tipo Berry</strong></p></th>
+<tr class="row-odd"><th class="head"><p><strong>Tipo JSON</strong></p></th>
+<th class="head"><p><strong>Tipo Berry</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">nulo</span></code></p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">nil</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">nulo</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">nil</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">número</span></code></p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">entero</span></code> o <code class="docutils literal notranslate"><span class="pre">real</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">número</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">entero</span></code> o <code class="docutils literal notranslate"><span class="pre">real</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">cadena</span></code></p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">cadena</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cadena</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cadena</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">matriz</span></code></p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">lista</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">matriz</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lista</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">objeto</span></code></p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">mapa</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">objeto</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mapa</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -928,34 +1169,39 @@ Si hay un error de sintaxis en el texto JSON, la función devolverá <code class
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función se usa para serializar el objeto Berry en texto JSON. Las reglas de conversión para la serialización se muestran en la <a href="#tab::berry2json_rule" data-reference-type="ref" data-reference="tab::berry2json_rule">Tabla 10</a> .</p>
-<table class="colwidths-auto docutils align-default">
+<p>Esta función se usa para serializar el objeto Berry en texto JSON. Las
+reglas de conversión para la serialización se muestran en la Tabla 10 .</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 43%" />
+</colgroup>
 <thead>
-<tr class="row-odd"><th class="text-center head"><p><strong>Tipo berry</strong></p></th>
-<th class="text-center head"><p><strong>Tipo JSON</strong></p></th>
+<tr class="row-odd"><th class="head"><p><strong>Tipo berry</strong></p></th>
+<th class="head"><p><strong>Tipo JSON</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">cero</span></code></p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">nulo</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cero</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">nulo</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">entero</span></code></p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">número</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">entero</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">número</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">verdadero</span></code></p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">número</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">verdadero</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">número</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">lista</span></code></p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">matriz</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lista</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">matriz</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">mapa</span></code></p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">objeto</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mapa</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">objeto</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">mapa</span></code> Clave de</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">cadena</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mapa</span></code> Clave de</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cadena</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p>otro</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">cadena</span></code></p></td>
+<tr class="row-even"><td><p>otro</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cadena</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -983,11 +1229,15 @@ Si hay un error de sintaxis en el texto JSON, la función devolverá <code class
 </section>
 <section id="modulo-matematico">
 <h3>Módulo matemático<a class="headerlink" href="#modulo-matematico" title="Permalink to this headline">¶</a></h3>
-<p>Este módulo se utiliza para proporcionar soporte para funciones matemáticas, como las funciones trigonométricas y las funciones de raíz cuadrada de uso común. Para usar el módulo matemático, primero use la instrucción <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code>.
-Todos los ejemplos de esta sección asumen que el módulo se ha importado correctamente.</p>
+<p>Este módulo se utiliza para proporcionar soporte para funciones
+matemáticas, como las funciones trigonométricas y las funciones de raíz
+cuadrada de uso común. Para usar el módulo matemático, primero use la
+instrucción <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code>. Todos los ejemplos de esta sección asumen
+que el módulo se ha importado correctamente.</p>
 <section id="constante-pi">
 <h4>Constante <code class="docutils literal notranslate"><span class="pre">pi</span></code><a class="headerlink" href="#constante-pi" title="Permalink to this headline">¶</a></h4>
-<p>El valor de Pi <em>π</em> es un tipo de número real, aproximadamente igual a 3.141592654.</p>
+<p>El valor de Pi <em>π</em> es un tipo de número real, aproximadamente igual a
+3.141592654.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="c1"># 3.14159</span>
 </pre></div>
@@ -999,7 +1249,10 @@ Todos los ejemplos de esta sección asumen que el módulo se ha importado correc
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función devuelve el valor absoluto del parámetro, que puede ser un número entero o un número real. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primer parámetro. El tipo de retorno de la función <code class="docutils literal notranslate"><span class="pre">abs</span></code> es un número real.</p>
+<p>Esta función devuelve el valor absoluto del parámetro, que puede ser un
+número entero o un número real. Si no hay parámetros, la función
+devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primer
+parámetro. El tipo de retorno de la función <code class="docutils literal notranslate"><span class="pre">abs</span></code> es un número real.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 1</span>
 <span class="n">math</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="c1"># 1.5</span>
@@ -1012,7 +1265,11 @@ Todos los ejemplos de esta sección asumen que el módulo se ha importado correc
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función devuelve el valor redondeado hacia arriba del parámetro, es decir, el valor entero más pequeño mayor o igual que el parámetro. El parámetro puede ser un número entero o un número real. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero. El tipo de retorno de la función es un número real.</p>
+<p>Esta función devuelve el valor redondeado hacia arriba del parámetro, es
+decir, el valor entero más pequeño mayor o igual que el parámetro. El
+parámetro puede ser un número entero o un número real. Si no hay
+parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se
+procesa el primero. El tipo de retorno de la función es un número real.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">)</span> <span class="c1"># -1</span>
 <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="c1"># 2</span>
@@ -1025,7 +1282,11 @@ Todos los ejemplos de esta sección asumen que el módulo se ha importado correc
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función devuelve el valor redondeado hacia abajo del parámetro, que no es mayor que el valor entero máximo del parámetro. El parámetro puede ser un número entero o un número real. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero. El tipo de retorno de la función es un número real.</p>
+<p>Esta función devuelve el valor redondeado hacia abajo del parámetro, que
+no es mayor que el valor entero máximo del parámetro. El parámetro puede
+ser un número entero o un número real. Si no hay parámetros, la función
+devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero. El
+tipo de retorno de la función es un número real.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">)</span> <span class="c1"># -2</span>
 <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="c1"># 1</span>
@@ -1038,8 +1299,11 @@ Todos los ejemplos de esta sección asumen que el módulo se ha importado correc
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función devuelve el valor de la función seno del parámetro. El parámetro puede ser un número entero o un número real, y la unidad son los radianes.
-Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primer parámetro. El tipo de retorno de la función es un número real.</p>
+<p>Esta función devuelve el valor de la función seno del parámetro. El
+parámetro puede ser un número entero o un número real, y la unidad son
+los radianes. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay
+varios parámetros, solo se procesa el primer parámetro. El tipo de
+retorno de la función es un número real.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 0.841471</span>
 <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span> <span class="c1"># 1</span>
@@ -1052,8 +1316,11 @@ Si no hay parámetros, la función devuelve <code class="docutils literal notran
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función devuelve el valor de la función coseno del parámetro.
-El parámetro puede ser un número entero o un número real en radianes. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero. El tipo de retorno de la función es un número real.</p>
+<p>Esta función devuelve el valor de la función coseno del parámetro. El
+parámetro puede ser un número entero o un número real en radianes. Si no
+hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros,
+solo se procesa el primero. El tipo de retorno de la función es un
+número real.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 0.540302</span>
 <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="c1"># -1</span>
@@ -1066,8 +1333,11 @@ El parámetro puede ser un número entero o un número real en radianes. Si no h
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función devuelve el valor de la función tangente del parámetro. El parámetro puede ser un número entero o un número real, en radianes.
-Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero. El tipo de retorno de la función es un número real.</p>
+<p>Esta función devuelve el valor de la función tangente del parámetro. El
+parámetro puede ser un número entero o un número real, en radianes. Si
+no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros,
+solo se procesa el primero. El tipo de retorno de la función es un
+número real.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 1.55741</span>
 <span class="n">math</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span> <span class="c1"># 1</span>
@@ -1080,7 +1350,11 @@ Si no hay parámetros, la función devuelve <code class="docutils literal notran
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función devuelve el valor de la función arco seno del parámetro. El parámetro puede ser un número entero o un número real. El rango de valores es [−1,1]. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero. El tipo de retorno de la función es un número real y la unidad es radianes.</p>
+<p>Esta función devuelve el valor de la función arco seno del parámetro. El
+parámetro puede ser un número entero o un número real. El rango de
+valores es [−1,1]. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si
+hay varios parámetros, solo se procesa el primero. El tipo de retorno de
+la función es un número real y la unidad es radianes.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">asin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 1.5708</span>
 <span class="n">math</span><span class="o">.</span><span class="n">asin</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="c1"># 30</span>
@@ -1093,8 +1367,11 @@ Si no hay parámetros, la función devuelve <code class="docutils literal notran
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función devuelve el valor de la función de arco coseno del parámetro.
-El parámetro puede ser un número entero o un número real. El rango de valores es [−1,1]. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero. El tipo de retorno de la función es un número real y la unidad es radianes.</p>
+<p>Esta función devuelve el valor de la función de arco coseno del
+parámetro. El parámetro puede ser un número entero o un número real. El
+rango de valores es [−1,1]. Si no hay parámetros, la función devuelve
+<code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero. El tipo de
+retorno de la función es un número real y la unidad es radianes.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">acos</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 0</span>
 <span class="n">math</span><span class="o">.</span><span class="n">acos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 1.5708</span>
@@ -1107,9 +1384,11 @@ El parámetro puede ser un número entero o un número real. El rango de valores
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función devuelve el valor de la función arco tangente del parámetro.
-El parámetro puede ser un número entero o un número real. El rango de valores es [−∞,+∞]. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero.
-El tipo de retorno de la función es un número real y la unidad es radianes.</p>
+<p>Esta función devuelve el valor de la función arco tangente del
+parámetro. El parámetro puede ser un número entero o un número real. El
+rango de valores es [−∞,+∞]. Si no hay parámetros, la función devuelve
+<code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero. El tipo de
+retorno de la función es un número real y la unidad es radianes.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">atan</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="c1"># 45</span>
 </pre></div>
@@ -1121,8 +1400,10 @@ El tipo de retorno de la función es un número real y la unidad es radianes.</p
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función devuelve el valor de función de seno hiperbólico del parámetro. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primer parámetro.
-El tipo de retorno de la función es un número real.</p>
+<p>Esta función devuelve el valor de función de seno hiperbólico del
+parámetro. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay
+varios parámetros, solo se procesa el primer parámetro. El tipo de
+retorno de la función es un número real.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 1.1752</span>
 </pre></div>
@@ -1134,8 +1415,10 @@ El tipo de retorno de la función es un número real.</p>
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función devuelve el valor de la función coseno hiperbólico del parámetro. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero.
-El tipo de retorno de la función es un número real.</p>
+<p>Esta función devuelve el valor de la función coseno hiperbólico del
+parámetro. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay
+varios parámetros, solo se procesa el primero. El tipo de retorno de la
+función es un número real.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 1.54308</span>
 </pre></div>
@@ -1147,8 +1430,10 @@ El tipo de retorno de la función es un número real.</p>
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función devuelve el valor de la función tangente hiperbólica del parámetro. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero.
-El tipo de retorno de la función es un número real.</p>
+<p>Esta función devuelve el valor de la función tangente hiperbólica del
+parámetro. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay
+varios parámetros, solo se procesa el primero. El tipo de retorno de la
+función es un número real.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 0.761594</span>
 </pre></div>
@@ -1160,7 +1445,10 @@ El tipo de retorno de la función es un número real.</p>
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función devuelve la raíz cuadrada del argumento. El parámetro de esta función no puede ser negativo. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero. El tipo de retorno de la función es un número real.</p>
+<p>Esta función devuelve la raíz cuadrada del argumento. El parámetro de
+esta función no puede ser negativo. Si no hay parámetros, la función
+devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero. El
+tipo de retorno de la función es un número real.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># 1.41421</span>
 </pre></div>
@@ -1172,7 +1460,10 @@ El tipo de retorno de la función es un número real.</p>
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función devuelve el valor de la función exponencial del parámetro en función de la constante natural <em>e</em>. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero. El tipo de retorno de la función es un número real.</p>
+<p>Esta función devuelve el valor de la función exponencial del parámetro
+en función de la constante natural <em>e</em>. Si no hay parámetros, la función
+devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero. El
+tipo de retorno de la función es un número real.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 2.71828</span>
 </pre></div>
@@ -1184,7 +1475,10 @@ El tipo de retorno de la función es un número real.</p>
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función devuelve el logaritmo natural del argumento. El parámetro debe ser un número positivo. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero. El tipo de retorno de la función es un número real.</p>
+<p>Esta función devuelve el logaritmo natural del argumento. El parámetro
+debe ser un número positivo. Si no hay parámetros, la función devuelve
+<code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero. El tipo de
+retorno de la función es un número real.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">log</span><span class="p">(</span><span class="n">valor</span><span class="p">)</span>
 </pre></div>
@@ -1196,7 +1490,10 @@ El tipo de retorno de la función es un número real.</p>
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función devuelve el logaritmo del parámetro en base 10. El parámetro debe ser un número positivo. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero. El tipo de retorno de la función es un número real.</p>
+<p>Esta función devuelve el logaritmo del parámetro en base 10. El
+parámetro debe ser un número positivo. Si no hay parámetros, la función
+devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero. El
+tipo de retorno de la función es un número real.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># 1</span>
 </pre></div>
@@ -1208,7 +1505,10 @@ El tipo de retorno de la función es un número real.</p>
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función se utiliza para convertir radianes en ángulos. La unidad del parámetro es radianes. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero. El tipo de retorno de la función es un número real y la unidad es un ángulo.</p>
+<p>Esta función se utiliza para convertir radianes en ángulos. La unidad
+del parámetro es radianes. Si no hay parámetros, la función devuelve
+<code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero. El tipo de
+retorno de la función es un número real y la unidad es un ángulo.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">deg</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="c1"># 180</span>
 </pre></div>
@@ -1220,7 +1520,10 @@ El tipo de retorno de la función es un número real.</p>
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función se utiliza para convertir ángulos a radianes. La unidad del parámetro es el ángulo. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay varios parámetros, solo se procesa el primero. El tipo de retorno de la función es un número real y la unidad es radianes.</p>
+<p>Esta función se utiliza para convertir ángulos a radianes. La unidad del
+parámetro es el ángulo. Si no hay parámetros, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>,
+si hay varios parámetros, solo se procesa el primero. El tipo de retorno
+de la función es un número real y la unidad es radianes.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">180</span><span class="p">)</span> <span class="c1"># 3.14159</span>
 </pre></div>
@@ -1232,7 +1535,11 @@ El tipo de retorno de la función es un número real.</p>
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>El valor de retorno de esta función es el resultado de la expresión <em>x</em> <sup><em>y</em></sup> , que es el parámetro <code class="docutils literal notranslate"><span class="pre">x</span></code> elevado a <code class="docutils literal notranslate"><span class="pre">y</span></code>. Si los parámetros no están completos, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay parámetros adicionales, solo se procesan los dos primeros parámetros. El tipo de retorno de la función es un número real.</p>
+<p>El valor de retorno de esta función es el resultado de la expresión <em>x</em>
+<em>y</em> , que es el parámetro <code class="docutils literal notranslate"><span class="pre">x</span></code> elevado a <code class="docutils literal notranslate"><span class="pre">y</span></code>. Si los parámetros
+no están completos, la función devuelve <code class="docutils literal notranslate"><span class="pre">0</span></code>, si hay parámetros
+adicionales, solo se procesan los dos primeros parámetros. El tipo de
+retorno de la función es un número real.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># 8</span>
 </pre></div>
@@ -1244,8 +1551,8 @@ El tipo de retorno de la función es un número real.</p>
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función se utiliza para establecer la semilla del generador de números aleatorios.
-El tipo del parámetro debe ser un número entero.</p>
+<p>Esta función se utiliza para establecer la semilla del generador de
+números aleatorios. El tipo del parámetro debe ser un número entero.</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">srand</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
@@ -1266,57 +1573,86 @@ El tipo del parámetro debe ser un número entero.</p>
 </section>
 <section id="modulo-de-tiempo">
 <h3>Módulo de tiempo<a class="headerlink" href="#modulo-de-tiempo" title="Permalink to this headline">¶</a></h3>
-<p>Este módulo se utiliza para proporcionar funciones relacionadas con el tiempo.</p>
+<p>Este módulo se utiliza para proporcionar funciones relacionadas con el
+tiempo.</p>
 <section id="funcion-time">
 <h4>Función <code class="docutils literal notranslate"><span class="pre">time</span></code><a class="headerlink" href="#funcion-time" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">time</span><span class="p">()</span>
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Devuelve la marca de tiempo actual. La marca de tiempo es el tiempo transcurrido desde Unix Epoch (1 de enero de 1970 00:00:00 UTC), en segundos.</p>
+<p>Devuelve la marca de tiempo actual. La marca de tiempo es el tiempo
+transcurrido desde Unix Epoch (1 de enero de 1970 00:00:00 UTC), en
+segundos.</p>
 </section>
-<section id="id11">
-<h4>Función <code class="docutils literal notranslate"><span class="pre">dump</span></code><a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<section id="funcion-dump-1">
+<span id="id11"></span><h4>Función <code class="docutils literal notranslate"><span class="pre">dump</span></code><a class="headerlink" href="#funcion-dump-1" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dump</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>La marca de tiempo de entrada <code class="docutils literal notranslate"><span class="pre">ts</span></code> se convierte en un <code class="docutils literal notranslate"><span class="pre">map</span></code> de tiempo, y la correspondencia clave-valor se muestra en la siguiente tabla:</p>
-<table class="colwidths-auto docutils align-default">
+<p>La marca de tiempo de entrada <code class="docutils literal notranslate"><span class="pre">ts</span></code> se convierte en un <code class="docutils literal notranslate"><span class="pre">map</span></code> de
+tiempo, y la correspondencia clave-valor se muestra en la siguiente
+tabla:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
 <thead>
-<tr class="row-odd"><th class="text-center head"><p><strong>clave</strong></p></th>
-<th class="text-center head"><p><strong>valor</strong></p></th>
-<th class="text-center head"><p><strong>clave</strong></p></th>
-<th class="text-center head"><p><strong>valor</strong></p></th>
-<th class="text-center head"><p><strong>clave</strong></p></th>
-<th class="text-center head"><p><strong>valor</strong></p></th>
+<tr class="row-odd"><th class="head"><p><strong>clave</strong></p></th>
+<th class="head"><p><strong>valor</strong></p></th>
+<th class="head"><p><strong>clave</strong></p></th>
+<th class="head"><p><strong>valor</strong></p></th>
+<th class="head"><p><strong>clave</strong></p></th>
+<th class="head"><p><strong>valor</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">'year'</span></code></p></td>
-<td class="text-center"><p>Año (desde 1900)</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">'month'</span></code></p></td>
-<td class="text-center"><p>Mes (1-12)</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">'day'</span></code></p></td>
-<td class="text-center"><p>Día (1-31)</p></td>
+<tr class="row-even"><td><p>``
+‘year’``</p></td>
+<td><p>Año
+(desde
+1900)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'</span>
+<span class="pre">month'</span></code></p></td>
+<td><p>Mes
+(1-12)</p></td>
+<td><p>`
+<cite>‘day’`</cite></p></td>
+<td><p>Día
+(1-31)</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">'hour'</span></code></p></td>
-<td class="text-center"><p>Hora (0-23)</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">'min'</span></code></p></td>
-<td class="text-center"><p>Puntos (0-59)</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">'sec'</span></code></p></td>
-<td class="text-center"><p>Segundos (0-59)</p></td>
+<tr class="row-odd"><td><p>``
+‘hour’``</p></td>
+<td><p>Hora
+(0-23)</p></td>
+<td><p>`
+<cite>‘min’`</cite></p></td>
+<td><p>Puntos
+(0-59)</p></td>
+<td><p>`
+<cite>‘sec’`</cite></p></td>
+<td><p>Segundos
+(0-59)</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">'weekday'</span></code></p></td>
-<td class="text-center"><p>Semana (1-7)</p></td>
-<td class="text-center"><p></p></td>
-<td class="text-center"><p></p></td>
-<td class="text-center"><p></p></td>
-<td class="text-center"><p></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'we</span>
+<span class="pre">ekday'</span></code></p></td>
+<td><p>Semana
+(1-7)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<p><em>Tabla 11: La relación clave-valor del valor de retorno de la función <code class="docutils literal notranslate"><span class="pre">time.dump</span></code></em></p>
+<p><em>Tabla 11: La relación clave-valor del valor de retorno de la función
+``time.dump``</em></p>
 </section>
 <section id="funcion-clock">
 <h4>Función <code class="docutils literal notranslate"><span class="pre">clock</span></code><a class="headerlink" href="#funcion-clock" title="Permalink to this headline">¶</a></h4>
@@ -1324,37 +1660,49 @@ El tipo del parámetro debe ser un número entero.</p>
 </pre></div>
 </div>
 <p><strong>Descripción</strong></p>
-<p>Esta función devuelve el tiempo transcurrido desde el inicio de la ejecución del intérprete hasta que se llama a la función en segundos. El valor de retorno de esta función es del tipo “real” y su precisión de tiempo está determinada por la plataforma específica.</p>
+<p>Esta función devuelve el tiempo transcurrido desde el inicio de la
+ejecución del intérprete hasta que se llama a la función en segundos. El
+valor de retorno de esta función es del tipo “real” y su precisión de
+tiempo está determinada por la plataforma específica.</p>
 </section>
 </section>
 <section id="modulo-de-cadena-string">
 <h3>Módulo de cadena (string)<a class="headerlink" href="#modulo-de-cadena-string" title="Permalink to this headline">¶</a></h3>
 <p>El módulo <code class="docutils literal notranslate"><span class="pre">cadena</span></code> proporciona funciones de procesamiento de cadenas.</p>
-<p>Para usar el módulo de cadena, primero use la instrucción <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">string</span></code>. Todos los ejemplos de esta sección asumen que el módulo se ha importado correctamente.</p>
+<p>Para usar el módulo de cadena, primero use la instrucción
+<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">string</span></code>. Todos los ejemplos de esta sección asumen que el
+módulo se ha importado correctamente.</p>
 <section id="funcion-count">
 <h4>Función <code class="docutils literal notranslate"><span class="pre">count</span></code><a class="headerlink" href="#funcion-count" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">sub</span><span class="p">[,</span> <span class="n">inicio</span><span class="p">[,</span> <span class="n">fin</span><span class="p">]])</span>
 </pre></div>
 </div>
-<p>Cuenta el número de ocurrencias de la subcadena en la cadena s. Busque desde la posición entre <code class="docutils literal notranslate"><span class="pre">inicio</span></code> y <code class="docutils literal notranslate"><span class="pre">fin</span></code> de <code class="docutils literal notranslate"><span class="pre">s</span></code> (el valor predeterminado es 0 y tamaño(s)).</p>
+<p>Cuenta el número de ocurrencias de la subcadena en la cadena s. Busque
+desde la posición entre <code class="docutils literal notranslate"><span class="pre">inicio</span></code> y <code class="docutils literal notranslate"><span class="pre">fin</span></code> de <code class="docutils literal notranslate"><span class="pre">s</span></code> (el valor
+predeterminado es 0 y tamaño(s)).</p>
 </section>
 <section id="funcion-split">
 <h4>Función <code class="docutils literal notranslate"><span class="pre">split</span></code><a class="headerlink" href="#funcion-split" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Divide la cadena s en dos subcadenas en la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code> y devuelve la lista de esas cadenas.</p>
+<p>Divide la cadena s en dos subcadenas en la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code> y devuelve
+la lista de esas cadenas.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">sep</span><span class="p">[,</span> <span class="n">num</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Divide la cadena s en subcadenas dondequiera que ocurra sep, y devuelve la lista de esas cadenas. Dividir como máximo un número de veces (el valor predeterminado es string.count(s, sep)).</p>
+<p>Divide la cadena s en subcadenas dondequiera que ocurra sep, y devuelve
+la lista de esas cadenas. Dividir como máximo un número de veces (el
+valor predeterminado es string.count(s, sep)).</p>
 </section>
 <section id="funcion-find">
 <h4>Función <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#funcion-find" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">sub</span><span class="p">[,</span> <span class="n">inicio</span><span class="p">[,</span> <span class="n">fin</span><span class="p">]])</span>
 </pre></div>
 </div>
-<p>Compruebe si la cadena s contiene la subcadena sub. Si se especifican el inicio y el final (el valor predeterminado es 0 y el tamaño(s)), se buscarán en este rango.</p>
+<p>Compruebe si la cadena s contiene la subcadena sub. Si se especifican el
+inicio y el final (el valor predeterminado es 0 y el tamaño(s)), se
+buscarán en este rango.</p>
 </section>
 <section id="funcion-hex">
 <h4>Función <code class="docutils literal notranslate"><span class="pre">hex</span></code><a class="headerlink" href="#funcion-hex" title="Permalink to this headline">¶</a></h4>
@@ -1382,10 +1730,17 @@ El tipo del parámetro debe ser un número entero.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fmt</span><span class="p">[,</span> <span class="n">args</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Devuelve una cadena formateada. El patrón que comienza con ‘%’ en la plantilla de formato fmt será reemplazado por el valor de [args]: %[flags][fieldwidth][.precision]type</p>
-<table class="colwidths-auto docutils align-default">
+<p>Devuelve una cadena formateada. El patrón que comienza con ‘%’ en la
+plantilla de formato fmt será reemplazado por el valor de [args]:
+%[flags][fieldwidth][.precision]type</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 94%" />
+</colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Tipo</p></th>
+<tr class="row-odd"><th class="head"><p>Ti
+po</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -1411,11 +1766,15 @@ El tipo del parámetro debe ser un número entero.</p>
 <tr class="row-even"><td><p>%f</p></td>
 <td><p>Punto flotante en la forma [-]nnnn.nnnn</p></td>
 </tr>
-<tr class="row-odd"><td><p>%e %E</p></td>
-<td><p>Punto flotante en exp. forma [-]n.nnnn e [+|-]nnn, mayúsculas si %E</p></td>
+<tr class="row-odd"><td><p>%e
+%E</p></td>
+<td><p>Punto flotante en exp. forma [-]n.nnnn e [+|-]nnn, mayúsculas
+si %E</p></td>
 </tr>
-<tr class="row-even"><td><p>%g %G</p></td>
-<td><p>Punto flotante como %f si −4 &lt; exp. ≤ precision, sino como %e; mayúsculas si %G</p></td>
+<tr class="row-even"><td><p>%g
+%G</p></td>
+<td><p>Punto flotante como %f si −4 &lt; exp. ≤ precision, sino como %e;
+mayúsculas si %G</p></td>
 </tr>
 <tr class="row-odd"><td><p>%c</p></td>
 <td><p>Carácter que tiene el código pasado como entero</p></td>
@@ -1424,49 +1783,73 @@ El tipo del parámetro debe ser un número entero.</p>
 <td><p>Cadena sin ceros incrustados</p></td>
 </tr>
 <tr class="row-odd"><td><p>%q</p></td>
-<td><p>Cadena entre comillas dobles, con caracteres especiales escapados</p></td>
+<td><p>Cadena entre comillas dobles, con caracteres especiales
+escapados</p></td>
 </tr>
 <tr class="row-even"><td><p>%%</p></td>
 <td><p>El carácter ‘%’ (escapado)</p></td>
 </tr>
 </tbody>
 </table>
-<table class="colwidths-auto docutils align-default">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 91%" />
+</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Tipo</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>-</p></td>
-<td><p>Justificación a la izquierda, el valor predeterminado es justificación a la derecha</p></td>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Justificación a la izquierda, el valor predeterminado es
+justificación a la derecha</p></td>
 </tr>
-<tr class="row-odd"><td><p>+</p></td>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+</td>
 <td><p>antepone el signo (se aplica a los números)</p></td>
 </tr>
-<tr class="row-even"><td><p>(espacio)</p></td>
+<tr class="row-even"><td><p>(
+espa
+cio)</p></td>
 <td><p>Antepone signo si es negativo, de lo contrario espacio</p></td>
 </tr>
 <tr class="row-odd"><td><p>#</p></td>
-<td><p>Agrega “0x” antes de %x, fuerza el punto decimal; para %e, %f, deja ceros finales para %g</p></td>
+<td><p>Agrega “0x” antes de %x, fuerza el punto decimal; para %e,
+%f, deja ceros finales para %g</p></td>
 </tr>
 </tbody>
 </table>
-<table class="colwidths-auto docutils align-default">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Ancho de campo y precisión</p></th>
+<tr class="row-odd"><th class="head"><p>Ancho de
+campo y
+precisión</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>Pone al menos n caracteres, rellena con espacios en blanco</p></td>
+<td><p>Pone al menos n caracteres, rellena con espacios en
+blanco</p></td>
 </tr>
 <tr class="row-odd"><td><p>0n</p></td>
 <td><p>Pone al menos n caracteres, teclado izquierdo con ceros</p></td>
 </tr>
 <tr class="row-even"><td><p>.n</p></td>
-<td><p>Usa al menos n dígitos para números enteros, redondee a n decimales para punto flotante o no más de n caracteres. para cadenas</p></td>
+<td><p>Usa al menos n dígitos para números enteros, redondee a
+n decimales para punto flotante o no más de n
+caracteres. para cadenas</p></td>
 </tr>
 </tbody>
 </table>
@@ -1474,13 +1857,26 @@ El tipo del parámetro debe ser un número entero.</p>
 </section>
 <section id="modulo-os">
 <h3>Módulo <code class="docutils literal notranslate"><span class="pre">os</span></code><a class="headerlink" href="#modulo-os" title="Permalink to this headline">¶</a></h3>
-<p>El módulo OS proporciona funciones relacionadas con el sistema, como funciones relacionadas con archivos y rutas. Estas funciones están relacionadas con la plataforma. Actualmente, los códigos de estilo Windows VC y POSIX se implementan en el intérprete de Berry. Si se ejecuta en otras plataformas, no se garantiza que se proporcionen las funciones en el módulo del sistema operativo.</p>
+<p>El módulo OS proporciona funciones relacionadas con el sistema, como
+funciones relacionadas con archivos y rutas. Estas funciones están
+relacionadas con la plataforma. Actualmente, los códigos de estilo
+Windows VC y POSIX se implementan en el intérprete de Berry. Si se
+ejecuta en otras plataformas, no se garantiza que se proporcionen las
+funciones en el módulo del sistema operativo.</p>
 <p>[COMPLETAR]</p>
 </section>
 <section id="modulo-global">
 <h3>Módulo <code class="docutils literal notranslate"><span class="pre">global</span></code><a class="headerlink" href="#modulo-global" title="Permalink to this headline">¶</a></h3>
-<p>El módulo <code class="docutils literal notranslate"><span class="pre">global</span></code> proporciona una forma de acceder a las variables globales a través de un módulo. El compilador Berry comprueba que existe un global al compilar el código. Sin embargo, hay casos en los que los globales se crean dinámicamente por código y aún no se conocen en tiempo de compilación. El uso del módulo <code class="docutils literal notranslate"><span class="pre">global</span></code> da total libertad para acceder a variables globales estáticas o dinámicas.</p>
-<p>Acceder a un global es simplay hecho con <code class="docutils literal notranslate"><span class="pre">global.&lt;name&gt;</span> </code> para leer y escribir. También puede usar la sintaxis especial <code class="docutils literal notranslate"><span class="pre">global.(nombre)</span></code> si <code class="docutils literal notranslate"><span class="pre">nombre</span></code> es una variable que contiene el nombre del global como cadena.</p>
+<p>El módulo <code class="docutils literal notranslate"><span class="pre">global</span></code> proporciona una forma de acceder a las variables
+globales a través de un módulo. El compilador Berry comprueba que existe
+un global al compilar el código. Sin embargo, hay casos en los que los
+globales se crean dinámicamente por código y aún no se conocen en tiempo
+de compilación. El uso del módulo <code class="docutils literal notranslate"><span class="pre">global</span></code> da total libertad para
+acceder a variables globales estáticas o dinámicas.</p>
+<p>Acceder a un global es simplay hecho con <code class="docutils literal notranslate"><span class="pre">global.&lt;name&gt;</span></code> para leer y
+escribir. También puede usar la sintaxis especial <code class="docutils literal notranslate"><span class="pre">global.(nombre)</span></code> si
+<code class="docutils literal notranslate"><span class="pre">nombre</span></code> es una variable que contiene el nombre del global como
+cadena.</p>
 <p>Ejemplo:</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="kr">import</span><span class="w"> </span><span class="n">global</span><span class="w"></span>
 <span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
@@ -1499,7 +1895,8 @@ El tipo del parámetro debe ser un número entero.</p>
 <span class="mi">2</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Llamar a <code class="docutils literal notranslate"><span class="pre">global()</span></code> devuelve la lista de todos los nombres globales actualmente definidos (los componentes integrados no están incluidos).</p>
+<p>Llamar a <code class="docutils literal notranslate"><span class="pre">global()</span></code> devuelve la lista de todos los nombres globales
+actualmente definidos (los componentes integrados no están incluidos).</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="kr">import</span><span class="w"> </span><span class="n">global</span><span class="w"></span>
 <span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 <span class="o">&gt;</span><span class="w"> </span><span class="n">global</span><span class="p">.</span><span class="na">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
@@ -1507,7 +1904,8 @@ El tipo del parámetro debe ser un número entero.</p>
 <span class="p">[</span><span class="s1">&#39;_argv&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;global&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;a&#39;</span><span class="p">]</span><span class="w"></span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">global.contains(&lt;nombre)&gt;</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></code> proporciona una manera fácil de saber si un nombre global ya está definido.</p>
+<p><code class="docutils literal notranslate"><span class="pre">global.contains(&lt;nombre)&gt;</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></code> proporciona una manera fácil de
+saber si un nombre global ya está definido.</p>
 <div class="highlight-berry notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="kr">import</span><span class="w"> </span><span class="n">global</span><span class="w"></span>
 <span class="o">&gt;</span><span class="w"> </span><span class="n">global</span><span class="p">.</span><span class="nf">contains</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">)</span><span class="w"></span>
 <span class="kc">false</span><span class="w"></span>
@@ -1519,18 +1917,43 @@ El tipo del parámetro debe ser un número entero.</p>
 </section>
 <section id="modulo-introspect">
 <h3>Módulo <code class="docutils literal notranslate"><span class="pre">introspect</span></code><a class="headerlink" href="#modulo-introspect" title="Permalink to this headline">¶</a></h3>
-<p>El módulo <code class="docutils literal notranslate"><span class="pre">introspect</span></code> proporciona primitivas para acceder dinámicamente a variables o módulos. Usar con <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">introspect</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">introspect.members(objeto:</span> <span class="pre">clase</span> <span class="pre">o</span> <span class="pre">módulo</span> <span class="pre">o</span> <span class="pre">instancia</span> <span class="pre">o</span> <span class="pre">nil)</span> <span class="pre">-&gt;</span> <span class="pre">lista</span></code> devuelve la lista de nombres de miembros para la <code class="docutils literal notranslate"><span class="pre">clase</span></code>, <code class="docutils literal notranslate"><span class="pre">instancia</span></code> o <code class="docutils literal notranslate"><span class="pre">módulo</span></code>. Tenga en cuenta que no incluye miembros virtuales potenciales creados a través de <code class="docutils literal notranslate"><span class="pre">member</span></code> y <code class="docutils literal notranslate"><span class="pre">setmember</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">introspect.members()</span></code> devuelve la lista de variables globales (sin incluir las incorporadas) y es equivalente a <code class="docutils literal notranslate"><span class="pre">global()</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">introspect.get(objeto:</span> <span class="pre">clase</span> <span class="pre">o</span> <span class="pre">instancia</span> <span class="pre">o</span> <span class="pre">módulo,</span> <span class="pre">nombre:cadena)</span> <span class="pre">-&gt;</span> <span class="pre">cualquiera</span></code> e <code class="docutils literal notranslate"><span class="pre">introspect.set(objeto:</span> <span class="pre">clase</span> <span class="pre">o</span> <span class="pre">instancia</span> <span class="pre">o</span> <span class="pre">módulo,</span> <span class="pre">nombre:cadena,</span> <span class="pre">valor:cualquiera)</span> <span class="pre">-&gt;</span> <span class="pre">nil</span></code> permite leer y escribir cualquier miembro por su nombre.</p>
-<p><code class="docutils literal notranslate"><span class="pre">introspect.get(o,</span> <span class="pre">&quot;a&quot;)</span></code> es equivalente a <code class="docutils literal notranslate"><span class="pre">oa</span></code>, <code class="docutils literal notranslate"><span class="pre">introspect.set(o,</span> <span class="pre">&quot;a&quot;,</span> <span class="pre">1)</span></code> es equivalente a <code class="docutils literal notranslate"><span class="pre">oa</span> <span class="pre">=</span> <span class="pre">1</span></code>. También hay una sintaxis alternativa: <code class="docutils literal notranslate"><span class="pre">o.(&quot;a&quot;)</span></code> es equivalente a <code class="docutils literal notranslate"><span class="pre">oa</span></code> y <code class="docutils literal notranslate"><span class="pre">o.(&quot;a)</span> <span class="pre">=</span> <span class="pre">1</span></code> es equivalente a <code class="docutils literal notranslate"><span class="pre">oa</span> <span class="pre">=</span> <span class="pre">1</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">introspect.module(nombre:cadena)</span> <span class="pre">-&gt;</span> <span class="pre">any</span></code> es equivalente a <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">nombre</span></code> excepto que no crea la variable global o local, sino que devuelve el módulo. Esta es la única manera de cargar un módulo con un nombre dinámico, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">nombre</span></code> solo toma un nombre estático.</p>
-<p><code class="docutils literal notranslate"><span class="pre">introspect.toptr(addr:int)</span> <span class="pre">-&gt;</span> <span class="pre">comptr</span></code> convierte un número entero en un puntero comptr. <code class="docutils literal notranslate"><span class="pre">introspect.fromptr(addr:comptr)</span> <span class="pre">-&gt;</span> <span class="pre">int</span></code> hace lo contrario y convierte un puntero en un int. Advertencia: usar con cuidado. En plataformas donde <code class="docutils literal notranslate"><span class="pre">int</span></code> y <code class="docutils literal notranslate"><span class="pre">void*</span></code> no tienen el mismo tamaño, estas funciones seguramente darán resultados inutilizables.</p>
-<p><code class="docutils literal notranslate"><span class="pre">introspect.ismethod(f:function)</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></code> comprueba si la función proporcionada es un método de una instancia (tomando a sí mismo como primer argumento) o una función simple. Esto se usa principalmente para evitar un error común de pasar un método de instancia como callback, donde debe usar un cierre que capture la instancia como <code class="docutils literal notranslate"><span class="pre">/</span> <span class="pre">-&gt;</span> <span class="pre">self.do()</span></code>.</p>
+<p>El módulo <code class="docutils literal notranslate"><span class="pre">introspect</span></code> proporciona primitivas para acceder
+dinámicamente a variables o módulos. Usar con <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">introspect</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">introspect.members(objeto:</span> <span class="pre">clase</span> <span class="pre">o</span> <span class="pre">módulo</span> <span class="pre">o</span> <span class="pre">instancia</span> <span class="pre">o</span> <span class="pre">nil)</span> <span class="pre">-&gt;</span> <span class="pre">lista</span></code>
+devuelve la lista de nombres de miembros para la <code class="docutils literal notranslate"><span class="pre">clase</span></code>,
+<code class="docutils literal notranslate"><span class="pre">instancia</span></code> o <code class="docutils literal notranslate"><span class="pre">módulo</span></code>. Tenga en cuenta que no incluye miembros
+virtuales potenciales creados a través de <code class="docutils literal notranslate"><span class="pre">member</span></code> y <code class="docutils literal notranslate"><span class="pre">setmember</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">introspect.members()</span></code> devuelve la lista de variables globales (sin
+incluir las incorporadas) y es equivalente a <code class="docutils literal notranslate"><span class="pre">global()</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">introspect.get(objeto:</span> <span class="pre">clase</span> <span class="pre">o</span> <span class="pre">instancia</span> <span class="pre">o</span> <span class="pre">módulo,</span> <span class="pre">nombre:cadena)</span> <span class="pre">-&gt;</span> <span class="pre">cualquiera</span></code>
+e
+<code class="docutils literal notranslate"><span class="pre">introspect.set(objeto:</span> <span class="pre">clase</span> <span class="pre">o</span> <span class="pre">instancia</span> <span class="pre">o</span> <span class="pre">módulo,</span> <span class="pre">nombre:cadena,</span> <span class="pre">valor:cualquiera)</span> <span class="pre">-&gt;</span> <span class="pre">nil</span></code>
+permite leer y escribir cualquier miembro por su nombre.</p>
+<p><code class="docutils literal notranslate"><span class="pre">introspect.get(o,</span> <span class="pre">&quot;a&quot;)</span></code> es equivalente a <code class="docutils literal notranslate"><span class="pre">oa</span></code>,
+<code class="docutils literal notranslate"><span class="pre">introspect.set(o,</span> <span class="pre">&quot;a&quot;,</span> <span class="pre">1)</span></code> es equivalente a <code class="docutils literal notranslate"><span class="pre">oa</span> <span class="pre">=</span> <span class="pre">1</span></code>. También hay
+una sintaxis alternativa: <code class="docutils literal notranslate"><span class="pre">o.(&quot;a&quot;)</span></code> es equivalente a <code class="docutils literal notranslate"><span class="pre">oa</span></code> y
+<code class="docutils literal notranslate"><span class="pre">o.(&quot;a)</span> <span class="pre">=</span> <span class="pre">1</span></code> es equivalente a <code class="docutils literal notranslate"><span class="pre">oa</span> <span class="pre">=</span> <span class="pre">1</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">introspect.module(nombre:cadena)</span> <span class="pre">-&gt;</span> <span class="pre">any</span></code> es equivalente a
+<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">nombre</span></code> excepto que no crea la variable global o local, sino
+que devuelve el módulo. Esta es la única manera de cargar un módulo con
+un nombre dinámico, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">nombre</span></code> solo toma un nombre estático.</p>
+<p><code class="docutils literal notranslate"><span class="pre">introspect.toptr(addr:int)</span> <span class="pre">-&gt;</span> <span class="pre">comptr</span></code> convierte un número entero en
+un puntero comptr. <code class="docutils literal notranslate"><span class="pre">introspect.fromptr(addr:comptr)</span> <span class="pre">-&gt;</span> <span class="pre">int</span></code> hace lo
+contrario y convierte un puntero en un int. Advertencia: usar con
+cuidado. En plataformas donde <code class="docutils literal notranslate"><span class="pre">int</span></code> y <code class="docutils literal notranslate"><span class="pre">void*</span></code> no tienen el mismo
+tamaño, estas funciones seguramente darán resultados inutilizables.</p>
+<p><code class="docutils literal notranslate"><span class="pre">introspect.ismethod(f:function)</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></code> comprueba si la función
+proporcionada es un método de una instancia (tomando a sí mismo como
+primer argumento) o una función simple. Esto se usa principalmente para
+evitar un error común de pasar un método de instancia como callback,
+donde debe usar un cierre que capture la instancia como
+<code class="docutils literal notranslate"><span class="pre">/</span> <span class="pre">-&gt;</span> <span class="pre">self.do()</span></code>.</p>
 </section>
 <section id="modulo-solidify">
 <h3>Módulo <code class="docutils literal notranslate"><span class="pre">solidify</span></code><a class="headerlink" href="#modulo-solidify" title="Permalink to this headline">¶</a></h3>
-<p>Este módulo permite solidificar el bytecode de Berry en flash. Esto permite ahorrar RAM ya que el código está en ROM. Esto lo convierte en una buena alternativa a las funciones nativas de C.</p>
+<p>Este módulo permite solidificar el bytecode de Berry en flash. Esto
+permite ahorrar RAM ya que el código está en ROM. Esto lo convierte en
+una buena alternativa a las funciones nativas de C.</p>
 <p>Ver 8.4 Solidificación</p>
 </section>
 </section>
