@@ -37,7 +37,8 @@ extensions = [
         'sphinx.ext.viewcode',
         'sphinx.ext.imgmath', 
         'sphinx.ext.todo',
-        'breathe'
+        'breathe',
+        'sphinx_typo3_theme'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
