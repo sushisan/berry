@@ -214,7 +214,7 @@ typedef struct bntvmodobj {
     BE_CONSTEXPR bntvmodobj_t(const char *name, int _tpye, const void *v) :
         name(name), type(_tpye), u(v) {}            /**< bntvmodobj */
 #endif
-} bntvmodobj_t;
+} bntvmodobj_t; /**< bntvmodobj_t */
 
 /**
  * @struct bntvmodule
@@ -226,7 +226,7 @@ typedef struct bntvmodule {
     const bntvmodobj_t *attrs;       /**< native module attributes */
     size_t size;                   /**< native module attribute count */
     const struct bmodule *module;  /**< const module object */
-} bntvmodule_t;
+} bntvmodule_t; /**< bntvmodule_t */
 
 /**
  * @struct bclass

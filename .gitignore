@@ -74,4 +74,5 @@ __pycache__
 .cproject
 .project
 .settings/
-docs/build/
+docs/build/html/
+docs/_doxygen/xml/
